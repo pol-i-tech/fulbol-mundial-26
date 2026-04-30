@@ -35,26 +35,65 @@ Project guide for contributors — human or AI (Claude Code, Cursor, Codex, Gemi
 Any new or updated model must satisfy these before merging:
 
 ### Required artifacts
-- `results/<model-name>/MODEL.md` — filled in with approach, data sources, training window, calibration method, confidence convention, known limitations, and validation status
-- `results/<model-name>/<YYYY-MM-DD>/predictions.csv` — 8-column schema (see below)
+
+Every model needs three things committed together:
+
+```
+methodology/<model-name>/          ← reproducible code or notebook
+    README.md                      ← how to run it end-to-end
+    <model>.py / <model>.ipynb     ← the actual methodology
+    requirements.txt               ← dependencies (if any beyond project base)
+
+results/<model-name>/
+    MODEL.md                       ← model card
+    <YYYY-MM-DD>/
+        predictions.csv            ← 8-column output
+```
+
+The `methodology/` folder is **required**. A predictions CSV with no reproducible code will not be merged. The methodology must be runnable by any contributor from a clean clone.
+
+### Reproducibility standard
+- Running the methodology code must regenerate `predictions.csv` deterministically (set random seeds explicitly)
+- All input data must come from `data/derived/` or documented public sources — no manual data entry
+- If the model uses a spreadsheet, export the computation logic as a script or attach the sheet to `methodology/<model-name>/`
+- Document the exact command to reproduce: `python3 methodology/<model-name>/model.py` or equivalent
+
+### Subjectivity and bias policy
+
+Models will inevitably use judgment calls (team tiers, importance weights, adjustments). This is acceptable **only when explicitly documented**:
+
+- Every manually set parameter or override must be listed in `MODEL.md` under a **"Subjective adjustments"** section
+- Each entry must state: what the adjustment is, what value it takes, and the evidence or reasoning behind it
+- **Adjustments must not be changed between snapshots without a corresponding backtest showing improvement** — this prevents post-hoc fitting to known results
+- Reviewer responsibility: flag any undocumented parameter that could encode personal bias (e.g., boosting a favourite national team without statistical basis)
+
+Examples of adjustments that require documentation:
+- Team tier classifications
+- Confederation bonuses/penalties
+- Player or team "surprise" factors
+- Draw probability caps
+- Match importance weights that differ from project defaults
 
 ### Statistical validation bar
 - Backtest against at least one held-out tournament (WC2022, Euro2024, or Copa2024)
 - Report **log-loss**, **Brier score**, and **accuracy** in `MODEL.md`
 - Log-loss must beat a naive uniform prior (log-loss < 1.099 for 3-outcome markets)
 - If claiming edge vs market: show calibration plot or ECE score
+- Walk-forward only — no in-sample validation
 
 ### Prediction integrity checks
 - Probabilities for mutually exclusive outcomes sum to ≥0.99 and ≤1.01 per `(match_id, market_type)`
 - All team codes are 3-letter FIFA format — no free-form country names
 - No `p_model` values outside [0, 1]
 - `as_of_date` matches the folder name
+- `notes` field describes model reasoning only — never market comparisons or edge flags (edge detection is the comparison layer's job)
 
 ### What reviewers check
+- Is `methodology/` present and runnable?
+- Are all subjective adjustments listed in MODEL.md with justification?
 - Does the model's approach match what `MODEL.md` claims?
-- Are the probabilities sensible (no 95% favourites for evenly matched groups)?
-- Is the training data leaking future information (walk-forward validation, not in-sample)?
-- Are known limitations documented honestly?
+- Is the backtest walk-forward (no future data leakage)?
+- Do outright/group markets sum to 1.0 across all outcomes?
 
 ---
 
@@ -146,11 +185,19 @@ Team codes: 3-letter FIFA codes throughout (ARG, FRA, MEX, RSA…). The `NAME_TO
 
 ## Adding a New Model
 
-1. `mkdir results/<your-model-name> && cp results/_template/MODEL.md results/<your-model-name>/`
-2. Fill in `MODEL.md` (approach, data sources, calibration, confidence convention)
-3. Write predictions as `results/<your-model-name>/<YYYY-MM-DD>/predictions.csv` — 8 columns, probabilities summing to ~1 per (match_id, market_type)
-4. Add a row to the root `README.md` model table
-5. Do not modify another contributor's `results/` folder
+```bash
+# 1. Copy templates
+cp -r methodology/_template methodology/<your-model-name>
+mkdir -p results/<your-model-name>
+cp results/_template/MODEL.md results/<your-model-name>/
+```
+
+2. Build your methodology in `methodology/<your-model-name>/` — code, notebook, or documented spreadsheet export
+3. Fill in `results/<your-model-name>/MODEL.md` — including the **"Subjective adjustments"** section
+4. Run your model and write predictions to `results/<your-model-name>/<YYYY-MM-DD>/predictions.csv`
+5. Run the backtest against WC2022/Euro2024/Copa2024 and record log-loss + accuracy in MODEL.md
+6. Add a row to the root `README.md` model table
+7. Do not modify another contributor's `results/` or `methodology/` folder
 
 ## Environment Variables
 

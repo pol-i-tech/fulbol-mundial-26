@@ -1,0 +1,2 @@
+# Add dependencies beyond the project base (pandas, numpy, scipy, pyarrow)
+# Leave empty if none needed
