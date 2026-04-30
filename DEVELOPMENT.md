@@ -2,6 +2,67 @@
 
 Project guide for contributors — human or AI (Claude Code, Cursor, Codex, Gemini, etc.).
 
+## Ways to Contribute
+
+**You don't need to build a full pipeline to contribute.** All shared data is available in `data/derived/` the moment you clone the repo. Pick the track that fits your skills:
+
+---
+
+### Track A — Model contributor
+*You have a prediction approach and want to submit it.*
+
+The shared data is ready to use:
+```
+data/derived/squad_xg_ratings.parquet     # player xG ratings for WC2026 squads
+data/derived/statsbomb_player_xg.parquet  # player xG from WC2022, Euro2024, Copa2024
+data/derived/statsbomb_team_xg.parquet    # team-level xG per match
+data/derived/understat_player_xg.parquet  # club-level player xG (current season)
+data/derived/team_attack_ratings.parquet  # team attack ratings
+data/derived/wc2026_squads.parquet        # confirmed WC2026 squad lists
+data/derived/kalshi_snapshot_<date>.csv   # latest Kalshi market prices
+data/derived/polymarket_snapshot_<date>.csv  # latest Polymarket prices
+```
+
+Your model reads from `data/derived/`, runs in `methodology/<your-model>/`, writes to `results/<your-model>/<date>/predictions.csv`. That's it — no data pipeline required.
+
+See [Adding a New Model](#adding-a-new-model) for the full checklist.
+
+---
+
+### Track B — Data contributor
+*You want to add a new data source or enrich existing data.*
+
+Good candidates: UCL/Champions League event data, Nations League xG, updated Elo ratings, WC2026 injury/suspension feeds, squad depth charts.
+
+- New pull scripts go in `tools/`
+- Raw data goes in `data/raw/<source>/<YYYY-MM-DD>/` (immutable, gitignored)
+- Derived outputs go in `data/derived/` as `.parquet` (and `.csv` if human-readable)
+- Scripts must be idempotent — safe to re-run without duplicating data
+- Document the source, update cadence, and any rate limits in the script header
+
+Data additions automatically become available to all model contributors on next pull.
+
+---
+
+### Track C — Analysis contributor
+*You want to run backtests, comparisons, or edge analysis.*
+
+- Backtest scripts go in the repo root or `tools/` (follow `wc2022_xg_backtest.py` as a pattern)
+- Output goes in `results/comparisons/` or `results/<your-analysis>/`
+- Analysis must be reproducible (a script, not a notebook with manual steps)
+- Share findings as a PR with a summary in the PR description — this is how we build collective knowledge
+
+---
+
+### Track D — Documentation / tooling contributor
+*You want to improve the pipeline, fix bugs, or update docs.*
+
+- All changes go through a PR
+- `DEVELOPMENT.md`, `AGENTS.md`, and `CLAUDE.md` are the canonical docs — keep them in sync
+- `tools/weekly_pull.py` is the main orchestration script — changes here require extra review
+
+---
+
 ## Contribution Workflow
 
 **Main is protected.** No one pushes directly to `main` — not humans, not agents.
