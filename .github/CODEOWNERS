@@ -1,0 +1,14 @@
+# CODEOWNERS
+# These owners are automatically requested for review on PRs touching these paths.
+
+# Statistical models and results — require project lead sign-off
+/results/                   @pol-i-tech/leads
+/compound-model/            @pol-i-tech/leads
+
+# Core data pipeline — require review before merging
+/tools/                     @pol-i-tech/leads
+
+# Project documentation
+/DEVELOPMENT.md             @pol-i-tech/leads
+/CLAUDE.md                  @pol-i-tech/leads
+/AGENTS.md                  @pol-i-tech/leads

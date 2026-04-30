@@ -2,6 +2,62 @@
 
 Project guide for contributors — human or AI (Claude Code, Cursor, Codex, Gemini, etc.).
 
+## Contribution Workflow
+
+**Main is protected.** No one pushes directly to `main` — not humans, not agents.
+
+### Branch naming
+```
+<your-name>/feature-description     # e.g. luis/add-xg-poisson-model
+<your-name>/fix-description         # e.g. ana/fix-kalshi-devig
+<your-name>/data-description        # e.g. jorge/pull-understat-ucl
+```
+
+### Workflow
+1. Branch off `main`: `git checkout -b <your-name>/<description>`
+2. Do your work. Commit often with descriptive messages.
+3. Push your branch: `git push -u origin <your-name>/<description>`
+4. Open a PR on GitHub — the PR template will guide you through the checklist
+5. Request review from at least one other contributor
+6. **Do not merge your own PR** — wait for an approved review
+7. Squash-merge into `main` once approved
+
+### Review rules
+- Every PR requires **1 approving review** before merge
+- Stale reviews are dismissed automatically when new commits are pushed — re-approval is required
+- PRs touching `results/`, `compound-model/`, or `tools/` are owned by `@pol-i-tech/leads` (auto-requested)
+- Force-pushing to `main` is blocked at the GitHub level
+
+---
+
+## Model Guardrails
+
+Any new or updated model must satisfy these before merging:
+
+### Required artifacts
+- `results/<model-name>/MODEL.md` — filled in with approach, data sources, training window, calibration method, confidence convention, known limitations, and validation status
+- `results/<model-name>/<YYYY-MM-DD>/predictions.csv` — 8-column schema (see below)
+
+### Statistical validation bar
+- Backtest against at least one held-out tournament (WC2022, Euro2024, or Copa2024)
+- Report **log-loss**, **Brier score**, and **accuracy** in `MODEL.md`
+- Log-loss must beat a naive uniform prior (log-loss < 1.099 for 3-outcome markets)
+- If claiming edge vs market: show calibration plot or ECE score
+
+### Prediction integrity checks
+- Probabilities for mutually exclusive outcomes sum to ≥0.99 and ≤1.01 per `(match_id, market_type)`
+- All team codes are 3-letter FIFA format — no free-form country names
+- No `p_model` values outside [0, 1]
+- `as_of_date` matches the folder name
+
+### What reviewers check
+- Does the model's approach match what `MODEL.md` claims?
+- Are the probabilities sensible (no 95% favourites for evenly matched groups)?
+- Is the training data leaking future information (walk-forward validation, not in-sample)?
+- Are known limitations documented honestly?
+
+---
+
 ## Project Purpose
 
 Multi-contributor WC 2026 prediction workbench. Each contributor submits predictions in a standard 8-column CSV format. The comparison framework (`tools/weekly_pull.py`) joins all model predictions against devigged betting market prices (Kalshi, Polymarket, Pinnacle) to surface positive-edge opportunities using the Golden Zone rule.
