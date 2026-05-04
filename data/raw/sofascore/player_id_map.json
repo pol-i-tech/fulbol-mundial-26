@@ -1,0 +1,2876 @@
+{
+  "Aaron Mooy": {
+    "id": 104813,
+    "sofascore_name": "Aaron Mooy",
+    "club": "No team",
+    "nation": "Australia"
+  },
+  "Abdelhamid Sabiri": {
+    "id": 807400,
+    "sofascore_name": "Abdelhamid Sabiri",
+    "club": "Fiorentina",
+    "nation": "Morocco"
+  },
+  "Abderrazak Hamdallah": {
+    "id": 826961,
+    "sofascore_name": "Abderazak Hamdallah",
+    "club": "Al-Shabab",
+    "nation": "Morocco"
+  },
+  "Abdessamad Ezzalzouli": {
+    "id": 1011375,
+    "sofascore_name": "Abdessamad Ezzalzouli",
+    "club": "Real Betis",
+    "nation": "Morocco"
+  },
+  "Abdou Diallo": {
+    "id": 280435,
+    "sofascore_name": "Abdou Diallo",
+    "club": "Umm-Salal SC",
+    "nation": "Senegal"
+  },
+  "Abdul Fatawu Issahaku": {
+    "id": 1103589,
+    "sofascore_name": "Abdul Fatawu Issahaku",
+    "club": "Leicester City",
+    "nation": "Ghana"
+  },
+  "Abdul Rahman Baba": {
+    "id": 2409243,
+    "sofascore_name": "Abdul Rahman Bahadori",
+    "club": "ESC Geestemünde",
+    "nation": "Ghana"
+  },
+  "Abdulelah Al Amri": {
+    "id": 881831,
+    "sofascore_name": "Abdulelah Al-Amri",
+    "club": "Al-Nassr",
+    "nation": "Saudi Arabia"
+  },
+  "Abdülkerim Bardakcı": {
+    "id": 178963,
+    "sofascore_name": "Abdülkerim Bardakcı",
+    "club": "Galatasaray",
+    "nation": "Turkey"
+  },
+  "Abolfazl Jalali": {
+    "id": 971107,
+    "sofascore_name": "Abolfazl Jalali",
+    "club": "Esteghlal FC",
+    "nation": "Iran"
+  },
+  "Achraf Dari": {
+    "id": 964795,
+    "sofascore_name": "Achraf Dari",
+    "club": "Kalmar FF",
+    "nation": "Morocco"
+  },
+  "Adam Hložek": {
+    "id": 963801,
+    "sofascore_name": "Adam Hložek",
+    "club": "TSG Hoffenheim",
+    "nation": "Czech Republic"
+  },
+  "Adrien Rabiot": {
+    "id": 250737,
+    "sofascore_name": "Adrien Rabiot",
+    "club": "Milan",
+    "nation": "France"
+  },
+  "Ahmad Nourollahi": {
+    "id": 791366,
+    "sofascore_name": "Ahmad Nourollahi",
+    "club": "Al-Ittihad Kalba",
+    "nation": "Iran"
+  },
+  "Ajdin Hrustic": {
+    "id": 788284,
+    "sofascore_name": "Ajdin Hrustić",
+    "club": "Heracles Almelo",
+    "nation": "Australia"
+  },
+  "Alexander Djiku": {
+    "id": 289977,
+    "sofascore_name": "Alexander Djiku",
+    "club": "FC Spartak Moscow",
+    "nation": "Ghana"
+  },
+  "Alexis Mac Allister": {
+    "id": 895324,
+    "sofascore_name": "Alexis Mac Allister",
+    "club": "Liverpool FC",
+    "nation": "Argentina"
+  },
+  "Ali Abdi": {
+    "id": 919027,
+    "sofascore_name": "Ali Abdi",
+    "club": "Nice",
+    "nation": "Tunisia"
+  },
+  "Ali Ahmed": {
+    "id": 1464637,
+    "sofascore_name": "Ali Ahmed",
+    "club": "Norwich City",
+    "nation": "Canada"
+  },
+  "Ali Al Hassan": {
+    "id": 925947,
+    "sofascore_name": "Ali Al-Hassan",
+    "club": "Al-Nassr",
+    "nation": "Saudi Arabia"
+  },
+  "Ali Gholizadeh": {
+    "id": 359350,
+    "sofascore_name": "Ali Gholizadeh",
+    "club": "Lech Poznań",
+    "nation": "Iran"
+  },
+  "Ali Karimi": {
+    "id": 803869,
+    "sofascore_name": "Ali Karimi",
+    "club": "Sepahan S.C.",
+    "nation": "Iran"
+  },
+  "Ali Maâloul": {
+    "id": 332547,
+    "sofascore_name": "Ali Maâloul",
+    "club": "CS Sfaxien",
+    "nation": "Tunisia"
+  },
+  "Alidu Seidu": {
+    "id": 1049515,
+    "sofascore_name": "Alidu Seidu",
+    "club": "Stade Rennais",
+    "nation": "Ghana"
+  },
+  "Alireza Jahanbakhsh": {
+    "id": 331837,
+    "sofascore_name": "Alireza Jahanbakhsh",
+    "club": "FCV Dender",
+    "nation": "Iran"
+  },
+  "Alistair Johnston": {
+    "id": 984419,
+    "sofascore_name": "Alistair Johnston",
+    "club": "Celtic",
+    "nation": "Canada"
+  },
+  "Alphonso Davies": {
+    "id": 843665,
+    "sofascore_name": "Alphonso Davies",
+    "club": "FC Bayern München",
+    "nation": "Canada"
+  },
+  "Altay Bayındır": {
+    "id": 815890,
+    "sofascore_name": "Altay Bayındır",
+    "club": "Manchester United",
+    "nation": "Turkey"
+  },
+  "Amadou Onana": {
+    "id": 923973,
+    "sofascore_name": "Amadou Onana",
+    "club": "Aston Villa",
+    "nation": "Belgium"
+  },
+  "Anass Zaroury": {
+    "id": 877036,
+    "sofascore_name": "Anass Zaroury",
+    "club": "Panathinaikos FC",
+    "nation": "Morocco"
+  },
+  "Andrej Kramarić": {
+    "id": 67647,
+    "sofascore_name": "Andrej Kramarić",
+    "club": "TSG Hoffenheim",
+    "nation": "Croatia"
+  },
+  "Andrew Robertson": {
+    "id": 1393342,
+    "sofascore_name": "Andrew Robertson",
+    "club": "North West Sydney Spirit",
+    "nation": "Scotland"
+  },
+  "Andries Noppert": {
+    "id": 339339,
+    "sofascore_name": "Andries Noppert",
+    "club": "SC Heerenveen",
+    "nation": "Netherlands"
+  },
+  "Angus Gunn": {
+    "id": 227946,
+    "sofascore_name": "Angus Gunn",
+    "club": "Nottingham Forest",
+    "nation": "Scotland"
+  },
+  "Anis Ben Slimane": {
+    "id": 1006147,
+    "sofascore_name": "Anis Ben Slimane",
+    "club": "Norwich City",
+    "nation": "Tunisia"
+  },
+  "Ante Budimir": {
+    "id": 37318,
+    "sofascore_name": "Ante Budimir",
+    "club": "Osasuna",
+    "nation": "Croatia"
+  },
+  "Anthony Gordon": {
+    "id": 914902,
+    "sofascore_name": "Anthony Gordon",
+    "club": "Newcastle United",
+    "nation": "England"
+  },
+  "Antoine Griezmann": {
+    "id": 85859,
+    "sofascore_name": "Antoine Griezmann",
+    "club": "Atlético Madrid",
+    "nation": "France"
+  },
+  "Antoine Semenyo": {
+    "id": 934354,
+    "sofascore_name": "Antoine Semenyo",
+    "club": "Manchester City",
+    "nation": "Ghana"
+  },
+  "Antonee Robinson": {
+    "id": 803174,
+    "sofascore_name": "Antonee Robinson",
+    "club": "Fulham",
+    "nation": "United States"
+  },
+  "Antonio Rüdiger": {
+    "id": 142622,
+    "sofascore_name": "Antonio Rüdiger",
+    "club": "Real Madrid",
+    "nation": "Germany"
+  },
+  "Antony Matheus dos Santos": {
+    "id": 2080498,
+    "sofascore_name": "Matheus Antony Cassiano dos Santos",
+    "club": "CSA U17",
+    "nation": "Brazil"
+  },
+  "Antonín Barák": {
+    "id": 330705,
+    "sofascore_name": "Antonín Barák",
+    "club": "Sampdoria",
+    "nation": "Czech Republic"
+  },
+  "Ao Tanaka": {
+    "id": 871886,
+    "sofascore_name": "Ao Tanaka",
+    "club": "Leeds United",
+    "nation": "Japan"
+  },
+  "Arda Güler": {
+    "id": 1091116,
+    "sofascore_name": "Arda Güler",
+    "club": "Real Madrid",
+    "nation": "Turkey"
+  },
+  "Ardon Jashari": {
+    "id": 1034082,
+    "sofascore_name": "Ardon Jashari",
+    "club": "Milan",
+    "nation": "Switzerland"
+  },
+  "Arthur Theate": {
+    "id": 965778,
+    "sofascore_name": "Arthur Theate",
+    "club": "Eintracht Frankfurt",
+    "nation": "Belgium"
+  },
+  "Atiba Hutchinson": {
+    "id": 7721,
+    "sofascore_name": "Atiba Hutchinson",
+    "club": "Black Panther FC",
+    "nation": "Canada"
+  },
+  "Awer Mabil": {
+    "id": 307082,
+    "sofascore_name": "Awer Mabil",
+    "club": "CD Castellón",
+    "nation": "Australia"
+  },
+  "Axel Disasi": {
+    "id": 827243,
+    "sofascore_name": "Axel Disasi",
+    "club": "West Ham United",
+    "nation": "France"
+  },
+  "Axel Witsel": {
+    "id": 35612,
+    "sofascore_name": "Axel Witsel",
+    "club": "Girona FC",
+    "nation": "Belgium"
+  },
+  "Ayase Ueda": {
+    "id": 985823,
+    "sofascore_name": "Ayase Ueda",
+    "club": "Feyenoord",
+    "nation": "Japan"
+  },
+  "Aymen Dahmen": {
+    "id": 1198374,
+    "sofascore_name": "Aymen Dahmen",
+    "club": "CS Sfaxien",
+    "nation": "Tunisia"
+  },
+  "Aymeric Laporte": {
+    "id": 149734,
+    "sofascore_name": "Aymeric Laporte",
+    "club": "Athletic Club",
+    "nation": "Spain"
+  },
+  "Azzedine Ounahi": {
+    "id": 991421,
+    "sofascore_name": "Azzedine Ounahi",
+    "club": "Girona FC",
+    "nation": "Morocco"
+  },
+  "Bailey Wright": {
+    "id": 113955,
+    "sofascore_name": "Bailey Wright",
+    "club": "Lion City Sailors",
+    "nation": "Australia"
+  },
+  "Bart Verbruggen": {
+    "id": 994363,
+    "sofascore_name": "Bart Verbruggen",
+    "club": "Brighton & Hove Albion",
+    "nation": "Netherlands"
+  },
+  "Barış Alper Yılmaz": {
+    "id": 904096,
+    "sofascore_name": "Barış Alper Yılmaz",
+    "club": "Galatasaray",
+    "nation": "Turkey"
+  },
+  "Benjamin Henrichs": {
+    "id": 319857,
+    "sofascore_name": "Benjamin Henrichs",
+    "club": "RB Leipzig",
+    "nation": "Germany"
+  },
+  "Benjamin Pavard": {
+    "id": 787505,
+    "sofascore_name": "Benjamin Pavard",
+    "club": "Olympique de Marseille",
+    "nation": "France"
+  },
+  "Bilal El Khannous": {
+    "id": 1126569,
+    "sofascore_name": "Bilal El Khannouss",
+    "club": "VfB Stuttgart",
+    "nation": "Morocco"
+  },
+  "Billy Gilmour": {
+    "id": 907668,
+    "sofascore_name": "Billy Gilmour",
+    "club": "SSC Napoli",
+    "nation": "Scotland"
+  },
+  "Borna Barišić": {
+    "id": 335301,
+    "sofascore_name": "Borna Barišić",
+    "club": "NK Osijek",
+    "nation": "Croatia"
+  },
+  "Borna Sosa": {
+    "id": 357584,
+    "sofascore_name": "Borna Sosa",
+    "club": "Crystal Palace",
+    "nation": "Croatia"
+  },
+  "Boualem Khoukhi": {
+    "id": 233746,
+    "sofascore_name": "Boualem Khoukhi",
+    "club": "Al-Sadd",
+    "nation": "Qatar"
+  },
+  "Boulaye Dia": {
+    "id": 960080,
+    "sofascore_name": "Boulaye Dia",
+    "club": "Lazio",
+    "nation": "Senegal"
+  },
+  "Bradley Barcola": {
+    "id": 996952,
+    "sofascore_name": "Bradley Barcola",
+    "club": "Paris Saint-Germain",
+    "nation": "France"
+  },
+  "Brenden Aaronson": {
+    "id": 973431,
+    "sofascore_name": "Brenden Aaronson",
+    "club": "Leeds United",
+    "nation": "United States"
+  },
+  "Brian Brobbey": {
+    "id": 910048,
+    "sofascore_name": "Brian Brobbey",
+    "club": "Sunderland",
+    "nation": "Netherlands"
+  },
+  "Bruno Petković": {
+    "id": 309306,
+    "sofascore_name": "Bruno Petković",
+    "club": "Kocaelispor",
+    "nation": "Croatia"
+  },
+  "Bukayo Saka": {
+    "id": 934235,
+    "sofascore_name": "Bukayo Saka",
+    "club": "Arsenal",
+    "nation": "England"
+  },
+  "Callum McGregor": {
+    "id": 97046,
+    "sofascore_name": "Callum McGregor",
+    "club": "Celtic",
+    "nation": "Scotland"
+  },
+  "Callum Wilson": {
+    "id": 113956,
+    "sofascore_name": "Callum Wilson",
+    "club": "West Ham United",
+    "nation": "England"
+  },
+  "Cameron Carter-Vickers": {
+    "id": 795972,
+    "sofascore_name": "Cameron Carter-Vickers",
+    "club": "Celtic",
+    "nation": "United States"
+  },
+  "Cenk Tosun": {
+    "id": 72127,
+    "sofascore_name": "Cenk Tosun",
+    "club": "Kasımpaşa",
+    "nation": "Turkey"
+  },
+  "Chang-Hoon Kwon": {
+    "id": 326021,
+    "sofascore_name": "Chang-Hoon Kwon",
+    "club": "Jeju SK",
+    "nation": "South Korea"
+  },
+  "Charles De Ketelaere": {
+    "id": 960441,
+    "sofascore_name": "Charles De Ketelaere",
+    "club": "Atalanta",
+    "nation": "Belgium"
+  },
+  "Che Adams": {
+    "id": 773409,
+    "sofascore_name": "Che Adams",
+    "club": "Torino",
+    "nation": "Scotland"
+  },
+  "Cheikhou Kouyaté": {
+    "id": 45944,
+    "sofascore_name": "Cheikhou Kouyaté",
+    "club": "No team",
+    "nation": "Senegal"
+  },
+  "Chris Führich": {
+    "id": 891510,
+    "sofascore_name": "Chris Führich",
+    "club": "VfB Stuttgart",
+    "nation": "Germany"
+  },
+  "Chris Richards": {
+    "id": 931844,
+    "sofascore_name": "Chris Richards",
+    "club": "Crystal Palace",
+    "nation": "United States"
+  },
+  "Christian Fassnacht": {
+    "id": 787422,
+    "sofascore_name": "Christian Fassnacht",
+    "club": "BSC Young Boys",
+    "nation": "Switzerland"
+  },
+  "Christian Jesús Martinez": {
+    "id": 1187892,
+    "sofascore_name": "Christian Jesus Martinez",
+    "club": "Monagas",
+    "nation": "Panama"
+  },
+  "Christian Pulisic": {
+    "id": 817957,
+    "sofascore_name": "Christian Pulišić",
+    "club": "Milan",
+    "nation": "United States"
+  },
+  "Chul Hong": {
+    "id": 143216,
+    "sofascore_name": "Hong Chul",
+    "club": "Gangwon FC",
+    "nation": "South Korea"
+  },
+  "Cole Palmer": {
+    "id": 982780,
+    "sofascore_name": "Cole Palmer",
+    "club": "Chelsea",
+    "nation": "England"
+  },
+  "Conor Gallagher": {
+    "id": 904970,
+    "sofascore_name": "Conor Gallagher",
+    "club": "Tottenham Hotspur",
+    "nation": "England"
+  },
+  "Craig Goodwin": {
+    "id": 220113,
+    "sofascore_name": "Craig Goodwin",
+    "club": "Adelaide United",
+    "nation": "Australia"
+  },
+  "Cyle Larin": {
+    "id": 790179,
+    "sofascore_name": "Cyle Larin",
+    "club": "Southampton",
+    "nation": "Canada"
+  },
+  "Daichi Kamada": {
+    "id": 794338,
+    "sofascore_name": "Daichi Kamada",
+    "club": "Crystal Palace",
+    "nation": "Japan"
+  },
+  "Daizen Maeda": {
+    "id": 832420,
+    "sofascore_name": "Daizen Maeda",
+    "club": "Celtic",
+    "nation": "Japan"
+  },
+  "Daley Blind": {
+    "id": 44864,
+    "sofascore_name": "Daley Blind",
+    "club": "Girona FC",
+    "nation": "Netherlands"
+  },
+  "Dan Ndoye": {
+    "id": 944327,
+    "sofascore_name": "Dan Ndoye",
+    "club": "Nottingham Forest",
+    "nation": "Switzerland"
+  },
+  "Daniel Alves da Silva": {
+    "id": 2112858,
+    "sofascore_name": "Daniel Alves da Silva Dantas",
+    "club": "Chaparral FC",
+    "nation": "Brazil"
+  },
+  "Daniel Amartey": {
+    "id": 308526,
+    "sofascore_name": "Daniel Amartey",
+    "club": "No team",
+    "nation": "Ghana"
+  },
+  "Daniel-Kofi Kyereh": {
+    "id": 569684,
+    "sofascore_name": "Daniel-Kofi Kyereh",
+    "club": "SC Freiburg",
+    "nation": "Ghana"
+  },
+  "David Doudera": {
+    "id": 891442,
+    "sofascore_name": "David Douděra",
+    "club": "SK Slavia Praha",
+    "nation": "Czech Republic"
+  },
+  "David Jurásek": {
+    "id": 1030711,
+    "sofascore_name": "David Jurásek",
+    "club": "SK Slavia Praha",
+    "nation": "Czech Republic"
+  },
+  "David Raum": {
+    "id": 856076,
+    "sofascore_name": "David Raum",
+    "club": "RB Leipzig",
+    "nation": "Germany"
+  },
+  "David Wotherspoon": {
+    "id": 78659,
+    "sofascore_name": "David Wotherspoon",
+    "club": "Inverness Caledonian Thistle",
+    "nation": "Canada"
+  },
+  "Davy Klaassen": {
+    "id": 97410,
+    "sofascore_name": "Davy Klaassen",
+    "club": "AFC Ajax",
+    "nation": "Netherlands"
+  },
+  "DeAndre Yedlin": {
+    "id": 314040,
+    "sofascore_name": "DeAndre Yedlin",
+    "club": "Real Salt Lake",
+    "nation": "United States"
+  },
+  "Declan Rice": {
+    "id": 856714,
+    "sofascore_name": "Declan Rice",
+    "club": "Arsenal",
+    "nation": "England"
+  },
+  "Dejan Lovren": {
+    "id": 39480,
+    "sofascore_name": "Dejan Lovren",
+    "club": "PAOK",
+    "nation": "Croatia"
+  },
+  "Denis Odoi": {
+    "id": 58994,
+    "sofascore_name": "Denis Odoi",
+    "club": "NAC Breda",
+    "nation": "Ghana"
+  },
+  "Deniz Undav": {
+    "id": 794298,
+    "sofascore_name": "Deniz Undav",
+    "club": "VfB Stuttgart",
+    "nation": "Germany"
+  },
+  "Denzel Dumfries": {
+    "id": 759520,
+    "sofascore_name": "Denzel Dumfries",
+    "club": "Inter",
+    "nation": "Netherlands"
+  },
+  "Derek Cornelius": {
+    "id": 801411,
+    "sofascore_name": "Derek Cornelius",
+    "club": "Rangers",
+    "nation": "Canada"
+  },
+  "Djibril Sow": {
+    "id": 799054,
+    "sofascore_name": "Djibril Sow",
+    "club": "Sevilla",
+    "nation": "Switzerland"
+  },
+  "Dodi Lukebakio": {
+    "id": 823631,
+    "sofascore_name": "Dodi Lukebakio",
+    "club": "Benfica",
+    "nation": "Belgium"
+  },
+  "Dominik Livaković": {
+    "id": 190419,
+    "sofascore_name": "Dominik Livaković",
+    "club": "GNK Dinamo Zagreb",
+    "nation": "Croatia"
+  },
+  "Donyell Malen": {
+    "id": 803039,
+    "sofascore_name": "Donyell Malen",
+    "club": "Roma",
+    "nation": "Netherlands"
+  },
+  "Dries Mertens": {
+    "id": 32493,
+    "sofascore_name": "Dries Mertens",
+    "club": "No team",
+    "nation": "Belgium"
+  },
+  "Eberechi Eze": {
+    "id": 864921,
+    "sofascore_name": "Eberechi Eze",
+    "club": "Arsenal",
+    "nation": "England"
+  },
+  "Eden Hazard": {
+    "id": 27583,
+    "sofascore_name": "Eden Hazard",
+    "club": "No team",
+    "nation": "Belgium"
+  },
+  "Edimilson Fernandes": {
+    "id": 330099,
+    "sofascore_name": "Edimilson Fernandes",
+    "club": "BSC Young Boys",
+    "nation": "Switzerland"
+  },
+  "Edouard Mendy": {
+    "id": 845074,
+    "sofascore_name": "Edouard Mendy",
+    "club": "Al-Ahli",
+    "nation": "Senegal"
+  },
+  "Eduardo Camavinga": {
+    "id": 973887,
+    "sofascore_name": "Eduardo Camavinga",
+    "club": "Real Madrid",
+    "nation": "France"
+  },
+  "Ehsan Hajsafi": {
+    "id": 1196902,
+    "sofascore_name": "Ehsan Hajsafi",
+    "club": "Sepahan S.C.",
+    "nation": "Iran"
+  },
+  "Emre Can": {
+    "id": 138156,
+    "sofascore_name": "Emre Can",
+    "club": "Borussia Dortmund",
+    "nation": "Germany"
+  },
+  "Enzo Fernandez": {
+    "id": 974505,
+    "sofascore_name": "Enzo Fernández",
+    "club": "Chelsea",
+    "nation": "Argentina"
+  },
+  "Eric Dier": {
+    "id": 146101,
+    "sofascore_name": "Eric Dier",
+    "club": "AS Monaco",
+    "nation": "England"
+  },
+  "Ethan Horvath": {
+    "id": 343013,
+    "sofascore_name": "Ethan Horvath",
+    "club": "New York Red Bulls",
+    "nation": "United States"
+  },
+  "Fabian Frei": {
+    "id": 26285,
+    "sofascore_name": "Fabian Frei",
+    "club": "No team",
+    "nation": "Switzerland"
+  },
+  "Fabian Rieder": {
+    "id": 929620,
+    "sofascore_name": "Fabian Rieder",
+    "club": "FC Augsburg",
+    "nation": "Switzerland"
+  },
+  "Famara Diedhiou": {
+    "id": 293115,
+    "sofascore_name": "Famara Diédhiou",
+    "club": "Clermont Foot",
+    "nation": "Senegal"
+  },
+  "Ferjani Sassi": {
+    "id": 332537,
+    "sofascore_name": "Ferjani Sassi",
+    "club": "Al-Gharafa",
+    "nation": "Tunisia"
+  },
+  "Florian Wirtz": {
+    "id": 1019322,
+    "sofascore_name": "Florian Wirtz",
+    "club": "Liverpool FC",
+    "nation": "Germany"
+  },
+  "Fodé Ballo Touré": {
+    "id": 788170,
+    "sofascore_name": "Fodé Ballo-Touré",
+    "club": "Metz",
+    "nation": "Senegal"
+  },
+  "Folarin Balogun": {
+    "id": 934237,
+    "sofascore_name": "Folarin Balogun",
+    "club": "AS Monaco",
+    "nation": "United States"
+  },
+  "Fran Karačić": {
+    "id": 798879,
+    "sofascore_name": "Fran Karačić",
+    "club": "NK Osijek",
+    "nation": "Australia"
+  },
+  "Frenkie de Jong": {
+    "id": 795222,
+    "sofascore_name": "Frenkie de Jong",
+    "club": "FC Barcelona",
+    "nation": "Netherlands"
+  },
+  "Gabriel Fernando de Jesus": {
+    "id": 1875300,
+    "sofascore_name": "Gabriel Sávio de Jesus Fernandes Caitano",
+    "club": "Icasa U20",
+    "nation": "Brazil"
+  },
+  "Garang Kuol": {
+    "id": 1169124,
+    "sofascore_name": "Garang Kuol",
+    "club": "AC Sparta Praha",
+    "nation": "Australia"
+  },
+  "Georginio Wijnaldum": {
+    "id": 22126,
+    "sofascore_name": "Georginio Wijnaldum",
+    "club": "Al-Ettifaq",
+    "nation": "Netherlands"
+  },
+  "Gideon Mensah": {
+    "id": 844942,
+    "sofascore_name": "Gideon Mensah",
+    "club": "Auxerre",
+    "nation": "Ghana"
+  },
+  "Giovani Lo Celso": {
+    "id": 798835,
+    "sofascore_name": "Giovani Lo Celso",
+    "club": "Real Betis",
+    "nation": "Argentina"
+  },
+  "Giovanni Reyna": {
+    "id": 989056,
+    "sofascore_name": "Giovanni Reyna",
+    "club": "Borussia M'gladbach",
+    "nation": "United States"
+  },
+  "Granit Xhaka": {
+    "id": 117777,
+    "sofascore_name": "Granit Xhaka",
+    "club": "Sunderland",
+    "nation": "Switzerland"
+  },
+  "Gregor Kobel": {
+    "id": 556866,
+    "sofascore_name": "Gregor Kobel",
+    "club": "Borussia Dortmund",
+    "nation": "Switzerland"
+  },
+  "Gue-Sung Cho": {
+    "id": 1014281,
+    "sofascore_name": "Gue-sung Cho",
+    "club": "FC Midtjylland",
+    "nation": "South Korea"
+  },
+  "Guido Rodríguez": {
+    "id": 609752,
+    "sofascore_name": "Guido Rodríguez",
+    "club": "Valencia",
+    "nation": "Argentina"
+  },
+  "Haji Wright": {
+    "id": 818391,
+    "sofascore_name": "Haji Wright",
+    "club": "Coventry City",
+    "nation": "United States"
+  },
+  "Hakan Çalhanoğlu": {
+    "id": 135700,
+    "sofascore_name": "Hakan Çalhanoğlu",
+    "club": "Inter",
+    "nation": "Turkey"
+  },
+  "Hakim Ziyech": {
+    "id": 249437,
+    "sofascore_name": "Hakim Ziyech",
+    "club": "Wydad Casablanca",
+    "nation": "Morocco"
+  },
+  "Hannibal Mejbri": {
+    "id": 1009386,
+    "sofascore_name": "Hannibal Mejbri",
+    "club": "Burnley",
+    "nation": "Tunisia"
+  },
+  "Haris Seferović": {
+    "id": 50899,
+    "sofascore_name": "Haris Seferović",
+    "club": "United",
+    "nation": "Switzerland"
+  },
+  "Harry Kane": {
+    "id": 108579,
+    "sofascore_name": "Harry Kane",
+    "club": "FC Bayern München",
+    "nation": "England"
+  },
+  "Harry Maguire": {
+    "id": 149380,
+    "sofascore_name": "Harry Maguire",
+    "club": "Manchester United",
+    "nation": "England"
+  },
+  "Harry Souttar": {
+    "id": 808680,
+    "sofascore_name": "Harry Souttar",
+    "club": "Leicester City",
+    "nation": "Australia"
+  },
+  "Hee-Chan Hwang": {
+    "id": 786186,
+    "sofascore_name": "Hwang Hee-chan",
+    "club": "Wolverhampton",
+    "nation": "South Korea"
+  },
+  "Heung-Min Son": {
+    "id": 111505,
+    "sofascore_name": "Son Heung-min",
+    "club": "Los Angeles FC",
+    "nation": "South Korea"
+  },
+  "Hidemasa Morita": {
+    "id": 926560,
+    "sofascore_name": "Hidemasa Morita",
+    "club": "Sporting CP",
+    "nation": "Japan"
+  },
+  "Hiroki Ito": {
+    "id": 873106,
+    "sofascore_name": "Hiroki Itō",
+    "club": "FC Bayern München",
+    "nation": "Japan"
+  },
+  "Hiroki Sakai": {
+    "id": 48335,
+    "sofascore_name": "Hiroki Sakai",
+    "club": "Auckland FC",
+    "nation": "Japan"
+  },
+  "Hugo Lloris": {
+    "id": 9048,
+    "sofascore_name": "Hugo Lloris",
+    "club": "Los Angeles FC",
+    "nation": "France"
+  },
+  "Ibrahima Konaté": {
+    "id": 826215,
+    "sofascore_name": "Ibrahima Konaté",
+    "club": "Liverpool FC",
+    "nation": "France"
+  },
+  "Idrissa Gana Gueye": {
+    "id": 106337,
+    "sofascore_name": "Idrissa Gana Gueye",
+    "club": "Everton",
+    "nation": "Senegal"
+  },
+  "Ilias Chair": {
+    "id": 809512,
+    "sofascore_name": "Ilias Chair",
+    "club": "Queens Park Rangers",
+    "nation": "Morocco"
+  },
+  "Iliman Ndiaye": {
+    "id": 914309,
+    "sofascore_name": "Iliman Ndiaye",
+    "club": "Everton",
+    "nation": "Senegal"
+  },
+  "In-Beom Hwang": {
+    "id": 889689,
+    "sofascore_name": "Hwang In-beom",
+    "club": "Feyenoord",
+    "nation": "South Korea"
+  },
+  "Ismaeel Mohammad Mohammad": {
+    "id": 303842,
+    "sofascore_name": "Ismaeel Mohammad",
+    "club": "Al Duhail",
+    "nation": "Qatar"
+  },
+  "Ismael Koné": {
+    "id": 1134351,
+    "sofascore_name": "Ismael Koné",
+    "club": "Sassuolo",
+    "nation": "Canada"
+  },
+  "Ismail Jakobs": {
+    "id": 897291,
+    "sofascore_name": "Ismail Jakobs",
+    "club": "Galatasaray",
+    "nation": "Senegal"
+  },
+  "Ismaïla Sarr": {
+    "id": 845286,
+    "sofascore_name": "Ismaïla Sarr",
+    "club": "Crystal Palace",
+    "nation": "Senegal"
+  },
+  "Issam Jebali": {
+    "id": 793187,
+    "sofascore_name": "Issam Jebali",
+    "club": "Gamba Osaka",
+    "nation": "Tunisia"
+  },
+  "Ivan Perišić": {
+    "id": 38710,
+    "sofascore_name": "Ivan Perišić",
+    "club": "PSV Eindhoven",
+    "nation": "Croatia"
+  },
+  "Ivan Toney": {
+    "id": 290927,
+    "sofascore_name": "Ivan Toney",
+    "club": "Al-Ahli",
+    "nation": "England"
+  },
+  "Ivica Ivušić": {
+    "id": 190417,
+    "sofascore_name": "Ivica Ivušić",
+    "club": "HNK Hajduk Split",
+    "nation": "Croatia"
+  },
+  "Jacen Russell-Rowe": {
+    "id": 1002267,
+    "sofascore_name": "Jacen Russell Rowe",
+    "club": "Toulouse",
+    "nation": "Canada"
+  },
+  "Jack Grealish": {
+    "id": 189061,
+    "sofascore_name": "Jack Grealish",
+    "club": "Everton",
+    "nation": "England"
+  },
+  "Jack Hendry": {
+    "id": 795696,
+    "sofascore_name": "Jack Hendry",
+    "club": "Al-Ettifaq",
+    "nation": "Scotland"
+  },
+  "Jackson Irvine": {
+    "id": 181581,
+    "sofascore_name": "Jackson Irvine",
+    "club": "FC St. Pauli",
+    "nation": "Australia"
+  },
+  "Jacob Shaffelburg": {
+    "id": 976313,
+    "sofascore_name": "Jacob Shaffelburg",
+    "club": "Los Angeles FC",
+    "nation": "Canada"
+  },
+  "Jae-Sung Lee": {
+    "id": 537552,
+    "sofascore_name": "Jae-sung Lee",
+    "club": "1. FSV Mainz 05",
+    "nation": "South Korea"
+  },
+  "Jamal Musiala": {
+    "id": 1010231,
+    "sofascore_name": "Jamal Musiala",
+    "club": "FC Bayern München",
+    "nation": "Germany"
+  },
+  "Jamie MacLaren": {
+    "id": 333143,
+    "sofascore_name": "Jamie MacLaren",
+    "club": "Mohun Bagan Super Giant",
+    "nation": "Australia"
+  },
+  "Jan Kuchta": {
+    "id": 824139,
+    "sofascore_name": "Jan Kuchta",
+    "club": "AC Sparta Praha",
+    "nation": "Czech Republic"
+  },
+  "Jan Vertonghen": {
+    "id": 16921,
+    "sofascore_name": "Jan Vertonghen",
+    "club": "No team",
+    "nation": "Belgium"
+  },
+  "Jarrod Bowen": {
+    "id": 552884,
+    "sofascore_name": "Jarrod Bowen",
+    "club": "West Ham United",
+    "nation": "England"
+  },
+  "Jason Cummings": {
+    "id": 346296,
+    "sofascore_name": "Jason Cummings",
+    "club": "Mohun Bagan Super Giant",
+    "nation": "Australia"
+  },
+  "Jawad El Yamiq": {
+    "id": 877103,
+    "sofascore_name": "Jawad El Yamiq",
+    "club": "Real Zaragoza",
+    "nation": "Morocco"
+  },
+  "Jerdy Schouten": {
+    "id": 844234,
+    "sofascore_name": "Jerdy Schouten",
+    "club": "PSV Eindhoven",
+    "nation": "Netherlands"
+  },
+  "Jeremie Frimpong": {
+    "id": 970361,
+    "sofascore_name": "Jeremie Frimpong",
+    "club": "Liverpool FC",
+    "nation": "Netherlands"
+  },
+  "Jeremy Doku": {
+    "id": 934386,
+    "sofascore_name": "Jérémy Doku",
+    "club": "Manchester City",
+    "nation": "Belgium"
+  },
+  "Jesus Ferreira": {
+    "id": 869853,
+    "sofascore_name": "Jesús Ferreira",
+    "club": "Seattle Sounders FC",
+    "nation": "United States"
+  },
+  "Jesús Navas González": {
+    "id": 945992,
+    "sofascore_name": "Jesus Gonzalez",
+    "club": "CDA Navalcarnero",
+    "nation": "Spain"
+  },
+  "Jin-Su Kim": {
+    "id": 160843,
+    "sofascore_name": "Kim Jin-su",
+    "club": "FC Seoul",
+    "nation": "South Korea"
+  },
+  "Jindřich Staněk": {
+    "id": 280601,
+    "sofascore_name": "Jindřich Staněk",
+    "club": "SK Slavia Praha",
+    "nation": "Czech Republic"
+  },
+  "Joey Veerman": {
+    "id": 850816,
+    "sofascore_name": "Joey Veerman",
+    "club": "PSV Eindhoven",
+    "nation": "Netherlands"
+  },
+  "Johan Bakayoko": {
+    "id": 1088896,
+    "sofascore_name": "Johan Bakayoko",
+    "club": "RB Leipzig",
+    "nation": "Belgium"
+  },
+  "John McGinn": {
+    "id": 250223,
+    "sofascore_name": "John McGinn",
+    "club": "Aston Villa",
+    "nation": "Scotland"
+  },
+  "John Stones": {
+    "id": 152077,
+    "sofascore_name": "John Stones",
+    "club": "Manchester City",
+    "nation": "England"
+  },
+  "Jonas Hofmann": {
+    "id": 142390,
+    "sofascore_name": "Jonas Hofmann",
+    "club": "Bayer 04 Leverkusen",
+    "nation": "Germany"
+  },
+  "Jonathan David": {
+    "id": 935564,
+    "sofascore_name": "Jonathan David",
+    "club": "Juventus",
+    "nation": "Canada"
+  },
+  "Jonathan Osorio": {
+    "id": 273031,
+    "sofascore_name": "Jonathan Osorio",
+    "club": "Toronto FC",
+    "nation": "Canada"
+  },
+  "Jonathan Tah": {
+    "id": 227672,
+    "sofascore_name": "Jonathan Tah",
+    "club": "FC Bayern München",
+    "nation": "Germany"
+  },
+  "Jordan Ayew": {
+    "id": 103045,
+    "sofascore_name": "Jordan Ayew",
+    "club": "Leicester City",
+    "nation": "Ghana"
+  },
+  "Jordan Morris": {
+    "id": 772421,
+    "sofascore_name": "Jordan Morris",
+    "club": "Seattle Sounders FC",
+    "nation": "United States"
+  },
+  "Jordan Pickford": {
+    "id": 138530,
+    "sofascore_name": "Jordan Pickford",
+    "club": "Everton",
+    "nation": "England"
+  },
+  "Jordan Veretout": {
+    "id": 151124,
+    "sofascore_name": "Jordan Veretout",
+    "club": "Al-Arabi SC",
+    "nation": "France"
+  },
+  "Joshua Kimmich": {
+    "id": 259117,
+    "sofascore_name": "Joshua Kimmich",
+    "club": "FC Bayern München",
+    "nation": "Germany"
+  },
+  "Joshua Sargent": {
+    "id": 1907677,
+    "sofascore_name": "Joshua Sarmento",
+    "club": "No team",
+    "nation": "United States"
+  },
+  "Joshua Zirkzee": {
+    "id": 917007,
+    "sofascore_name": "Joshua Zirkzee",
+    "club": "Manchester United",
+    "nation": "Netherlands"
+  },
+  "Josip Juranović": {
+    "id": 791642,
+    "sofascore_name": "Josip Juranović",
+    "club": "1. FC Union Berlin",
+    "nation": "Croatia"
+  },
+  "Josip Stanišić": {
+    "id": 927407,
+    "sofascore_name": "Josip Stanišić",
+    "club": "FC Bayern München",
+    "nation": "Croatia"
+  },
+  "Josip Šutalo": {
+    "id": 954836,
+    "sofascore_name": "Josip Šutalo",
+    "club": "AFC Ajax",
+    "nation": "Croatia"
+  },
+  "João Neves": {
+    "id": 1190933,
+    "sofascore_name": "João Neves",
+    "club": "Paris Saint-Germain",
+    "nation": "Portugal"
+  },
+  "João Victor Gomes da Silva": {
+    "id": 2580512,
+    "sofascore_name": "João Victor Gomes da Silva",
+    "club": "Poder na Cesta",
+    "nation": "Brazil"
+  },
+  "Joško Gvardiol": {
+    "id": 964994,
+    "sofascore_name": "Joško Gvardiol",
+    "club": "Manchester City",
+    "nation": "Croatia"
+  },
+  "Jude Bellingham": {
+    "id": 991011,
+    "sofascore_name": "Jude Bellingham",
+    "club": "Real Madrid",
+    "nation": "England"
+  },
+  "Jules Koundé": {
+    "id": 827212,
+    "sofascore_name": "Jules Koundé",
+    "club": "FC Barcelona",
+    "nation": "France"
+  },
+  "Julián Álvarez": {
+    "id": 944656,
+    "sofascore_name": "Julián Alvarez",
+    "club": "Atlético Madrid",
+    "nation": "Argentina"
+  },
+  "Jun-Ho Son": {
+    "id": 1138777,
+    "sofascore_name": "Jun-ho Son",
+    "club": "Chungnam Asan FC",
+    "nation": "South Korea"
+  },
+  "Junya Ito": {
+    "id": 783278,
+    "sofascore_name": "Junya Ito",
+    "club": "KRC Genk",
+    "nation": "Japan"
+  },
+  "Kaan Ayhan": {
+    "id": 138152,
+    "sofascore_name": "Kaan Ayhan",
+    "club": "Galatasaray",
+    "nation": "Turkey"
+  },
+  "Kahiser Lenis Navarro": {
+    "id": 2041509,
+    "sofascore_name": "Kahiser Lenis Navarro",
+    "club": "Jaguares de Córdoba",
+    "nation": "Panama"
+  },
+  "Kai Havertz": {
+    "id": 836705,
+    "sofascore_name": "Kai Havertz",
+    "club": "Arsenal",
+    "nation": "Germany"
+  },
+  "Kalidou Koulibaly": {
+    "id": 126071,
+    "sofascore_name": "Kalidou Koulibaly",
+    "club": "Al-Hilal",
+    "nation": "Senegal"
+  },
+  "Kalvin Phillips": {
+    "id": 786028,
+    "sofascore_name": "Kalvin Phillips",
+    "club": "Sheffield United",
+    "nation": "England"
+  },
+  "Kamal Miller": {
+    "id": 934841,
+    "sofascore_name": "Kamal Miller",
+    "club": "Portland Timbers",
+    "nation": "Canada"
+  },
+  "Kamaldeen Sulemana": {
+    "id": 1019442,
+    "sofascore_name": "Kamaldeen Sulemana",
+    "club": "Atalanta",
+    "nation": "Ghana"
+  },
+  "Kang-In Lee": {
+    "id": 917087,
+    "sofascore_name": "Kang-in Lee",
+    "club": "Paris Saint-Germain",
+    "nation": "South Korea"
+  },
+  "Kaoru Mitoma": {
+    "id": 936849,
+    "sofascore_name": "Kaoru Mitoma",
+    "club": "Brighton & Hove Albion",
+    "nation": "Japan"
+  },
+  "Karim Ansarifard": {
+    "id": 144594,
+    "sofascore_name": "Karim Ansarifard",
+    "club": "No team",
+    "nation": "Iran"
+  },
+  "Karim Boudiaf": {
+    "id": 303826,
+    "sofascore_name": "Karim Boudiaf",
+    "club": "Al Duhail",
+    "nation": "Qatar"
+  },
+  "Keanu Baccus": {
+    "id": 864230,
+    "sofascore_name": "Keanu Baccus",
+    "club": "St. Mirren",
+    "nation": "Australia"
+  },
+  "Kenan Yildiz": {
+    "id": 802593,
+    "sofascore_name": "Kenan Yildiz",
+    "club": "No team",
+    "nation": "Turkey"
+  },
+  "Kenneth Taylor": {
+    "id": 959806,
+    "sofascore_name": "Kenneth Taylor",
+    "club": "Lazio",
+    "nation": "Netherlands"
+  },
+  "Kevin De Bruyne": {
+    "id": 70996,
+    "sofascore_name": "Kevin De Bruyne",
+    "club": "SSC Napoli",
+    "nation": "Belgium"
+  },
+  "Kieran Tierney": {
+    "id": 366592,
+    "sofascore_name": "Kieran Tierney",
+    "club": "Celtic",
+    "nation": "Scotland"
+  },
+  "Kieran Trippier": {
+    "id": 69256,
+    "sofascore_name": "Kieran Trippier",
+    "club": "Newcastle United",
+    "nation": "England"
+  },
+  "Kingsley Coman": {
+    "id": 280441,
+    "sofascore_name": "Kingsley Coman",
+    "club": "Al-Nassr",
+    "nation": "France"
+  },
+  "Ko Itakura": {
+    "id": 790989,
+    "sofascore_name": "Ko Itakura",
+    "club": "AFC Ajax",
+    "nation": "Japan"
+  },
+  "Kobbie Mainoo": {
+    "id": 1142175,
+    "sofascore_name": "Kobbie Mainoo",
+    "club": "Manchester United",
+    "nation": "England"
+  },
+  "Koen Casteels": {
+    "id": 70987,
+    "sofascore_name": "Koen Casteels",
+    "club": "Al-Qadsiah",
+    "nation": "Belgium"
+  },
+  "Krépin Diatta": {
+    "id": 873534,
+    "sofascore_name": "Krépin Diatta",
+    "club": "AS Monaco",
+    "nation": "Senegal"
+  },
+  "Kwadwo Duah": {
+    "id": 827531,
+    "sofascore_name": "Kwadwo Duah",
+    "club": "Ludogorets",
+    "nation": "Switzerland"
+  },
+  "Kye Rowles": {
+    "id": 822572,
+    "sofascore_name": "Kye Rowles",
+    "club": "DC United",
+    "nation": "Australia"
+  },
+  "Kyle Walker": {
+    "id": 44614,
+    "sofascore_name": "Kyle Walker",
+    "club": "Burnley",
+    "nation": "England"
+  },
+  "Kyung-Won Kwon": {
+    "id": 792383,
+    "sofascore_name": "Kyung-won Kwon",
+    "club": "FC Anyang",
+    "nation": "South Korea"
+  },
+  "Ladislav Krejčí": {
+    "id": 856250,
+    "sofascore_name": "Ladislav Krejčí",
+    "club": "Wolverhampton",
+    "nation": "Czech Republic"
+  },
+  "Lawrence Ati-Zigi": {
+    "id": 791092,
+    "sofascore_name": "Lawrence Ati Zigi",
+    "club": "FC St. Gallen 1879",
+    "nation": "Ghana"
+  },
+  "Lawrence Shankland": {
+    "id": 237098,
+    "sofascore_name": "Lawrence Shankland",
+    "club": "Heart of Midlothian",
+    "nation": "Scotland"
+  },
+  "Leander Dendoncker": {
+    "id": 190405,
+    "sofascore_name": "Leander Dendoncker",
+    "club": "Real Oviedo",
+    "nation": "Belgium"
+  },
+  "Leandro Trossard": {
+    "id": 135666,
+    "sofascore_name": "Leandro Trossard",
+    "club": "Arsenal",
+    "nation": "Belgium"
+  },
+  "Leon Goretzka": {
+    "id": 184661,
+    "sofascore_name": "Leon Goretzka",
+    "club": "FC Bayern München",
+    "nation": "Germany"
+  },
+  "Leonidas Stergiou": {
+    "id": 962898,
+    "sofascore_name": "Leonidas Stergiou",
+    "club": "1. FC Heidenheim",
+    "nation": "Switzerland"
+  },
+  "Leroy Sané": {
+    "id": 293519,
+    "sofascore_name": "Leroy Sané",
+    "club": "Galatasaray",
+    "nation": "Germany"
+  },
+  "Lewis Morgan": {
+    "id": 383550,
+    "sofascore_name": "Lewis Morgan",
+    "club": "San Diego FC",
+    "nation": "Scotland"
+  },
+  "Liam Millar": {
+    "id": 902083,
+    "sofascore_name": "Liam Millar",
+    "club": "Hull City",
+    "nation": "Canada"
+  },
+  "Lisandro Martínez": {
+    "id": 859999,
+    "sofascore_name": "Lisandro Martínez",
+    "club": "Manchester United",
+    "nation": "Argentina"
+  },
+  "Lovro Majer": {
+    "id": 841947,
+    "sofascore_name": "Lovro Majer",
+    "club": "VfL Wolfsburg",
+    "nation": "Croatia"
+  },
+  "Luc Rollet De Fougerolles": {
+    "id": 1461520,
+    "sofascore_name": "Luc Rollet De Fougerolles",
+    "club": "Fulham U21",
+    "nation": "Canada"
+  },
+  "Luca de la Torre": {
+    "id": 846492,
+    "sofascore_name": "Luca De La Torre",
+    "club": "Charlotte FC",
+    "nation": "United States"
+  },
+  "Lucas Hernández Pi": {
+    "id": 352370,
+    "sofascore_name": "Lucas Hernández",
+    "club": "Paris Saint-Germain",
+    "nation": "France"
+  },
+  "Lucas Martínez Quarta": {
+    "id": 795297,
+    "sofascore_name": "Lucas Martínez Quarta",
+    "club": "River Plate",
+    "nation": "Argentina"
+  },
+  "Luka Ivanušec": {
+    "id": 822462,
+    "sofascore_name": "Luka Ivanušec",
+    "club": "PAOK",
+    "nation": "Croatia"
+  },
+  "Luka Modrić": {
+    "id": 15466,
+    "sofascore_name": "Luka Modrić",
+    "club": "Milan",
+    "nation": "Croatia"
+  },
+  "Luka Sučić": {
+    "id": 949156,
+    "sofascore_name": "Luka Sučić",
+    "club": "Real Sociedad",
+    "nation": "Croatia"
+  },
+  "Lukas Klostermann": {
+    "id": 319853,
+    "sofascore_name": "Lukas Klostermann",
+    "club": "RB Leipzig",
+    "nation": "Germany"
+  },
+  "Luke Shaw": {
+    "id": 190839,
+    "sofascore_name": "Luke Shaw",
+    "club": "Manchester United",
+    "nation": "England"
+  },
+  "Lukáš Provod": {
+    "id": 846122,
+    "sofascore_name": "Lukáš Provod",
+    "club": "SK Slavia Praha",
+    "nation": "Czech Republic"
+  },
+  "Lukáš Červ": {
+    "id": 952114,
+    "sofascore_name": "Lukáš Červ",
+    "club": "FC Viktoria Plzeň",
+    "nation": "Czech Republic"
+  },
+  "Lutsharel Geertruida": {
+    "id": 856739,
+    "sofascore_name": "Lutsharel Geertruida",
+    "club": "Sunderland",
+    "nation": "Netherlands"
+  },
+  "Luuk de Jong": {
+    "id": 40878,
+    "sofascore_name": "Luuk de Jong",
+    "club": "FC Porto",
+    "nation": "Netherlands"
+  },
+  "Malik Tillman": {
+    "id": 975798,
+    "sofascore_name": "Malik Tillman",
+    "club": "Bayer 04 Leverkusen",
+    "nation": "United States"
+  },
+  "Manuel Neuer": {
+    "id": 8959,
+    "sofascore_name": "Manuel Neuer",
+    "club": "FC Bayern München",
+    "nation": "Germany"
+  },
+  "Marc Guehi": {
+    "id": 877994,
+    "sofascore_name": "Marc Guéhi",
+    "club": "Manchester City",
+    "nation": "England"
+  },
+  "Marcelo Brozović": {
+    "id": 108800,
+    "sofascore_name": "Marcelo Brozović",
+    "club": "Al-Nassr",
+    "nation": "Croatia"
+  },
+  "Marcus Rashford": {
+    "id": 814590,
+    "sofascore_name": "Marcus Rashford",
+    "club": "FC Barcelona",
+    "nation": "England"
+  },
+  "Marcus Thuram": {
+    "id": 791702,
+    "sofascore_name": "Marcus Thuram",
+    "club": "Inter",
+    "nation": "France"
+  },
+  "Marin Pongracic": {
+    "id": 847467,
+    "sofascore_name": "Marin Pongračić",
+    "club": "Fiorentina",
+    "nation": "Croatia"
+  },
+  "Mario Götze": {
+    "id": 66518,
+    "sofascore_name": "Mario Götze",
+    "club": "Eintracht Frankfurt",
+    "nation": "Germany"
+  },
+  "Mario Pašalić": {
+    "id": 190437,
+    "sofascore_name": "Mario Pašalić",
+    "club": "Atalanta",
+    "nation": "Croatia"
+  },
+  "Mark Anthony Kaye": {
+    "id": 886736,
+    "sofascore_name": "Mark-Anthony Kaye",
+    "club": "Sacramento Republic FC",
+    "nation": "Canada"
+  },
+  "Marko Livaja": {
+    "id": 94226,
+    "sofascore_name": "Marko Livaja",
+    "club": "HNK Hajduk Split",
+    "nation": "Croatia"
+  },
+  "Marten de Roon": {
+    "id": 100389,
+    "sofascore_name": "Marten de Roon",
+    "club": "Atalanta",
+    "nation": "Netherlands"
+  },
+  "Martin Baturina": {
+    "id": 1090019,
+    "sofascore_name": "Martin Baturina",
+    "club": "Como",
+    "nation": "Croatia"
+  },
+  "Mason Mount": {
+    "id": 836694,
+    "sofascore_name": "Mason Mount",
+    "club": "Manchester United",
+    "nation": "England"
+  },
+  "Mateo Kovačić": {
+    "id": 136710,
+    "sofascore_name": "Mateo Kovačić",
+    "club": "Manchester City",
+    "nation": "Croatia"
+  },
+  "Mathew Leckie": {
+    "id": 122570,
+    "sofascore_name": "Mathew Leckie",
+    "club": "Melbourne City",
+    "nation": "Australia"
+  },
+  "Mathew Ryan": {
+    "id": 134029,
+    "sofascore_name": "Mathew Ryan",
+    "club": "Levante UD",
+    "nation": "Australia"
+  },
+  "Mathieu Choiniere": {
+    "id": 937255,
+    "sofascore_name": "Mathieu Choinière",
+    "club": "Los Angeles FC",
+    "nation": "Canada"
+  },
+  "Matthias Ginter": {
+    "id": 142259,
+    "sofascore_name": "Matthias Ginter",
+    "club": "SC Freiburg",
+    "nation": "Germany"
+  },
+  "Matthijs de Ligt": {
+    "id": 803031,
+    "sofascore_name": "Matthijs de Ligt",
+    "club": "Manchester United",
+    "nation": "Netherlands"
+  },
+  "Matěj Jurásek": {
+    "id": 1008382,
+    "sofascore_name": "Matěj Jurásek",
+    "club": "Norwich City",
+    "nation": "Czech Republic"
+  },
+  "Matěj Kovář": {
+    "id": 927366,
+    "sofascore_name": "Matěj Kovář",
+    "club": "PSV Eindhoven",
+    "nation": "Czech Republic"
+  },
+  "Maxime Crépeau": {
+    "id": 155736,
+    "sofascore_name": "Maxime Crépeau",
+    "club": "Orlando City SC",
+    "nation": "Canada"
+  },
+  "Maximilian Beier": {
+    "id": 980628,
+    "sofascore_name": "Maximilian Beier",
+    "club": "Borussia Dortmund",
+    "nation": "Germany"
+  },
+  "Maximilian Mittelstädt": {
+    "id": 788949,
+    "sofascore_name": "Maximilian Mittelstädt",
+    "club": "VfB Stuttgart",
+    "nation": "Germany"
+  },
+  "Maya Yoshida": {
+    "id": 24248,
+    "sofascore_name": "Maya Yoshida",
+    "club": "LA Galaxy",
+    "nation": "Japan"
+  },
+  "Mehdi Taremi": {
+    "id": 812533,
+    "sofascore_name": "Mehdi Taremi",
+    "club": "Olympiacos FC",
+    "nation": "Iran"
+  },
+  "Mehdi Torabi": {
+    "id": 812953,
+    "sofascore_name": "Mahdi Torabi",
+    "club": "Tractor FC",
+    "nation": "Iran"
+  },
+  "Memphis Depay": {
+    "id": 138833,
+    "sofascore_name": "Memphis Depay",
+    "club": "Corinthians",
+    "nation": "Netherlands"
+  },
+  "Merih Demiral": {
+    "id": 806968,
+    "sofascore_name": "Merih Demiral",
+    "club": "Al-Ahli",
+    "nation": "Turkey"
+  },
+  "Mert Müldür": {
+    "id": 836683,
+    "sofascore_name": "Mert Müldür",
+    "club": "Fenerbahçe",
+    "nation": "Turkey"
+  },
+  "Michel Aebischer": {
+    "id": 850891,
+    "sofascore_name": "Michel Aebischer",
+    "club": "Pisa",
+    "nation": "Switzerland"
+  },
+  "Micky van de Ven": {
+    "id": 998247,
+    "sofascore_name": "Micky van de Ven",
+    "club": "Tottenham Hotspur",
+    "nation": "Netherlands"
+  },
+  "Mike Maignan": {
+    "id": 191210,
+    "sofascore_name": "Mike Maignan",
+    "club": "Milan",
+    "nation": "France"
+  },
+  "Miki Yamane": {
+    "id": 831926,
+    "sofascore_name": "Miki Yamane",
+    "club": "LA Galaxy",
+    "nation": "Japan"
+  },
+  "Milad Mohammadi": {
+    "id": 812531,
+    "sofascore_name": "Milad Mohammadi",
+    "club": "Persepolis FC",
+    "nation": "Iran"
+  },
+  "Milan Borjan": {
+    "id": 79413,
+    "sofascore_name": "Milan Borjan",
+    "club": "Al-Riyadh",
+    "nation": "Canada"
+  },
+  "Miloš Degenek": {
+    "id": 155961,
+    "sofascore_name": "Miloš Degenek",
+    "club": "APOEL Nicosia",
+    "nation": "Australia"
+  },
+  "Min Jae Kim": {
+    "id": 148340,
+    "sofascore_name": "Min Jae Kim",
+    "club": "No team",
+    "nation": "South Korea"
+  },
+  "Mislav Oršić": {
+    "id": 88645,
+    "sofascore_name": "Mislav Oršić",
+    "club": "Pafos FC",
+    "nation": "Croatia"
+  },
+  "Mohamed Ali Ben Romdhane": {
+    "id": 966891,
+    "sofascore_name": "Mohamed Ali Ben Romdhane",
+    "club": "Al Ahly FC",
+    "nation": "Tunisia"
+  },
+  "Mohamed Dräger": {
+    "id": 359388,
+    "sofascore_name": "Mohamed Dräger",
+    "club": "Espérance Tunis",
+    "nation": "Tunisia"
+  },
+  "Mohamed Salisu": {
+    "id": 946158,
+    "sofascore_name": "Mohammed Salisu",
+    "club": "AS Monaco",
+    "nation": "Ghana"
+  },
+  "Mohammed Kanoo": {
+    "id": 1214652,
+    "sofascore_name": "Aminu Mohammed",
+    "club": "Kano Pillars",
+    "nation": "Saudi Arabia"
+  },
+  "Mohammed Kudus": {
+    "id": 905163,
+    "sofascore_name": "Mohammed Kudus",
+    "club": "Tottenham Hotspur",
+    "nation": "Ghana"
+  },
+  "Mohammed Muntari": {
+    "id": 326185,
+    "sofascore_name": "Mohammed Muntari",
+    "club": "Al-Gharafa",
+    "nation": "Qatar"
+  },
+  "Moise Bombito": {
+    "id": 1469180,
+    "sofascore_name": "Moise Bombito",
+    "club": "Nice",
+    "nation": "Canada"
+  },
+  "Mojmír Chytil": {
+    "id": 826049,
+    "sofascore_name": "Mojmír Chytil",
+    "club": "SK Slavia Praha",
+    "nation": "Czech Republic"
+  },
+  "Moon-Hwan Kim": {
+    "id": 921263,
+    "sofascore_name": "Moon-hwan Kim",
+    "club": "Daejeon Hana Citizen",
+    "nation": "South Korea"
+  },
+  "Morteza Pouraliganji": {
+    "id": 786129,
+    "sofascore_name": "Morteza Pouraliganji",
+    "club": "Persepolis FC",
+    "nation": "Iran"
+  },
+  "Mosaab Khoder Jibril": {
+    "id": 814474,
+    "sofascore_name": "Mosaab Khoder Jabril",
+    "club": "Al-Sadd",
+    "nation": "Qatar"
+  },
+  "N'Golo Kanté": {
+    "id": 234148,
+    "sofascore_name": "N'Golo Kanté",
+    "club": "Fenerbahçe",
+    "nation": "France"
+  },
+  "Nader Ghandri": {
+    "id": 347028,
+    "sofascore_name": "Nader Ghandri",
+    "club": "Swehly SC",
+    "nation": "Tunisia"
+  },
+  "Nampalys Mendy": {
+    "id": 123166,
+    "sofascore_name": "Nampalys Mendy",
+    "club": "Watford",
+    "nation": "Senegal"
+  },
+  "Nasser Al Dawsari": {
+    "id": 872607,
+    "sofascore_name": "Nasser Al-Dawsari",
+    "club": "Al-Hilal",
+    "nation": "Saudi Arabia"
+  },
+  "Nathan Aké": {
+    "id": 149663,
+    "sofascore_name": "Nathan Aké",
+    "club": "Manchester City",
+    "nation": "Netherlands"
+  },
+  "Nathaniel Atkinson": {
+    "id": 901858,
+    "sofascore_name": "Nathaniel Atkinson",
+    "club": "Melbourne City",
+    "nation": "Australia"
+  },
+  "Nayef Aguerd": {
+    "id": 877102,
+    "sofascore_name": "Nayef Aguerd",
+    "club": "Olympique de Marseille",
+    "nation": "Morocco"
+  },
+  "Naïm Sliti": {
+    "id": 153158,
+    "sofascore_name": "Naïm Sliti",
+    "club": "Al Shamal SC",
+    "nation": "Tunisia"
+  },
+  "Niclas Füllkrug": {
+    "id": 132645,
+    "sofascore_name": "Niclas Füllkrug",
+    "club": "Milan",
+    "nation": "Germany"
+  },
+  "Nico Elvedi": {
+    "id": 282229,
+    "sofascore_name": "Nico Elvedi",
+    "club": "Borussia M'gladbach",
+    "nation": "Switzerland"
+  },
+  "Nico Schlotterbeck": {
+    "id": 940871,
+    "sofascore_name": "Nico Schlotterbeck",
+    "club": "Borussia Dortmund",
+    "nation": "Germany"
+  },
+  "Nicolas Jackson": {
+    "id": 1085381,
+    "sofascore_name": "Nicolas Jackson",
+    "club": "FC Bayern München",
+    "nation": "Senegal"
+  },
+  "Niklas Süle": {
+    "id": 168937,
+    "sofascore_name": "Niklas Süle",
+    "club": "Borussia Dortmund",
+    "nation": "Germany"
+  },
+  "Nikola Vlašić": {
+    "id": 357596,
+    "sofascore_name": "Nikola Vlašić",
+    "club": "Torino",
+    "nation": "Croatia"
+  },
+  "Noa Lang": {
+    "id": 875136,
+    "sofascore_name": "Noa Lang",
+    "club": "Galatasaray",
+    "nation": "Netherlands"
+  },
+  "Noah Okafor": {
+    "id": 865523,
+    "sofascore_name": "Noah Okafor",
+    "club": "Leeds United",
+    "nation": "Switzerland"
+  },
+  "Noussair Mazraoui": {
+    "id": 847030,
+    "sofascore_name": "Noussair Mazraoui",
+    "club": "Manchester United",
+    "nation": "Morocco"
+  },
+  "Nuno Mendes": {
+    "id": 989768,
+    "sofascore_name": "Nuno Mendes",
+    "club": "Paris Saint-Germain",
+    "nation": "Portugal"
+  },
+  "Okay Yokuşlu": {
+    "id": 97967,
+    "sofascore_name": "Okay Yokuşlu",
+    "club": "Trabzonspor",
+    "nation": "Turkey"
+  },
+  "Olivier Giroud": {
+    "id": 39070,
+    "sofascore_name": "Olivier Giroud",
+    "club": "Lille",
+    "nation": "France"
+  },
+  "Ollie Watkins": {
+    "id": 555386,
+    "sofascore_name": "Ollie Watkins",
+    "club": "Aston Villa",
+    "nation": "England"
+  },
+  "Ondřej Lingr": {
+    "id": 794968,
+    "sofascore_name": "Ondrej Lingr",
+    "club": "Houston Dynamo",
+    "nation": "Czech Republic"
+  },
+  "Orel Mangala": {
+    "id": 793988,
+    "sofascore_name": "Orel Mangala",
+    "club": "Olympique Lyonnais",
+    "nation": "Belgium"
+  },
+  "Orkun Kökçü": {
+    "id": 907461,
+    "sofascore_name": "Orkun Kökçü",
+    "club": "Beşiktaş JK",
+    "nation": "Turkey"
+  },
+  "Orlando Mosquera": {
+    "id": 886041,
+    "sofascore_name": "Orlando Mosquera",
+    "club": "Al-Fayha",
+    "nation": "Panama"
+  },
+  "Osman Bukari": {
+    "id": 913186,
+    "sofascore_name": "Osman Bukari",
+    "club": "Widzew Łódź",
+    "nation": "Ghana"
+  },
+  "Ousmane Dembélé": {
+    "id": 818244,
+    "sofascore_name": "Ousmane Dembélé",
+    "club": "Paris Saint-Germain",
+    "nation": "France"
+  },
+  "Pape Abou Cissé": {
+    "id": 790198,
+    "sofascore_name": "Pape Abou Cissé",
+    "club": "No team",
+    "nation": "Senegal"
+  },
+  "Pape Gueye": {
+    "id": 879694,
+    "sofascore_name": "Pape Gueye",
+    "club": "Villarreal",
+    "nation": "Senegal"
+  },
+  "Pape Matar Sarr": {
+    "id": 1002711,
+    "sofascore_name": "Pape Matar Sarr",
+    "club": "Tottenham Hotspur",
+    "nation": "Senegal"
+  },
+  "Pascal Groß": {
+    "id": 48480,
+    "sofascore_name": "Pascal Groß",
+    "club": "Brighton & Hove Albion",
+    "nation": "Germany"
+  },
+  "Pathé Ismaël Ciss": {
+    "id": 913679,
+    "sofascore_name": "Pathé Ismaël Ciss",
+    "club": "Rayo Vallecano",
+    "nation": "Senegal"
+  },
+  "Patrik Schick": {
+    "id": 280609,
+    "sofascore_name": "Patrik Schick",
+    "club": "Bayer 04 Leverkusen",
+    "nation": "Czech Republic"
+  },
+  "Pau Francisco Torres": {
+    "id": 877661,
+    "sofascore_name": "Pau Francisco Torres",
+    "club": "Villarreal B U23",
+    "nation": "Spain"
+  },
+  "Pavel Šulc": {
+    "id": 957604,
+    "sofascore_name": "Pavel Šulc",
+    "club": "Olympique Lyonnais",
+    "nation": "Czech Republic"
+  },
+  "Pedro Miguel Correia": {
+    "id": 78398,
+    "sofascore_name": "Pedro Miguel Correia Penela",
+    "club": "Penafiel",
+    "nation": "Qatar"
+  },
+  "Petr Ševčík": {
+    "id": 282971,
+    "sofascore_name": "Petr Ševčík",
+    "club": "SK Slavia Praha",
+    "nation": "Czech Republic"
+  },
+  "Phil Foden": {
+    "id": 859765,
+    "sofascore_name": "Phil Foden",
+    "club": "Manchester City",
+    "nation": "England"
+  },
+  "Raheem Sterling": {
+    "id": 138534,
+    "sofascore_name": "Raheem Sterling",
+    "club": "Feyenoord",
+    "nation": "England"
+  },
+  "Ramin Rezaeian": {
+    "id": 786133,
+    "sofascore_name": "Ramin Rezaeian",
+    "club": "Foolad Khuzestan",
+    "nation": "Iran"
+  },
+  "Ramón Sosa Acosta": {
+    "id": 2169438,
+    "sofascore_name": "Rosalino Ramón Toledo Acosta",
+    "club": "Guaireña",
+    "nation": "Paraguay"
+  },
+  "Randal Kolo Muani": {
+    "id": 871706,
+    "sofascore_name": "Randal Kolo Muani",
+    "club": "Tottenham Hotspur",
+    "nation": "France"
+  },
+  "Raphaël Varane": {
+    "id": 138310,
+    "sofascore_name": "Raphaël Varane",
+    "club": "No team",
+    "nation": "France"
+  },
+  "Remo Freuler": {
+    "id": 115516,
+    "sofascore_name": "Remo Freuler",
+    "club": "Bologna",
+    "nation": "Switzerland"
+  },
+  "Renato Steffen": {
+    "id": 243049,
+    "sofascore_name": "Renato Steffen",
+    "club": "FC Lugano",
+    "nation": "Switzerland"
+  },
+  "Richie Laryea": {
+    "id": 829207,
+    "sofascore_name": "Richie Laryea",
+    "club": "Toronto FC",
+    "nation": "Canada"
+  },
+  "Riley McGree": {
+    "id": 835998,
+    "sofascore_name": "Riley McGree",
+    "club": "Middlesbrough",
+    "nation": "Australia"
+  },
+  "Ritsu Doan": {
+    "id": 790965,
+    "sofascore_name": "Ritsu Doan",
+    "club": "Eintracht Frankfurt",
+    "nation": "Japan"
+  },
+  "Riyadh Sharahili": {
+    "id": 818624,
+    "sofascore_name": "Riyadh Sharahili",
+    "club": "Damac FC",
+    "nation": "Saudi Arabia"
+  },
+  "Robert Andrich": {
+    "id": 168903,
+    "sofascore_name": "Robert Andrich",
+    "club": "Bayer 04 Leverkusen",
+    "nation": "Germany"
+  },
+  "Robin Hranáč": {
+    "id": 957615,
+    "sofascore_name": "Robin Hranáč",
+    "club": "TSG Hoffenheim",
+    "nation": "Czech Republic"
+  },
+  "Romain Saïss": {
+    "id": 187729,
+    "sofascore_name": "Romain Saïss",
+    "club": "Al-Sadd",
+    "nation": "Morocco"
+  },
+  "Roozbeh Cheshmi": {
+    "id": 828230,
+    "sofascore_name": "Roozbeh Cheshmi",
+    "club": "Esteghlal FC",
+    "nation": "Iran"
+  },
+  "Ruben Vargas": {
+    "id": 872919,
+    "sofascore_name": "Ruben Vargas",
+    "club": "Sevilla",
+    "nation": "Switzerland"
+  },
+  "Ryan Christie": {
+    "id": 322391,
+    "sofascore_name": "Ryan Christie",
+    "club": "Bournemouth",
+    "nation": "Scotland"
+  },
+  "Ryan Porteous": {
+    "id": 889776,
+    "sofascore_name": "Ryan Porteous",
+    "club": "Los Angeles FC",
+    "nation": "Scotland"
+  },
+  "Rúben Diogo Da Silva Neves": {
+    "id": 551434,
+    "sofascore_name": "Ruben Diogo da Silva Neves",
+    "club": "No team",
+    "nation": "Portugal"
+  },
+  "Sadegh Moharrami": {
+    "id": 359358,
+    "sofascore_name": "Sadegh Moharrami",
+    "club": "Tractor FC",
+    "nation": "Iran"
+  },
+  "Salih Özcan": {
+    "id": 795005,
+    "sofascore_name": "Salih Özcan",
+    "club": "Borussia Dortmund",
+    "nation": "Turkey"
+  },
+  "Salis Abdul Samed": {
+    "id": 993455,
+    "sofascore_name": "Salis Abdul Samed",
+    "club": "Nice",
+    "nation": "Ghana"
+  },
+  "Sam Adekugbe": {
+    "id": 362042,
+    "sofascore_name": "Sam Adekugbe",
+    "club": "Vancouver Whitecaps",
+    "nation": "Canada"
+  },
+  "Saman Ghoddos": {
+    "id": 548050,
+    "sofascore_name": "Saman Ghoddos",
+    "club": "Al-Ittihad Kalba",
+    "nation": "Iran"
+  },
+  "Samet Akaydin": {
+    "id": 863600,
+    "sofascore_name": "Samet Akaydın",
+    "club": "Çaykur Rizespor",
+    "nation": "Turkey"
+  },
+  "Sang-Ho Na": {
+    "id": 964307,
+    "sofascore_name": "Sang-Ho Na",
+    "club": "Machida Zelvia",
+    "nation": "South Korea"
+  },
+  "Sardar Azmoun": {
+    "id": 150998,
+    "sofascore_name": "Sardar Azmoun",
+    "club": "Shabab Al-Ahli Dubai",
+    "nation": "Iran"
+  },
+  "Scott McKenna": {
+    "id": 358108,
+    "sofascore_name": "Scott McKenna",
+    "club": "GNK Dinamo Zagreb",
+    "nation": "Scotland"
+  },
+  "Scott McTominay": {
+    "id": 879346,
+    "sofascore_name": "Scott McTominay",
+    "club": "SSC Napoli",
+    "nation": "Scotland"
+  },
+  "Selim Amallah": {
+    "id": 801211,
+    "sofascore_name": "Selim Amallah",
+    "club": "Khor Fakkan",
+    "nation": "Morocco"
+  },
+  "Semih Kılıçsoy": {
+    "id": 1142606,
+    "sofascore_name": "Semih Kılıçsoy",
+    "club": "Cagliari",
+    "nation": "Turkey"
+  },
+  "Serge Gnabry": {
+    "id": 187433,
+    "sofascore_name": "Serge Gnabry",
+    "club": "FC Bayern München",
+    "nation": "Germany"
+  },
+  "Sergino Dest": {
+    "id": 906021,
+    "sofascore_name": "Sergiño Dest",
+    "club": "PSV Eindhoven",
+    "nation": "United States"
+  },
+  "Seung-Gyu Kim": {
+    "id": 235686,
+    "sofascore_name": "Kim Seung-gyu",
+    "club": "FC Tokyo",
+    "nation": "South Korea"
+  },
+  "Seung-Ho Paik": {
+    "id": 881307,
+    "sofascore_name": "Seung Ho Paik",
+    "club": "Birmingham City",
+    "nation": "South Korea"
+  },
+  "Seyed Hossein Hosseini": {
+    "id": 35580,
+    "sofascore_name": "Seyed Jalal Hosseini",
+    "club": "No team",
+    "nation": "Iran"
+  },
+  "Shaquell Moore": {
+    "id": 1699354,
+    "sofascore_name": "Shaquille Moore",
+    "club": "No team",
+    "nation": "United States"
+  },
+  "Shogo Taniguchi": {
+    "id": 386958,
+    "sofascore_name": "Shogo Taniguchi",
+    "club": "Sint-Truidense VV",
+    "nation": "Japan"
+  },
+  "Shūichi Gonda": {
+    "id": 23952,
+    "sofascore_name": "Shuichi Gonda",
+    "club": "Vissel Kobe",
+    "nation": "Japan"
+  },
+  "Silvan Widmer": {
+    "id": 157377,
+    "sofascore_name": "Silvan Widmer",
+    "club": "1. FSV Mainz 05",
+    "nation": "Switzerland"
+  },
+  "Sofiane Boufal": {
+    "id": 257205,
+    "sofascore_name": "Sofiane Boufal",
+    "club": "Le Havre",
+    "nation": "Morocco"
+  },
+  "Sofyan Amrabat": {
+    "id": 359272,
+    "sofascore_name": "Sofyan Amrabat",
+    "club": "Real Betis",
+    "nation": "Morocco"
+  },
+  "Stefan de Vrij": {
+    "id": 91046,
+    "sofascore_name": "Stefan de Vrij",
+    "club": "Inter",
+    "nation": "Netherlands"
+  },
+  "Steve Mandanda": {
+    "id": 27029,
+    "sofascore_name": "Steve Mandanda",
+    "club": "No team",
+    "nation": "France"
+  },
+  "Steven Berghuis": {
+    "id": 100386,
+    "sofascore_name": "Steven Berghuis",
+    "club": "AFC Ajax",
+    "nation": "Netherlands"
+  },
+  "Steven Bergwijn": {
+    "id": 361798,
+    "sofascore_name": "Steven Bergwijn",
+    "club": "Al-Ittihad",
+    "nation": "Netherlands"
+  },
+  "Steven Zuber": {
+    "id": 37752,
+    "sofascore_name": "Steven Zuber",
+    "club": "APS Atromitos Athinon",
+    "nation": "Switzerland"
+  },
+  "Stuart Armstrong": {
+    "id": 117083,
+    "sofascore_name": "Stuart Armstrong",
+    "club": "Aberdeen",
+    "nation": "Scotland"
+  },
+  "Taha Yassine Khenissi": {
+    "id": 205650,
+    "sofascore_name": "Taha Yassine Khenissi",
+    "club": "Al Kuwait SC",
+    "nation": "Tunisia"
+  },
+  "Tajon Buchanan": {
+    "id": 973290,
+    "sofascore_name": "Tajon Buchanan",
+    "club": "Villarreal",
+    "nation": "Canada"
+  },
+  "Takefusa Kubo": {
+    "id": 880218,
+    "sofascore_name": "Takefusa Kubo",
+    "club": "Real Sociedad",
+    "nation": "Japan"
+  },
+  "Takehiro Tomiyasu": {
+    "id": 804434,
+    "sofascore_name": "Takehiro Tomiyasu",
+    "club": "AFC Ajax",
+    "nation": "Japan"
+  },
+  "Takuma Asano": {
+    "id": 309546,
+    "sofascore_name": "Takuma Asano",
+    "club": "Mallorca",
+    "nation": "Japan"
+  },
+  "Takumi Minamino": {
+    "id": 155818,
+    "sofascore_name": "Takumi Minamino",
+    "club": "AS Monaco",
+    "nation": "Japan"
+  },
+  "Tarek Salman Salman": {
+    "id": 796502,
+    "sofascore_name": "Tarek Salman",
+    "club": "Al-Sadd",
+    "nation": "Qatar"
+  },
+  "Tariq Lamptey": {
+    "id": 914691,
+    "sofascore_name": "Tariq Lamptey",
+    "club": "Fiorentina",
+    "nation": "Ghana"
+  },
+  "Teun Koopmeiners": {
+    "id": 803033,
+    "sofascore_name": "Teun Koopmeiners",
+    "club": "Juventus",
+    "nation": "Netherlands"
+  },
+  "Thibaut Courtois": {
+    "id": 70988,
+    "sofascore_name": "Thibaut Courtois",
+    "club": "Real Madrid",
+    "nation": "Belgium"
+  },
+  "Thilo Kehrer": {
+    "id": 281277,
+    "sofascore_name": "Thilo Kehrer",
+    "club": "AS Monaco",
+    "nation": "Germany"
+  },
+  "Thomas Meunier": {
+    "id": 128587,
+    "sofascore_name": "Thomas Meunier",
+    "club": "Lille",
+    "nation": "Belgium"
+  },
+  "Thomas Müller": {
+    "id": 35166,
+    "sofascore_name": "Thomas Müller",
+    "club": "Vancouver Whitecaps",
+    "nation": "Germany"
+  },
+  "Thorgan Hazard": {
+    "id": 94286,
+    "sofascore_name": "Thorgan Hazard",
+    "club": "RSC Anderlecht",
+    "nation": "Belgium"
+  },
+  "Tijjani Reijnders": {
+    "id": 893549,
+    "sofascore_name": "Tijjani Reijnders",
+    "club": "Manchester City",
+    "nation": "Netherlands"
+  },
+  "Tim Ream": {
+    "id": 118179,
+    "sofascore_name": "Tim Ream",
+    "club": "Charlotte FC",
+    "nation": "United States"
+  },
+  "Timothy Castagne": {
+    "id": 329417,
+    "sofascore_name": "Timothy Castagne",
+    "club": "Fulham",
+    "nation": "Belgium"
+  },
+  "Timothy Weah": {
+    "id": 855810,
+    "sofascore_name": "Tim Weah",
+    "club": "Olympique de Marseille",
+    "nation": "United States"
+  },
+  "Toby Alderweireld": {
+    "id": 44575,
+    "sofascore_name": "Toby Alderweireld",
+    "club": "No team",
+    "nation": "Belgium"
+  },
+  "Tomáš Chorý": {
+    "id": 188307,
+    "sofascore_name": "Tomáš Chorý",
+    "club": "SK Slavia Praha",
+    "nation": "Czech Republic"
+  },
+  "Tomáš Holeš": {
+    "id": 151440,
+    "sofascore_name": "Tomáš Holeš",
+    "club": "SK Slavia Praha",
+    "nation": "Czech Republic"
+  },
+  "Tomáš Souček": {
+    "id": 799041,
+    "sofascore_name": "Tomáš Souček",
+    "club": "West Ham United",
+    "nation": "Czech Republic"
+  },
+  "Toni Kroos": {
+    "id": 26502,
+    "sofascore_name": "Toni Kroos",
+    "club": "No team",
+    "nation": "Germany"
+  },
+  "Trent Alexander-Arnold": {
+    "id": 795064,
+    "sofascore_name": "Trent Alexander-Arnold",
+    "club": "Real Madrid",
+    "nation": "England"
+  },
+  "Tyler Adams": {
+    "id": 800419,
+    "sofascore_name": "Tyler Adams",
+    "club": "Bournemouth",
+    "nation": "United States"
+  },
+  "Ui-Jo Hwang": {
+    "id": 791314,
+    "sofascore_name": "Hwang Ui-Jo",
+    "club": "Alanyaspor",
+    "nation": "South Korea"
+  },
+  "Uğurcan Çakır": {
+    "id": 754330,
+    "sofascore_name": "Uğurcan Çakır",
+    "club": "Galatasaray",
+    "nation": "Turkey"
+  },
+  "Valentin Carboni": {
+    "id": 1153083,
+    "sofascore_name": "Valentín Carboni",
+    "club": "Racing Club",
+    "nation": "Argentina"
+  },
+  "Vincent Janssen": {
+    "id": 339901,
+    "sofascore_name": "Vincent Janssen",
+    "club": "Royal Antwerp FC",
+    "nation": "Netherlands"
+  },
+  "Vincent Sierro": {
+    "id": 794412,
+    "sofascore_name": "Vincent Sierro",
+    "club": "Al-Shabab",
+    "nation": "Switzerland"
+  },
+  "Virgil van Dijk": {
+    "id": 151545,
+    "sofascore_name": "Virgil van Dijk",
+    "club": "Liverpool FC",
+    "nation": "Netherlands"
+  },
+  "Vitezslav Jaros": {
+    "id": 927359,
+    "sofascore_name": "Vítězslav Jaroš",
+    "club": "AFC Ajax",
+    "nation": "Czech Republic"
+  },
+  "Vladimír Coufal": {
+    "id": 138024,
+    "sofascore_name": "Vladimír Coufal",
+    "club": "TSG Hoffenheim",
+    "nation": "Czech Republic"
+  },
+  "Václav Černý": {
+    "id": 280631,
+    "sofascore_name": "Václav Černý",
+    "club": "Beşiktaş JK",
+    "nation": "Czech Republic"
+  },
+  "Wahbi Khazri": {
+    "id": 51640,
+    "sofascore_name": "Wahbi Khazri",
+    "club": "No team",
+    "nation": "Tunisia"
+  },
+  "Wajdi Kechrida": {
+    "id": 880061,
+    "sofascore_name": "Wajdi Kechrida",
+    "club": "Etoile Sportive Du Sahel",
+    "nation": "Tunisia"
+  },
+  "Waldemar Anton": {
+    "id": 799046,
+    "sofascore_name": "Waldemar Anton",
+    "club": "Borussia Dortmund",
+    "nation": "Germany"
+  },
+  "Walid Cheddira": {
+    "id": 917485,
+    "sofascore_name": "Walid Cheddira",
+    "club": "Lecce",
+    "nation": "Morocco"
+  },
+  "Walker Zimmerman": {
+    "id": 1125090,
+    "sofascore_name": "Walker Zimmerman",
+    "club": "Toronto FC",
+    "nation": "United States"
+  },
+  "Wataru Endo": {
+    "id": 143040,
+    "sofascore_name": "Wataru Endo",
+    "club": "Liverpool FC",
+    "nation": "Japan"
+  },
+  "Weston McKennie": {
+    "id": 881931,
+    "sofascore_name": "Weston McKennie",
+    "club": "Juventus",
+    "nation": "United States"
+  },
+  "William Saliba": {
+    "id": 941168,
+    "sofascore_name": "William Saliba",
+    "club": "Arsenal",
+    "nation": "France"
+  },
+  "Woo-Yeong Jeong": {
+    "id": 927405,
+    "sofascore_name": "Woo-Yeong Jeong",
+    "club": "1. FC Union Berlin",
+    "nation": "South Korea"
+  },
+  "Woo-Young Jung": {
+    "id": 147128,
+    "sofascore_name": "Woo-Young Jung",
+    "club": "Kataller Toyama",
+    "nation": "South Korea"
+  },
+  "Wout Faes": {
+    "id": 361696,
+    "sofascore_name": "Wout Faes",
+    "club": "AS Monaco",
+    "nation": "Belgium"
+  },
+  "Wout Weghorst": {
+    "id": 252215,
+    "sofascore_name": "Wout Weghorst",
+    "club": "AFC Ajax",
+    "nation": "Netherlands"
+  },
+  "Xavi Simons": {
+    "id": 997183,
+    "sofascore_name": "Xavi Simons",
+    "club": "Tottenham Hotspur",
+    "nation": "Netherlands"
+  },
+  "Xherdan Shaqiri": {
+    "id": 65953,
+    "sofascore_name": "Xherdan Shaqiri",
+    "club": "Basel",
+    "nation": "Switzerland"
+  },
+  "Yahia Attiyat allah": {
+    "id": 919677,
+    "sofascore_name": "Yahia Attiyat Allah",
+    "club": "FC Sochi",
+    "nation": "Morocco"
+  },
+  "Yahya Jabrane": {
+    "id": 919712,
+    "sofascore_name": "Yahya Jabrane",
+    "club": "Ajman",
+    "nation": "Morocco"
+  },
+  "Yann Sommer": {
+    "id": 16206,
+    "sofascore_name": "Yann Sommer",
+    "club": "Inter",
+    "nation": "Switzerland"
+  },
+  "Yassine Bounou": {
+    "id": 970576,
+    "sofascore_name": "Yassine Bounou",
+    "club": "S.S.V. Naturns",
+    "nation": "Morocco"
+  },
+  "Yassine Meriah": {
+    "id": 898741,
+    "sofascore_name": "Yassine Meriah",
+    "club": "Espérance Tunis",
+    "nation": "Tunisia"
+  },
+  "Young-Gwon Kim": {
+    "id": 109232,
+    "sofascore_name": "Kim Young-gwon",
+    "club": "Ulsan HD",
+    "nation": "South Korea"
+  },
+  "Youri Tielemans": {
+    "id": 331737,
+    "sofascore_name": "Youri Tielemans",
+    "club": "Aston Villa",
+    "nation": "Belgium"
+  },
+  "Youssef En-Nesyri": {
+    "id": 846470,
+    "sofascore_name": "Youssef En-Nesyri",
+    "club": "Al-Ittihad",
+    "nation": "Morocco"
+  },
+  "Youssef Msakni": {
+    "id": 105513,
+    "sofascore_name": "Youssef Msakni",
+    "club": "Espérance Tunis",
+    "nation": "Tunisia"
+  },
+  "Youssouf Fofana": {
+    "id": 945062,
+    "sofascore_name": "Youssouf Fofana",
+    "club": "Milan",
+    "nation": "France"
+  },
+  "Youssouf Sabaly": {
+    "id": 111803,
+    "sofascore_name": "Youssouf Sabaly",
+    "club": "Al Duhail",
+    "nation": "Senegal"
+  },
+  "Youssoufa Moukoko": {
+    "id": 997006,
+    "sofascore_name": "Youssoufa Moukoko",
+    "club": "FC København",
+    "nation": "Germany"
+  },
+  "Yu-Min Cho": {
+    "id": 1026122,
+    "sofascore_name": "Yu-min Cho",
+    "club": "Al-Sharjah",
+    "nation": "South Korea"
+  },
+  "Yuki Soma": {
+    "id": 945290,
+    "sofascore_name": "Yuki Soma",
+    "club": "Machida Zelvia",
+    "nation": "Japan"
+  },
+  "Yunus Akgün": {
+    "id": 857738,
+    "sofascore_name": "Yunus Akgün",
+    "club": "Galatasaray",
+    "nation": "Turkey"
+  },
+  "Yusuf Yazıcı": {
+    "id": 827804,
+    "sofascore_name": "Yusuf Yazıcı",
+    "club": "Olympiacos FC",
+    "nation": "Turkey"
+  },
+  "Yuto Nagatomo": {
+    "id": 34639,
+    "sofascore_name": "Yuto Nagatomo",
+    "club": "FC Tokyo",
+    "nation": "Japan"
+  },
+  "Zakaria Aboukhlal": {
+    "id": 856737,
+    "sofascore_name": "Zakaria Aboukhlal",
+    "club": "Torino",
+    "nation": "Morocco"
+  },
+  "Zeno Debast": {
+    "id": 1126512,
+    "sofascore_name": "Zeno Debast",
+    "club": "Sporting CP",
+    "nation": "Belgium"
+  },
+  "İlkay Gündoğan": {
+    "id": 45853,
+    "sofascore_name": "İlkay Gündoğan",
+    "club": "Galatasaray",
+    "nation": "Germany"
+  },
+  "İrfan Can Kahveci": {
+    "id": 226986,
+    "sofascore_name": "İrfan Can Kahveci",
+    "club": "Kasımpaşa",
+    "nation": "Turkey"
+  },
+  "İsmail Yüksek": {
+    "id": 952600,
+    "sofascore_name": "İsmail Yüksek",
+    "club": "Fenerbahçe",
+    "nation": "Turkey"
+  },
+  "Kylian Mbappé Lottin": {
+    "id": 826643,
+    "sofascore_name": "Kylian Mbappé",
+    "club": "Real Madrid",
+    "nation": "France"
+  },
+  "Vinicius José Paixão de Oliveira Júnior": {
+    "id": 868812,
+    "sofascore_name": "Vinicius Júnior",
+    "club": "Real Madrid",
+    "nation": "Brazil"
+  },
+  "Erling Haaland": {
+    "id": 839956,
+    "sofascore_name": "Erling Haaland",
+    "club": "Manchester City",
+    "nation": "Norway"
+  },
+  "Achraf Hakimi Mouh": {
+    "id": 816531,
+    "sofascore_name": "Achraf Hakimi",
+    "club": "Paris Saint-Germain",
+    "nation": "Morocco"
+  },
+  "Lionel Andrés Messi Cuccittini": {
+    "id": 39022,
+    "sofascore_name": "Lionel Messi",
+    "club": "Inter Miami",
+    "nation": "Argentina"
+  },
+  "Lautaro Javier Martínez": {
+    "id": 823984,
+    "sofascore_name": "Lautaro Martínez",
+    "club": "Inter",
+    "nation": "Argentina"
+  }
+}
