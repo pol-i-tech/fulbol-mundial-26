@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 """
-Scrape FBref national team stats directly (bypassing soccerdata).
+Quarantined direct FBref scrape.
+
+FBref is currently marked as hard-blocked by Cloudflare in DEVELOPMENT.md.
+Do not run this script as part of the active pipeline unless that project
+constraint is deliberately changed.
+
+Original intent: scrape FBref national team stats directly.
 Targets: WC 2022, UEFA Nations League 2024-25, UEFA Euro 2024,
          Copa America 2024, CONMEBOL WC Qualifiers.
 
@@ -25,6 +31,8 @@ RAW     = ROOT / "data" / "raw" / "fbref"
 DERIVED = ROOT / "data" / "derived"
 RAW.mkdir(parents=True, exist_ok=True)
 DERIVED.mkdir(parents=True, exist_ok=True)
+
+FBREF_BLOCKED = True
 
 HEADERS = {
     "User-Agent": (
@@ -126,6 +134,10 @@ def scrape_stat_page(url: str):
 
 
 def main():
+    if FBREF_BLOCKED:
+        print("FBref scrape is quarantined: DEVELOPMENT.md says FBref is Cloudflare-blocked. Use existing StatsBomb/Understat/martj42 data instead.")
+        return
+
     all_shooting  = []
     all_passing   = []
     all_possession = []

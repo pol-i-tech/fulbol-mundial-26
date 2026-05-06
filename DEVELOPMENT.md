@@ -4,7 +4,7 @@ Project guide for contributors — human or AI (Claude Code, Cursor, Codex, Gemi
 
 ## Ways to Contribute
 
-**You don't need to build a full pipeline to contribute.** All shared data is available in `data/derived/` the moment you clone the repo. Pick the track that fits your skills:
+**You don't need to build a full pipeline to contribute.** Committed seed data is available in `data/derived/` the moment you clone the repo. Pick the track that fits your skills:
 
 ---
 
@@ -18,7 +18,6 @@ data/derived/statsbomb_player_xg.parquet  # player xG from WC2022, Euro2024, Cop
 data/derived/statsbomb_team_xg.parquet    # team-level xG per match
 data/derived/understat_player_xg.parquet  # club-level player xG (current season)
 data/derived/team_attack_ratings.parquet  # team attack ratings
-data/derived/wc2026_squads.parquet        # confirmed WC2026 squad lists
 data/derived/kalshi_snapshot_<date>.csv   # latest Kalshi market prices
 data/derived/polymarket_snapshot_<date>.csv  # latest Polymarket prices
 ```
@@ -60,6 +59,26 @@ Data additions automatically become available to all model contributors on next 
 - All changes go through a PR
 - `DEVELOPMENT.md`, `AGENTS.md`, and `CLAUDE.md` are the canonical docs — keep them in sync
 - `tools/weekly_pull.py` is the main orchestration script — changes here require extra review
+
+---
+
+## Current Priority Stack
+
+Work should stay inside this stack unless a lead explicitly changes scope:
+
+1. **Guardrails and validation** — keep prediction snapshots trustworthy and reproducible.
+2. **Player-data coverage** — close missing-player and stale-player gaps before adding model complexity.
+3. **Market normalization** — devig, volume filters, and Pinnacle comparison must match the documented betting rule.
+4. **Model consolidation** — move orphan model logic into `methodology/<model-name>/` and document how to regenerate each snapshot.
+5. **Only then:** tournament simulation, dashboards, notebooks, or new market types.
+
+Deferred until after the core pipeline is stable:
+
+- New UI/dashboard work.
+- Additional bookmakers beyond Kalshi, Polymarket, and Pinnacle/Hard Rock via The Odds API.
+- Live bet execution or account integrations.
+- LLM/agent-driven scraping.
+- Re-attempting FBref.
 
 ---
 
@@ -118,6 +137,7 @@ The `methodology/` folder is **required**. A predictions CSV with no reproducibl
 - All input data must come from `data/derived/` or documented public sources — no manual data entry
 - If the model uses a spreadsheet, export the computation logic as a script or attach the sheet to `methodology/<model-name>/`
 - Document the exact command to reproduce: `python3 methodology/<model-name>/model.py` or equivalent
+- Run `python3 tools/validate_predictions.py results/<model-name>/<YYYY-MM-DD>/predictions.csv` before submitting
 
 ### Subjectivity and bias policy
 
@@ -141,6 +161,18 @@ Examples of adjustments that require documentation:
 - Log-loss must beat a naive uniform prior (log-loss < 1.099 for 3-outcome markets)
 - If claiming edge vs market: show calibration plot or ECE score
 - Walk-forward only — no in-sample validation
+- Do not promote a model from research to actionable unless it also beats or plausibly complements the existing ensemble on a held-out tournament.
+
+### Model limitations that must be stated
+
+Every `MODEL.md` must explicitly cover:
+
+- **Missing-player policy:** how the model treats players absent from club/national xG data.
+- **Stale-data policy:** how old player or team data can be before the model refuses to update or downgrades confidence.
+- **Injury/suspension policy:** whether the model ignores, manually adjusts, or programmatically ingests availability.
+- **Squad uncertainty:** whether probabilities assume likely squads, confirmed squads, or full national pools.
+- **Market usage boundary:** whether model outputs are for comparison only or eligible for edge calculation.
+- **Known blind spots:** tactical changes, new managers, late squad announcements, home-continent effects, travel/altitude, or any omitted factors.
 
 ### Prediction integrity checks
 - Probabilities for mutually exclusive outcomes sum to ≥0.99 and ≤1.01 per `(match_id, market_type)`
@@ -148,6 +180,7 @@ Examples of adjustments that require documentation:
 - No `p_model` values outside [0, 1]
 - `as_of_date` matches the folder name
 - `notes` field describes model reasoning only — never market comparisons or edge flags (edge detection is the comparison layer's job)
+- Date-snapshot files must have exactly the eight shared columns. Backtest diagnostic files can include actuals, but should be named `predictions_vs_actual.csv` or live under `results/comparisons/`.
 
 ### What reviewers check
 - Is `methodology/` present and runnable?
@@ -155,6 +188,7 @@ Examples of adjustments that require documentation:
 - Does the model's approach match what `MODEL.md` claims?
 - Is the backtest walk-forward (no future data leakage)?
 - Do outright/group markets sum to 1.0 across all outcomes?
+- Does `tools/validate_predictions.py --all` pass?
 
 ---
 
@@ -210,6 +244,7 @@ Raw sources → data/raw/<source>/<YYYY-MM-DD>/   (immutable, gitignored)
 - Kalshi reads are unauthenticated GETs (RSA signing only needed for trading)
 - Kalshi group-winner markets include phantom teams at 1–8%: inner-join against known fixtures before devigging
 - All market prices stored as implied probability [0, 1]
+- Raw quoted prices are informational only. Do not label a row actionable until devigging and liquidity filters have run.
 
 ### Betting rule
 - **Golden Zone**: all 3 base models (Elo, Form, Poisson) agree on the same favourite
@@ -243,6 +278,26 @@ Team codes: 3-letter FIFA codes throughout (ARG, FRA, MEX, RSA…). The `NAME_TO
 - **`squad_xg_ratings.parquet` exists but is not yet wired into the compound model** — this is the highest-priority unwired feature.
 - **Kalshi outright/group markets have zero trading volume** (operator-priced pre-tournament) — always filter on `min_volume` before flagging edge.
 - **KXWCGAME ticker format**: `KXWCGAME-26<MON><DD><HOME3><AWAY3>`. Regex: `KXWCGAME-26([A-Z]{3})(\d{2})([A-Z]{3})([A-Z]{3})`. Already implemented in `normalize_kalshi()`.
+
+## Player Data Gap Plan
+
+The current player pipeline has useful but incomplete coverage:
+
+- `sb_player_summary.parquet`: national-team event data from StatsBomb tournaments.
+- `understat_player_xg_raw.parquet`: club xG, mainly top European leagues.
+- `squad_xg_ratings.parquet`: fuzzy join of the two sources.
+- `team_attack_ratings.parquet`: team-level aggregation of top attacking/pressing signals.
+
+Before improving model complexity, close these gaps:
+
+1. **Measure coverage per nation.** For every team, report squad players, club-xG matches, national-xG minutes, and unmatched names.
+2. **Create an exceptions file.** Store manual name mappings in `data/derived/player_name_overrides.csv` or `tools/player_name_overrides.py`; do not bury overrides inside fuzzy matching code.
+3. **Add missing-player defaults.** Missing club xG should not silently equal national xG. Use a documented fallback by position and nation tier, and downgrade confidence.
+4. **Separate likely squad from historical player pool.** `squad_xg_ratings.parquet` currently reflects players present in historical tournament/event data, not necessarily final WC2026 squads.
+5. **Add freshness checks.** If club data is older than the current season or a player has low minutes, lower that player's weight.
+6. **Backtest any new player signal.** Do not wire lineup/player xG into the production comparison unless WC2022/Euro2024/Copa2024 validation improves calibration or explains a documented blind spot.
+
+The full player acquisition strategy is in `docs/plans/2026-05-06-world-cup-player-data-acquisition-strategy.md`.
 
 ## Adding a New Model
 

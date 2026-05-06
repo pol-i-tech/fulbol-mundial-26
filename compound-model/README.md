@@ -1,28 +1,29 @@
 # compound-model
 
-A Python CLI + notebooks pipeline that predicts every FIFA World Cup 2026 match using a Dixon-Coles + Bivariate Poisson model fed by xG-aggregated lineup ratings, simulates the tournament 10,000 times respecting the new 12-group + best-thirds bracket, and compares the model's probabilities against live odds from Kalshi, Polymarket, and Hard Rock Bet to surface positive-edge bets.
+A planned production wrapper for the WC 2026 prediction workbench. The repo already contains several research/model snapshots (`elo-baseline`, `form-last-10`, `poisson-goals`, `ensemble-e3`) plus a WC 2022 xG-patched backtest. This folder now describes the intended consolidated compound model, not a runnable package.
 
 > This is **one model** in the multi-contributor [fulbol-mundial-26](../README.md) repo. See the root README for how to add your own.
 
-## What this model does
+## Intended Model
 
-- Pulls 49,256 senior international match results (since 1872) from `martj42/international_results` and computes time-decayed Dixon-Coles attack/defense parameters for every WC team.
-- Aggregates club-level xG from FBref through projected national-team lineups so we get per-team expected-goal rates that don't depend on sparse international xG data.
-- Runs a 10,000-iteration Monte Carlo simulator that respects the 2026 bracket (12 groups × 4 → top 2 + 8 best thirds → R32) including extra time and penalty shootouts.
-- Pulls live odds from Kalshi (5 series, no auth needed for reads), Polymarket Gamma, and The Odds API (Hard Rock + Pinnacle baseline), strips the vig with Power and Shin methods, and computes per-book edges.
-- Emits a dense CLI/notebook comparison table — no graphics — sorted by edge with half-Kelly stake suggestions clipped at 2% bankroll.
-- Writes its predictions to [`../results/compound-model/<YYYY-MM-DD>/predictions.csv`](../results/) using the shared schema.
+- Time-decayed international results model from `martj42/international_results`.
+- Elo and recent-form priors.
+- xG-Poisson signal from StatsBomb tournament data.
+- Player/squad attack signal from `data/derived/squad_xg_ratings.parquet` and `team_attack_ratings.parquet`.
+- Market comparison against Kalshi, Polymarket, and Pinnacle/Hard Rock via The Odds API once devigging and liquidity filters are implemented.
+- Tournament simulation only after the base match probabilities and player-data coverage pass validation.
 
 ## Status
 
-**Plan complete (2026-04-28). Implementation pending.** The full plan is at [`docs/plans/2026-04-28-001-feat-wc26-prediction-edge-finder-plan.md`](docs/plans/2026-04-28-001-feat-wc26-prediction-edge-finder-plan.md).
+**Research pieces exist; production consolidation is pending.** The older full plan is at [`docs/plans/2026-04-28-001-feat-wc26-prediction-edge-finder-plan.md`](docs/plans/2026-04-28-001-feat-wc26-prediction-edge-finder-plan.md), but the active guardrails now live in [`../DEVELOPMENT.md`](../DEVELOPMENT.md).
 
 | Phase | Target | Status |
 |---|---|---|
-| Phase 1: Working comparison table (baseline = Pinnacle-devigged) | +7 days | Not started |
-| Phase 2: Internal Dixon-Coles model | +14 days | Not started |
-| Phase 3: Backtest + calibration + bet ledger | +19 days | Not started |
-| Phase 4: Tournament operations | June 11 – July 19 | Not started |
+| Phase 0: Guardrails | now | Validator added; methodology/model-card consolidation still needed |
+| Phase 1: Market comparison correctness | next | Devig, min-volume, and Pinnacle edge filters need implementation |
+| Phase 2: Player data coverage | next | Coverage report, name overrides, missing-player policy needed |
+| Phase 3: Consolidated model | after Phase 1-2 | Move research logic into reproducible methodology folders |
+| Phase 4: Tournament simulation | later | Defer until match-level probabilities pass backtests |
 
 ## Cost and credentials
 
@@ -33,47 +34,34 @@ A Python CLI + notebooks pipeline that predicts every FIFA World Cup 2026 match 
 | The Odds API (Hard Rock + Pinnacle) | $0/mo free tier | API key (free signup) |
 | Kalshi (reads only — verified unauthenticated) | Free | None at v1 |
 | Polymarket Gamma | Free | None |
-| FBref / eloratings.net / StatsBomb / `martj42` | Free | None |
+| eloratings.net / StatsBomb / `martj42` / Understat | Free | None |
 | Hosting / DB / scheduler | $0 | Your laptop |
 
 See the plan's "Cost & credentials" decision and the validation findings section for details.
 
-## Setup (once it's built)
+## Current Useful Commands
 
 ```bash
-cd compound-model
-uv sync                                    # install deps
-cp .env.example .env                       # set ODDS_API_KEY
-uv run wc26 weekly                         # full pipeline → results/compound-model/<today>/predictions.csv
+python3 tools/validate_predictions.py --all
+python3 wc2022_xg_backtest.py
+python3 tools/weekly_pull.py 2026-04-28
 ```
 
-## Weekly workflow
-
-```bash
-uv run wc26 weekly        # data refresh → model fit → markets pull → simulate → compare → write predictions.csv
-```
-
-After placing a bet manually:
-```bash
-uv run wc26 bet log --match WC26-MEXRSA-2026-06-11 --side home --book hardrock --price 1.83 --stake 50
-uv run wc26 bet score    # after match-day, settles open bets
-```
-
-The local bet ledger lives at `bets/ledger.csv` (gitignored — private financial data).
+There is not yet a `uv run wc26 weekly` CLI in this repo. Do not document or build dashboards around that command until the production package exists.
 
 ## Why this approach
 
 International football is data-sparse — most teams play 8–12 competitive matches per cycle. Pure goal-based Poisson models on national-team data overfit. The pipeline leans on three pillars instead:
 
 1. **Goal-based time-decayed Dixon-Coles** trained on 7,961 modern (2018+) internationals
-2. **Club-xG-aggregated lineup ratings** — the model's strength signal lives at the player-club level where xG data is dense
+2. **Club-xG-aggregated lineup ratings** from Understat and StatsBomb-derived player signals
 3. **FIFA / World Football Elo as a Bayesian prior** for overall team strength
 
-A baseline mode (`--model baseline`) ships before the full Dixon-Coles model is fit, so the comparison table is usable in week 1 even if v1 modeling slips. Baseline computes `p_model = Pinnacle-devigged-probability` and finds book-vs-book mispricing — genuine edge that doesn't require the internal model to be right.
+Before this becomes actionable, the comparison layer must devig market prices, apply minimum-volume filters, and require Pinnacle-relative edge as described in `DEVELOPMENT.md`.
 
 ## Output to the shared `results/` folder
 
-Every weekly run writes one CSV to `../results/compound-model/<YYYY-MM-DD>/predictions.csv` with the standard 8-column schema. See [`../results/README.md`](../results/README.md) for the exact contract.
+Once consolidated, every run should write one CSV to `../results/compound-model/<YYYY-MM-DD>/predictions.csv` with the standard 8-column schema. See [`../results/README.md`](../results/README.md) for the exact contract.
 
 ## Files in this folder
 
@@ -87,7 +75,7 @@ compound-model/
                                   # full implementation plan
 ```
 
-The `src/`, `notebooks/`, `tests/`, etc. directories will appear once Phase 1 of the plan is built.
+The `src/`, `notebooks/`, `tests/`, etc. directories should appear only when they support the priority stack in `DEVELOPMENT.md`.
 
 ## Compare against other models
 
