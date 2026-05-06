@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WC2026 // Prediction Model</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Design tokens ─────────────────────────────────────────────── */
+    :root {
+      --bg:       #111118;
+      --surface:  #1a1a28;
+      --border:   #2e2e42;
+      --text:     #dddde8;
+      --muted:    #7878a0;
+      --accent:   #00d4ff;
+      --win:      #00d4ff;
+      --high:     #4caf7d;
+      --med:      #f0a500;
+      --low:      #e05252;
+      --font:     'Space Mono', 'Courier New', monospace;
+    }
+
+    /* ── Reset / base ───────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 14px; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Layout ─────────────────────────────────────────────────────── */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Header ─────────────────────────────────────────────────────── */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 32px 0 0;
+    }
+
+    .header-inner {
+      padding-bottom: 24px;
+    }
+
+    .site-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #fff;
+    }
+
+    .site-title span {
+      color: var(--accent);
+    }
+
+    .site-subtitle {
+      color: var(--muted);
+      font-size: 0.78rem;
+      margin-top: 4px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Tab nav ────────────────────────────────────────────────────── */
+    .tab-nav {
+      display: flex;
+      gap: 0;
+      margin-top: 20px;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font-family: var(--font);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      padding: 10px 24px 10px 0;
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .tab-btn:hover {
+      color: var(--accent);
+    }
+
+    .tab-btn.active {
+      border-bottom-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ── Panels ─────────────────────────────────────────────────────── */
+    .panel { display: none; padding: 40px 0 64px; }
+    .panel.active { display: block; }
+
+    /* ── Section headings ───────────────────────────────────────────── */
+    .section {
+      margin-bottom: 48px;
+    }
+
+    .section-label {
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .section h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Methodology content ────────────────────────────────────────── */
+    .method-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 20px 24px;
+      margin-bottom: 20px;
+    }
+
+    .method-block h3 {
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .method-block ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .method-block ul li {
+      color: var(--text);
+      font-size: 0.88rem;
+      line-height: 1.7;
+      padding: 2px 0 2px 16px;
+      position: relative;
+    }
+
+    .method-block ul li::before {
+      content: '›';
+      color: var(--muted);
+      position: absolute;
+      left: 0;
+    }
+
+    .model-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .model-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 14px 16px;
+    }
+
+    .model-card .model-name {
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      margin-bottom: 6px;
+    }
+
+    .model-card p {
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
+    .feature-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .feature-row:last-child { border-bottom: none; }
+
+    .feature-weight {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.88rem;
+      min-width: 40px;
+    }
+
+    .feature-bar-wrap {
+      flex: 1;
+      background: var(--border);
+      border-radius: 2px;
+      height: 4px;
+    }
+
+    .feature-bar {
+      height: 4px;
+      border-radius: 2px;
+      background: var(--accent);
+    }
+
+    .feature-desc {
+      color: var(--text);
+      font-size: 0.82rem;
+      min-width: 220px;
+    }
+
+    /* ── Gaps / warning block ───────────────────────────────────────── */
+    .gaps-block {
+      background: rgba(224, 82, 82, 0.07);
+      border: 1px solid rgba(224, 82, 82, 0.3);
+      border-radius: 4px;
+      padding: 20px 24px;
+    }
+
+    .gaps-block h3 {
+      color: var(--low);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .gaps-block ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .gaps-block ul li {
+      color: var(--text);
+      font-size: 0.88rem;
+      line-height: 1.7;
+      padding: 2px 0 2px 16px;
+      position: relative;
+    }
+
+    .gaps-block ul li::before {
+      content: '!';
+      color: var(--low);
+      font-weight: 700;
+      position: absolute;
+      left: 0;
+    }
+
+    .gaps-teams {
+      color: var(--muted);
+      font-size: 0.78rem;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── Results: search ────────────────────────────────────────────── */
+    .search-wrap {
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .search-input {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 0.82rem;
+      padding: 10px 14px 10px 36px;
+      width: 280px;
+      transition: border-color 0.15s ease;
+      outline: none;
+    }
+
+    .search-input:focus { border-color: var(--accent); }
+
+    .search-input::placeholder { color: var(--muted); }
+
+    .search-icon {
+      color: var(--muted);
+      font-size: 0.82rem;
+      left: 12px;
+      pointer-events: none;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    /* ── Results: team table ────────────────────────────────────────── */
+    .team-table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .team-table th {
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 8px 12px;
+      text-align: right;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .team-table th:first-child,
+    .team-table th:nth-child(2) { text-align: left; }
+
+    .team-table td {
+      border-bottom: 1px solid rgba(46, 46, 66, 0.5);
+      font-size: 0.84rem;
+      padding: 10px 12px;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .team-table td:first-child { color: var(--muted); font-size: 0.72rem; text-align: left; }
+    .team-table td:nth-child(2) { text-align: left; }
+
+    .team-table tr:hover td { background: rgba(255, 255, 255, 0.03); }
+
+    .team-name { font-weight: 700; }
+
+    .badge {
+      border-radius: 3px;
+      display: inline-block;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 2px 5px;
+      text-transform: uppercase;
+      vertical-align: middle;
+    }
+
+    .badge-high { background: rgba(76, 175, 125, 0.15); color: var(--high); }
+    .badge-med  { background: rgba(240, 165, 0, 0.15);  color: var(--med);  }
+    .badge-low  { background: rgba(224, 82, 82, 0.15);  color: var(--low);  }
+
+    .pct-champion { color: #fff; font-weight: 700; }
+    .pct-muted    { color: var(--muted); }
+
+    .no-results {
+      color: var(--muted);
+      font-size: 0.82rem;
+      padding: 24px 0;
+      text-align: center;
+    }
+
+    /* ── Bracket ────────────────────────────────────────────────────── */
+    .bracket-note {
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-style: italic;
+      margin-bottom: 24px;
+    }
+
+    .bracket-scroll {
+      overflow-x: auto;
+      padding-bottom: 12px;
+    }
+
+    .bracket-rounds {
+      display: flex;
+      gap: 0;
+      min-width: max-content;
+    }
+
+    .bracket-round {
+      display: flex;
+      flex-direction: column;
+      min-width: 180px;
+    }
+
+    .round-header {
+      color: var(--muted);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      padding: 0 8px 12px;
+      text-transform: uppercase;
+    }
+
+    .round-matches {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      justify-content: space-around;
+      flex: 1;
+      padding: 0 8px;
+    }
+
+    .match-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 0.76rem;
+      overflow: hidden;
+    }
+
+    .match-row {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 10px;
+    }
+
+    .match-row + .match-row {
+      border-top: 1px solid var(--border);
+    }
+
+    .match-row.winner {
+      color: var(--win);
+      font-weight: 700;
+    }
+
+    .match-row.loser {
+      color: var(--muted);
+    }
+
+    .match-team { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .match-pct  { color: var(--muted); font-size: 0.68rem; margin-left: 6px; min-width: 32px; text-align: right; }
+    .match-row.winner .match-pct { color: var(--win); }
+
+    /* Final card */
+    .match-card.final-card {
+      border-color: var(--accent);
+      min-width: 200px;
+    }
+
+    /* Groups column uses a grid */
+    .groups-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      padding: 0 8px;
+    }
+
+    .group-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 0.72rem;
+      padding: 8px 10px;
+    }
+
+    .group-id {
+      color: var(--accent);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+
+    .group-winner { color: #fff; font-weight: 700; }
+    .group-runner { color: var(--muted); }
+
+    /* ── Model agreement ────────────────────────────────────────────── */
+    .agreement-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 8px;
+    }
+
+    .agreement-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      font-size: 0.78rem;
+    }
+
+    .agree-team { font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .agree-pct  { color: var(--muted); font-size: 0.7rem; margin-right: 8px; }
+
+    .agree-badge {
+      border-radius: 3px;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 2px 5px;
+      text-transform: uppercase;
+    }
+
+    .agree-badge.converge { background: rgba(0, 212, 255, 0.12); color: var(--accent); }
+    .agree-badge.diverge  { background: rgba(240, 165, 0, 0.12);  color: var(--med);  }
+
+    /* ── Footer ─────────────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      padding: 24px 0;
+      text-align: center;
+    }
+
+    /* ── Error state ────────────────────────────────────────────────── */
+    .error-msg {
+      background: rgba(224, 82, 82, 0.08);
+      border: 1px solid rgba(224, 82, 82, 0.3);
+      border-radius: 4px;
+      color: var(--low);
+      font-size: 0.82rem;
+      padding: 16px 20px;
+      margin: 24px 0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="header-inner">
+      <div class="site-title">WC2026 <span>//</span> PREDICTION MODEL</div>
+      <div class="site-subtitle" id="meta-subtitle">Statistical analysis · Monte Carlo simulation · 10,000 runs</div>
+    </div>
+    <nav class="tab-nav" role="tablist">
+      <button class="tab-btn active" data-tab="methodology" role="tab" aria-selected="true">METHODOLOGY</button>
+      <button class="tab-btn"        data-tab="results"     role="tab" aria-selected="false">RESULTS</button>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     METHODOLOGY PANEL
+═══════════════════════════════════════════════════════════════════ -->
+<div id="panel-methodology" class="panel active" role="tabpanel">
+  <div class="container">
+
+    <div class="section">
+      <div class="section-label">Data Sources</div>
+      <div class="method-block">
+        <h3>What went into the model</h3>
+        <ul>
+          <li><strong>StatsBomb open data</strong> — player-level xG from WC2022, Euro 2024, and Copa América 2024. The best-quality open dataset for international football.</li>
+          <li><strong>Understat 2024–25</strong> — club xG for ~1,200 players across the top 5 European leagues. Used to fill gaps where international data is sparse.</li>
+          <li><strong>7,961 international results</strong> — all competitive matches from 2018 onward. Source of Elo ratings and form signals.</li>
+          <li><strong>Kalshi &amp; Polymarket</strong> — live prediction market prices as of April 2026. Used as a sanity check against the model, not as a data input.</li>
+          <li><strong>WC2026 confirmed squads</strong> — player-lineup mappings used to project club xG into national team attack ratings.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Models</div>
+      <div class="model-grid">
+        <div class="model-card">
+          <div class="model-name">ELO BASELINE</div>
+          <p>Time-decayed Elo on 7,961 modern internationals. Proven simple benchmark — treats older results as less informative.</p>
+        </div>
+        <div class="model-card">
+          <div class="model-name">POISSON GOALS</div>
+          <p>Attack and defense strength ratings predict the probability distribution of goals scored in each match.</p>
+        </div>
+        <div class="model-card">
+          <div class="model-name">LAST-10 FORM</div>
+          <p>Rolling form based on each team's 10 most recent competitive matches. Captures momentum and current shape.</p>
+        </div>
+        <div class="model-card">
+          <div class="model-name">ENSEMBLE</div>
+          <p>Weighted average of the three models above. Tends to be more stable and less prone to outlier swings.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Simulation</div>
+      <div class="method-block">
+        <h3>How the tournament was simulated</h3>
+        <ul>
+          <li>The full WC2026 format was simulated <strong>10,000 times</strong> — 12 groups of 4, top 2 per group + 8 best third-place teams advance to the Round of 32.</li>
+          <li>Each match produces a goal-distribution draw from the Poisson model. The simulation includes extra time and penalty shootout modeling.</li>
+          <li>Each team's win probabilities at every stage (Group exit, R32, R16, QF, SF, Final, Champion) are the fraction of simulations where they reached that stage.</li>
+          <li>The predicted bracket on the Results page shows the single most-likely path — not a guarantee. It's a useful snapshot of where the model's probability mass sits.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Feature Weights</div>
+      <div class="method-block">
+        <h3>What drives each team's rating</h3>
+        <div class="feature-row">
+          <span class="feature-weight">60%</span>
+          <div class="feature-bar-wrap"><div class="feature-bar" style="width:60%"></div></div>
+          <span class="feature-desc"><strong>Club xG (2024–25)</strong> — denser sample, higher signal. Reflects the players teams will actually field.</span>
+        </div>
+        <div class="feature-row">
+          <span class="feature-weight">40%</span>
+          <div class="feature-bar-wrap"><div class="feature-bar" style="width:40%"></div></div>
+          <span class="feature-desc"><strong>National team xG history</strong> — tournament-specific form adjustment from WC22 / Euro24 / Copa24.</span>
+        </div>
+        <div class="feature-row">
+          <span class="feature-weight">+</span>
+          <div class="feature-bar-wrap"><div class="feature-bar" style="width:15%"></div></div>
+          <span class="feature-desc"><strong>Elo prior</strong> — Bayesian regularization. Pulls extreme predictions toward overall team strength.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Where This Analysis Is Lacking</div>
+      <div class="gaps-block">
+        <h3>Known limitations — read before over-indexing on any prediction</h3>
+        <ul>
+          <li>
+            <strong>~14 teams have sparse or missing player data.</strong> For these nations the model uses a lower-confidence prior rather than actual player xG. Their predictions carry wider uncertainty.
+            <div class="gaps-teams">Algeria · Bosnia and Herzegovina · Cape Verde · Curaçao · DR Congo · Egypt · Haiti · Iraq · Jordan · New Zealand · Norway · South Africa · Sweden · Uzbekistan</div>
+          </li>
+          <li><strong>Squad announcements are still pending</strong> for some nations. Final rosters will sharpen ratings — particularly for teams whose club-xG projection depends on who actually travels to the tournament.</li>
+          <li><strong>International xG samples are inherently small.</strong> Most WC teams play only 8–12 competitive matches per cycle. Club aggregation compensates but can't fully replace tournament-level signal.</li>
+          <li><strong>This page will be updated</strong> as final squads are confirmed and closer to the tournament start.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     RESULTS PANEL
+═══════════════════════════════════════════════════════════════════ -->
+<div id="panel-results" class="panel" role="tabpanel">
+  <div class="container">
+
+    <!-- Team table -->
+    <div class="section">
+      <div class="section-label">All 48 Teams — Tournament Probabilities</div>
+      <div class="search-wrap">
+        <span class="search-icon">⌕</span>
+        <input
+          class="search-input"
+          id="team-search"
+          placeholder="Search team..."
+          type="text"
+          autocomplete="off"
+        />
+      </div>
+      <div id="table-container">
+        <table class="team-table" id="team-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Team</th>
+              <th>Champion</th>
+              <th>Final</th>
+              <th>Semis</th>
+              <th>Group exit</th>
+              <th>Data</th>
+            </tr>
+          </thead>
+          <tbody id="team-tbody"></tbody>
+        </table>
+        <div class="no-results" id="no-results" style="display:none">No teams match your search.</div>
+      </div>
+    </div>
+
+    <!-- Bracket -->
+    <div class="section">
+      <div class="section-label">Predicted Bracket</div>
+      <p class="bracket-note">Model-estimated path based on win probabilities. Not official FIFA seeding. Updated as squads are confirmed.</p>
+      <div class="bracket-scroll">
+        <div class="bracket-rounds" id="bracket-rounds"></div>
+      </div>
+    </div>
+
+    <!-- Model agreement -->
+    <div class="section">
+      <div class="section-label">Model Agreement — Top 16 Contenders</div>
+      <div id="agreement-grid" class="agreement-grid"></div>
+      <p style="color:var(--muted);font-size:0.72rem;margin-top:12px">
+        <strong style="color:var(--accent)">CONVERGE</strong> = all three base models (Elo, Poisson, Form) rank this team similarly. Higher confidence.
+        &nbsp;&nbsp;
+        <strong style="color:var(--med)">DIVERGE</strong> = models disagree on this team's strength. Wider uncertainty.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    WC2026 Prediction Model · Built with StatsBomb, Understat &amp; 10,000 simulations · <span id="footer-date"></span>
+  </div>
+</footer>
+
+<script>
+/* ── Tab toggle ────────────────────────────────────────────────────── */
+(function () {
+  const btns = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.panel');
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.tab;
+      btns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+      panels.forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      document.getElementById('panel-' + target).classList.add('active');
+    });
+  });
+})();
+
+/* ── Flag emoji helper ─────────────────────────────────────────────── */
+const FLAG_MAP = {
+  'Algeria': '🇩🇿', 'Argentina': '🇦🇷', 'Australia': '🇦🇺', 'Austria': '🇦🇹',
+  'Belgium': '🇧🇪', 'Bosnia and Herzegovina': '🇧🇦', 'Brazil': '🇧🇷',
+  'Canada': '🇨🇦', 'Cape Verde': '🇨🇻', 'Colombia': '🇨🇴', 'Croatia': '🇭🇷',
+  'Curaçao': '🇨🇼', 'Czechia': '🇨🇿', 'DR Congo': '🇨🇩', 'Ecuador': '🇪🇨',
+  'Egypt': '🇪🇬', 'England': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'France': '🇫🇷', 'Germany': '🇩🇪',
+  'Ghana': '🇬🇭', 'Haiti': '🇭🇹', 'Iran': '🇮🇷', 'Iraq': '🇮🇶',
+  'Ivory Coast': '🇨🇮', 'Japan': '🇯🇵', 'Jordan': '🇯🇴', 'Mexico': '🇲🇽',
+  'Morocco': '🇲🇦', 'Netherlands': '🇳🇱', 'New Zealand': '🇳🇿', 'Norway': '🇳🇴',
+  'Panama': '🇵🇦', 'Paraguay': '🇵🇾', 'Portugal': '🇵🇹', 'Qatar': '🇶🇦',
+  'Saudi Arabia': '🇸🇦', 'Scotland': '🏴󠁧󠁢󠁳󠁣󠁴󠁿', 'Senegal': '🇸🇳',
+  'South Africa': '🇿🇦', 'South Korea': '🇰🇷', 'Spain': '🇪🇸', 'Sweden': '🇸🇪',
+  'Switzerland': '🇨🇭', 'Tunisia': '🇹🇳', 'Türkiye': '🇹🇷', 'USA': '🇺🇸',
+  'Uruguay': '🇺🇾', 'Uzbekistan': '🇺🇿',
+};
+
+function flag(name) {
+  return FLAG_MAP[name] || '🏳';
+}
+
+/* ── Data load & render ────────────────────────────────────────────── */
+fetch('data.json')
+  .then(r => {
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return r.json();
+  })
+  .then(data => {
+    renderMeta(data.meta);
+    renderTeamTable(data.teams);
+    renderBracket(data.bracket);
+    renderAgreement(data.model_agreement);
+  })
+  .catch(err => {
+    const msg = `<div class="error-msg">Could not load prediction data (${err.message}). If viewing locally, serve via <code>python3 -m http.server 8080</code> in the docs/ folder.</div>`;
+    document.getElementById('panel-results').querySelector('.container').insertAdjacentHTML('afterbegin', msg);
+  });
+
+/* ── Meta ──────────────────────────────────────────────────────────── */
+function renderMeta(meta) {
+  const d = new Date(meta.generated);
+  const fmt = d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  document.getElementById('footer-date').textContent = 'Data as of ' + fmt;
+}
+
+/* ── Team table ────────────────────────────────────────────────────── */
+let ALL_TEAMS = [];
+
+function renderTeamTable(teams) {
+  ALL_TEAMS = teams;
+  renderRows(teams);
+
+  const search = document.getElementById('team-search');
+  search.addEventListener('input', () => {
+    const q = search.value.trim().toLowerCase();
+    renderRows(q ? ALL_TEAMS.filter(t => t.name.toLowerCase().includes(q)) : ALL_TEAMS);
+  });
+}
+
+function renderRows(teams) {
+  const tbody = document.getElementById('team-tbody');
+  const noResults = document.getElementById('no-results');
+  const table = document.getElementById('team-table');
+
+  if (!teams.length) {
+    tbody.innerHTML = '';
+    noResults.style.display = '';
+    table.style.display = 'none';
+    return;
+  }
+
+  noResults.style.display = 'none';
+  table.style.display = '';
+
+  tbody.innerHTML = teams.map(t => {
+    const badgeClass = t.confidence === 'HIGH' ? 'badge-high' : t.confidence === 'MEDIUM' ? 'badge-med' : 'badge-low';
+    return `<tr>
+      <td>${t.rank}</td>
+      <td><span class="team-name">${flag(t.name)} ${t.name}</span></td>
+      <td class="pct-champion">${t.champion_pct}%</td>
+      <td class="pct-muted">${t.final_pct}%</td>
+      <td class="pct-muted">${t.semi_pct}%</td>
+      <td class="pct-muted">${t.group_exit_pct}%</td>
+      <td><span class="badge ${badgeClass}">${t.confidence}</span></td>
+    </tr>`;
+  }).join('');
+}
+
+/* ── Bracket ───────────────────────────────────────────────────────── */
+function renderBracket(bracket) {
+  const container = document.getElementById('bracket-rounds');
+
+  // Groups column
+  container.appendChild(buildGroupsCol(bracket.groups));
+
+  // Knockout rounds
+  const rounds = [
+    { key: 'r32',  label: 'Round of 32' },
+    { key: 'r16',  label: 'Round of 16' },
+    { key: 'qf',   label: 'Quarterfinals' },
+    { key: 'sf',   label: 'Semifinals' },
+  ];
+
+  rounds.forEach(({ key, label }) => {
+    container.appendChild(buildRoundCol(label, bracket[key]));
+  });
+
+  // Final
+  container.appendChild(buildFinalCol(bracket.final, bracket.champion));
+}
+
+function buildGroupsCol(groups) {
+  const col = document.createElement('div');
+  col.className = 'bracket-round';
+  col.style.minWidth = '220px';
+
+  const hdr = document.createElement('div');
+  hdr.className = 'round-header';
+  hdr.textContent = 'Group Winners';
+  col.appendChild(hdr);
+
+  const grid = document.createElement('div');
+  grid.className = 'groups-grid';
+
+  const groupOrder = ['A','B','C','D','E','F','G','H','I','J','K','L'];
+  groupOrder.forEach(gid => {
+    if (!groups[gid]) return;
+    const g = groups[gid];
+    const card = document.createElement('div');
+    card.className = 'group-card';
+    card.innerHTML = `
+      <div class="group-id">GROUP ${gid}</div>
+      <div class="group-winner">${flag(g.winner)} ${g.winner}</div>
+      <div class="group-runner">${flag(g.runner_up)} ${g.runner_up}</div>
+    `;
+    grid.appendChild(card);
+  });
+
+  col.appendChild(grid);
+  return col;
+}
+
+function buildRoundCol(label, matches) {
+  const col = document.createElement('div');
+  col.className = 'bracket-round';
+
+  const hdr = document.createElement('div');
+  hdr.className = 'round-header';
+  hdr.textContent = label;
+  col.appendChild(hdr);
+
+  const wrap = document.createElement('div');
+  wrap.className = 'round-matches';
+
+  matches.forEach(m => {
+    const card = document.createElement('div');
+    card.className = 'match-card';
+
+    [
+      { team: m.team1, pct: m.p1, isWinner: m.winner === m.team1 },
+      { team: m.team2, pct: m.p2, isWinner: m.winner === m.team2 },
+    ].forEach(({ team, pct, isWinner }) => {
+      const row = document.createElement('div');
+      row.className = 'match-row ' + (isWinner ? 'winner' : 'loser');
+      row.innerHTML = `<span class="match-team">${flag(team)} ${team}</span><span class="match-pct">${pct}%</span>`;
+      card.appendChild(row);
+    });
+
+    wrap.appendChild(card);
+  });
+
+  col.appendChild(wrap);
+  return col;
+}
+
+function buildFinalCol(finalMatch, champion) {
+  const col = document.createElement('div');
+  col.className = 'bracket-round';
+  col.style.minWidth = '210px';
+
+  const hdr = document.createElement('div');
+  hdr.className = 'round-header';
+  hdr.textContent = 'Final';
+  col.appendChild(hdr);
+
+  const wrap = document.createElement('div');
+  wrap.className = 'round-matches';
+
+  if (finalMatch && finalMatch.team1) {
+    const card = document.createElement('div');
+    card.className = 'match-card final-card';
+
+    [
+      { team: finalMatch.team1, pct: finalMatch.p1, isWinner: finalMatch.winner === finalMatch.team1 },
+      { team: finalMatch.team2, pct: finalMatch.p2, isWinner: finalMatch.winner === finalMatch.team2 },
+    ].forEach(({ team, pct, isWinner }) => {
+      const row = document.createElement('div');
+      row.className = 'match-row ' + (isWinner ? 'winner' : 'loser');
+      row.innerHTML = `<span class="match-team">${flag(team)} ${team}</span><span class="match-pct">${pct}%</span>`;
+      card.appendChild(row);
+    });
+
+    wrap.appendChild(card);
+  }
+
+  // Champion callout
+  if (champion) {
+    const champ = document.createElement('div');
+    champ.style.cssText = 'color:var(--accent);font-size:0.7rem;font-weight:700;letter-spacing:0.1em;padding:12px 8px 0;text-align:center;text-transform:uppercase;';
+    champ.textContent = '🏆 ' + champion;
+    wrap.appendChild(champ);
+  }
+
+  col.appendChild(wrap);
+  return col;
+}
+
+/* ── Model agreement ───────────────────────────────────────────────── */
+function renderAgreement(items) {
+  const grid = document.getElementById('agreement-grid');
+  grid.innerHTML = items.map(item => {
+    const cls = item.agreement === 'CONVERGE' ? 'converge' : 'diverge';
+    return `<div class="agreement-card">
+      <span class="agree-team">${flag(item.team)} ${item.team}</span>
+      <span class="agree-pct">${item.champion_pct}%</span>
+      <span class="agree-badge ${cls}">${item.agreement}</span>
+    </div>`;
+  }).join('');
+}
+</script>
+
+</body>
+</html>
