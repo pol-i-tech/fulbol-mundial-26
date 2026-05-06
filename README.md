@@ -1,5 +1,7 @@
 # fulbol-mundial-26
 
+**[→ View the live prediction report](https://lnoguera171.github.io/fulbol-mundial-26/)** — methodology, 48-team probabilities, predicted bracket.
+
 A **multi-contributor** workbench for predicting the 2026 FIFA World Cup. The goal is simple: every participant brings their own modeling approach, drops their estimations into a common results folder, and the group compares them against prediction-market prices (Kalshi, Polymarket, Hard Rock Bet) to find positive-edge betting opportunities.
 
 The repo is a tournament between approaches. We don't care whether a model is hand-built in a spreadsheet, a Bayesian hierarchy in Stan, or a quick gut-feel tier list — if it produces probabilities and writes them in the standard format, the comparison framework treats them all equally.
