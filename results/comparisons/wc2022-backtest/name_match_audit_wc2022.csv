@@ -1,0 +1,681 @@
+squad_player,nation,und_player_matched,match_score,club_xg90,threshold_passed
+Nicolás Hernán Otamendi,Argentina,,0.0,,False
+Lionel Andrés Messi Cuccittini,Argentina,,0.0,,False
+Damián Emiliano Martínez,Argentina,emiliano martinez,81.25,0.0,True
+Rodrigo Javier De Paul,Argentina,rodrigo paul,100.0,0.0628,True
+Nahuel Molina Lucero,Argentina,,0.0,,False
+Enzo Fernandez,Argentina,alex fernandez,78.57142857142857,0.1256,True
+Cristian Gabriel Romero,Argentina,cristian romero,100.0,0.02,True
+Alexis Mac Allister,Argentina,alexis allister,100.0,0.2925,True
+Julián Álvarez,Argentina,,0.0,,False
+Marcos Javier Acuña,Argentina,marcos acuna,100.0,0.0395,True
+Nicolás Alejandro Tagliafico,Argentina,,0.0,,False
+Lisandro Martínez,Argentina,emiliano martinez,82.35294117647058,0.0,True
+Ángel Fabián Di María Hernández,Argentina,aridane hernandez,81.25,0.0076,True
+Lautaro Javier Martínez,Argentina,lautaro martinez,100.0,0.8906,True
+Leandro Daniel Paredes,Argentina,leandro paredes,100.0,0.0564,True
+Gonzalo Ariel Montiel,Argentina,gonzalo montiel,100.0,0.0219,True
+Alejandro Darío Gómez,Argentina,alejandro gomez,100.0,0.1326,True
+Exequiel Alejandro Palacios,Argentina,exequiel palacios,100.0,0.021,True
+Germán Alejandro Pezzella,Argentina,german pezzella,100.0,0.0717,True
+Guido Rodríguez,Argentina,guido rodriguez,100.0,0.046,True
+Paulo Bruno Exequiel Dybala,Argentina,paulo dybala,100.0,0.3313,True
+Thiago Ezequiel Almada,Argentina,thiago galhardo,78.57142857142857,0.3305,True
+Ángel Martín Correa,Argentina,angel correa,100.0,0.3534,True
+Juan Marcos Foyth,Argentina,juan foyth,100.0,0.0464,True
+Aziz Eraltay Behich,Australia,,0.0,,False
+Harry Souttar,Australia,,0.0,,False
+Aaron Mooy,Australia,,0.0,,False
+Kye Rowles,Australia,,0.0,,False
+Mathew Ryan,Australia,mat ryan,84.21052631578947,0.0,True
+Jackson Irvine,Australia,,0.0,,False
+Mathew Leckie,Australia,,0.0,,False
+Mitchell Thomas Duke,Australia,mitchell dijks,81.4814814814815,0.0826,True
+Riley McGree,Australia,,0.0,,False
+Craig Goodwin,Australia,,0.0,,False
+Miloš Degenek,Australia,,0.0,,False
+Keanu Baccus,Australia,,0.0,,False
+Fran Karačić,Australia,fran garcia,78.26086956521739,0.0278,True
+Nathaniel Atkinson,Australia,,0.0,,False
+Ajdin Hrustic,Australia,ajdin hrustic,100.0,0.0949,True
+Jamie MacLaren,Australia,,0.0,,False
+Garang Kuol,Australia,,0.0,,False
+Jason Cummings,Australia,,0.0,,False
+Awer Mabil,Australia,,0.0,,False
+Bailey Wright,Australia,,0.0,,False
+Axel Witsel,Belgium,axel witsel,100.0,0.0515,True
+Jan Vertonghen,Belgium,,0.0,,False
+Toby Alderweireld,Belgium,,0.0,,False
+Kevin De Bruyne,Belgium,kevin bruyne,100.0,0.2419,True
+Timothy Castagne,Belgium,timothy castagne,100.0,0.04,True
+Thibaut Courtois,Belgium,thibaut courtois,100.0,0.0,True
+Thomas Meunier,Belgium,thomas meunier,100.0,0.0549,True
+Leander Dendoncker,Belgium,leander dendoncker,100.0,0.1138,True
+Michy Batshuayi Tunga,Belgium,,0.0,,False
+Eden Hazard,Belgium,eden hazard,100.0,0.1584,True
+Yannick Ferreira Carrasco,Belgium,yannick carrasco,100.0,0.183,True
+Amadou Onana,Belgium,amadou onana,100.0,0.2007,True
+Thorgan Hazard,Belgium,thorgan hazard,100.0,0.1918,True
+Leandro Trossard,Belgium,leandro trossard,100.0,0.2532,True
+Youri Tielemans,Belgium,youri tielemans,100.0,0.1456,True
+Dries Mertens,Belgium,dries mertens,100.0,0.3285,True
+Romelu Lukaku Menama,Belgium,,0.0,,False
+Ikoma Loïs Openda,Belgium,,0.0,,False
+Jeremy Doku,Belgium,jeremy doku,100.0,0.1723,True
+Charles De Ketelaere,Belgium,charles traore,77.41935483870968,0.0,True
+Marcos Aoás Corrêa,Brazil,,0.0,,False
+Carlos Henrique Casimiro,Brazil,,0.0,,False
+Thiago Emiliano da Silva,Brazil,thiago silva,100.0,0.0366,True
+Alisson Ramsés Becker,Brazil,,0.0,,False
+Éder Gabriel Militão,Brazil,eder militao,100.0,0.0725,True
+Richarlison de Andrade,Brazil,,0.0,,False
+Raphael Dias Belloli,Brazil,,0.0,,False
+Lucas Tolentino Coelho de Lima,Brazil,lucas leiva,85.71428571428572,0.0047,True
+Vinícius José Paixão de Oliveira Júnior,Brazil,vinicius junior,100.0,0.4747,True
+Danilo Luiz da Silva,Brazil,fabio silva,78.26086956521739,0.4421,True
+Neymar da Silva Santos Junior,Brazil,,0.0,,False
+Rodrygo Silva de Goes,Brazil,,0.0,,False
+Alex Sandro Lobo Silva,Brazil,andre silva,76.19047619047619,0.6138,True
+Antony Matheus dos Santos,Brazil,,0.0,,False
+Frederico Rodrigues Santos,Brazil,,0.0,,False
+Daniel Alves da Silva,Brazil,damien silva,83.33333333333334,0.0317,True
+Gabriel Teodoro Martinelli Silva,Brazil,gabriel silva,100.0,0.0076,True
+Gleison Bremer Silva Nascimento,Brazil,,0.0,,False
+Gabriel Fernando de Jesus,Brazil,gabriel jesus,100.0,0.4848,True
+Fábio Henrique Tavares,Brazil,,0.0,,False
+Ederson Santana de Moraes,Brazil,,0.0,,False
+Bruno Guimarães Rodriguez Moura,Brazil,,0.0,,False
+Pedro Guilherme Abreu dos Santos,Brazil,,0.0,,False
+Alex Nicolao Telles,Brazil,alex telles,100.0,0.0245,True
+Éverton Augusto de Barros Ribeiro,Brazil,,0.0,,False
+Weverton Pereira da Silva,Brazil,,0.0,,False
+Ngoran Suiru Fai Collins,Cameroon,nathan collins,78.57142857142857,0.0886,True
+Nouhou Tolo,Cameroon,,0.0,,False
+André-Frank Zambo Anguissa,Cameroon,,0.0,,False
+Jean-Eric Maxim Choupo-Moting,Cameroon,eric choupo-moting,87.8048780487805,1.1756,True
+Bryan Mbeumo,Cameroon,bryan mbeumo,100.0,0.3008,True
+Devis Rogers Epassy Mboka,Cameroon,,0.0,,False
+Jean-Charles Castelletto,Cameroon,jean-charles castelletto,100.0,0.0375,True
+Nicolas Alexis Julio N'Koulou Ndoubena,Cameroon,,0.0,,False
+Karl Brillant Toko Ekambi,Cameroon,karl ekambi,100.0,0.4226,True
+Vincent Paté Aboubakar,Cameroon,,0.0,,False
+Pierre Kunde Malong,Cameroon,,0.0,,False
+Martin Hongla Yma II,Cameroon,inigo martinez,78.26086956521739,0.0846,True
+Samuel Yves Oum Gwet,Cameroon,,0.0,,False
+Christopher Wooh,Cameroon,christopher wooh,100.0,0.0966,True
+André Onana,Cameroon,andre hahn,76.19047619047619,0.1726,True
+Enzo Ebosse,Cameroon,enzo ebosse,100.0,0.0051,True
+Nicolas Moumi Ngamaleu,Cameroon,nicolas gonzalez,75.0,0.3677,True
+Christian Mougang Bassogog,Cameroon,,0.0,,False
+Gaël Ondoua,Cameroon,,0.0,,False
+Georges-Kévin Nkoudou Mbida,Cameroon,,0.0,,False
+Jules Olivier Ntcham,Cameroon,,0.0,,False
+Jerome Ngom Mbekeli,Cameroon,,0.0,,False
+Kamal Miller,Canada,,0.0,,False
+Steven de Sousa Vitoria,Canada,,0.0,,False
+Milan Borjan,Canada,,0.0,,False
+Alistair Johnston,Canada,,0.0,,False
+Alphonso Davies,Canada,alphonso davies,100.0,0.0834,True
+Tajon Buchanan,Canada,,0.0,,False
+Jonathan David,Canada,jonathan david,100.0,0.4256,True
+David Junior Hoilett,Canada,,0.0,,False
+Atiba Hutchinson,Canada,,0.0,,False
+Richie Laryea,Canada,,0.0,,False
+Cyle Larin,Canada,,0.0,,False
+Jonathan Osorio,Canada,,0.0,,False
+Stephen Antunes Eustáquio,Canada,,0.0,,False
+Ismael Koné,Canada,ismael traore,75.0,0.1023,True
+Sam Adekugbe,Canada,,0.0,,False
+Mark Anthony Kaye,Canada,,0.0,,False
+Lucas Daniel Cavallini,Canada,,0.0,,False
+David Wotherspoon,Canada,,0.0,,False
+Liam Millar,Canada,luis milla,76.19047619047619,0.106,True
+Joel Nathaniel Campbell Samuels,Costa Rica,,0.0,,False
+Keylor Navas Gamboa,Costa Rica,,0.0,,False
+Yeltsin Ignacio Tejeda Valverde,Costa Rica,,0.0,,False
+Óscar Esau Duarte Gaitán,Costa Rica,oscar gil,76.19047619047619,0.0112,True
+Bryan Oviedo,Costa Rica,,0.0,,False
+Keysher Fuller Spence,Costa Rica,,0.0,,False
+Celso Borges Mora,Costa Rica,,0.0,,False
+Kendall Jamaal Waston Manley,Costa Rica,,0.0,,False
+Francisco Javier Calvo Quesada,Costa Rica,,0.0,,False
+Anthony Daniel Contreras Enríquez,Costa Rica,,0.0,,False
+Jewison Bennette,Costa Rica,,0.0,,False
+Brandon Aguilera Zamora,Costa Rica,,0.0,,False
+Juan Pablo Vargas Campos,Costa Rica,,0.0,,False
+Johan Alberto Venegas Ulloa,Costa Rica,,0.0,,False
+Gerson Torres Barrantes,Costa Rica,,0.0,,False
+Youstin Delfin Salas Gómez,Costa Rica,,0.0,,False
+Carlos Manuel Martínez Castro,Costa Rica,,0.0,,False
+Ronald Alberto Matarrita Ulate,Costa Rica,,0.0,,False
+Bryan Ruiz González,Costa Rica,,0.0,,False
+Alvaro José Zamora Mata,Costa Rica,alvaro morata,91.66666666666666,0.3593,True
+Roan Roberto Wilson Gordon,Costa Rica,,0.0,,False
+Daniel Alonso Chacón Salas,Costa Rica,daniel wass,78.26086956521739,0.1057,True
+Joško Gvardiol,Croatia,josko gvardiol,100.0,0.0824,True
+Dominik Livaković,Croatia,,0.0,,False
+Ivan Perišić,Croatia,ivan perisic,100.0,0.1374,True
+Luka Modrić,Croatia,luka modric,100.0,0.0883,True
+Mateo Kovačić,Croatia,mateo kovacic,100.0,0.0986,True
+Dejan Lovren,Croatia,,0.0,,False
+Josip Juranović,Croatia,,0.0,,False
+Marcelo Brozović,Croatia,marcelo brozovic,100.0,0.0355,True
+Andrej Kramarić,Croatia,andrej kramaric,100.0,0.4015,True
+Borna Sosa,Croatia,borna sosa,100.0,0.0377,True
+Mario Pašalić,Croatia,mario pasalic,100.0,0.4192,True
+Marko Livaja,Croatia,,0.0,,False
+Bruno Petković,Croatia,,0.0,,False
+Nikola Vlašić,Croatia,nikola vlasic,100.0,0.1487,True
+Mislav Oršić,Croatia,,0.0,,False
+Lovro Majer,Croatia,lovro majer,100.0,0.2308,True
+Borna Barišić,Croatia,,0.0,,False
+Josip Stanišić,Croatia,josip stanisic,100.0,0.0734,True
+Josip Šutalo,Croatia,bosko sutalo,75.0,0.009,True
+Ante Budimir,Croatia,ante budimir,100.0,0.5042,True
+Christian Dannemann Eriksen,Denmark,christian eriksen,100.0,0.1351,True
+Joachim Andersen,Denmark,joachim andersen,100.0,0.0149,True
+Andreas Christensen,Denmark,andreas christensen,100.0,0.048,True
+Kasper Schmeichel,Denmark,kasper schmeichel,100.0,0.0,True
+Pierre-Emile Højbjerg,Denmark,pierre-emile højbjerg,100.0,0.0743,True
+Joakim Mæhle,Denmark,joakim maehle,88.0,0.1434,True
+Rasmus Nissen Kristensen,Denmark,,0.0,,False
+Jesper Lindstrøm,Denmark,jesper lindstrom,93.75,0.3145,True
+Mikkel Damsgaard,Denmark,mikkel damsgaard,100.0,0.0775,True
+Andreas Skov Olsen,Denmark,andreas olsen,100.0,0.149,True
+Kasper Dolberg,Denmark,kasper dolberg,100.0,0.3848,True
+Martin Braithwaite Christensen,Denmark,max christiansen,76.47058823529412,0.0139,True
+Andreas Evald Cornelius,Denmark,andrea conti,75.86206896551724,0.1462,True
+Victor Nelsson,Denmark,victor lindelof,75.86206896551724,0.0073,True
+Mathias Jensen,Denmark,mathias jensen,100.0,0.1522,True
+Simon Thorup Kjær,Denmark,simon kjaer,85.71428571428572,0.0424,True
+Alexander Hartmann Bah,Denmark,alexander isak,81.4814814814815,0.4393,True
+Thomas Delaney,Denmark,thomas delaney,100.0,0.0767,True
+Robert Skov,Denmark,robert skov,100.0,0.1494,True
+Christian Nørgaard,Denmark,christian nørgaard,100.0,0.1458,True
+Pervis Josué Estupiñán Tenorio,Ecuador,,0.0,,False
+Felix Eduardo Torres Caicedo,Ecuador,felipe caicedo,88.88888888888889,0.3711,True
+Piero Martín Hincapié Reyna,Ecuador,,0.0,,False
+Moisés Isaac Caicedo Corozo,Ecuador,,0.0,,False
+Gonzalo Jordy Plata Jiménez,Ecuador,gonzalo melero,75.86206896551724,0.2161,True
+Angelo Smit Preciado Quiñónez,Ecuador,,0.0,,False
+Hernán Ismael Galíndez,Ecuador,,0.0,,False
+Enner Remberto Valencia Lastra,Ecuador,,0.0,,False
+Michael Steveen Estrada Martínez,Ecuador,michael keane,75.86206896551724,0.0387,True
+Jhegson Sebastián Méndez Carabalí,Ecuador,,0.0,,False
+Jackson Gabriel Porozo Vernaza,Ecuador,,0.0,,False
+Jeremy Leonel Sarmiento Morante,Ecuador,jeremy morel,84.61538461538461,0.007,True
+José Adoni Cifuentes Charcopa,Ecuador,,0.0,,False
+Romario Andrés Ibarra Mina,Ecuador,mario lemina,83.33333333333334,0.1109,True
+Alan Steven Franco Palma,Ecuador,,0.0,,False
+Carlos Armando Gruezo Arboleda,Ecuador,,0.0,,False
+Djorkaeff Neicer Reasco González,Ecuador,,0.0,,False
+Kevin José Rodríguez Cortez,Ecuador,,0.0,,False
+John Stones,England,john stones,100.0,0.0982,True
+Jordan Pickford,England,jordan pickford,100.0,0.0,True
+Harry Maguire,England,harry maguire,100.0,0.08,True
+Luke Shaw,England,luke shaw,100.0,0.0093,True
+Declan Rice,England,declan rice,100.0,0.0296,True
+Jude Bellingham,England,jude bellingham,100.0,0.1528,True
+Harry Kane,England,harry kane,100.0,0.5765,True
+Bukayo Saka,England,bukayo saka,100.0,0.2938,True
+Jordan Brian Henderson,England,jordan henderson,100.0,0.0472,True
+Philip Foden,England,phil foden,90.9090909090909,0.3894,True
+Kyle Walker,England,kyle walker,100.0,0.0114,True
+Kieran Trippier,England,kieran trippier,100.0,0.0106,True
+Mason Mount,England,mason mount,100.0,0.324,True
+Marcus Rashford,England,marcus rashford,100.0,0.2065,True
+Raheem Sterling,England,raheem sterling,100.0,0.6701,True
+Jack Grealish,England,jack grealish,100.0,0.2581,True
+Callum Wilson,England,callum wilson,100.0,0.4524,True
+Kalvin Phillips,England,kalvin phillips,100.0,0.0433,True
+Eric Dier,England,eric dier,100.0,0.0458,True
+Trent Alexander-Arnold,England,trent alexander-arnold,100.0,0.0691,True
+Aurélien Djani Tchouaméni,France,aurelien tchouameni,100.0,0.0564,True
+Kylian Mbappé Lottin,France,kylian mbappe-lottin,78.78787878787878,0.6729,True
+Hugo Lloris,France,hugo lloris,100.0,0.0,True
+Antoine Griezmann,France,antoine griezmann,100.0,0.2687,True
+Theo Bernard François Hernández,France,theo hernandez,100.0,0.1651,True
+Adrien Rabiot,France,adrien rabiot,100.0,0.0593,True
+Raphaël Varane,France,raphael varane,100.0,0.037,True
+Jules Koundé,France,jules kounde,100.0,0.0499,True
+Dayotchanculle Upamecano,France,dayotchanculle upamecano,100.0,0.0205,True
+Olivier Giroud,France,olivier giroud,100.0,0.5044,True
+Ousmane Dembélé,France,ousmane dembele,100.0,0.199,True
+Ibrahima Konaté,France,ibrahima konate,100.0,0.0187,True
+Youssouf Fofana,France,youssouf fofana,100.0,0.0358,True
+Randal Kolo Muani,France,randal muani,100.0,0.3084,True
+Kingsley Coman,France,kingsley coman,100.0,0.3203,True
+Eduardo Camavinga,France,eduardo camavinga,100.0,0.0747,True
+Marcus Thuram,France,marcus thuram,100.0,0.4848,True
+Axel Disasi,France,axel disasi,100.0,0.0751,True
+Steve Mandanda,France,steve mandanda,100.0,0.0,True
+Benjamin Pavard,France,benjamin pavard,100.0,0.0294,True
+Mattéo Guendouzi Olié,France,matteo politano,76.92307692307692,0.1682,True
+Jordan Veretout,France,jordan veretout,100.0,0.1575,True
+William Saliba,France,william saliba,100.0,0.0343,True
+Lucas Hernández Pi,France,lucas perrin,80.0,0.0178,True
+Joshua Kimmich,Germany,joshua kimmich,100.0,0.0789,True
+Antonio Rüdiger,Germany,antonio rudiger,100.0,0.0793,True
+Niklas Süle,Germany,niklas sule,100.0,0.0547,True
+Manuel Neuer,Germany,manuel neuer,100.0,0.0,True
+Jamal Musiala,Germany,jamal musiala,100.0,0.3514,True
+Serge Gnabry,Germany,serge gnabry,100.0,0.4353,True
+David Raum,Germany,david raum,100.0,0.057,True
+Thomas Müller,Germany,thomas muller,100.0,0.3686,True
+İlkay Gündoğan,Germany,ilkay gundogan,100.0,0.4724,True
+Leon Goretzka,Germany,leon goretzka,100.0,0.3122,True
+Leroy Sané,Germany,leroy sane,100.0,0.481,True
+Kai Havertz,Germany,kai havertz,100.0,0.5251,True
+Nico Schlotterbeck,Germany,nico schlotterbeck,100.0,0.1414,True
+Niclas Füllkrug,Germany,,0.0,,False
+Lukas Klostermann,Germany,lukas klostermann,100.0,0.0202,True
+Thilo Kehrer,Germany,thilo kehrer,100.0,0.0569,True
+Mario Götze,Germany,,0.0,,False
+Jonas Hofmann,Germany,jonas hofmann,100.0,0.3255,True
+Matthias Ginter,Germany,matthias ginter,100.0,0.0853,True
+Youssoufa Moukoko,Germany,,0.0,,False
+Lawrence Ati-Zigi,Ghana,,0.0,,False
+Mohamed Salisu,Ghana,mohammed salisu,96.55172413793103,0.0543,True
+Thomas Teye Partey,Ghana,thomas partey,100.0,0.133,True
+Daniel Amartey,Ghana,daniel amartey,100.0,0.001,True
+Iñaki Williams Arthuer,Ghana,,0.0,,False
+Salis Abdul Samed,Ghana,salis samed,100.0,0.0236,True
+Mohammed Kudus,Ghana,,0.0,,False
+Abdul Rahman Baba,Ghana,abdoulaye bamba,80.0,0.0227,True
+André Ayew Pelé,Ghana,,0.0,,False
+Alidu Seidu,Ghana,alidu seidu,100.0,0.0273,True
+Jordan Ayew,Ghana,jordan ayew,100.0,0.1897,True
+Tariq Lamptey,Ghana,tariq lamptey,100.0,0.058,True
+Alexander Djiku,Ghana,alexander djiku,100.0,0.0773,True
+Gideon Mensah,Ghana,gideon mensah,100.0,0.012,True
+Osman Bukari,Ghana,osman bukari,100.0,0.1739,True
+Kamaldeen Sulemana,Ghana,kamaldeen sulemana,100.0,0.1778,True
+Daniel-Kofi Kyereh,Ghana,,0.0,,False
+Antoine Semenyo,Ghana,,0.0,,False
+Denis Odoi,Ghana,,0.0,,False
+Abdul Fatawu Issahaku,Ghana,,0.0,,False
+Mehdi Taremi,Iran,,0.0,,False
+Morteza Pouraliganji,Iran,,0.0,,False
+Seyed Majid Hosseini,Iran,,0.0,,False
+Ehsan Hajsafi,Iran,,0.0,,False
+Saeid Ezatolahi Afagh,Iran,,0.0,,False
+Ahmad Nourollahi,Iran,,0.0,,False
+Milad Mohammadi,Iran,,0.0,,False
+Ali Gholizadeh,Iran,,0.0,,False
+Ramin Rezaeian,Iran,,0.0,,False
+Seyed Hossein Hosseini,Iran,,0.0,,False
+Sardar Azmoun,Iran,sardar azmoun,100.0,0.7135,True
+Ali Karimi,Iran,,0.0,,False
+Alireza Safar Beiranvand,Iran,,0.0,,False
+Sadegh Moharrami,Iran,,0.0,,False
+Mehdi Torabi,Iran,,0.0,,False
+Alireza Jahanbakhsh,Iran,,0.0,,False
+Roozbeh Cheshmi,Iran,,0.0,,False
+Mohammad Hossein Kanani Zadegan,Iran,,0.0,,False
+Saman Ghoddos,Iran,saman ghoddos,100.0,0.1284,True
+Karim Ansarifard,Iran,,0.0,,False
+Abolfazl Jalali,Iran,,0.0,,False
+Maya Yoshida,Japan,maya yoshida,100.0,0.0465,True
+Shūichi Gonda,Japan,,0.0,,False
+Junya Ito,Japan,,0.0,,False
+Daichi Kamada,Japan,daichi kamada,100.0,0.1857,True
+Wataru Endo,Japan,wataru endo,100.0,0.1554,True
+Hidemasa Morita,Japan,,0.0,,False
+Ko Itakura,Japan,,0.0,,False
+Ritsu Doan,Japan,,0.0,,False
+Yuto Nagatomo,Japan,,0.0,,False
+Shogo Taniguchi,Japan,,0.0,,False
+Takehiro Tomiyasu,Japan,takehiro tomiyasu,100.0,0.0206,True
+Takuma Asano,Japan,takuma asano,100.0,0.212,True
+Daizen Maeda,Japan,,0.0,,False
+Kaoru Mitoma,Japan,,0.0,,False
+Ao Tanaka,Japan,,0.0,,False
+Hiroki Sakai,Japan,,0.0,,False
+Takefusa Kubo,Japan,takefusa kubo,100.0,0.1632,True
+Yuki Soma,Japan,,0.0,,False
+Takumi Minamino,Japan,,0.0,,False
+Miki Yamane,Japan,,0.0,,False
+Hiroki Ito,Japan,hiroki ito,100.0,0.0148,True
+Ayase Ueda,Japan,,0.0,,False
+Jesús Daniel Gallardo Vasconcelos,Mexico,,0.0,,False
+Luis Gerardo Chávez Magallón,Mexico,,0.0,,False
+Héctor Alfredo Moreno Herrera,Mexico,hector herrera,100.0,0.0317,True
+Francisco Guillermo Ochoa Magaña,Mexico,francesco magnanelli,77.77777777777779,0.0108,True
+César Jasib Montes Castro,Mexico,,0.0,,False
+Hirving Rodrigo Lozano Bahena,Mexico,,0.0,,False
+Ernesto Alexis Vega Rojas,Mexico,,0.0,,False
+Edson Omar Álvarez Velázquez,Mexico,,0.0,,False
+Jorge Eduardo Sánchez Ramos,Mexico,jorge miramon,83.33333333333334,0.032,True
+Héctor Miguel Herrera López,Mexico,,0.0,,False
+Henry Josué Martín Mex,Mexico,,0.0,,False
+Carlos Uriel Antuna Romero,Mexico,carlos soler,80.0,0.316,True
+Néstor Alejandro Araújo Razo,Mexico,,0.0,,False
+Kevin Nahin Álvarez Campos,Mexico,kevin kampl,78.26086956521739,0.0189,True
+Orbelín Pineda Alvarado,Mexico,,0.0,,False
+Raúl Alonso Jiménez Rodríguez,Mexico,jay rodriguez,81.4814814814815,0.3222,True
+Érick Gabriel Gutiérrez Galaviz,Mexico,,0.0,,False
+Carlos Alberto Rodríguez Gómez,Mexico,carlos gruezo,80.0,0.0336,True
+José Andrés Guardado Hernández,Mexico,juan hernandez,78.57142857142857,0.2131,True
+Roberto Carlos Alvarado Hernández,Mexico,theo hernandez,77.41935483870968,0.1651,True
+Rogelio Gabriel Funes Mori,Mexico,,0.0,,False
+Sofyan Amrabat,Morocco,sofyan amrabat,100.0,0.0119,True
+Hakim Ziyech,Morocco,hakim ziyech,100.0,0.2097,True
+Achraf Hakimi Mouh,Morocco,,0.0,,False
+Yassine Bounou,Morocco,,0.0,,False
+Azzedine Ounahi,Morocco,azz-eddine ounahi,93.75,0.119,True
+Youssef En-Nesyri,Morocco,youssef en-nesyri,100.0,0.4608,True
+Sofiane Boufal,Morocco,sofiane boufal,100.0,0.2718,True
+Romain Saïss,Morocco,romain saiss,100.0,0.1058,True
+Selim Amallah,Morocco,,0.0,,False
+Noussair Mazraoui,Morocco,,0.0,,False
+Nayef Aguerd,Morocco,naif aguerd,86.95652173913044,0.0631,True
+Yahia Attiyat allah,Morocco,,0.0,,False
+Jawad El Yamiq,Morocco,,0.0,,False
+Achraf Dari,Morocco,achraf hakimi,75.0,0.0894,True
+Abdelhamid Sabiri,Morocco,abdelhamid sabiri,100.0,0.1308,True
+Abdessamad Ezzalzouli,Morocco,abdessamad ezzalzouli,100.0,0.289,True
+Zakaria Aboukhlal,Morocco,,0.0,,False
+Munir Mohand Mohamedi,Morocco,,0.0,,False
+Abderrazak Hamdallah,Morocco,,0.0,,False
+Walid Cheddira,Morocco,,0.0,,False
+Badr Banoun,Morocco,,0.0,,False
+Bilal El Khannous,Morocco,,0.0,,False
+Ilias Chair,Morocco,,0.0,,False
+Anass Zaroury,Morocco,,0.0,,False
+Yahya Jabrane,Morocco,,0.0,,False
+Denzel Dumfries,Netherlands,denzel dumfries,100.0,0.2686,True
+Virgil van Dijk,Netherlands,virgil dijk,100.0,0.0638,True
+Andries Noppert,Netherlands,,0.0,,False
+Nathan Aké,Netherlands,nathan ake,100.0,0.1275,True
+Frenkie de Jong,Netherlands,frenkie jong,100.0,0.1644,True
+Cody Mathès Gakpo,Netherlands,,0.0,,False
+Daley Blind,Netherlands,,0.0,,False
+Jurriën David Norman Timber,Netherlands,,0.0,,False
+Memphis Depay,Netherlands,memphis depay,100.0,0.5669,True
+Steven Bergwijn,Netherlands,steven bergwijn,100.0,0.5795,True
+Teun Koopmeiners,Netherlands,teun koopmeiners,100.0,0.0706,True
+Steven Berghuis,Netherlands,steven bergwijn,80.0,0.5795,True
+Marten de Roon,Netherlands,marten roon,100.0,0.0628,True
+Davy Klaassen,Netherlands,,0.0,,False
+Wout Weghorst,Netherlands,wout weghorst,100.0,0.4876,True
+Matthijs de Ligt,Netherlands,matthijs ligt,100.0,0.0757,True
+Vincent Janssen,Netherlands,,0.0,,False
+Luuk de Jong,Netherlands,luuk jong,100.0,0.7278,True
+Noa Lang,Netherlands,,0.0,,False
+Xavi Simons,Netherlands,unai simon,76.19047619047619,0.0,True
+Kenneth Taylor,Netherlands,,0.0,,False
+Robert Lewandowski,Poland,robert lewandowski,100.0,1.1204,True
+Wojciech Szczęsny,Poland,wojciech szczesny,100.0,0.0,True
+Kamil Glik,Poland,,0.0,,False
+Matty Cash,Poland,matthew cash,81.81818181818181,0.066,True
+Jakub Piotr Kiwior,Poland,jakub kiwior,100.0,0.0154,True
+Bartosz Bereszyński,Poland,bartosz bereszynski,100.0,0.0187,True
+Grzegorz Krychowiak,Poland,,0.0,,False
+Piotr Zieliński,Poland,piotr zielinski,100.0,0.1288,True
+Przemysław Frankowski,Poland,przemyslaw frankowski,95.23809523809523,0.0854,True
+Jakub Kamiński,Poland,,0.0,,False
+Krystian Bielik,Poland,,0.0,,False
+Sebastian Szymański,Poland,,0.0,,False
+Arkadiusz Milik,Poland,arkadiusz milik,100.0,0.4211,True
+Nicola Zalewski,Poland,nicola zalewski,100.0,0.0481,True
+Karol Świderski,Poland,,0.0,,False
+Michał Skóraś,Poland,,0.0,,False
+Krzysztof Piątek,Poland,krzysztof piatek,100.0,0.4307,True
+Damian Szymański,Poland,,0.0,,False
+Artur Jędrzejczyk,Poland,,0.0,,False
+Kamil Grosicki,Poland,,0.0,,False
+Jan Bednarek,Poland,jan bednarek,100.0,0.0953,True
+Diogo Meireles Costa,Portugal,,0.0,,False
+Rúben Santos Gato Alves Dias,Portugal,ruben dias,100.0,0.0949,True
+Kléper Laveran Lima Ferreira,Portugal,,0.0,,False
+Bruno Miguel Borges Fernandes,Portugal,bruno fernandes,100.0,0.2666,True
+Bernardo Mota Veiga de Carvalho e Silva,Portugal,bernardo silva,100.0,0.2441,True
+João Félix Sequeira,Portugal,,0.0,,False
+João Pedro Cavaco Cancelo,Portugal,joao cancelo,100.0,0.1265,True
+Cristiano Ronaldo dos Santos Aveiro,Portugal,,0.0,,False
+Raphaël Adelino José Guerreiro,Portugal,raphael guerreiro,100.0,0.1402,True
+Rúben Diogo Da Silva Neves,Portugal,ruben neves,100.0,0.0377,True
+José Diogo Dalot Teixeira,Portugal,,0.0,,False
+William Silva de Carvalho,Portugal,william carvalho,100.0,0.1487,True
+Otávio Edmilson da Silva Monteiro,Portugal,,0.0,,False
+Gonçalo Matias Ramos,Portugal,,0.0,,False
+Ricardo Jorge Luz Horta,Portugal,,0.0,,False
+Vitor Machado Ferreira,Portugal,,0.0,,False
+Rafael Alexandre Conceição Leão,Portugal,rafael leao,100.0,0.2914,True
+Danilo Luís Hélio Pereira,Portugal,danilo pereira,100.0,0.1261,True
+António João Pereira Albuquerque Tavares Silva,Portugal,antonio sivera,88.88888888888889,0.0,True
+João Mário Naval da Costa Eduardo,Portugal,,0.0,,False
+Matheus Luiz Nunes,Portugal,,0.0,,False
+João Maria Lobo Alves Palhinha Gonçalves,Portugal,,0.0,,False
+Nuno Mendes,Portugal,nuno mendes,100.0,0.0121,True
+André Miguel Valente Silva,Portugal,andre silva,100.0,0.6138,True
+Boualem Khoukhi,Qatar,,0.0,,False
+Akram Hassan Afif,Qatar,,0.0,,False
+Abdelkarim Hassan Al Haj Fadlalla,Qatar,,0.0,,False
+Pedro Miguel Correia,Qatar,,0.0,,False
+Homam Alamin Ahmed,Qatar,,0.0,,False
+Almoez Ali Zainalabiddin Abdulla,Qatar,,0.0,,False
+Hassan Khalid Al Heidos,Qatar,,0.0,,False
+Abdulaziz Hatem Mohammed Abdullah,Qatar,,0.0,,False
+Karim Boudiaf,Qatar,,0.0,,False
+Meshaal Aissa Barsham,Qatar,,0.0,,False
+Ismaeel Mohammad Mohammad,Qatar,,0.0,,False
+Assim Omer Al Haj Madibo,Qatar,,0.0,,False
+Bassam Hisham Al Rawi,Qatar,,0.0,,False
+Saad Abdullah Al Sheeb,Qatar,,0.0,,False
+Mohammed Muntari,Qatar,,0.0,,False
+Mohammed Waed Abdulwahhab Al Bayati,Qatar,mohamed bayo,81.4814814814815,0.4634,True
+Ali Assadalla Thaimn Qambar,Qatar,,0.0,,False
+Tarek Salman Salman,Qatar,,0.0,,False
+Mosaab Khoder Jibril,Qatar,,0.0,,False
+Ahmed Alaa Eldin Abdelmotaal,Qatar,,0.0,,False
+Mohammed Kanoo,Saudi Arabia,mohamed bayo,76.92307692307692,0.4634,True
+Salem Mohammed Al Dawsari,Saudi Arabia,,0.0,,False
+Saud Abdullah Abdul Hamid,Saudi Arabia,,0.0,,False
+Mohammed Khalil Al Owais,Saudi Arabia,mohammed salisu,82.75862068965517,0.0543,True
+Firas Tariq Nasser Al Albirakan,Saudi Arabia,,0.0,,False
+Ali Albulayhi,Saudi Arabia,,0.0,,False
+Saleh Khalid Al Shehri,Saudi Arabia,,0.0,,False
+Hassan Mohammed Al-Tambakti,Saudi Arabia,,0.0,,False
+Abdulelah Al Amri,Saudi Arabia,,0.0,,False
+Abdulelah Saad Hameed Al-Malki,Saudi Arabia,,0.0,,False
+Sultan Abdullah Salim Al Ghannam,Saudi Arabia,,0.0,,False
+Yasir Gharsan Al Shahrani,Saudi Arabia,,0.0,,False
+Nawaf Shaker Al Abid,Saudi Arabia,,0.0,,False
+Mohammed Al Burayk,Saudi Arabia,mohamed bayo,81.4814814814815,0.4634,True
+Riyadh Sharahili,Saudi Arabia,,0.0,,False
+Sami Khalil Al Naji,Saudi Arabia,,0.0,,False
+Abdullah Mohammed Madu,Saudi Arabia,,0.0,,False
+Ali Al Hassan,Saudi Arabia,,0.0,,False
+Salman Mohammed Al Faraj,Saudi Arabia,,0.0,,False
+Abdulrahman Al-Obood,Saudi Arabia,,0.0,,False
+Haitham Mohammed Asiri,Saudi Arabia,,0.0,,False
+Nasser Al Dawsari,Saudi Arabia,,0.0,,False
+Hattan Babhir,Saudi Arabia,,0.0,,False
+Youssouf Sabaly,Senegal,youssouf sabaly,100.0,0.0121,True
+Kalidou Koulibaly,Senegal,kalidou koulibaly,100.0,0.0516,True
+Edouard Mendy,Senegal,edouard mendy,100.0,0.0,True
+Ismaïla Sarr,Senegal,ismaila sarr,100.0,0.2044,True
+Abdou Diallo,Senegal,abdou diallo,100.0,0.0093,True
+Boulaye Dia,Senegal,boulaye dia,100.0,0.3668,True
+Ismail Jakobs,Senegal,ismail jakobs,100.0,0.0509,True
+Idrissa Gana Gueye,Senegal,idrissa gueye,100.0,0.0642,True
+Nampalys Mendy,Senegal,nampalys mendy,100.0,0.0019,True
+Krépin Diatta,Senegal,krepin diatta,100.0,0.031,True
+Pape Gueye,Senegal,pape gueye,100.0,0.0849,True
+Pathé Ismaël Ciss,Senegal,pathe ciss,100.0,0.1538,True
+Iliman Ndiaye,Senegal,,0.0,,False
+Cheikh Ahmadou Bamba Mbacke Dieng,Senegal,,0.0,,False
+Pape Abou Cissé,Senegal,pathe ciss,80.0,0.1538,True
+Famara Diedhiou,Senegal,,0.0,,False
+Cheikhou Kouyaté,Senegal,cheikhou kouyate,100.0,0.0099,True
+Pape Matar Sarr,Senegal,pape sarr,100.0,0.0692,True
+Nicolas Jackson,Senegal,,0.0,,False
+Fodé Ballo Touré,Senegal,fode toure,100.0,0.0529,True
+Vanja Milinković Savić,Serbia,,0.0,,False
+Nikola Milenković,Serbia,nikola milenkovic,100.0,0.0429,True
+Aleksandar Mitrović,Serbia,,0.0,,False
+Dušan Tadić,Serbia,,0.0,,False
+Saša Lukić,Serbia,sasa lukic,100.0,0.1297,True
+Strahinja Pavlović,Serbia,strahinja pavlovic,100.0,0.0873,True
+Sergej Milinković-Savić,Serbia,sergej milinkovic-savic,100.0,0.2302,True
+Milos Veljkovic,Serbia,,0.0,,False
+Andrija Živković,Serbia,,0.0,,False
+Filip Kostić,Serbia,filip kostic,100.0,0.1033,True
+Nemanja Maksimović,Serbia,nemanja maksimovic,100.0,0.0857,True
+Nemanja Gudelj,Serbia,nemanja gudelj,100.0,0.0132,True
+Nemanja Radonjić,Serbia,nemanja radoja,86.66666666666667,0.0175,True
+Dušan Vlahović,Serbia,dusan vlahovic,100.0,0.5232,True
+Filip Mladenović,Serbia,,0.0,,False
+Luka Jović,Serbia,luka jovic,100.0,0.6678,True
+Stefan Mitrović,Serbia,stefan mitrovic,100.0,0.0078,True
+Ivan Ilić,Serbia,ivan ilic,100.0,0.081,True
+Darko Lazović,Serbia,darko lazovic,100.0,0.1068,True
+Filip Đuričić,Serbia,,0.0,,False
+Marko Grujić,Serbia,,0.0,,False
+Srđan Babić,Serbia,,0.0,,False
+Predrag Rajković,Serbia,predrag rajkovic,100.0,0.0,True
+Moon-Hwan Kim,South Korea,,0.0,,False
+Heung-Min Son,South Korea,son heung-min,100.0,0.5012,True
+Seung-Gyu Kim,South Korea,,0.0,,False
+Young-Gwon Kim,South Korea,,0.0,,False
+In-Beom Hwang,South Korea,hwang ui-jo,75.0,0.2652,True
+Jin-Su Kim,South Korea,,0.0,,False
+Woo-Young Jung,South Korea,woo-yeong jeong,82.75862068965517,0.3204,True
+Gue-Sung Cho,South Korea,,0.0,,False
+Min Jae Kim,South Korea,,0.0,,False
+Jae-Sung Lee,South Korea,jae-sung lee,100.0,0.1834,True
+Kang-In Lee,South Korea,lee kang-in,100.0,0.0939,True
+Sang-Ho Na,South Korea,,0.0,,False
+Hee-Chan Hwang,South Korea,hee-chan hwang,100.0,0.2094,True
+Ui-Jo Hwang,South Korea,hwang ui-jo,100.0,0.2652,True
+Kyung-Won Kwon,South Korea,,0.0,,False
+Jun-Ho Son,South Korea,,0.0,,False
+Chang-Hoon Kwon,South Korea,,0.0,,False
+Woo-Yeong Jeong,South Korea,woo-yeong jeong,100.0,0.3204,True
+Chul Hong,South Korea,,0.0,,False
+Seung-Ho Paik,South Korea,,0.0,,False
+Yu-Min Cho,South Korea,,0.0,,False
+Rodrigo Hernández Cascante,Spain,,0.0,,False
+Unai Simón Mendibil,Spain,,0.0,,False
+Daniel Olmo Carvajal,Spain,daniel carvajal,100.0,0.0428,True
+Sergio Busquets i Burgos,Spain,sergio ramos,80.0,0.2401,True
+Pedro González López,Spain,,0.0,,False
+Aymeric Laporte,Spain,aymeric laporte,100.0,0.1408,True
+Pablo Martín Páez Gavira,Spain,,0.0,,False
+Jordi Alba Ramos,Spain,,0.0,,False
+Marco Asensio Willemsen,Spain,,0.0,,False
+Ferrán Torres García,Spain,fran garcia,91.66666666666666,0.0278,True
+Álvaro Borja Morata Martín,Spain,aaron martin,88.0,0.0295,True
+Nicholas Williams Arthuer,Spain,,0.0,,False
+Daniel Carvajal Ramos,Spain,daniel james,83.33333333333334,0.2758,True
+César Azpilicueta Tanco,Spain,,0.0,,False
+Alejandro Balde Martínez,Spain,leandro martins,84.84848484848484,0.1178,True
+Marcos Llorente Moreno,Spain,,0.0,,False
+Carlos Soler Barragán,Spain,,0.0,,False
+Pau Francisco Torres,Spain,pau torres,100.0,0.1482,True
+Jorge Resurrección Merodio,Spain,jorge mere,78.26086956521739,0.0,True
+Anssumane Fati,Spain,anssumane fati,100.0,0.3627,True
+Pablo Sarabia García,Spain,pablo mari,81.81818181818181,0.0406,True
+Manuel Obafemi Akanji,Switzerland,manuel akanji,100.0,0.069,True
+Granit Xhaka,Switzerland,granit xhaka,100.0,0.0426,True
+Ricardo Iván Rodríguez Araya,Switzerland,,0.0,,False
+Remo Freuler,Switzerland,remo freuler,100.0,0.0525,True
+Breel-Donald Embolo,Switzerland,breel embolo,77.41935483870968,0.3622,True
+Ruben Vargas,Switzerland,ruben vargas,100.0,0.1531,True
+Silvan Widmer,Switzerland,silvan widmer,100.0,0.085,True
+Yann Sommer,Switzerland,yann sommer,100.0,0.0,True
+Djibril Sow,Switzerland,djibril sow,100.0,0.0241,True
+Xherdan Shaqiri,Switzerland,xherdan shaqiri,100.0,0.0925,True
+Nico Elvedi,Switzerland,nico elvedi,100.0,0.0478,True
+Edimilson Fernandes,Switzerland,edimilson fernandes,100.0,0.0206,True
+Fabian Lukas Schär,Switzerland,fabian schar,100.0,0.0349,True
+Gregor Kobel,Switzerland,gregor kobel,100.0,0.0,True
+Haris Seferović,Switzerland,,0.0,,False
+Fabian Rieder,Switzerland,,0.0,,False
+Denis Lemi Zakaria Lako Lado,Switzerland,,0.0,,False
+Eray Ervin Cömert,Switzerland,eray comert,100.0,0.103,True
+Noah Okafor,Switzerland,,0.0,,False
+Renato Steffen,Switzerland,renato steffen,100.0,0.1052,True
+Fabian Frei,Switzerland,,0.0,,False
+Michel Aebischer,Switzerland,michel aebischer,100.0,0.0204,True
+Christian Fassnacht,Switzerland,,0.0,,False
+Ardon Jashari,Switzerland,,0.0,,False
+Aymen Dahmen,Tunisia,,0.0,,False
+Montassar Omar Talbi,Tunisia,,0.0,,False
+Yassine Meriah,Tunisia,,0.0,,False
+Ellyes Joris Skhiri,Tunisia,ellyes skhiri,100.0,0.1657,True
+Aïssa Bilal Laïdouni,Tunisia,,0.0,,False
+Ali Abdi,Tunisia,,0.0,,False
+Issam Jebali,Tunisia,,0.0,,False
+Youssef Msakni,Tunisia,,0.0,,False
+Dylan Daniel Mahmoud Bronn,Tunisia,dylan bronn,100.0,0.0556,True
+Anis Ben Slimane,Tunisia,,0.0,,False
+Mohamed Dräger,Tunisia,,0.0,,False
+Wajdi Kechrida,Tunisia,wajdi kechrida,100.0,0.0236,True
+Naïm Sliti,Tunisia,,0.0,,False
+Ali Maâloul,Tunisia,,0.0,,False
+Nader Ghandri,Tunisia,,0.0,,False
+Wahbi Khazri,Tunisia,wahbi khazri,100.0,0.2718,True
+Mohamed Ali Ben Romdhane,Tunisia,,0.0,,False
+Ferjani Sassi,Tunisia,,0.0,,False
+Taha Yassine Khenissi,Tunisia,,0.0,,False
+Ghilane Chalali,Tunisia,,0.0,,False
+Hannibal Mejbri,Tunisia,,0.0,,False
+Tyler Adams,United States,tyler adams,100.0,0.0084,True
+Tim Ream,United States,,0.0,,False
+Antonee Robinson,United States,,0.0,,False
+Matthew Charles Turner,United States,,0.0,,False
+Yunus Dimoara Musah,United States,yunus musah,100.0,0.0326,True
+Christian Pulisic,United States,christian pulisic,100.0,0.4299,True
+Timothy Weah,United States,timothy weah,100.0,0.2197,True
+Sergino Dest,United States,sergino dest,100.0,0.09,True
+Walker Zimmerman,United States,,0.0,,False
+Weston McKennie,United States,weston mckennie,100.0,0.1895,True
+Haji Wright,United States,,0.0,,False
+Joshua Sargent,United States,joshua sargent,100.0,0.1181,True
+Brenden Aaronson,United States,,0.0,,False
+Cameron Carter-Vickers,United States,,0.0,,False
+Giovanni Reyna,United States,giovanni reyna,100.0,0.3436,True
+Kellyn Kai Perry-Acosta,United States,,0.0,,False
+DeAndre Yedlin,United States,,0.0,,False
+Jesus Ferreira,United States,,0.0,,False
+Shaquell Moore,United States,,0.0,,False
+Jordan Morris,United States,,0.0,,False
+José María Giménez de Vargas,Uruguay,,0.0,,False
+Federico Santiago Valverde Dipetta,Uruguay,federico chiesa,77.41935483870968,0.2407,True
+Sergio Rochet Álvarez,Uruguay,,0.0,,False
+Mathías Olivera Miramontes,Uruguay,,0.0,,False
+Darwin Gabriel Núñez Ribeiro,Uruguay,,0.0,,False
+Rodrigo Bentancur Colmán,Uruguay,,0.0,,False
+Guillermo Varela Olivera,Uruguay,,0.0,,False
+Matías Vecino Falero,Uruguay,,0.0,,False
+Sebastián Coates Nión,Uruguay,sebastian andersson,78.78787878787878,0.3582,True
+Facundo Pellistri Rebollo,Uruguay,,0.0,,False
+Luis Alberto Suárez Díaz,Uruguay,luis diaz,100.0,0.4001,True
+Diego Roberto Godín Leal,Uruguay,diego lopez,76.19047619047619,0.0,True
+Edinson Roberto Cavani Gómez,Uruguay,,0.0,,False
+Giorgian Daniel De Arrascaeta Benedetti,Uruguay,,0.0,,False
+José Martín Cáceres Silva,Uruguay,jose sa,82.35294117647058,0.0,True
+Diego Nicolás De La Cruz Arcosa,Uruguay,diego carlos,83.33333333333334,0.0741,True
+Maximiliano Gómez González,Uruguay,,0.0,,False
+Matías Nicolás Viña Susperreguy,Uruguay,,0.0,,False
+Agustín Canobbio Graviz,Uruguay,,0.0,,False
+Joe Rodon,Wales,,0.0,,False
+Chris Mepham,Wales,,0.0,,False
+Aaron Ramsey,Wales,aaron ramsdale,84.61538461538461,0.0,True
+Ethan Ampadu,Wales,ethan ampadu,100.0,0.0082,True
+Ben Davies,Wales,ben davies,100.0,0.0877,True
+Kieffer Roberto Francisco Moore,Wales,,0.0,,False
+Gareth Frank Bale,Wales,gareth bale,100.0,0.4774,True
+Connor Roberts,Wales,connor roberts,100.0,0.0119,True
+Neco Williams,Wales,nico williams,92.3076923076923,0.2249,True
+Wayne Hennessey,Wales,,0.0,,False
+Harry Wilson,Wales,harry winks,78.26086956521739,0.0068,True
+Daniel James,Wales,daniel james,100.0,0.2758,True
+Danny Ward,Wales,,0.0,,False
+Brennan Johnson,Wales,ben johnson,84.61538461538461,0.0095,True
+Joe Allen,Wales,jose callejon,81.81818181818181,0.1117,True
+Joseff Morrell,Wales,,0.0,,False
+Rubin Colwill,Wales,,0.0,,False
+Sorba Thomas,Wales,,0.0,,False

@@ -21,16 +21,23 @@ warnings.filterwarnings("ignore")
 import numpy as np
 import pandas as pd
 from scipy.optimize import minimize
-from scipy.stats import poisson
+from scipy.stats import poisson, ttest_rel
 from sklearn.metrics import log_loss, brier_score_loss
 from pathlib import Path
 
-ROOT = Path(__file__).parent
+ROOT    = Path(__file__).parent
+DERIVED = ROOT / "data" / "derived"
 
 # ── CONSTANTS ──────────────────────────────────────────────────────────────────
 TRAIN_START  = pd.Timestamp("2012-01-01")
 WC22_START   = pd.Timestamp("2022-11-20")
 WC22_END     = pd.Timestamp("2022-12-18")
+KO_START     = pd.Timestamp("2022-12-03")   # first R16 match
+
+# Player-xg-poisson λ config
+LAMBDA_MIN  = 0.70
+LAMBDA_MAX  = 1.90
+LAMBDA_BASE = 1.15  # historical avg WC goals/game
 
 IMPORTANCE = {
     "FIFA World Cup": 1.0, "UEFA Euro": 0.9, "Copa América": 0.9,
@@ -205,8 +212,107 @@ def poisson_probs(lam_h, lam_a, max_g=8):
     return p_home/s, p_draw/s, p_away/s
 
 
+# ── MODEL 4: PLAYER-xG-POISSON ────────────────────────────────────────────────
+# Team name aliases: martj42/StatsBomb → ratings parquet names
+_NATION_ALIASES = {
+    "United States": "United States",
+    "USA":           "United States",
+    "Iran":          "Iran",
+    "IR Iran":       "Iran",
+    "South Korea":   "South Korea",
+    "Korea Republic":"South Korea",
+}
+
+def _norm_nation(name):
+    return _NATION_ALIASES.get(name, name)
+
+def load_player_ratings():
+    """Load pre-WC2022 attack + defense ratings. Returns (attack_map, defense_map, means)."""
+    att_df = pd.read_parquet(DERIVED / "team_attack_ratings_wc2022.parquet")
+    def_df = pd.read_parquet(DERIVED / "team_defense_ratings_wc2022.parquet")
+    attack_map  = {_norm_nation(r.nation): r.attack_rating for r in att_df.itertuples()}
+    defense_map = {_norm_nation(r.nation): r.defensive_rating for r in def_df.itertuples()}
+    mean_att = float(np.mean(list(attack_map.values())))
+    mean_def = float(np.mean(list(defense_map.values())))
+    fallback_att = float(np.quantile(list(attack_map.values()), 0.25))
+    fallback_def = mean_def
+    return attack_map, defense_map, mean_att, mean_def, fallback_att, fallback_def
+
+def player_xg_probs(home, away, attack_map, defense_map,
+                    mean_att, mean_def, fallback_att, fallback_def):
+    """
+    λ_h = BASE × (home_attack_norm × away_defense_vuln_norm)
+    Multiplicative: strong attack vs weak defense → high λ.
+    defense_rating = xGA conceded/90; higher = weaker defense = higher opponent λ.
+    """
+    h_att = attack_map.get(_norm_nation(home), fallback_att)
+    a_att = attack_map.get(_norm_nation(away), fallback_att)
+    h_def = defense_map.get(_norm_nation(home), fallback_def)
+    a_def = defense_map.get(_norm_nation(away), fallback_def)
+
+    lam_h = LAMBDA_BASE * (h_att / mean_att) * (a_def / mean_def)
+    lam_a = LAMBDA_BASE * (a_att / mean_att) * (h_def / mean_def)
+    lam_h = float(np.clip(lam_h, LAMBDA_MIN, LAMBDA_MAX))
+    lam_a = float(np.clip(lam_a, LAMBDA_MIN, LAMBDA_MAX))
+    return poisson_probs(lam_h, lam_a)
+
+
+# ── METRICS ───────────────────────────────────────────────────────────────────
+def rps(probs, actual_idx):
+    """Ranked Probability Score for 3-way prediction. Lower = better. Uniform baseline ≈ 0.333."""
+    f = np.array([probs[0], probs[0] + probs[1]])
+    o = np.array([float(actual_idx == 0), float(actual_idx <= 1)])
+    return 0.5 * np.sum((f - o) ** 2)
+
+def mean_rps(preds_list, actuals):
+    return float(np.mean([rps(p, a) for p, a in zip(preds_list, actuals)]))
+
+def ece_score(preds_array, actuals_array, n_bins=5):
+    """ECE averaged across 3 outcome classes."""
+    per_class = []
+    for cls in range(3):
+        p = preds_array[:, cls]
+        y = (actuals_array == cls).astype(float)
+        bins = np.linspace(0, 1, n_bins + 1)
+        ece = 0.0
+        for i in range(n_bins):
+            mask = (p >= bins[i]) & (p < bins[i+1])
+            if mask.sum() > 0:
+                ece += mask.sum() / len(p) * abs(p[mask].mean() - y[mask].mean())
+        per_class.append(ece)
+    return float(np.mean(per_class)), per_class
+
+def bootstrap_ci(preds_list, actuals, n_boots=10_000, seed=42):
+    """95% percentile bootstrap CI for RPS and log-loss."""
+    rng  = np.random.default_rng(seed)
+    arr  = np.array(preds_list)
+    n    = len(actuals)
+    y_oh = np.eye(3)[actuals]
+    rps_b, ll_b = [], []
+    for _ in range(n_boots):
+        idx = rng.integers(0, n, size=n)
+        rps_b.append(np.mean([rps(arr[i], actuals[i]) for i in idx]))
+        ll_b.append(log_loss(y_oh[idx], arr[idx]))
+    return (
+        (float(np.percentile(rps_b, 2.5)), float(np.percentile(rps_b, 97.5))),
+        (float(np.percentile(ll_b,  2.5)), float(np.percentile(ll_b,  97.5))),
+    )
+
+def disagreement_tier(probs_trio):
+    """Classify a match by agreement across the 3 base models (elo, form, xg_p)."""
+    preds = [np.argmax(p) for p in probs_trio]
+    if preds[0] == preds[1] == preds[2]:
+        return "golden_zone"
+    counts = {0: preds.count(0), 1: preds.count(1), 2: preds.count(2)}
+    max_count = max(counts.values())
+    if max_count == 2:
+        return "two_agree"
+    return "split"
+
+
 # ── PREDICT ONE MATCH ─────────────────────────────────────────────────────────
-def predict_match(home, away, elo_r, xg_params, xg_ha, all_train, ref_date):
+def predict_match(home, away, elo_r, xg_params, xg_ha, all_train, ref_date,
+                  player_ratings=None):
     # 1) Elo (neutral venue → ha=0)
     rh, ra = elo_r.get(home, 1500), elo_r.get(away, 1500)
     e_h, e_d, e_a = elo_probs(rh, ra, ha=0)
@@ -226,7 +332,7 @@ def predict_match(home, away, elo_r, xg_params, xg_ha, all_train, ref_date):
     else:
         p_h, p_d, p_a = e_h, e_d, e_a  # fallback
 
-    # Ensemble-v2: equal weight
+    # Ensemble-v2: equal weight (3 models)
     w = 1/3
     v2_h = w*e_h + w*f_h + w*p_h
     v2_d = w*e_d + w*f_d + w*p_d
@@ -234,11 +340,29 @@ def predict_match(home, away, elo_r, xg_params, xg_ha, all_train, ref_date):
     s = v2_h + v2_d + v2_a
     v2_h, v2_d, v2_a = v2_h/s, v2_d/s, v2_a/s
 
+    # 4) Player-xG-Poisson (attack × opponent defense λ)
+    if player_ratings is not None:
+        att_map, def_map, m_att, m_def, fb_att, fb_def = player_ratings
+        px_h, px_d, px_a = player_xg_probs(home, away, att_map, def_map,
+                                            m_att, m_def, fb_att, fb_def)
+    else:
+        px_h, px_d, px_a = p_h, p_d, p_a  # fallback to xg_p
+
+    # Ensemble-backtest-v3: equal weight (4 models)
+    w4 = 0.25
+    v3_h = w4*(e_h + f_h + p_h + px_h)
+    v3_d = w4*(e_d + f_d + p_d + px_d)
+    v3_a = w4*(e_a + f_a + p_a + px_a)
+    s3 = v3_h + v3_d + v3_a
+    v3_h, v3_d, v3_a = v3_h/s3, v3_d/s3, v3_a/s3
+
     return {
-        "elo":   (e_h, e_d, e_a),
-        "form":  (f_h, f_d, f_a),
-        "xg_p":  (p_h, p_d, p_a),
-        "v2":    (v2_h, v2_d, v2_a),
+        "elo":    (e_h, e_d, e_a),
+        "form":   (f_h, f_d, f_a),
+        "xg_p":   (p_h, p_d, p_a),
+        "px":     (px_h, px_d, px_a),
+        "v2":     (v2_h, v2_d, v2_a),
+        "v3":     (v3_h, v3_d, v3_a),
     }
 
 
@@ -285,21 +409,27 @@ def main():
     xg_params, xg_ha = fit_xg_poisson(hybrid_train, ref_date=WC22_START)
     print(f"    Home advantage parameter: {xg_ha:.3f} (set to 0 for WC neutral venue)")
 
+    print("[4] Loading player-xG ratings (attack + defense)...")
+    player_ratings = load_player_ratings()
+    att_map, def_map, m_att, m_def, fb_att, fb_def = player_ratings
+    print(f"    Attack: {len(att_map)} nations  |  Defense: {len(def_map)} nations")
+
     # WC 2022 test matches
     wc22 = all_results[
         (all_results["date"] >= WC22_START) &
         (all_results["date"] <= WC22_END) &
         (all_results["tournament"] == "FIFA World Cup")
     ].sort_values("date").reset_index(drop=True)
-    print(f"[4] Test set: {len(wc22)} WC 2022 matches\n")
+    print(f"[5] Test set: {len(wc22)} WC 2022 matches\n")
 
     # Load e3 benchmark
     e3_bench = load_e3_benchmark()
 
     # Run predictions
     results_table = []
-    preds_elo, preds_form, preds_xgp, preds_v2, preds_e3 = [], [], [], [], []
+    preds_elo, preds_form, preds_xgp, preds_px, preds_v2, preds_v3, preds_e3 = [], [], [], [], [], [], []
     actuals = []
+    dates   = []
 
     for _, row in wc22.iterrows():
         home, away = row["home_team"], row["away_team"]
@@ -308,60 +438,83 @@ def main():
         actual_lbl = "H" if gh > ga else "D" if gh == ga else "A"
 
         preds = predict_match(home, away, elo_ratings, xg_params, xg_ha,
-                              goals_train, ref_date=row["date"])
+                              goals_train, ref_date=row["date"],
+                              player_ratings=player_ratings)
 
         e_h, e_d, e_a   = preds["elo"]
         f_h, f_d, f_a   = preds["form"]
         p_h, p_d, p_a   = preds["xg_p"]
+        px_h, px_d, px_a = preds["px"]
         v_h, v_d, v_a   = preds["v2"]
+        v3_h, v3_d, v3_a = preds["v3"]
 
         # e3 benchmark
         key = f"{home}__{away}"
         e3  = e3_bench.get(key, {"p_home": v_h, "p_draw": v_d, "p_away": v_a})
         b_h, b_d, b_a = e3["p_home"], e3["p_draw"], e3["p_away"]
 
+        # Disagreement tier (3-model base: elo, form, xg_p)
+        tier = disagreement_tier([(e_h,e_d,e_a), (f_h,f_d,f_a), (p_h,p_d,p_a)])
+
         preds_elo.append([e_h, e_d, e_a])
         preds_form.append([f_h, f_d, f_a])
         preds_xgp.append([p_h, p_d, p_a])
+        preds_px.append([px_h, px_d, px_a])
         preds_v2.append([v_h, v_d, v_a])
+        preds_v3.append([v3_h, v3_d, v3_a])
         preds_e3.append([b_h, b_d, b_a])
         actuals.append(actual_idx)
+        dates.append(row["date"])
 
         v2_pred  = ["H","D","A"][np.argmax([v_h, v_d, v_a])]
+        v3_pred  = ["H","D","A"][np.argmax([v3_h, v3_d, v3_a])]
+        # Confidence = max probability of the predicted outcome (v3 ensemble)
+        v3_conf  = max(v3_h, v3_d, v3_a)
         results_table.append({
             "date":     str(row["date"].date()),
             "match":    f"{home} vs {away}",
             "score":    f"{gh}-{ga}",
             "actual":   actual_lbl,
+            "is_ko":    row["date"] >= KO_START,
+            "tier":     tier,
             # elo
             "elo_H": round(e_h,3), "elo_D": round(e_d,3), "elo_A": round(e_a,3),
             "elo_pred": ["H","D","A"][np.argmax([e_h,e_d,e_a])],
             # form
             "form_H": round(f_h,3), "form_D": round(f_d,3), "form_A": round(f_a,3),
             "form_pred": ["H","D","A"][np.argmax([f_h,f_d,f_a])],
-            # xg-poisson
+            # xg-poisson (Dixon-Coles fit)
             "xgp_H": round(p_h,3), "xgp_D": round(p_d,3), "xgp_A": round(p_a,3),
             "xgp_pred": ["H","D","A"][np.argmax([p_h,p_d,p_a])],
-            # ensemble-v2
+            # player-xg-poisson (attack × defense)
+            "px_H": round(px_h,3), "px_D": round(px_d,3), "px_A": round(px_a,3),
+            "px_pred": ["H","D","A"][np.argmax([px_h,px_d,px_a])],
+            # ensemble-v2 (3-model)
             "v2_H": round(v_h,3), "v2_D": round(v_d,3), "v2_A": round(v_a,3),
             "v2_pred": v2_pred,
             "v2_correct": "✓" if v2_pred == actual_lbl else "✗",
+            # ensemble-backtest-v3 (4-model)
+            "v3_H": round(v3_h,3), "v3_D": round(v3_d,3), "v3_A": round(v3_a,3),
+            "v3_pred": v3_pred,
+            "v3_correct": "✓" if v3_pred == actual_lbl else "✗",
+            "v3_confidence": round(v3_conf,3),
             # e3 benchmark
             "e3_H": round(b_h,3), "e3_D": round(b_d,3), "e3_A": round(b_a,3),
             "e3_pred": ["H","D","A"][np.argmax([b_h,b_d,b_a])],
         })
 
     # ── PRINT COMPARISON TABLE ──────────────────────────────────────────────────
-    print("=" * 120)
-    print(f"{'MATCH':<30} {'SCORE':>5}  {'ELO':^14}  {'FORM':^14}  {'xG-POIS':^14}  {'ENSEMB-V2':^14}  {'ACT':>3}  {'OK':>2}")
-    print(f"{'':30}  {'':5}  {'H':>4} {'D':>4} {'A':>4}  {'H':>4} {'D':>4} {'A':>4}  {'H':>4} {'D':>4} {'A':>4}  {'H':>4} {'D':>4} {'A':>4}")
-    print("-" * 120)
+    actuals_arr = np.array(actuals)
+    print("=" * 140)
+    print(f"{'MATCH':<30} {'SCR':>5}  {'ELO':^14}  {'FORM':^14}  {'xG-DC':^14}  {'PX-xG':^14}  {'V3-ENS':^14}  {'ACT':>3} {'TIER':>12} {'CONF':>5} {'OK':>2}")
+    print(f"{'':30}  {'':5}  {'H':>4} {'D':>4} {'A':>4}  {'H':>4} {'D':>4} {'A':>4}  {'H':>4} {'D':>4} {'A':>4}  {'H':>4} {'D':>4} {'A':>4}  {'H':>4} {'D':>4} {'A':>4}")
+    print("-" * 140)
 
-    current_stage = ""
-    group_matches = sorted([r for r in results_table if pd.Timestamp(r["date"]) <= pd.Timestamp("2022-12-02")], key=lambda x: x["date"])
-    ko_matches    = sorted([r for r in results_table if pd.Timestamp(r["date"]) >  pd.Timestamp("2022-12-02")], key=lambda x: x["date"])
+    group_matches = sorted([r for r in results_table if not r["is_ko"]], key=lambda x: x["date"])
+    ko_matches    = sorted([r for r in results_table if r["is_ko"]],     key=lambda x: x["date"])
 
-    for stage_label, stage_rows in [("── GROUP STAGE ──", group_matches), ("── KNOCKOUT ──", ko_matches)]:
+    for stage_label, stage_rows in [("── GROUP STAGE (48 matches) ──", group_matches),
+                                     ("── KNOCKOUT (16 matches) ──", ko_matches)]:
         print(f"\n  {stage_label}")
         for r in stage_rows:
             print(
@@ -369,54 +522,129 @@ def main():
                 f"{r['elo_H']:>4.2f} {r['elo_D']:>4.2f} {r['elo_A']:>4.2f}  "
                 f"{r['form_H']:>4.2f} {r['form_D']:>4.2f} {r['form_A']:>4.2f}  "
                 f"{r['xgp_H']:>4.2f} {r['xgp_D']:>4.2f} {r['xgp_A']:>4.2f}  "
-                f"{r['v2_H']:>4.2f} {r['v2_D']:>4.2f} {r['v2_A']:>4.2f}  "
-                f"{r['actual']:>3}  {r['v2_correct']:>2}"
+                f"{r['px_H']:>4.2f} {r['px_D']:>4.2f} {r['px_A']:>4.2f}  "
+                f"{r['v3_H']:>4.2f} {r['v3_D']:>4.2f} {r['v3_A']:>4.2f}  "
+                f"{r['actual']:>3} {r['tier']:>12} {r['v3_confidence']:>5.2f} {r['v3_correct']:>2}"
             )
 
     # ── SUMMARY METRICS ────────────────────────────────────────────────────────
     y_oh = np.eye(3)[actuals]
 
-    def metrics(preds_list, label):
-        arr = np.array(preds_list)
-        ll  = log_loss(y_oh, arr)
-        acc = np.mean(np.argmax(arr, axis=1) == np.array(actuals))
-        bs  = brier_score_loss(
-            (np.array(actuals)==0).astype(int), arr[:,0]
-        )
-        return {"model": label, "log_loss": round(ll,4), "accuracy": round(acc,3),
-                "brier": round(bs,4), "correct": int(acc*len(actuals))}
-
-    summary = [
-        metrics(preds_elo,  "elo-baseline"),
-        metrics(preds_form, "form-last-10"),
-        metrics(preds_xgp,  "poisson-xg  "),
-        metrics(preds_v2,   "ensemble-v2 "),
-        metrics(preds_e3,   "ensemble-e3 (bench)"),
+    all_preds = [
+        ("elo-baseline",        preds_elo),
+        ("form-last-10",        preds_form),
+        ("poisson-xg (DC fit)", preds_xgp),
+        ("player-xg-poisson",   preds_px),
+        ("ensemble-v2 (3-mdl)", preds_v2),
+        ("ens-backtest-v3",     preds_v3),
+        ("ensemble-e3 (bench)", preds_e3),
     ]
 
-    print("\n" + "=" * 65)
+    print("\n" + "=" * 90)
     print("SUMMARY METRICS — WC 2022 (64 matches)")
-    print(f"  Pinnacle benchmark: log-loss ~0.97 | accuracy ~47% | brier ~0.21")
-    print("=" * 65)
-    print(f"{'Model':<26} {'Log-loss':>9} {'Accuracy':>9} {'Correct':>8} {'Brier':>8}")
-    print("-" * 65)
-    for s in summary:
-        flag = " ◄ best" if s["log_loss"] == min(x["log_loss"] for x in summary) else ""
-        print(f"{s['model']:<26} {s['log_loss']:>9.4f} {s['accuracy']:>8.1%} "
-              f"{s['correct']:>5}/{len(actuals)} {s['brier']:>9.4f}{flag}")
+    print(f"  Pinnacle benchmark ≈ log-loss 0.97 | acc 47% | RPS 0.185 | uniform baseline RPS 0.333")
+    print("=" * 90)
+    print(f"{'Model':<28} {'Log-loss':>9} {'Acc':>7} {'Correct':>8} {'RPS':>7} {'ECE':>7}")
+    print("-" * 90)
 
-    # Calibration: 5 bins for ensemble-v2
-    print("\n── Calibration (ensemble-v2 home-win probability) ──")
-    v2_arr   = np.array(preds_v2)
-    home_p   = v2_arr[:,0]
-    home_act = (np.array(actuals) == 0).astype(int)
-    bins     = [0, 0.2, 0.35, 0.5, 0.65, 1.01]
-    print(f"  {'Predicted range':<20} {'Avg pred':>9} {'Actual win%':>12} {'N':>4}")
-    for i in range(len(bins)-1):
-        mask = (home_p >= bins[i]) & (home_p < bins[i+1])
-        if mask.sum() == 0: continue
-        print(f"  {bins[i]:.2f} – {bins[i+1]:.2f}         "
-              f"{home_p[mask].mean():>9.3f} {home_act[mask].mean():>11.1%} {mask.sum():>4}")
+    summary_rows = []
+    rps_series = {}
+    ll_series  = {}
+    for label, preds_list in all_preds:
+        arr  = np.array(preds_list)
+        ll   = log_loss(y_oh, arr)
+        acc  = float(np.mean(np.argmax(arr, axis=1) == actuals_arr))
+        rps_val = mean_rps(preds_list, actuals)
+        ece_val, _ = ece_score(arr, actuals_arr)
+        flag = ""
+        row = {"model": label, "log_loss": round(ll,4), "accuracy": round(acc,3),
+               "correct": int(acc*len(actuals)), "rps": round(rps_val,4),
+               "ece": round(ece_val,4)}
+        summary_rows.append(row)
+        rps_series[label] = [rps(p, a) for p, a in zip(preds_list, actuals)]
+        ll_series[label]  = [log_loss(y_oh[[i]], arr[[i]]) for i in range(len(actuals))]
+        print(f"{label:<28} {ll:>9.4f} {acc:>6.1%} {int(acc*64):>5}/{len(actuals)} "
+              f"{rps_val:>7.4f} {ece_val:>7.4f}")
+
+    best_rps = min(summary_rows, key=lambda x: x["rps"])
+    print(f"\n  ◄ Best RPS: {best_rps['model']} ({best_rps['rps']:.4f})")
+    best_ll  = min(summary_rows, key=lambda x: x["log_loss"])
+    print(f"  ◄ Best Log-loss: {best_ll['model']} ({best_ll['log_loss']:.4f})")
+
+    # ── BOOTSTRAP CONFIDENCE INTERVALS ─────────────────────────────────────────
+    print("\n── 95% Bootstrap CIs (10,000 resamples, N=64) ──")
+    print(f"  Note: at N=64, differences <0.07 log-loss unlikely to reach p<0.05")
+    print(f"  {'Model':<28} {'RPS CI':^22} {'Log-loss CI':^22}")
+    print(f"  {'-'*70}")
+    ci_rows = []
+    for label, preds_list in all_preds:
+        rps_ci, ll_ci = bootstrap_ci(preds_list, actuals)
+        print(f"  {label:<28} [{rps_ci[0]:.4f}, {rps_ci[1]:.4f}]   [{ll_ci[0]:.4f}, {ll_ci[1]:.4f}]")
+        ci_rows.append({"model": label,
+                        "rps_ci_lo": rps_ci[0], "rps_ci_hi": rps_ci[1],
+                        "ll_ci_lo": ll_ci[0],  "ll_ci_hi": ll_ci[1]})
+
+    # ── PAIRED T-TEST ──────────────────────────────────────────────────────────
+    print("\n── Paired t-test RPS: player-xg-poisson vs others ──")
+    px_rps = rps_series["player-xg-poisson"]
+    for label, _ in all_preds:
+        if label == "player-xg-poisson": continue
+        t, p = ttest_rel(px_rps, rps_series[label])
+        direction = "PX better" if np.mean(px_rps) < np.mean(rps_series[label]) else "PX worse"
+        print(f"  PX vs {label:<28} t={t:+.3f}  p={p:.3f}  ({direction})")
+
+    # ── STAGE SPLIT ────────────────────────────────────────────────────────────
+    print("\n── Stage split: Groups (N=48) vs Knockouts (N=16) ──")
+    for stage_name, stage_mask_fn in [
+        ("Groups   ", lambda i: not results_table[i]["is_ko"]),
+        ("Knockouts", lambda i: results_table[i]["is_ko"]),
+    ]:
+        idx = [i for i in range(len(actuals)) if stage_mask_fn(i)]
+        if not idx: continue
+        stage_actuals = [actuals[i] for i in idx]
+        stage_y = np.eye(3)[stage_actuals]
+        print(f"\n  {stage_name} (N={len(idx)})")
+        print(f"  {'Model':<28} {'Log-loss':>9} {'Acc':>7} {'RPS':>7}")
+        for label, preds_list in all_preds:
+            arr_s = np.array([preds_list[i] for i in idx])
+            ll_s  = log_loss(stage_y, arr_s)
+            acc_s = float(np.mean(np.argmax(arr_s, axis=1) == np.array(stage_actuals)))
+            rps_s = mean_rps([preds_list[i] for i in idx], stage_actuals)
+            print(f"  {label:<28} {ll_s:>9.4f} {acc_s:>6.1%} {rps_s:>7.4f}")
+
+    # ── DISAGREEMENT TIER ANALYSIS ─────────────────────────────────────────────
+    print("\n── Disagreement tier analysis (3-model base: elo+form+xg-DC) ──")
+    tier_stats = {}
+    for i, r in enumerate(results_table):
+        tier = r["tier"]
+        v3_pred = r["v3_pred"]
+        correct = v3_pred == r["actual"]
+        if tier == "golden_zone" and not correct:
+            tier = "false_consensus"
+        if tier not in tier_stats:
+            tier_stats[tier] = {"n": 0, "correct": 0, "rps_sum": 0.0}
+        tier_stats[tier]["n"] += 1
+        tier_stats[tier]["correct"] += int(correct)
+        tier_stats[tier]["rps_sum"] += rps(preds_v3[i], actuals[i])
+
+    print(f"  {'Tier':<20} {'N':>4} {'Accuracy':>10} {'Avg RPS':>9}")
+    print(f"  {'-'*48}")
+    tier_rows = []
+    for tier in ["golden_zone", "false_consensus", "two_agree", "split"]:
+        if tier not in tier_stats: continue
+        s = tier_stats[tier]
+        acc = s["correct"] / s["n"]
+        avg_rps = s["rps_sum"] / s["n"]
+        print(f"  {tier:<20} {s['n']:>4} {acc:>9.1%} {avg_rps:>9.4f}")
+        tier_rows.append({"tier": tier, "n": s["n"], "accuracy": round(acc,3),
+                          "avg_rps": round(avg_rps,4)})
+
+    # Golden zone comparison with v1
+    gz = tier_stats.get("golden_zone", {})
+    gz_n = gz.get("n", 0); gz_ok = gz.get("correct", 0)
+    print(f"\n  Golden zone: {gz_ok}/{gz_n} correct (v1 baseline: 15/15)")
+    fc = tier_stats.get("false_consensus", {})
+    print(f"  False consensus (all agree + wrong): {fc.get('n',0)} games")
 
     # ── SAVE RESULTS ──────────────────────────────────────────────────────────
     for model_name, preds_list in [("poisson-xg", preds_xgp), ("ensemble-v2", preds_v2)]:
@@ -434,17 +662,37 @@ def main():
                 "correct": "✓" if pred_lbl == r["actual"] else "✗",
                 "model_version": model_name,
             })
-        df_out = pd.DataFrame(rows)
-        df_out.to_csv(out_dir / "predictions_vs_actual.csv", index=False)
+        pd.DataFrame(rows).to_csv(out_dir / "predictions_vs_actual.csv", index=False)
 
-    # Full comparison CSV
+    # Full comparison + stats CSVs
     comp_dir = ROOT / "results/comparisons/wc2022-backtest"
     comp_dir.mkdir(parents=True, exist_ok=True)
-    pd.DataFrame(results_table).to_csv(comp_dir / "all_models_comparison.csv", index=False)
-    pd.DataFrame(summary).to_csv(comp_dir / "summary_metrics.csv", index=False)
+    pd.DataFrame(results_table).to_csv(comp_dir / "all_models_v2_comparison.csv", index=False)
 
-    print(f"\nSaved → results/comparisons/wc2022-backtest/all_models_comparison.csv")
-    print(f"Saved → results/comparisons/wc2022-backtest/summary_metrics.csv")
+    summary_df = pd.DataFrame(summary_rows).merge(pd.DataFrame(ci_rows), on="model")
+    summary_df.to_csv(comp_dir / "statistical_metrics_v2.csv", index=False)
+
+    # Stage split CSV
+    stage_rows_out = []
+    for stage_name, stage_mask_fn in [("groups",    lambda i: not results_table[i]["is_ko"]),
+                                       ("knockouts", lambda i: results_table[i]["is_ko"])]:
+        idx = [i for i in range(len(actuals)) if stage_mask_fn(i)]
+        stage_actuals = [actuals[i] for i in idx]
+        stage_y = np.eye(3)[stage_actuals]
+        for label, preds_list in all_preds:
+            arr_s = np.array([preds_list[i] for i in idx])
+            ll_s  = log_loss(stage_y, arr_s)
+            acc_s = float(np.mean(np.argmax(arr_s, axis=1) == np.array(stage_actuals)))
+            rps_s = mean_rps([preds_list[i] for i in idx], stage_actuals)
+            stage_rows_out.append({"stage": stage_name, "model": label, "n": len(idx),
+                                   "log_loss": round(ll_s,4), "accuracy": round(acc_s,3),
+                                   "rps": round(rps_s,4)})
+    pd.DataFrame(stage_rows_out).to_csv(comp_dir / "stage_split_evaluation.csv", index=False)
+    pd.DataFrame(tier_rows).to_csv(comp_dir / "disagreement_tier_analysis.csv", index=False)
+
+    print(f"\nSaved → results/comparisons/wc2022-backtest/")
+    print(f"  all_models_v2_comparison.csv, statistical_metrics_v2.csv,")
+    print(f"  stage_split_evaluation.csv, disagreement_tier_analysis.csv")
 
 
 if __name__ == "__main__":

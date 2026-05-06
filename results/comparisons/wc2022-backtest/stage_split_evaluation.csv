@@ -1,0 +1,15 @@
+stage,model,n,log_loss,accuracy,rps
+groups,elo-baseline,48,1.3036,0.396,0.2451
+groups,form-last-10,48,1.056,0.438,0.2359
+groups,poisson-xg (DC fit),48,1.1755,0.396,0.2598
+groups,player-xg-poisson,48,1.1503,0.396,0.2565
+groups,ensemble-v2 (3-mdl),48,1.0653,0.417,0.2322
+groups,ens-backtest-v3,48,1.0685,0.396,0.2326
+groups,ensemble-e3 (bench),48,1.0815,0.354,0.2327
+knockouts,elo-baseline,16,0.9907,0.562,0.1844
+knockouts,form-last-10,16,1.1549,0.562,0.2208
+knockouts,poisson-xg (DC fit),16,1.1486,0.438,0.2237
+knockouts,player-xg-poisson,16,1.0082,0.5,0.1899
+knockouts,ensemble-v2 (3-mdl),16,1.0216,0.5,0.1929
+knockouts,ens-backtest-v3,16,1.002,0.562,0.1845
+knockouts,ensemble-e3 (bench),16,1.0034,0.375,0.1922
