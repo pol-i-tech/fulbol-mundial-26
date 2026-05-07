@@ -97,8 +97,17 @@ A `predictions.csv` is "well-formed" if:
 3. Every `p_model` is in [0, 1].
 4. Probabilities for any single (`match_id`, `market_type`) sum to between 0.95 and 1.05 (allow rounding noise) for these market types: `match_1x2`, `outright_winner`, `group_winner`, `team_advances`, `totals`, `btts`. (`top_scorer` is a single-row-per-player market with no sum constraint.)
 5. `match_id` follows one of the conventions above.
+6. `confidence` is consistently either `high`/`medium`/`low` or a numeric value in [0, 1].
+7. `notes` describes model reasoning only. Market edge, book price, and bet sizing belong in `results/comparisons/`, not in model snapshots.
 
-A simple checker will be added once the first model writes outputs. For now: trust + verify.
+Use the checker before opening a PR:
+
+```bash
+python3 tools/validate_predictions.py --all
+python3 tools/validate_predictions.py results/<model>/<YYYY-MM-DD>/predictions.csv
+```
+
+Backtest diagnostic files that include actual scores/results should be named `predictions_vs_actual.csv` or written to `results/comparisons/`, not used as date-snapshot `predictions.csv` files.
 
 ## How to start
 

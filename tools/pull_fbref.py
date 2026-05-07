@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 """
-Pull FBref national team stats via soccerdata.
+Quarantined FBref pull via soccerdata.
+
+FBref is currently marked as hard-blocked by Cloudflare in DEVELOPMENT.md.
+Do not run this script as part of the active pipeline unless that project
+constraint is deliberately changed.
+
+Original intent: pull FBref national team stats via soccerdata.
 Targets: WC 2026 qualified nations across recent qualifying cycles,
          UEFA Nations League, CONMEBOL qualifiers, etc.
 
@@ -17,7 +23,12 @@ from pathlib import Path
 
 warnings.filterwarnings("ignore")
 import pandas as pd
-import soccerdata as sd
+
+FBREF_BLOCKED = True
+if not FBREF_BLOCKED:
+    import soccerdata as sd
+else:
+    sd = None
 
 ROOT    = Path(__file__).parent.parent
 RAW     = ROOT / "data" / "raw" / "fbref"
@@ -110,6 +121,10 @@ def build_team_summary(all_shooting: list[pd.DataFrame]) -> pd.DataFrame:
 
 
 def main():
+    if FBREF_BLOCKED:
+        print("FBref pull is quarantined: DEVELOPMENT.md says FBref is Cloudflare-blocked. Use existing StatsBomb/Understat/martj42 data instead.")
+        return
+
     all_shooting = []
     all_passing  = []
 
