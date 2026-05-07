@@ -1,425 +1,261 @@
 ---
-title: "fix: Data cleanse for games, teams, and players"
-type: fix
+title: "feat: Capture recent games and announced WC2026 squads"
+type: feat
 status: active
-date: 2026-05-06
+date: 2026-05-07
 ---
 
-# fix: Data cleanse for games, teams, and players
+# feat: Capture recent games and announced WC2026 squads
 
 ## Overview
 
-The model pipeline blends StatsBomb national-team data, Understat club-season data, and a Wikipedia-scraped WC2026 squad list into `data/derived/squad_xg_ratings.parquet`, `team_attack_ratings.parquet`, `statsbomb_player_xg.parquet`, and `statsbomb_team_xg.parquet`. A first-pass scan shows real data-quality bias entering the model — most importantly small-sample per-90 inflation that produces players with `blended_xg90` up to 7.99 — plus structural issues (Understat join leaks, non-qualifier nations, multi-club join artifacts, name encoding drift). This plan introduces a deterministic audit script, a reviewable manual-override layer, and targeted fixes in the build pipeline so the data feeding statistical models is clean and reproducible.
+Models read from `data/derived/`, but two upstream gaps mean models are training on stale inputs:
 
-This is a data-quality fix plan, not a model change plan. Model coefficients (the 0.4/0.6 blend, Dixon-Coles `xi`, etc.) are out of scope.
+1. The international-match record stops at Copa America 2024 (July 2024). Roughly ten months of international football — UEFA Nations League 2024-25, FIFA WC qualifying windows (Sep/Oct/Nov 2024, March/June/Sep/Oct/Nov 2025, March 2026), and pre-tournament friendlies — never reach `data/derived/`.
+2. `data/raw/squads/wc2026_squads_raw.json` is an empty array. The Wikipedia squad scrape is not producing rows, so `data/derived/wc2026_squads.parquet` is built from an empty source. WC2026 squad announcements are happening now (tournament starts 2026-06-11).
+
+This plan adds two pulls and one validation step so the most recent games and announced players land in `data/derived/` cleanly, dated, and idempotently — ready for downstream models. Cleaning means: schema conformance, deduplication, name normalization, and a freshness check that fails loudly. It does **not** mean re-deriving xG, fitting models, or correcting historical bias — those are separate concerns.
 
 ## Problem Frame
 
-Statistical models in this repo (`compound-model`, `ensemble_model.py`, `wc2022_xg_backtest.py`) read directly from `data/derived/`. Five concrete issues bias those models today:
+A data engineer's job here is to deliver fresh, schema-correct inputs to the modeling layer. Today the pipeline produces correct outputs from stale inputs. Concretely:
 
-1. **Small-N per-90 inflation.** `tools/build_squad_xg_ratings.py` blends `nat_xg_per_90` even when `nat_minutes` is tiny. Pablo Sarabia ends up at `blended_xg90 = 7.99` from 4 national-team minutes (1 chance → 22 xg/90). 350 of 1275 squad rows have `nat_minutes < 90`; 607 have `nat_minutes < 180`.
-2. **Understat join leaks "multi-club" strings.** 22 rows have `club = "Fiorentina,Monza"` style values because the Understat aggregation collapses a player's two clubs in a season into a single string field. This breaks any downstream code that assumes `club` is a single entity and silently inflates `club_minutes_2425`.
-3. **Squad scope mismatch.** `nation` has 52 distinct values but WC2026 has 48 finals teams. Albania, Bolivia, Czech Republic, Georgia, Hungary, Peru, Qatar, Romania, Slovakia, Slovenia, Turkey, Ukraine, Venezuela, Wales, Scotland are present (some are non-qualifiers). The pipeline does not declare which list is canonical.
-4. **Understat nationality column is unusable.** All 6808 Understat rows have empty `nationality`. Code that joins on it will silently fail. The squad join uses fuzzy-name matching, but downstream features that *think* they are nationality-aware are not.
-5. **Cross-source naming drift.** `M''Baye Babacar Niang` (double apostrophe), full Iberian-style names ("Cristiano Ronaldo dos Santos Aveiro") vs short form, accent normalization done only in `simplify_name()` of the build script — names returned to consumers (CSV/parquet) are *not* normalized, so cross-source joins outside the build script can miss.
-
-Players on the wrong nationality (the user's specific concern) is a sub-case of (3) and (4) — without a verified canonical squad list, we cannot detect it. Once a canonical list exists, suspicious entries get patched via overrides with cited sources.
+- `data/derived/statsbomb_team_xg.parquet` covers WC2018, Euro2020, WC2022, Euro2024, Copa2024 — nothing past 2024-07-14. StatsBomb open-data does not publish UEFA Nations League or WC qualifiers, so a non-StatsBomb source is required for recency.
+- `data/derived/wc2026_squads.parquet` is empty (built from `[]`). Models that should read from announced rosters fall back to whatever proxy they have (likely the most recent tournament squads), which is exactly the bias this pipeline was built to avoid.
+- `data/raw/martj42/2026-04-28/` exists, suggesting `martj42/international_results` is already pulled, but no derived match-level table is produced for downstream consumers — the file is read inline by `weekly_pull.py` for Elo and never persisted in cleansed form.
+- `tools/pull_fbref_national.py` exists but FBref is hard-blocked by Cloudflare (`DEVELOPMENT.md`). Treat that file as unusable for this plan.
 
 ## Requirements Trace
 
-- R1. Produce a deterministic, re-runnable audit report that lists every data-quality issue across `squad_xg_ratings`, `team_attack_ratings`, `sb_player_summary`, `statsbomb_player_xg`, `statsbomb_team_xg`, and `understat_player_xg`.
-- R2. Eliminate small-sample per-90 inflation (no `blended_xg90` driven primarily by `< ~3 full matches` of national-team play).
-- R3. Resolve multi-club join artifacts (one canonical club per player-season, or an explicit list — never a comma-joined string).
-- R4. Establish the canonical WC2026 nation list (48 teams) and label any non-qualifier rows so downstream code can filter explicitly.
-- R5. Verify suspicious player–team and player–nationality assignments against authoritative sources (FIFA squad announcements, Wikipedia, transfermarkt) and patch via a citable override layer; when uncertain, still apply best-known correction.
-- R6. After the cleanse, re-run `tools/build_squad_xg_ratings.py` and confirm zero rows breach the audit thresholds.
-- R7. The cleanse must be reproducible from `data/raw/` — no manually edited derived parquet files.
+- R1. `data/derived/recent_internationals.parquet` exists and contains every full international match from 2024-08-01 through the most recent international break, in a documented schema (date, home, away, home_goals, away_goals, competition, source).
+- R2. `data/derived/wc2026_squads.parquet` is non-empty and contains player rows for every nation listed on the Wikipedia squads page, with `nation`, `player`, `position`, `club`, and `is_final_squad` boolean.
+- R3. Both pulls are idempotent: re-running on the same day produces the same outputs; running on a later day adds new matches and updates squad announcements without duplicating prior rows.
+- R4. Both pulls write date-stamped raw snapshots to `data/raw/<source>/<YYYY-MM-DD>/` and the most recent snapshot to a `latest/` symlink-equivalent (matches existing `martj42` pattern).
+- R5. A freshness validator fails loudly when either derived parquet is older than a configured threshold (matches stale > 14 days; squads stale > 7 days during May/June 2026).
+- R6. The two new pulls plug into `tools/weekly_pull.py` so a single `python3 tools/weekly_pull.py` produces refreshed inputs.
 
 ## Scope Boundaries
 
-- Not changing the `0.4 × nat + 0.6 × club` blend formula or any model hyperparameters.
-- Not pulling new data sources (no Transfermarkt or FBref scrapers added — FBref is hard-blocked anyway per `DEVELOPMENT.md`).
-- Not changing the Kalshi/Polymarket market normalization paths.
-- Not auditing `kalshi_snapshot_*` or `polymarket_snapshot_*` market data — separate concern.
-- Not auditing `data/raw/elo/` or the Elo-baseline model inputs — those are read directly by `tools/weekly_pull.py` from `martj42` and need a separate look if the user wants.
-- Online lookups for player corrections are bounded: a sampled-but-thorough sweep of every flagged row, not a top-down scrape of every WC2026 player.
+- **Not** computing xG for the recent matches. xG requires shot-level event data (StatsBomb-quality), which `martj42` does not provide. Recent games come in goal-only.
+- **Not** changing any model code. Models continue reading the existing parquet schemas; the new files are *additive*.
+- **Not** auditing or correcting existing data (the prior version of this plan covered that — it was out of scope for "data engineer captures recent data").
+- **Not** building shrinkage priors, manual override layers, or audit reports. Those are separate plans if they're needed.
+- **Not** pulling FBref. Hard-blocked.
+- **Not** pulling Understat for new tournaments — Understat is club-only.
 
 ### Deferred to Separate Tasks
 
-- Adding new data sources (UCL, Nations League event data) — Track B contribution.
-- Re-fitting Dixon-Coles after cleansed inputs — natural next step but separate plan.
-- Building a long-running automated data-validation CI gate — start with a script, productionize later.
+- Adding xG to recent international matches (would need a StatsBomb licensed feed, an Opta-backed source, or a homegrown xG model — all out of scope here).
+- Backfilling shot-level data for Nations League / WCQ.
+- Whatever model refit is appropriate after fresh data lands.
 
 ## Context & Research
 
 ### Relevant Code and Patterns
 
-- `tools/build_squad_xg_ratings.py` — fuzzy-matches StatsBomb names against Understat via `rapidfuzz` (threshold 75); applies `simplify_name()` only inside the build, not in the output. This is where the small-N inflation lives — `blended_xg90 = 0.4*nat + 0.6*club` runs unconditionally.
-- `tools/aggregate_statsbomb_players.py` — produces `sb_player_summary.parquet` with `xg_per_90 = xg / minutes_played * 90`; minute floor not enforced.
-- `tools/pull_understat_players.py` — produces `understat_player_xg_raw.parquet` and the derived aggregate; the multi-team string concatenation happens on the season aggregation step. Note that `tools/build_squad_xg_ratings.py` filters Understat to `time >= 200` minutes before joining, so club-side per-90 has a 200-minute minimum at the point of blending.
-- `tools/pull_wc2026_squads.py` — Wikipedia-scraped, 52-team output. Source of the squad scope mismatch.
-- `tools/pull_statsbomb.py` — pulls `FIFA WC 2018/2022`, `Euro 2020/2024`, `Copa America 2024` — only competitions present today; team names mostly clean but `M''Baye` shows minor encoding noise.
-- `tools/weekly_pull.py` — holds `NAME_TO_FIFA3` and `ISO2_TO_FIFA3` dicts. These are the only existing canonical nation/code mappings; reuse them rather than duplicating.
-
-### Institutional Learnings
-
-- `docs/solutions/raw/` is empty; no prior cleanse documented. This plan also produces the first solution writeup.
-- `DEVELOPMENT.md` "Subjectivity and bias policy" — every manual adjustment must be documented with evidence and reasoning. Override CSV rows must follow this convention (one row = one decision + cited source).
-
-### Concrete Issues Found in First-Pass Scan
-
-| Issue | Surface area | Example | Severity |
-|---|---|---|---|
-| Small-N nat per-90 inflation | `squad_xg_ratings.blended_xg90` | Pablo Sarabia: 4 nat min → 7.99 blended | High — directly biases attack ratings |
-| Multi-club Understat join | `squad_xg_ratings.club` | "Fiorentina,Monza"; 22 rows | Medium — silent in current code, breaks any new join |
-| Squad nation scope | `squad_xg_ratings.nation` | 52 nations vs 48 WC26 teams | High — non-qualifier rows pollute team-level aggregates |
-| Empty Understat nationality | `understat_player_xg.nationality` | All 6808 rows blank | Medium — lurking footgun |
-| Name encoding drift | `statsbomb_player_xg.player` | `M''Baye Babacar Niang` | Low — but compounds with cross-source joins |
-| Sb teams not in squad | `statsbomb_team_xg.team` | Egypt, Finland, Iceland, Nigeria, North Macedonia, Russia, Sweden | Low — historical; only matters if any are wrongly excluded from squad list |
-| High Understat-miss rate per nation | `squad_xg_ratings` (54% rows missing club) | Qatar 95%, Iran 90%, Australia 85% | High — those nations effectively ride on nat-only stats and inherit (1) |
-| Single-shot StatsBomb xG | `statsbomb_player_xg.xg` | Max 0.99 — within bounds | None observed; verified clean |
-| Team-match StatsBomb xG | `statsbomb_team_xg.xg` | Max 6.93 (Spain–Switzerland 2021 R16) | None observed; matches reality |
+- `tools/pull_wc2026_squads.py` — already exists, fetches `https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_squads`, caches HTML, parses tables. Currently producing empty JSON — root-cause investigation is part of Unit 2.
+- `data/raw/squads/squads_wiki_raw.html` — cached HTML exists; the parse step is what's failing.
+- `tools/weekly_pull.py` — orchestrator. Reads `martj42/international_results` for Elo computation. Uses `NAME_TO_FIFA3` and `ISO2_TO_FIFA3` dicts as the canonical name mapping; reuse rather than duplicate.
+- `data/raw/martj42/latest/` — existing snapshot pattern (date folder + `latest/` mirror). Match this for consistency.
+- `tools/pull_statsbomb.py` — pattern for paginated, cached, idempotent pulls.
+- `DEVELOPMENT.md` — "Data contributor" track explicitly defines: pull scripts in `tools/`, raw to `data/raw/<source>/<YYYY-MM-DD>/`, derived to `data/derived/`, must be idempotent, document source + cadence + rate limits in the script header.
 
 ### External References
 
-External research is not needed for the structural cleanse. Specific player corrections will cite:
-
-- Wikipedia squad pages (`https://en.wikipedia.org/wiki/<Team>_at_the_2026_FIFA_World_Cup`) — used by `pull_wc2026_squads.py` already
-- FIFA's official squad announcement when available
-- Transfermarkt (`https://www.transfermarkt.com/<player-slug>`) for current club + nationality
-- The squad page on each national federation's site as a tiebreaker
-
-These are accessed manually during the lookup step; no automated scraper is built.
+- `martj42/international_results` — public GitHub CSV: `https://raw.githubusercontent.com/martj42/international_results/master/results.csv`. Goals only, not xG. Includes friendlies, qualifiers, all confederations. Update cadence: usually within 24h of match.
+- Wikipedia WC2026 squads page: `https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_squads`. Final squads must be submitted to FIFA before the tournament; preliminary squads (35-player) are usually announced 2-3 weeks before final squads.
 
 ## Key Technical Decisions
 
-- **Audit-first, override-second pattern.** A single `tools/audit_data_quality.py` script produces a deterministic report (`results/audits/<date>/data_quality.md` + machine-readable `issues.csv`). Fixes land as either pipeline changes (for systemic issues like small-N inflation) or rows in `data/manual_overrides/player_corrections.csv` (for individual records). Rationale: separates detection from correction so the audit can re-run after fixes and confirm zero residual issues; mirrors `DEVELOPMENT.md`'s reproducibility-and-evidence policy.
-
-- **Minimum-minutes rule with shrinkage, not a hard cutoff.** For `nat_xg_per_90` we apply Bayesian-style shrinkage: `effective_xg90 = (xg + prior_mean × prior_minutes) / (minutes + prior_minutes) × 90`, where `prior_mean` is the position-weighted xG/90 from `sb_player_summary` and `prior_minutes` is set so anything below ~3 full matches (270 min) is pulled most of the way back to prior. Rationale: dropping rows entirely loses signal for legitimate squad members; raw per-90 from 4 minutes is meaningless. Shrinkage is the standard fix; we apply it inside the existing build script and document the prior in `methodology/`.
-
-- **Multi-club rows: collapse to weighted average, retain raw list.** Replace the `club` string with a single canonical value (the club where the player has the most minutes for the season) and store the multi-club detail in a new column `club_history` (list type) for transparency. Rationale: downstream code expects scalar `club`; we don't break consumers.
-
-- **Canonical 48-team list lives in `tools/wc2026_qualifiers.py`** as a Python constant referenced from both `pull_wc2026_squads.py` and the audit script. Adds an `is_wc2026_qualifier` boolean to `squad_xg_ratings` and `team_attack_ratings`. Rationale: explicit > implicit; no row deletion (preserves auditability); downstream code chooses to filter or not. Source for the list: FIFA's confirmed-qualifiers page as of plan date (cited in the constants file).
-
-- **Manual overrides use a CSV with mandatory `source_url` and `reason` columns.** Schema: `entity_type,entity_id,field,old_value,new_value,source_url,reason,reviewed_by,reviewed_date`. Applied in a single function called late in `build_squad_xg_ratings.py` (and other build scripts as needed). Rationale: every correction is auditable and complies with the subjectivity-and-bias policy in `DEVELOPMENT.md`.
-
-- **Apply normalization once, in the pull layer, not in every consumer.** `simplify_name()` currently lives only inside `build_squad_xg_ratings.py`. Move it to a shared `tools/_names.py` and apply during pull → derived transforms so the parquet output already has a `player_normalized` column. Original name preserved as `player`. Rationale: cleaner outputs, fewer surprises for new contributors.
+- **Recent-games source = `martj42/international_results`.** Already in the pipeline, license-clean, goals-only is acceptable for an Elo/form input. Rationale: any richer source (FBref, paid Opta) costs more than it adds at this scope.
+- **Two distinct derived files, one per source.** `recent_internationals.parquet` (matches) and `wc2026_squads.parquet` (rosters) are independent; one failing should not block the other. Keep them separate.
+- **`is_final_squad` boolean rather than two parquet files.** Wikipedia's squads page distinguishes preliminary vs final via section headers. One file with a flag preserves history; consumers filter as needed.
+- **Freshness check is a function, not a cron job.** `tools/check_data_freshness.py` callable both standalone and from `weekly_pull.py`. Returns nonzero on stale data. Rationale: orchestrator already exists, no new infra.
+- **Idempotency via primary key on (date, home, away) for matches and (nation, player) for squads.** Re-pulls upsert by key; no duplicate rows possible. Matches the existing martj42 source-of-truth model.
+- **`latest/` is a directory copy, not a symlink.** Cross-platform-portable for any contributor on Windows; matches what `data/raw/martj42/latest/` already does.
 
 ## Open Questions
 
 ### Resolved During Planning
 
-- **Should we drop non-qualifier nations entirely?** No. Mark them with `is_wc2026_qualifier=False` and let consumers filter. Rationale: the squad scrape may have run before final qualification; preserving rows keeps history. (Carried through to Unit 4.)
-- **Where do per-player corrections live?** A reviewed CSV under `data/manual_overrides/`, applied at build time. Rationale: matches the existing data flow and is git-trackable.
-- **Do StatsBomb shot-level xG values have any outlier issues?** No — observed max is 0.99, count 6619, distribution sane. Skip. (Audit script still includes the check so we catch future regressions.)
-- **What audit threshold for "outlier blended_xg90"?** Position-aware: forward `> 1.4`, midfielder `> 0.9`, defender `> 0.6`, GK `> 0.05`. Each is roughly the 99th percentile of historical national-team xG/90 in `sb_player_summary` after applying the minutes floor. Documented in the audit script.
+- **Should we attempt to derive xG for recent matches?** No. Out of scope; goals-only is enough for Elo/form features. (If a future model needs xG for recent matches, that's a separate plan with a separate source decision.)
+- **Where do final-squad rows come from when Wikipedia hasn't been updated yet?** Wikipedia's squads page tracks both preliminary (35-player) and final (26-player) lists; `is_final_squad` is False until Wikipedia flips them. Re-running the pull picks up the change.
+- **Should non-WC2026 nations be included in `recent_internationals.parquet`?** Yes — the file mirrors `martj42` faithfully so it's reusable for non-WC contexts (Elo updates, form features). Consumers filter by FIFA3 code.
 
 ### Deferred to Implementation
 
-- Exact prior-minutes constant for shrinkage — start at 270 (3 matches) but tune by checking that no flagged outlier survives while no defensible scorer (e.g., Lautaro Martínez at high but credible rates) gets crushed. Final value lives in `methodology/_data-cleanse/README.md`.
-- Whether to apply shrinkage to `club_xg_per_90` as well — Understat already enforces a 200-minute floor at the source, but post-shrinkage check may show residual inflation. Decide during Unit 2 with data in hand.
-- Final list of player corrections and how many — knowable only after the audit script first runs. Plan budgets a sweep through every row flagged High/Medium severity.
+- Why is `pull_wc2026_squads.py` currently producing `[]`? Root cause is unknown until Unit 2 runs; could be Wikipedia DOM change, BeautifulSoup selector drift, or an upstream redirect. Diagnosis happens in-unit.
+- Exact freshness thresholds (14 days for matches; 7 days for squads in May/June 2026, 30 days otherwise) — these are starting values. Adjust in Unit 4 once the validator runs against real data.
 
 ## Implementation Units
 
-- [ ] **Unit 1: Audit script — single source of truth for data-quality issues**
+- [ ] **Unit 1: Pull recent international matches from `martj42`**
 
-**Goal:** Build `tools/audit_data_quality.py` that scans every derived parquet and produces a deterministic Markdown report plus a machine-readable `issues.csv`. The report is the input to all downstream cleanse work and the exit criterion for verifying it succeeded.
+**Goal:** Produce `data/derived/recent_internationals.parquet` containing every full international from 2024-08-01 to the run date, deduplicated and dated.
 
-**Requirements:** R1, R6.
-
-**Dependencies:** None.
-
-**Files:**
-- Create: `tools/audit_data_quality.py`
-- Create: `tools/_names.py` (extracted from `build_squad_xg_ratings.py`; shared by audit and build)
-- Create: `results/audits/_template/data_quality.md`
-- Test: `tools/test_audit_data_quality.py`
-
-**Approach:**
-- One check class per issue category from the table above; each emits 0..N rows of a common `Issue(entity_type, entity_id, severity, category, detail, suggestion)` dataclass.
-- Categories: `outlier_blended_xg90`, `outlier_nat_xg90`, `outlier_understat_xg90`, `multi_club_artifact`, `non_qualifier_nation`, `empty_understat_nationality`, `name_encoding_drift`, `name_unmatched_across_sources`, `team_xg_outlier`, `single_shot_xg_outlier`, `nation_with_high_understat_miss_rate`.
-- Outputs:
-  - `results/audits/<YYYY-MM-DD>/data_quality.md` — human-readable summary by category
-  - `results/audits/<YYYY-MM-DD>/issues.csv` — flat CSV used as input to Unit 5 corrections
-- Idempotent and deterministic: no random sampling; no network calls.
-- Position-aware xG thresholds documented inline (see `Resolved During Planning`).
-
-**Patterns to follow:**
-- Mirror the simple "load parquet → assert on dataframe → write CSV" style of `tools/aggregate_statsbomb_players.py`. No class hierarchy, no plugin registration — KISS.
-- Follow the `as_of_date` folder convention used by `results/<model>/<date>/`.
-
-**Test scenarios:**
-- Happy path — Run on current `data/derived/` and assert the issues.csv contains the Pablo Sarabia outlier and at least 22 multi-club rows.
-- Happy path — Re-running on the same input produces a byte-identical CSV (deterministic).
-- Edge case — Run on a synthetic minimal fixture with one row of each category; assert each category produces exactly one issue.
-- Edge case — Empty dataframe input produces an empty issues.csv with header row, not a crash.
-- Integration — Sum of rows in issues.csv equals sum of rows the Markdown report claims per category.
-
-**Verification:**
-- First run produces a non-empty `issues.csv` containing all known issues from the first-pass scan.
-- Re-running after Units 2–5 land produces an `issues.csv` whose only High-severity rows are explicitly accepted with documented reasoning.
-
----
-
-- [ ] **Unit 2: Small-N shrinkage in the squad-rating build**
-
-**Goal:** Eliminate per-90 inflation in `squad_xg_ratings.blended_xg90` driven by tiny `nat_minutes` samples.
-
-**Requirements:** R2.
-
-**Dependencies:** Unit 1 (so we can verify the fix shrinks the count of flagged outliers to zero).
-
-**Files:**
-- Modify: `tools/build_squad_xg_ratings.py`
-- Create: `methodology/_data-cleanse/README.md` (documents the shrinkage prior and the position-weighted base rates)
-- Test: `tools/test_build_squad_xg_ratings.py`
-
-**Approach:**
-- Compute `prior_mean_xg90` per position from `sb_player_summary` after filtering to `minutes_played >= 270`.
-- Replace raw `nat_xg_per_90` in the blend with `shrunk_nat_xg_per_90 = (player_xg + prior_mean × prior_minutes) / (player_minutes + prior_minutes) × 90`. Default `prior_minutes = 270`.
-- Recompute `blended_xg90` from the shrunk value.
-- Persist both columns: keep `nat_xg_per_90` (raw) for transparency; add `nat_xg_per_90_shrunk` and recompute `blended_xg90` from the shrunk one.
-- Add a unit-level constant block with the prior values, sourced from `sb_player_summary`, regenerated each run (no hard-coded magic numbers).
-
-**Patterns to follow:**
-- Same parquet-write idiom already in `build_squad_xg_ratings.py`.
-- Use `np.where` rather than row iteration for the shrinkage step.
-
-**Technical design:** *(directional, not implementation)*
-
-```
-For each squad row:
-  pos = position_bucket(player.position)            # F | M | D | GK
-  prior = position_priors[pos]                       # mean nat-xg/90 for that bucket, ≥270min cohort
-  shrunk = (player.nat_xg + prior × 270) /
-           (player.nat_minutes + 270) × 90
-  blended = 0.4 × shrunk + 0.6 × club_xg_per_90      # if club known
-          = shrunk                                    # else
-```
-
-**Test scenarios:**
-- Happy path — A player with 270 min and 1.0 nat xg/90 stays close to 1.0 (drift < 0.2).
-- Edge case — A player with 4 min and one big chance lands within ±0.2 of the position prior.
-- Edge case — A player with 0 nat minutes returns the position prior, not NaN, not div-by-zero.
-- Edge case — Position is empty/unknown — falls back to the global mean prior, not NaN.
-- Integration — After this unit, the audit (Unit 1) reports zero `outlier_blended_xg90` issues except those explicitly whitelisted with cited justification.
-
-**Verification:**
-- Pablo Sarabia row drops from `blended_xg90 = 7.99` to a credible value (< 1.0 expected).
-- The 350 rows with `nat_minutes < 90` no longer appear in the top-50 `blended_xg90`.
-- `data/derived/squad_xg_ratings.parquet` has both raw and shrunk columns.
-
----
-
-- [ ] **Unit 3: Multi-club Understat join — collapse to canonical club**
-
-**Goal:** Replace the comma-concatenated `club` artifact with a single canonical club + a transparent `club_history` list, so downstream code can rely on `club` being a single entity.
-
-**Requirements:** R3.
-
-**Dependencies:** None (independent of Unit 2; can land in either order).
-
-**Files:**
-- Modify: `tools/pull_understat_players.py` (or `tools/build_squad_xg_ratings.py` if the artifact originates in the squad join — Unit will confirm first)
-- Test: `tools/test_understat_join.py`
-
-**Approach:**
-- Locate where the comma-join happens. Two candidates:
-  1. `pull_understat_players.py` — when aggregating across multiple Understat club-seasons for one player.
-  2. `build_squad_xg_ratings.py` — when fuzzy-matching produces multiple Understat candidates for one StatsBomb player.
-- Replace the string concat with a structured list and an explicit reduction:
-  - `club` = club with most minutes in the most recent season the player appeared in
-  - `club_history` = list of `(club, league, minutes, xg_per_90, season)` tuples
-  - `club_minutes_2425` = sum (current behavior preserved)
-  - `club_xg_per_90` = minutes-weighted average (current effective behavior, made explicit)
-
-**Patterns to follow:**
-- The `sb_player_summary` aggregation in `aggregate_statsbomb_players.py` already does minutes-weighted aggregation — mirror that style.
-
-**Test scenarios:**
-- Happy path — A single-club player produces `club_history` of length 1 and `club` matching that club.
-- Edge case — A player with two clubs (e.g., Stefan Posch Atalanta+Bologna) produces `club_history` length 2, `club = "Bologna"` (the higher-minutes one), no comma in the string.
-- Edge case — A player whose two clubs have equal minutes deterministically picks one (alphabetical tiebreak; documented).
-- Integration — After this unit, the audit (Unit 1) reports zero `multi_club_artifact` issues.
-
-**Verification:**
-- Zero rows in `squad_xg_ratings` contain a comma in the `club` field.
-- `club_history` column exists and is populated for all 22 originally affected rows.
-
----
-
-- [ ] **Unit 4: WC2026 qualifier scope — explicit canonical list**
-
-**Goal:** Declare the 48-team WC2026 finals list as code, label every squad row with `is_wc2026_qualifier`, and make non-qualifier rows easy to filter.
-
-**Requirements:** R4.
+**Requirements:** R1, R3, R4.
 
 **Dependencies:** None.
 
 **Files:**
-- Create: `tools/wc2026_qualifiers.py` — single Python constant `WC2026_QUALIFIERS: frozenset[str]` plus `SOURCE_URL` and `LAST_UPDATED` metadata
-- Modify: `tools/pull_wc2026_squads.py` — annotate output with the boolean
-- Modify: `tools/build_squad_xg_ratings.py` — propagate the boolean
-- Modify: `tools/audit_data_quality.py` — flag rows where `is_wc2026_qualifier=False`
-- Test: `tools/test_wc2026_qualifiers.py`
+- Create: `tools/pull_recent_internationals.py`
+- Create: `data/raw/martj42/<YYYY-MM-DD>/results.csv` (date-stamped snapshot)
+- Create: `data/derived/recent_internationals.parquet`
+- Test: `tools/test_pull_recent_internationals.py`
 
 **Approach:**
-- Hard-code the list as of plan date with `SOURCE_URL` (FIFA confirmed-qualifiers page) and `LAST_UPDATED = '2026-05-06'`.
-- Validate at module import: 48 unique entries, all match canonical strings used elsewhere (cross-checked against `NAME_TO_FIFA3` keys in `weekly_pull.py`).
-- Audit reports any squad nation outside the set as a `non_qualifier_nation` issue (Severity: Info, not Error — the row is preserved).
+- Download `https://raw.githubusercontent.com/martj42/international_results/master/results.csv` to `data/raw/martj42/<YYYY-MM-DD>/results.csv`. Mirror to `data/raw/martj42/latest/`.
+- Filter `date >= 2024-08-01` (after Copa2024 final).
+- Drop rows where `home_team` or `away_team` does not map to a FIFA3 code via the `NAME_TO_FIFA3` dict in `tools/weekly_pull.py`. Log dropped rows to stderr — do not fail.
+- Output schema: `date, home, away, home_fifa3, away_fifa3, home_goals, away_goals, tournament, neutral, source`.
+- Idempotency: write parquet with the full deduplicated table each run. Re-running on the same input produces a byte-identical file (sort by `(date, home, away)` before write).
+- Document source URL, update cadence, and any rate limits in the script header per `DEVELOPMENT.md`.
 
 **Patterns to follow:**
-- Match the existing `NAME_TO_FIFA3` dict format in `tools/weekly_pull.py` (3-letter codes, full canonical names).
+- Same date-folder + `latest/` snapshot pattern already used in `data/raw/martj42/`.
+- Reuse `NAME_TO_FIFA3` from `tools/weekly_pull.py`; do not duplicate the dict.
 
 **Test scenarios:**
-- Happy path — 48 entries, no duplicates, all map cleanly to FIFA3 codes.
-- Edge case — Module import fails loudly if the cross-check vs `NAME_TO_FIFA3` finds a typo.
-- Integration — After this unit lands, `squad_xg_ratings` includes `is_wc2026_qualifier`, and the audit shows the expected 4 non-qualifier nations as Info.
+- Happy path — Run on a fresh day; assert parquet has > 100 rows, contains a known recent match (e.g., a 2025 Nations League fixture).
+- Edge case — A row with `home_team` outside `NAME_TO_FIFA3` is logged and skipped, not crashed.
+- Edge case — Re-running on the same day produces a byte-identical parquet (deterministic sort).
+- Integration — After running, `weekly_pull.py` can read `recent_internationals.parquet` without schema errors.
 
 **Verification:**
-- `data/derived/squad_xg_ratings.parquet` has `is_wc2026_qualifier` populated.
-- Filtering to `is_wc2026_qualifier=True` yields exactly 48 distinct nations.
+- `data/derived/recent_internationals.parquet` exists, has the documented schema, and contains at least one match per international break since 2024-08-01.
+- A second run on the same day produces the same file.
 
 ---
 
-- [ ] **Unit 5: Manual overrides layer**
+- [ ] **Unit 2: Fix the WC2026 squad pull**
 
-**Goal:** Add the override CSV plus the apply-step in the build, so individual player corrections (wrong club, wrong nationality, name typos) are reviewable, citable, and reproducible.
+**Goal:** `data/derived/wc2026_squads.parquet` becomes non-empty with one row per announced player per nation, including `is_final_squad` boolean.
 
-**Requirements:** R5, R7.
+**Requirements:** R2, R3, R4.
 
-**Dependencies:** Unit 1 (audit produces the issues.csv that seeds the override list).
+**Dependencies:** None.
 
 **Files:**
-- Create: `data/manual_overrides/player_corrections.csv` (with header only; populated in Unit 6)
-- Create: `data/manual_overrides/README.md` (schema + how to add a row)
-- Modify: `tools/build_squad_xg_ratings.py` — apply overrides after the join, before final write
-- Test: `tools/test_manual_overrides.py`
+- Modify: `tools/pull_wc2026_squads.py`
+- Modify (if cached HTML is stale): `data/raw/squads/squads_wiki_raw.html`
+- Create: `data/raw/squads/<YYYY-MM-DD>/wc2026_squads_raw.json` (replaces the static-path raw file)
+- Modify: `data/derived/wc2026_squads.parquet`
+- Test: `tools/test_pull_wc2026_squads.py`
 
 **Approach:**
-- CSV schema: `entity_type` (player|team|game), `entity_key` (e.g., `nation=Spain;player=Pablo Sarabia García`), `field`, `old_value`, `new_value`, `source_url`, `reason`, `reviewed_by`, `reviewed_date`.
-- Apply step: filter overrides to `entity_type='player'` for the squad build; for each, locate the row by `entity_key`, assert `old_value` matches current value (loud failure if drift), set `new_value`.
-- Loud failure on `old_value` drift is intentional: if upstream data changed, the human must re-review the correction.
-- Validation: every row must have `source_url` and `reason` non-empty (enforced at apply time).
+- Diagnose first. The cached HTML at `data/raw/squads/squads_wiki_raw.html` exists; the JSON output is `[]`. Likely causes: (a) Wikipedia DOM changed (table class or section headers), (b) BeautifulSoup selector mismatched, (c) an early `return` short-circuiting the loop. Re-fetch the page once with `?action=raw` disabled to confirm structure, then patch the parser.
+- Output schema: `nation, player, position, club, shirt_number, is_final_squad, scraped_date, source_url`.
+- `is_final_squad` derived from the section heading on the Wikipedia page ("Final squad" / "Provisional squad"). When ambiguous, default to False.
+- Snapshot raw HTML and parsed JSON to `data/raw/squads/<YYYY-MM-DD>/`. Mirror to `data/raw/squads/latest/`.
+- Idempotency: same key-deduped write pattern as Unit 1. Re-running upserts by `(nation, player)`.
 
 **Patterns to follow:**
-- DEVELOPMENT.md's "Subjective adjustments" requirement — every entry needs evidence and reasoning, just at row granularity instead of MODEL.md granularity.
+- Existing fetch-cache idiom in the script (already caches HTML).
+- Same date-folder snapshot pattern as Unit 1.
 
 **Test scenarios:**
-- Happy path — Override `(nation=Spain; player=Foo)` `club: A → B` is applied; resulting parquet shows `club=B`.
-- Edge case — `old_value` mismatch: apply step raises a clear error naming the row, and the build aborts.
-- Edge case — Override targets an entity_key that doesn't exist: warning logged, build continues, audit picks it up next run.
-- Edge case — Empty `source_url` or `reason`: validation rejects on load.
-- Integration — Override layer changes a player's nationality; downstream `team_attack_ratings` reflects the move (player counted under new nation).
+- Happy path — Run; assert at least 30 nations and ≥ 600 players in output.
+- Edge case — Wikipedia DOM-change defense: a small unit test runs the parser against a checked-in HTML fixture (`tests/fixtures/wc2026_squads_sample.html`) so future Wikipedia changes break the test, not silently the data.
+- Edge case — A nation with only a "Provisional squad" section produces rows with `is_final_squad=False`; the same nation re-pulled after Wikipedia adds "Final squad" produces `is_final_squad=True` and updates the rows in place.
 
 **Verification:**
-- Empty overrides file leaves all derived data unchanged (regression-safe to add the layer).
-- Adding one override and rebuilding changes exactly the targeted row.
+- `data/derived/wc2026_squads.parquet` is non-empty and has ≥ 30 nations.
+- `data/raw/squads/wc2026_squads_raw.json` (or its dated equivalent) is non-empty.
 
 ---
 
-- [ ] **Unit 6: Player corrections sweep — verify suspicious rows online and patch**
+- [ ] **Unit 3: Wire both pulls into `weekly_pull.py`**
 
-**Goal:** Walk every High/Medium-severity row in the audit's `issues.csv` (after Units 2–5 systemic fixes), verify on authoritative sources, and add override rows. When uncertain, apply the best-known correction with reasoning.
+**Goal:** A single `python3 tools/weekly_pull.py` invocation refreshes both new parquets.
+
+**Requirements:** R6.
+
+**Dependencies:** Units 1, 2.
+
+**Files:**
+- Modify: `tools/weekly_pull.py`
+
+**Approach:**
+- Add the two pulls to the orchestrator's existing run sequence (matches the pattern already in place for Kalshi, Polymarket, Elo).
+- Each pull is wrapped so a single source failure does not abort the whole run; failures are logged and surfaced at the end.
+- No change to the existing comparison-table logic.
+
+**Test scenarios:**
+- Happy path — End-to-end `weekly_pull.py` run produces both parquets and the existing comparison table without errors.
+- Edge case — Wikipedia is unreachable during the run; squad pull logs the failure, match pull still completes, comparison table still builds from remaining inputs.
+
+**Verification:**
+- Running `python3 tools/weekly_pull.py 2026-05-07` from a clean tree produces both new parquets.
+
+---
+
+- [ ] **Unit 4: Freshness validator**
+
+**Goal:** A standalone check that fails loudly when derived data is stale, callable from `weekly_pull.py` and CI.
 
 **Requirements:** R5.
 
-**Dependencies:** Units 1, 2, 3, 4, 5.
+**Dependencies:** Units 1, 2.
 
 **Files:**
-- Modify: `data/manual_overrides/player_corrections.csv`
-- Create: `results/audits/<date>/corrections_log.md` — narrative of each lookup with citations
+- Create: `tools/check_data_freshness.py`
+- Modify: `tools/weekly_pull.py` (call the validator at end of run)
+- Test: `tools/test_check_data_freshness.py`
 
 **Approach:**
-- For each remaining issue:
-  1. Load the row from the parquet.
-  2. Look up the player on Wikipedia (squad page for the nation), Transfermarkt, and one tiebreaker.
-  3. If the source agrees with current data → mark as audit Whitelist (record in `corrections_log.md`, no override row).
-  4. If the source disagrees → add override row with `source_url` set to the most authoritative source.
-  5. If sources disagree → pick the most recent + most authoritative, document conflict in `reason`.
-  6. If no source can be found → apply best-effort correction (likely "set to NaN / drop the field") with `reason: "no authoritative source found, defaulting to <X> to avoid biasing model"`.
-- Categories likely to need patches:
-  - `name_encoding_drift` (e.g., `M''Baye` → `M'Baye`).
-  - Players with `nation_x` listed but actually capped by `nation_y` (rare; usually dual nationals).
-  - Players with retired status who are still in the squad scrape.
-  - GKs with non-zero attack stats (verify).
-- Cap: target zero remaining unexplained High-severity audit issues. Medium-severity issues either patched or explicitly accepted in `corrections_log.md`.
-
-**Execution note:** Lookup work is research, not code. The output is data rows, not a feature.
-
-**Patterns to follow:**
-- One row per decision, one citation per row, mirrors the override CSV schema.
+- Read `recent_internationals.parquet` and `wc2026_squads.parquet`. Compute the most recent match date and the most recent `scraped_date`.
+- Configured thresholds (constants at top of file): `MATCHES_MAX_AGE_DAYS = 14`, `SQUADS_MAX_AGE_DAYS_TOURNAMENT = 7`, `SQUADS_MAX_AGE_DAYS_DEFAULT = 30`. Squad threshold tightens automatically between 2026-05-15 and 2026-07-15.
+- Exit code 0 = fresh, 1 = stale (with a printed reason), 2 = file missing.
+- No network calls; pure reads of the derived parquets.
 
 **Test scenarios:**
-- *Test expectation: none — this unit produces data rows and a narrative log, not new logic. The `tools/test_manual_overrides.py` from Unit 5 already tests the apply path; this unit's correctness is reviewed by the contributor sign-off on the corrections_log.md.*
+- Happy path — Both files current; exit 0.
+- Edge case — Match file's most recent date is 20 days ago; exit 1, message names the offending file and age.
+- Edge case — Squad file missing entirely; exit 2.
+- Edge case — Today's date is during the tournament window (June 2026); squad-staleness threshold is 7 days, not 30.
 
 **Verification:**
-- Re-running `tools/audit_data_quality.py` produces an `issues.csv` with zero High-severity rows that aren't in the whitelist.
-- `corrections_log.md` has one entry per audit issue.
+- The validator runs in under 5 seconds.
+- A staged staleness scenario (artificially old parquet) produces a clear actionable error.
 
 ---
 
-- [ ] **Unit 7: Re-run, verify, and document**
+- [ ] **Unit 5: Document and ship**
 
-**Goal:** Run the full pull → derive → audit pipeline end-to-end on a clean clone, confirm the cleansed data feeds models without breaking them, and document the cleanse in `methodology/`.
+**Goal:** Update docs so future contributors know what these new files contain and how to refresh them.
 
-**Requirements:** R1, R6, R7.
+**Requirements:** R3, R6.
 
-**Dependencies:** Units 1–6.
+**Dependencies:** Units 1–4.
 
 **Files:**
-- Modify: `methodology/_data-cleanse/README.md` (documents what changed, the shrinkage prior, how to re-run)
-- Modify: `DEVELOPMENT.md` (one-paragraph addition under "Architecture" pointing to the cleanse method and the audit folder)
-- Modify: `docs/solutions/raw/` (add a solution file capturing learnings — outliers, the multi-club pattern, the override design)
+- Modify: `DEVELOPMENT.md` (one bullet under "Data flow" listing the two new derived files)
+- Modify: `README.md` (one row in the data-files table if such a table exists; otherwise skip)
+- Create: `docs/solutions/raw/2026-05-07-recent-data-capture.md` (one-paragraph note on what was added and why)
 
 **Approach:**
-- Run `python3 tools/aggregate_statsbomb_players.py && python3 tools/pull_understat_players.py && python3 tools/build_squad_xg_ratings.py && python3 tools/audit_data_quality.py` from a clean tree.
-- Run `python3 wc2022_xg_backtest.py`. Compare the resulting log-loss / Brier / accuracy against the pre-cleanse numbers in the existing backtest output. Cleansed data should not regress these metrics by more than 0.01 log-loss; if it does, investigate before merging (likely a sign that some "outlier" was actually signal).
-- Run `python3 tools/weekly_pull.py 2026-05-06` and verify the comparison table builds without errors.
-- Write the methodology doc.
+- Documentation only. No code.
 
 **Test scenarios:**
-- Happy path — End-to-end pipeline runs to completion with exit code 0 from a fresh clone.
-- Integration — `wc2022_xg_backtest.py` log-loss does not regress more than 0.01 vs current baseline (1.054 for ensemble-v2). If it does, the regression is documented and either accepted with reasoning or treated as a defect.
-- Integration — Audit's final issues.csv has zero unexplained High-severity rows.
+- *Test expectation: none — documentation update.*
 
 **Verification:**
-- Fresh-clone reproducibility verified.
-- Backtest metrics within 0.01 log-loss of baseline.
-- Methodology doc and solution writeup present.
-
-## System-Wide Impact
-
-- **Interaction graph:** Touches the data pipeline (`tools/pull_*`, `tools/build_*`, `tools/aggregate_*`) and any model that reads `data/derived/squad_xg_ratings.parquet` or `team_attack_ratings.parquet`. New columns (`is_wc2026_qualifier`, `nat_xg_per_90_shrunk`, `club_history`) are additive; existing columns retained.
-- **Error propagation:** Override-apply failures are loud (raise on `old_value` drift) — that's intentional. Audit script is best-effort: never raises, only emits issues. Build scripts continue to fail loudly on missing inputs (current behavior unchanged).
-- **State lifecycle risks:** No persistent state added. Audit output is per-date snapshots. Override CSV is git-tracked, so changes are reviewable.
-- **API surface parity:** Parquet schemas gain columns, never lose them. Existing model code that reads `blended_xg90` continues to work — it just gets cleaner numbers. Code that reads `club` continues to work — it gets a clean string instead of "A,B".
-- **Integration coverage:** Unit 7 regression-tests the backtest; without that, individual unit tests would not catch a quietly-worse model.
-- **Unchanged invariants:** `0.4 × nat + 0.6 × club` blend formula. `min 200 minutes` Understat filter. `xi ∈ [0.001, 0.003]` Dixon-Coles time decay. The 8-column predictions schema. The `NAME_TO_FIFA3` mapping. The Kalshi/Polymarket pipelines.
+- Reading `DEVELOPMENT.md` from scratch tells a new contributor what `recent_internationals.parquet` and `wc2026_squads.parquet` contain and how to refresh them.
 
 ## Risks & Dependencies
 
 | Risk | Mitigation |
 |------|------------|
-| Shrinkage prior over-corrects legitimate elite scorers | Position-aware prior using cohort 99th percentile; backtest regression check in Unit 7; whitelist mechanism in audit |
-| Manual corrections introduce reviewer bias (favoring known players) | Override schema mandates `source_url` + `reason`; reviewer initials tracked; spot audit during PR review |
-| Online lookups stale by tournament time | Each override row records `reviewed_date`; Unit 7 doc instructs re-running the cleanse close to tournament start |
-| Backtest regression after cleanse signals real signal lost | Unit 7 explicitly checks log-loss delta; if > 0.01, halt and investigate; a regression typically means some "outlier" was real |
-| Multi-club fix changes `club_minutes_2425` arithmetic | Unit 3 preserves the existing summation; the canonical-club selection only affects `club` string and `club_xg_per_90` weighting |
-| Future contributors don't know about the override layer | Unit 7 adds a paragraph to `DEVELOPMENT.md` and a solution file to `docs/solutions/` |
-
-## Documentation / Operational Notes
-
-- `methodology/_data-cleanse/README.md` — the new canonical doc for cleanse rules. New contributors who see weird `xg_per_90` values land here.
-- `data/manual_overrides/README.md` — schema + how to add a correction. Linked from `DEVELOPMENT.md`.
-- `docs/solutions/raw/2026-05-06-data-cleanse-learnings.md` — captures small-N inflation, multi-club join, qualifier scope as patterns to watch for in future data sources.
-
-No deployment / rollout concerns — this is offline data tooling. No environment variables required. No third-party services beyond what's already in the pipeline.
+| Wikipedia DOM changes mid-tournament and breaks the squad pull | Unit 2 includes an HTML fixture test so DOM drift breaks the test, not the data silently |
+| `martj42` falls behind and lags an international break | Freshness validator (Unit 4) fails loudly before stale data feeds models |
+| Name mismatches between `martj42` and `NAME_TO_FIFA3` cause silent row drops | Unit 1 logs every dropped row to stderr; review the log on first run and patch `NAME_TO_FIFA3` if needed |
+| Squad announcements come in waves; a partial squad gets treated as final | `is_final_squad` flag derived from section heading; defaults to False on ambiguity |
+| New raw files inflate the gitignored `data/` tree | Existing pattern already gitignores `data/raw/` and `data/derived/`; no new infra |
 
 ## Sources & References
 
-- Existing pipeline: `tools/build_squad_xg_ratings.py`, `tools/aggregate_statsbomb_players.py`, `tools/pull_understat_players.py`, `tools/pull_wc2026_squads.py`, `tools/weekly_pull.py`
-- Existing data: `data/derived/squad_xg_ratings.parquet`, `understat_player_xg.parquet`, `sb_player_summary.parquet`, `statsbomb_team_xg.parquet`, `statsbomb_player_xg.parquet`, `team_attack_ratings.parquet`
-- Project standards: `DEVELOPMENT.md` (Subjectivity and bias policy, Reproducibility standard, Prediction integrity checks)
-- External (used in Unit 6 lookups, not at planning time): Wikipedia squad pages, Transfermarkt, FIFA confirmed-qualifiers page
+- Existing pipeline: `tools/pull_wc2026_squads.py`, `tools/weekly_pull.py`, `tools/pull_statsbomb.py`
+- Existing derived data: `data/derived/wc2026_squads.parquet` (currently from empty source)
+- Existing raw data: `data/raw/martj42/`, `data/raw/squads/`
+- External: `https://raw.githubusercontent.com/martj42/international_results/master/results.csv`, `https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_squads`
+- Project standards: `DEVELOPMENT.md` (Data contributor track, Reproducibility standard, Data flow)
