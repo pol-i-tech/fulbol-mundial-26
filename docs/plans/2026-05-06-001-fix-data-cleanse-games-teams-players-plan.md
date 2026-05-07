@@ -27,18 +27,25 @@ A data engineer's job here is to deliver fresh, schema-correct inputs to the mod
 - `tools/pull_fbref_national.py` exists but FBref is hard-blocked by Cloudflare (`DEVELOPMENT.md`). Treat that file as unusable for this plan.
 - `tools/pull_understat_players.py` pulls **season aggregates** from Understat (one row per player per season) — not per-match. The same Understat client (`understat` Python package) exposes `get_team_results(team, season)` and `get_player_matches(player_id)` which give per-match xG/xGA at team and player level, but neither is wired up.
 
-### Coverage reality for club xG/xGA
+### Coverage reality for club xG/xGA, UCL, and domestic cups
 
-License-clean per-match xG/xGA for the clubs of WC2026 players, what's actually reachable today:
+Verified directly against the live APIs and HTML on 2026-05-07 — what's reachable, what isn't:
 
-| Source | League coverage | Per-match team xG/xGA | Per-match player xG/xA | UCL coverage |
+| Source | League coverage | Per-match xG | UCL xG | Domestic cup xG |
 |---|---|---|---|---|
-| Understat | EPL, La Liga, Bundesliga, Serie A, Ligue 1, RFPL | Yes (`get_team_results`) | Yes (`get_player_matches`) | Visible in player match lists when player participated; **no team-level UCL index** |
-| StatsBomb open-data | National-team tournaments only (no club) | n/a | n/a | n/a |
-| FBref | Nominally everything | Cloudflare-blocked | Cloudflare-blocked | Cloudflare-blocked |
-| Sofascore / Whoscored | Nominally everything | Anti-bot, license-restrictive | Anti-bot, license-restrictive | Anti-bot |
+| Understat (`get_team_results`, `get_player_matches`) | EPL, La Liga, Bundesliga, Serie A, Ligue 1, RFPL | Yes | **No** — verified: Real Madrid 2024 returns exactly 38 rows (one La Liga season). Player page HTML contains zero "tournament / champions / UCL / Europa / cup" mentions. Understat is strictly league-only. | **No** — same reason |
+| StatsBomb open-data | National-team tournaments only | n/a | No | No |
+| FBref | Nominally everything | Cloudflare-blocked — unusable | Same | Same |
+| Sofascore / Whoscored / Fotmob | Nominally everything | Anti-bot + license-restrictive — out of scope | Same | Same |
+| football-data.org (free tier) | UCL, top European leagues | n/a (results + fixtures only, no xG) | Match list + scores, no xG | Match list + scores, no xG |
+| Wikipedia season pages | Everything that has a Wikipedia page | n/a (no xG) | Match list + scores by season, no xG | Match list + scores, no xG |
 
-Practical implication: this plan captures per-match team and player xG/xGA for **the top 5 European leagues + RFPL**, with UCL appearances captured at the player-match level (not team-match level), via the `understat` Python client. Clubs in non-Understat leagues (Liga MX, MLS, Saudi Pro, Brasileirão, Argentine Primera, Eredivisie, Primeira Liga, etc.) and team-level UCL/cup data are explicit known coverage gaps documented for downstream models to handle.
+**Practical implication for "last N games per player"**:
+- For a player in one of the six Understat leagues, we get the last N **league** matches with full xG/xA/shots/key_passes.
+- For UCL and domestic cup matches that same player participated in, **we cannot get xG license-clean today**. We can list the fixtures (date, opponent, result) from football-data.org or Wikipedia and tag them `xg_available=false`.
+- For players whose club is in a non-Understat league (Liga MX, MLS, Saudi Pro, Brasileirão, Eredivisie, Primeira Liga, Argentine Primera, etc.), we get nothing — they go to `club_xg_coverage_gaps.parquet`.
+
+Downstream models then have three signal tiers per player: full-xG league matches, fixture-only UCL/cup appearances, and explicit gaps. That is honest about what's actually in the data.
 
 ## Requirements Trace
 
@@ -49,8 +56,9 @@ Practical implication: this plan captures per-match team and player xG/xGA for *
 - R5. A freshness validator fails loudly when either derived parquet is older than a configured threshold (matches stale > 14 days; squads stale > 7 days during May/June 2026).
 - R6. The new pulls plug into `tools/weekly_pull.py` so a single `python3 tools/weekly_pull.py` produces refreshed inputs.
 - R7. `data/derived/club_team_match_xg.parquet` exists — one row per (team, season, match) for every club currently fielding a WC2026 player in the top 5 European leagues + RFPL, with team xG, xGA, opponent, date, competition (league or cup), home/away.
-- R8. `data/derived/club_player_match_xg.parquet` exists — one row per (player, match) for every WC2026 player on a club covered by Understat, including UCL appearances when Understat lists them on the player's match page. Schema includes player_id, player, team, opponent, date, competition, minutes, xg, xa, key_passes, shots, position.
-- R9. The known-gap list (clubs in non-Understat leagues, team-level UCL/cup data) is written to `data/derived/club_xg_coverage_gaps.parquet` so downstream models can detect and route around missing rows rather than silently using stale/zero data.
+- R8. `data/derived/club_player_match_xg.parquet` exists — one row per (player, match) for every WC2026 player on a club covered by Understat, **league matches only**. Schema includes player_id, player, team, opponent, date, competition (always one of the six leagues), minutes, xg, xa, key_passes, shots, position.
+- R9. `data/derived/player_last_n_matches.parquet` exists — for every WC2026 player, the most recent N matches (default N=5) across **all** competitions the data sources can see, with explicit competition labels. League matches carry full xG/xA from Understat; UCL and domestic-cup matches carry fixture data only (date, opponent, result, minutes) with `xg_available=false`. This is the single deliverable downstream form-recency features should join on.
+- R10. The known-gap list (clubs in non-Understat leagues, players whose Understat ID does not resolve, UCL/cup matches lacking xG) is written to `data/derived/club_xg_coverage_gaps.parquet` so downstream models can detect and route around missing rows rather than silently using stale/zero data.
 
 ## Scope Boundaries
 
@@ -60,8 +68,9 @@ Practical implication: this plan captures per-match team and player xG/xGA for *
 - **Not** building shrinkage priors, manual override layers, or audit reports. Those are separate plans if they're needed.
 - **Not** pulling FBref. Hard-blocked.
 - **Not** computing xG ourselves for any source that lacks it. Recent international matches and non-Understat-league clubs come in as known coverage gaps.
-- **Not** building team-level UCL/cup match xG. Understat does not expose it as a top-level league index. UCL data enters only via player-match listings.
-- **Not** scraping Sofascore / Whoscored / Stats Perform. Anti-bot and license issues out of scope.
+- **Not** producing xG values for UCL or domestic cup matches. No license-clean source provides them today (verified). UCL/cup matches are captured as fixtures only with `xg_available=false`.
+- **Not** scraping Sofascore / Whoscored / Fotmob / Stats Perform. Anti-bot and license issues out of scope.
+- **Not** building a homegrown xG model to fill UCL/cup gaps. Separate, much larger effort.
 
 ### Deferred to Separate Tasks
 
@@ -224,9 +233,9 @@ Practical implication: this plan captures per-match team and player xG/xGA for *
 
 ---
 
-- [ ] **Unit 4: Pull per-match player xG/xA for WC2026 players (includes UCL appearances)**
+- [ ] **Unit 4: Pull per-match player xG/xA for WC2026 players (Understat leagues only)**
 
-**Goal:** Produce `data/derived/club_player_match_xg.parquet` — one row per (player, match) for every WC2026 player whose Understat ID is resolvable. Includes Champions League appearances when Understat lists them on the player's match page.
+**Goal:** Produce `data/derived/club_player_match_xg.parquet` — one row per (player, league-match) for every WC2026 player whose Understat ID resolves. **League matches only**, since Understat does not surface UCL or domestic cup data (verified 2026-05-07: a player page returns league matches only with no `competition` field, and the page HTML contains zero "tournament/champions/UCL/Europa/cup" mentions).
 
 **Requirements:** R8, R3, R4.
 
@@ -243,9 +252,9 @@ Practical implication: this plan captures per-match team and player xG/xGA for *
 - Resolve each WC2026 player to an Understat `player_id`. Two-pass strategy:
   1. Fast path — join on the existing `data/derived/understat_player_xg.parquet` by normalized name (reuse `simplify_name()` from `tools/build_squad_xg_ratings.py`).
   2. Fallback — for unresolved players, call `understat.Understat.get_team_players(team, season)` for the player's listed club and fuzzy-match by name within that team only (much higher accuracy than league-wide fuzzy match).
-- For each resolved player_id, call `understat.Understat.get_player_matches(player_id)`. This returns every match the player participated in for the season, including UCL — Understat tags the competition (`h_team`, `a_team`, plus a `tournament` field).
-- Output schema: `player_id, player, nation, team, season, date, opponent, is_home, competition, minutes, goals, xg, xa, key_passes, shots, position, source`.
-- Players with no Understat ID resolved are written to `data/derived/club_xg_coverage_gaps.parquet` (R9): `player, nation, club, league_guess, reason` where `reason` is one of `not_in_understat_league`, `name_not_resolved`, `team_not_in_understat`.
+- For each resolved player_id, call `understat.Understat.get_player_matches(player_id)`. The response has fields `goals, shots, xG, time, position, h_team, a_team, h_goals, a_goals, date, id, season, xA, assists, key_passes, npg, npxG, xGChain, xGBuildup` — confirmed from a 2026-05-07 probe. There is no competition tag; we infer the league by joining `(team, season, date)` against the team-results data from Unit 3 (which is also league-only).
+- Output schema: `player_id, player, nation, team, season, date, opponent, is_home, competition, minutes, goals, xg, xa, key_passes, shots, position, source`. `competition` is the league name (one of EPL/La_liga/Bundesliga/Serie_A/Ligue_1/RFPL).
+- Players with no Understat ID resolved are written to `data/derived/club_xg_coverage_gaps.parquet`: `player, nation, club, league_guess, reason` where `reason` is one of `not_in_understat_league`, `name_not_resolved`, `team_not_in_understat`.
 - Idempotent: cache per-player JSON; refresh files older than 7 days; output sort `(player_id, season, date)`.
 
 **Patterns to follow:**
@@ -254,40 +263,119 @@ Practical implication: this plan captures per-match team and player xG/xGA for *
 
 **Test scenarios:**
 - Happy path — At least 80% of WC2026 players whose listed league is one of the six covered leagues resolve to an Understat ID.
-- Happy path — A known UCL match for a covered player (e.g., a Real Madrid forward's UCL group-stage match) appears in their rows with `competition` reflecting UCL.
+- Happy path — A known league match for a covered player (e.g., Mbappé's recent Real Madrid La Liga matches) appears with full xG/xA/shots.
 - Edge case — A player whose listed club is in Liga MX appears in `club_xg_coverage_gaps.parquet` with `reason=not_in_understat_league`, not in the main player file.
 - Edge case — A player whose name doesn't resolve via either pass is logged to coverage gaps with `reason=name_not_resolved`, build continues.
-- Integration — `club_team_match_xg` (Unit 3) and `club_player_match_xg` are joinable on `(team, date, opponent)` for cross-validation.
+- Integration — `club_team_match_xg` (Unit 3) and `club_player_match_xg` are joinable on `(team, date)` for cross-validation; counts of league matches per team-season match.
 
 **Verification:**
-- `data/derived/club_player_match_xg.parquet` is non-empty and contains UCL rows for at least one covered player.
+- `data/derived/club_player_match_xg.parquet` is non-empty and contains league matches for resolved players across the 2024 and 2025 seasons.
 - `data/derived/club_xg_coverage_gaps.parquet` exists and lists every player not represented in the main file, with a non-empty `reason`.
+
+---
+
+- [ ] **Unit 4b: Pull UCL and domestic-cup fixtures (no xG) for WC2026 players**
+
+**Goal:** Produce `data/derived/club_player_cup_fixtures.parquet` — one row per (player, match) for UCL and domestic-cup matches a WC2026 player participated in, **fixtures only** (date, teams, score, competition). No xG, because no license-clean source provides it for these competitions today.
+
+**Requirements:** R9.
+
+**Dependencies:** Unit 2 (squad list).
+
+**Files:**
+- Create: `tools/pull_player_cup_fixtures.py`
+- Create: `data/raw/cup_fixtures/<YYYY-MM-DD>/ucl_results.json`
+- Create: `data/raw/cup_fixtures/<YYYY-MM-DD>/domestic_cup_results.json`
+- Create: `data/derived/club_player_cup_fixtures.parquet`
+- Test: `tools/test_pull_player_cup_fixtures.py`
+
+**Approach:**
+- Source: `football-data.org` free tier (10 competitions, 12 calls/min). Configure via `FOOTBALL_DATA_API_KEY` env var; document in script header.
+- Pull team-level fixtures for: UCL (`CL`), FA Cup (`FAC`), Copa del Rey, DFB-Pokal, Coppa Italia, Coupe de France for the 2024-25 and 2025-26 seasons. Filter to teams that field a WC2026 player.
+- Per-player participation is **not** in football-data.org's free tier. To assign a player to a match, look up the player's Understat `get_player_matches` response — any match dated within the cup match's window (±1 day) for the player's club that does NOT appear in `club_team_match_xg` (Unit 3, league-only) is inferred to be a cup or UCL appearance. Match by date + opponent.
+- For matches we cannot tag confidently, write them to coverage gaps rather than guess.
+- Output schema: `player_id, player, nation, team, season, date, opponent, is_home, competition, h_goals, a_goals, source, xg_available=False`.
+- Idempotent: per-day raw snapshots; output sort `(player_id, date)`.
+- Honest fallback: if `FOOTBALL_DATA_API_KEY` is missing, the script logs a warning, writes an empty file with the schema, and the rest of the pipeline still runs. The freshness validator surfaces the gap.
+
+**Patterns to follow:**
+- Same date-folder + `latest/` snapshot pattern as Unit 1.
+- Token in env var, never in code (matches `DEVELOPMENT.md` "Environment Variables" section).
+
+**Test scenarios:**
+- Happy path — Run with API key; assert at least 30 UCL matches recorded for the 2024-25 season and at least one domestic cup match per major league.
+- Edge case — API key missing; script logs warning, writes empty parquet with correct schema, exits 0.
+- Edge case — A match in football-data.org cannot be matched to a player in Understat (e.g., player ID didn't resolve); recorded in coverage gaps with `reason=fixture_no_player_link`.
+- Edge case — Same match appears in both UCL feed and domestic-cup feed (shouldn't happen, but defensive); deduplicated by `(date, h_team, a_team, competition)`.
+
+**Verification:**
+- `data/derived/club_player_cup_fixtures.parquet` exists, has the documented schema, and contains UCL fixtures for at least one covered season.
+- Every row has `xg_available=False` so downstream consumers cannot accidentally use xG fields.
+
+---
+
+- [ ] **Unit 4c: Build the unified "last N matches per player" deliverable**
+
+**Goal:** Produce `data/derived/player_last_n_matches.parquet` — for every WC2026 player, the most recent N matches across **all** competitions captured (default N=5). Combines Unit 4 (league with xG) + Unit 4b (UCL/cup without xG) into one form-recency view.
+
+**Requirements:** R9.
+
+**Dependencies:** Units 4 and 4b.
+
+**Files:**
+- Create: `tools/build_player_last_n_matches.py`
+- Create: `data/derived/player_last_n_matches.parquet`
+- Test: `tools/test_build_player_last_n_matches.py`
+
+**Approach:**
+- Read `club_player_match_xg.parquet` (league + xG) and `club_player_cup_fixtures.parquet` (UCL/cup, no xG).
+- Concatenate; key on `player_id, date`.
+- For each player, take the N most recent rows by `date` (default N=5, configurable via constant at top of script).
+- Output schema: `player_id, player, nation, team, date, opponent, is_home, competition, competition_kind` (`league` | `ucl` | `domestic_cup`), `minutes, goals, xg, xa, shots, key_passes, xg_available, source`.
+- Players with fewer than N total matches across all sources still get rows for what's available, plus a `gap_count = N - actual` annotation in `data/derived/club_xg_coverage_gaps.parquet`.
+- Idempotent and deterministic — sort, no random ties.
+
+**Patterns to follow:**
+- Same parquet read-and-write idiom as `tools/build_squad_xg_ratings.py`.
+
+**Test scenarios:**
+- Happy path — A WC26 player on a covered club has 5 rows, mixing league (with xG) and UCL/cup (without xG); the rows are sorted by date descending.
+- Edge case — A WC26 player on Liga MX has 0 rows in this file and appears in coverage gaps with `gap_count=5`.
+- Edge case — A player with exactly 3 league matches and no UCL/cup appearances has 3 rows and `gap_count=2`.
+- Edge case — Re-running on the same input produces a byte-identical parquet (deterministic sort).
+- Integration — Joining this file against `wc2026_squads.parquet` covers ≥ 60% of WC26 players (the rest go to coverage gaps).
+
+**Verification:**
+- `data/derived/player_last_n_matches.parquet` is non-empty.
+- Sum of `gap_count` for missing players matches the count in `club_xg_coverage_gaps.parquet`.
+- A spot-checked WC26 player from a covered club shows expected recent fixtures.
 
 ---
 
 - [ ] **Unit 5: Wire all pulls into `weekly_pull.py`**
 
-**Goal:** A single `python3 tools/weekly_pull.py` invocation refreshes all four new parquets (recent internationals, squads, club team match xG, club player match xG).
+**Goal:** A single `python3 tools/weekly_pull.py` invocation refreshes all six new parquets (recent internationals, squads, club team match xG, club player match xG, cup fixtures, last-N matches).
 
 **Requirements:** R6.
 
-**Dependencies:** Units 1, 2, 3, 4.
+**Dependencies:** Units 1, 2, 3, 4, 4b, 4c.
 
 **Files:**
 - Modify: `tools/weekly_pull.py`
 
 **Approach:**
-- Add the four pulls to the orchestrator's existing run sequence (matches the pattern already in place for Kalshi, Polymarket, Elo).
+- Add the six pulls to the orchestrator's existing run sequence (matches the pattern already in place for Kalshi, Polymarket, Elo).
 - Each pull is wrapped so a single source failure does not abort the whole run; failures are logged and surfaced at the end.
-- Order matters: squad pull runs before club xG pulls (the latter read the squad list).
+- Order matters: squad pull (Unit 2) runs before club xG pulls (Units 3, 4); cup-fixtures pull (Unit 4b) runs after Unit 4 since it joins against player-match data; the last-N builder (Unit 4c) runs last since it consumes Units 4 and 4b.
 - No change to the existing comparison-table logic.
 
 **Test scenarios:**
-- Happy path — End-to-end `weekly_pull.py` run produces all four new parquets and the existing comparison table without errors.
+- Happy path — End-to-end `weekly_pull.py` run produces all six new parquets and the existing comparison table without errors.
 - Edge case — Wikipedia is unreachable during the run; squad pull logs the failure, the dependent club-xG pulls skip with a logged message naming the dependency, match pull still completes, comparison table still builds from remaining inputs.
+- Edge case — `FOOTBALL_DATA_API_KEY` is unset; cup-fixtures pull writes empty parquet, last-N builder still produces output (league-only for everyone), pipeline does not abort.
 
 **Verification:**
-- Running `python3 tools/weekly_pull.py 2026-05-07` from a clean tree produces all four new parquets.
+- Running `python3 tools/weekly_pull.py 2026-05-07` from a clean tree produces all six new parquets.
 
 ---
 
@@ -297,7 +385,7 @@ Practical implication: this plan captures per-match team and player xG/xGA for *
 
 **Requirements:** R5.
 
-**Dependencies:** Units 1, 2, 3, 4.
+**Dependencies:** Units 1, 2, 3, 4, 4b, 4c.
 
 **Files:**
 - Create: `tools/check_data_freshness.py`
@@ -305,16 +393,18 @@ Practical implication: this plan captures per-match team and player xG/xGA for *
 - Test: `tools/test_check_data_freshness.py`
 
 **Approach:**
-- Read all four derived parquets. Compute the most recent match date for `recent_internationals` and `club_team_match_xg`, and the most recent `scraped_date` / pull date for `wc2026_squads` and `club_player_match_xg`.
+- Read all six derived parquets. Compute the most recent match date for `recent_internationals`, `club_team_match_xg`, `club_player_match_xg`, `club_player_cup_fixtures`, and `player_last_n_matches`; the most recent `scraped_date` for `wc2026_squads`.
 - Configured thresholds (constants at top of file):
-  - `MATCHES_MAX_AGE_DAYS = 14` (international and club matches)
+  - `MATCHES_MAX_AGE_DAYS = 14` (international and club matches, last-N file)
   - `SQUADS_MAX_AGE_DAYS_TOURNAMENT = 7`, `SQUADS_MAX_AGE_DAYS_DEFAULT = 30` (squad threshold tightens automatically between 2026-05-15 and 2026-07-15)
   - `CLUB_PLAYER_MATCH_MAX_AGE_DAYS = 14`
+  - `CUP_FIXTURES_MAX_AGE_DAYS = 14`
 - Exit code 0 = fresh, 1 = stale (with a printed reason naming each offending file and its age), 2 = file missing.
 - No network calls; pure reads of the derived parquets.
+- Cup-fixtures empty file (because API key missing) is reported as a *coverage warning*, not staleness — exit code 0 with a printed warning naming `FOOTBALL_DATA_API_KEY` as the unblocking action.
 
 **Test scenarios:**
-- Happy path — All four files current; exit 0.
+- Happy path — All six files current; exit 0.
 - Edge case — Match file's most recent date is 20 days ago; exit 1, message names the offending file and age.
 - Edge case — A derived file missing entirely; exit 2.
 - Edge case — Today's date is during the tournament window (June 2026); squad-staleness threshold is 7 days, not 30.
@@ -357,14 +447,16 @@ Practical implication: this plan captures per-match team and player xG/xGA for *
 | Squad announcements come in waves; a partial squad gets treated as final | `is_final_squad` flag derived from section heading; defaults to False on ambiguity |
 | New raw files inflate the gitignored `data/` tree | Existing pattern already gitignores `data/raw/` and `data/derived/`; no new infra |
 | Understat rate limits or anti-bot trip during full club pull | Per-team and per-player JSON cached on disk; subsequent runs reuse cache; small inter-request delay matches the existing player-aggregate pull style |
-| Understat returns competition labels we don't expect (UCL string drift) | Pass through Understat's raw `competition` value; do not normalize at pull time so model code can detect new values |
 | Player-name resolution misses real players in covered leagues | Two-pass strategy (league-wide fuzzy then within-team fuzzy); unresolved players land in `club_xg_coverage_gaps.parquet` for human review, never silently dropped |
 | Non-Understat-league clubs are silently treated as zero-data | `club_xg_coverage_gaps.parquet` lists every such player by name with `reason`; downstream models can fall back to season aggregates or international form for these |
+| `football-data.org` free tier rate-limits or removes UCL coverage | Pull is best-effort; missing key produces empty cup-fixtures parquet, not a pipeline abort; freshness validator surfaces the gap |
+| UCL/cup match-to-player linking via date+team is wrong (e.g., player rested) | Linking is conservative — only matches where the player's Understat record places them on the club at that date are tagged; rested-player false positives become coverage gaps with `reason=fixture_no_player_link` |
+| `xg_available=False` flag is ignored by a downstream consumer | The flag is a column, not a file split, so any consumer that does not check it produces obviously-wrong xG (zero); easy to spot in a smoke check and document explicitly in `methodology/` |
 
 ## Sources & References
 
 - Existing pipeline: `tools/pull_wc2026_squads.py`, `tools/pull_understat_players.py`, `tools/weekly_pull.py`, `tools/pull_statsbomb.py`, `tools/build_squad_xg_ratings.py`
 - Existing derived data: `data/derived/wc2026_squads.parquet` (currently from empty source), `data/derived/understat_player_xg.parquet`
 - Existing raw data: `data/raw/martj42/`, `data/raw/squads/`, `data/raw/understat/`
-- External: `https://raw.githubusercontent.com/martj42/international_results/master/results.csv`, `https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_squads`, `https://understat.com/` (via the `understat` Python package)
+- External: `https://raw.githubusercontent.com/martj42/international_results/master/results.csv`, `https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_squads`, `https://understat.com/` (via the `understat` Python package), `https://www.football-data.org/` (free-tier API for UCL and domestic-cup fixtures, no xG)
 - Project standards: `DEVELOPMENT.md` (Data contributor track, Reproducibility standard, Data flow)
