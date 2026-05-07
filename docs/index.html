@@ -632,6 +632,11 @@
           <div class="feature-bar-wrap"><div class="feature-bar" style="width:15%"></div></div>
           <span class="feature-desc"><strong>Elo prior</strong> — Bayesian regularization. Pulls extreme predictions toward overall team strength.</span>
         </div>
+        <div class="feature-row">
+          <span class="feature-weight">~</span>
+          <div class="feature-bar-wrap"><div class="feature-bar" style="width:8%; background:var(--med)"></div></div>
+          <span class="feature-desc"><strong>Bayesian shrinkage</strong> — players with fewer than 180 national-team minutes and no club data are pulled toward a 0.15 xG/90 prior (weight = 500 equivalent minutes). Prevents small samples like a 2-game tournament run from dominating a team's attack rating.</span>
+        </div>
       </div>
     </div>
 

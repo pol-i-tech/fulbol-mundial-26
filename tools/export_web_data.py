@@ -293,7 +293,7 @@ def main():
 
     output = {
         "meta": {
-            "generated": "2026-05-05",
+            "generated": "2026-05-07",
             "simulations": 10000,
             "note": (
                 "Predicted bracket is a model-estimated path based on win probabilities, "
