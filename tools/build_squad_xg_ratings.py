@@ -28,6 +28,14 @@ import numpy as np
 ROOT    = Path(__file__).parent.parent
 DERIVED = ROOT / "data" / "derived"
 
+# Bayesian shrinkage for players with low national-team minutes and no club data.
+# A player with < MIN_RELIABLE_MINS gets their xG/90 pulled toward PRIOR_XG90
+# using PRIOR_MINS as the equivalent-minutes weight of the prior.
+# shrunk = (nat_mins * nat_xg90 + PRIOR_MINS * PRIOR_XG90) / (nat_mins + PRIOR_MINS)
+MIN_RELIABLE_MINS = 180   # below this + no club data → shrinkage applied
+PRIOR_MINS        = 500   # ~5.5 full games worth of prior weight
+PRIOR_XG90        = 0.15  # conservative forward baseline xG/90
+
 
 def simplify_name(name: str) -> str:
     """Strip accents and common suffixes for fuzzy matching."""
@@ -103,11 +111,20 @@ def main():
         else:
             unmatched += 1
 
-        # Blended rating: weight club form more if available
-        if not np.isnan(club_xg90):
-            blended_xg90 = 0.4 * nat_xg90 + 0.6 * club_xg90
+        # Shrink national-team xG/90 when sample is too small (< MIN_RELIABLE_MINS),
+        # regardless of whether club data is also available.
+        low_confidence = False
+        if nat_mins < MIN_RELIABLE_MINS:
+            effective_nat_xg90 = (nat_mins * nat_xg90 + PRIOR_MINS * PRIOR_XG90) / (nat_mins + PRIOR_MINS)
+            low_confidence = True
         else:
-            blended_xg90 = nat_xg90
+            effective_nat_xg90 = nat_xg90
+
+        # Blend: club form (60%) + tournament history (40%), or national only if no club data
+        if not np.isnan(club_xg90):
+            blended_xg90 = 0.4 * effective_nat_xg90 + 0.6 * club_xg90
+        else:
+            blended_xg90 = effective_nat_xg90
 
         rows.append({
             "nation":          nation,
@@ -131,6 +148,7 @@ def main():
             # Blended
             "blended_xg90":    round(blended_xg90, 4),
             "found_in_understat": not np.isnan(club_xg90),
+            "low_confidence":  low_confidence,
         })
 
     df = pd.DataFrame(rows)

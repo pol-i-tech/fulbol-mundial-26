@@ -1,0 +1,5 @@
+tier,n,accuracy,avg_rps
+golden_zone,15,1.0,0.122
+false_consensus,4,0.0,0.3647
+two_agree,25,0.28,0.2193
+split,20,0.3,0.2673
