@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WC2026 // Prediction Model</title>
+  <title>WC 2026 · Prediction Model</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     /* ── Design tokens ─────────────────────────────────────────────── */
     :root {
-      --bg:       #111118;
-      --surface:  #1a1a28;
-      --border:   #2e2e42;
-      --text:     #dddde8;
-      --muted:    #7878a0;
-      --accent:   #00d4ff;
-      --win:      #00d4ff;
-      --high:     #4caf7d;
-      --med:      #f0a500;
-      --low:      #e05252;
-      --font:     'Space Mono', 'Courier New', monospace;
+      --bg:       #edeae4;
+      --surface:  #e4e0d9;
+      --border:   #ccc8c0;
+      --text:     #111009;
+      --muted:    #7a7570;
+      --accent:   #b07535;
+      --win:      #b07535;
+      --high:     #3a8a5c;
+      --med:      #b07535;
+      --low:      #b04040;
+      --font:     'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     /* ── Reset / base ───────────────────────────────────────────────── */
@@ -34,6 +34,7 @@
       font-family: var(--font);
       min-height: 100vh;
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
     a { color: var(--accent); text-decoration: none; }
@@ -41,15 +42,15 @@
 
     /* ── Layout ─────────────────────────────────────────────────────── */
     .container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 32px;
     }
 
     /* ── Header ─────────────────────────────────────────────────────── */
     header {
       border-bottom: 1px solid var(--border);
-      padding: 32px 0 0;
+      padding: 40px 0 0;
     }
 
     .header-inner {
@@ -57,28 +58,31 @@
     }
 
     .site-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      color: #fff;
+      font-size: 1.45rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--text);
     }
 
     .site-title span {
       color: var(--accent);
+      margin: 0 4px;
+      font-weight: 400;
     }
 
     .site-subtitle {
       color: var(--muted);
-      font-size: 0.78rem;
-      margin-top: 4px;
-      letter-spacing: 0.04em;
+      font-size: 0.82rem;
+      font-weight: 400;
+      margin-top: 5px;
+      letter-spacing: 0.01em;
     }
 
     /* ── Tab nav ────────────────────────────────────────────────────── */
     .tab-nav {
       display: flex;
       gap: 0;
-      margin-top: 20px;
+      margin-top: 24px;
     }
 
     .tab-btn {
@@ -88,15 +92,15 @@
       color: var(--muted);
       cursor: pointer;
       font-family: var(--font);
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      padding: 10px 24px 10px 0;
+      font-size: 0.84rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      padding: 10px 28px 10px 0;
       transition: color 0.15s ease, border-color 0.15s ease;
     }
 
     .tab-btn:hover {
-      color: var(--accent);
+      color: var(--text);
     }
 
     .tab-btn.active {
@@ -105,24 +109,24 @@
     }
 
     /* ── Panels ─────────────────────────────────────────────────────── */
-    .panel { display: none; padding: 40px 0 64px; }
+    .panel { display: none; padding: 44px 0 72px; }
     .panel.active { display: block; }
 
     /* ── Section headings ───────────────────────────────────────────── */
     .section {
-      margin-bottom: 48px;
+      margin-bottom: 56px;
     }
 
     .section-label {
       color: var(--accent);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .section-label::after {
@@ -134,28 +138,28 @@
 
     .section h2 {
       font-size: 1rem;
-      font-weight: 700;
-      color: #fff;
+      font-weight: 600;
+      color: var(--text);
       margin-bottom: 12px;
-      letter-spacing: 0.04em;
+      letter-spacing: -0.01em;
     }
 
     /* ── Methodology content ────────────────────────────────────────── */
     .method-block {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 20px 24px;
+      border-radius: 8px;
+      padding: 22px 28px;
       margin-bottom: 20px;
     }
 
     .method-block h3 {
       color: var(--accent);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .method-block ul {
@@ -166,8 +170,9 @@
     .method-block ul li {
       color: var(--text);
       font-size: 0.88rem;
+      font-weight: 400;
       line-height: 1.7;
-      padding: 2px 0 2px 16px;
+      padding: 3px 0 3px 18px;
       position: relative;
     }
 
@@ -187,29 +192,31 @@
     .model-card {
       background: var(--bg);
       border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 14px 16px;
+      border-radius: 8px;
+      padding: 16px 18px;
     }
 
     .model-card .model-name {
       color: var(--accent);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      margin-bottom: 6px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
     }
 
     .model-card p {
       color: var(--muted);
-      font-size: 0.82rem;
-      line-height: 1.5;
+      font-size: 0.84rem;
+      font-weight: 400;
+      line-height: 1.55;
     }
 
     .feature-row {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 8px 0;
+      gap: 14px;
+      padding: 10px 0;
       border-bottom: 1px solid var(--border);
     }
 
@@ -217,7 +224,7 @@
 
     .feature-weight {
       color: var(--accent);
-      font-weight: 700;
+      font-weight: 600;
       font-size: 0.88rem;
       min-width: 40px;
     }
@@ -226,36 +233,37 @@
       flex: 1;
       background: var(--border);
       border-radius: 2px;
-      height: 4px;
+      height: 3px;
     }
 
     .feature-bar {
-      height: 4px;
+      height: 3px;
       border-radius: 2px;
       background: var(--accent);
     }
 
     .feature-desc {
       color: var(--text);
-      font-size: 0.82rem;
+      font-size: 0.84rem;
+      font-weight: 400;
       min-width: 220px;
     }
 
     /* ── Gaps / warning block ───────────────────────────────────────── */
     .gaps-block {
-      background: rgba(224, 82, 82, 0.07);
-      border: 1px solid rgba(224, 82, 82, 0.3);
-      border-radius: 4px;
-      padding: 20px 24px;
+      background: rgba(199, 96, 96, 0.06);
+      border: 1px solid rgba(199, 96, 96, 0.25);
+      border-radius: 8px;
+      padding: 22px 28px;
     }
 
     .gaps-block h3 {
       color: var(--low);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .gaps-block ul {
@@ -266,22 +274,24 @@
     .gaps-block ul li {
       color: var(--text);
       font-size: 0.88rem;
+      font-weight: 400;
       line-height: 1.7;
-      padding: 2px 0 2px 16px;
+      padding: 3px 0 3px 18px;
       position: relative;
     }
 
     .gaps-block ul li::before {
       content: '!';
       color: var(--low);
-      font-weight: 700;
+      font-weight: 600;
       position: absolute;
       left: 0;
     }
 
     .gaps-teams {
       color: var(--muted);
-      font-size: 0.78rem;
+      font-size: 0.8rem;
+      font-weight: 400;
       margin-top: 8px;
       font-style: italic;
     }
@@ -295,12 +305,13 @@
     .search-input {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 4px;
+      border-radius: 8px;
       color: var(--text);
       font-family: var(--font);
-      font-size: 0.82rem;
-      padding: 10px 14px 10px 36px;
-      width: 280px;
+      font-size: 0.84rem;
+      font-weight: 400;
+      padding: 10px 14px 10px 38px;
+      width: 300px;
       transition: border-color 0.15s ease;
       outline: none;
     }
@@ -311,8 +322,8 @@
 
     .search-icon {
       color: var(--muted);
-      font-size: 0.82rem;
-      left: 12px;
+      font-size: 0.84rem;
+      left: 13px;
       pointer-events: none;
       position: absolute;
       top: 50%;
@@ -328,10 +339,10 @@
     .team-table th {
       border-bottom: 1px solid var(--border);
       color: var(--muted);
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      padding: 8px 12px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 10px 14px;
       text-align: right;
       text-transform: uppercase;
       white-space: nowrap;
@@ -341,49 +352,51 @@
     .team-table th:nth-child(2) { text-align: left; }
 
     .team-table td {
-      border-bottom: 1px solid rgba(46, 46, 66, 0.5);
-      font-size: 0.84rem;
-      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.86rem;
+      font-weight: 400;
+      padding: 13px 14px;
       text-align: right;
       white-space: nowrap;
     }
 
-    .team-table td:first-child { color: var(--muted); font-size: 0.72rem; text-align: left; }
+    .team-table td:first-child { color: var(--muted); font-size: 0.75rem; text-align: left; }
     .team-table td:nth-child(2) { text-align: left; }
 
-    .team-table tr:hover td { background: rgba(255, 255, 255, 0.03); }
+    .team-table tr:hover td { background: rgba(0, 0, 0, 0.03); }
 
-    .team-name { font-weight: 700; }
+    .team-name { font-weight: 600; }
 
     .badge {
-      border-radius: 3px;
+      border-radius: 6px;
       display: inline-block;
       font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      padding: 2px 5px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 2px 7px;
       text-transform: uppercase;
       vertical-align: middle;
     }
 
-    .badge-high { background: rgba(76, 175, 125, 0.15); color: var(--high); }
-    .badge-med  { background: rgba(240, 165, 0, 0.15);  color: var(--med);  }
-    .badge-low  { background: rgba(224, 82, 82, 0.15);  color: var(--low);  }
+    .badge-high { background: rgba(106, 181, 133, 0.15); color: var(--high); }
+    .badge-med  { background: rgba(200, 145, 74, 0.15);  color: var(--med);  }
+    .badge-low  { background: rgba(199, 96, 96, 0.15);   color: var(--low);  }
 
-    .pct-champion { color: #fff; font-weight: 700; }
+    .pct-champion { color: var(--text); font-weight: 600; }
     .pct-muted    { color: var(--muted); }
 
     .no-results {
       color: var(--muted);
-      font-size: 0.82rem;
-      padding: 24px 0;
+      font-size: 0.84rem;
+      padding: 28px 0;
       text-align: center;
     }
 
     /* ── Bracket ────────────────────────────────────────────────────── */
     .bracket-note {
       color: var(--muted);
-      font-size: 0.75rem;
+      font-size: 0.78rem;
+      font-weight: 400;
       font-style: italic;
       margin-bottom: 24px;
     }
@@ -407,10 +420,10 @@
 
     .round-header {
       color: var(--muted);
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      padding: 0 8px 12px;
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      padding: 0 8px 14px;
       text-transform: uppercase;
     }
 
@@ -426,7 +439,7 @@
     .match-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 4px;
+      border-radius: 8px;
       font-size: 0.76rem;
       overflow: hidden;
     }
@@ -435,7 +448,7 @@
       align-items: center;
       display: flex;
       justify-content: space-between;
-      padding: 6px 10px;
+      padding: 7px 11px;
     }
 
     .match-row + .match-row {
@@ -444,7 +457,7 @@
 
     .match-row.winner {
       color: var(--win);
-      font-weight: 700;
+      font-weight: 600;
     }
 
     .match-row.loser {
@@ -472,20 +485,21 @@
     .group-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 4px;
+      border-radius: 8px;
       font-size: 0.72rem;
-      padding: 8px 10px;
+      padding: 9px 11px;
     }
 
     .group-id {
       color: var(--accent);
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      margin-bottom: 4px;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
     }
 
-    .group-winner { color: #fff; font-weight: 700; }
+    .group-winner { color: var(--text); font-weight: 600; }
     .group-runner { color: var(--muted); }
 
     /* ── Model agreement ────────────────────────────────────────────── */
@@ -498,47 +512,48 @@
     .agreement-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 4px;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 8px 12px;
-      font-size: 0.78rem;
+      padding: 10px 14px;
+      font-size: 0.8rem;
     }
 
-    .agree-team { font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .agree-pct  { color: var(--muted); font-size: 0.7rem; margin-right: 8px; }
+    .agree-team { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .agree-pct  { color: var(--muted); font-size: 0.72rem; margin-right: 8px; }
 
     .agree-badge {
-      border-radius: 3px;
+      border-radius: 6px;
       font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      padding: 2px 5px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 2px 6px;
       text-transform: uppercase;
     }
 
-    .agree-badge.converge { background: rgba(0, 212, 255, 0.12); color: var(--accent); }
-    .agree-badge.diverge  { background: rgba(240, 165, 0, 0.12);  color: var(--med);  }
+    .agree-badge.converge { background: rgba(200, 145, 74, 0.12); color: var(--accent); }
+    .agree-badge.diverge  { background: rgba(199, 96, 96, 0.12);  color: var(--low);   }
 
     /* ── Footer ─────────────────────────────────────────────────────── */
     footer {
       border-top: 1px solid var(--border);
       color: var(--muted);
-      font-size: 0.72rem;
-      letter-spacing: 0.04em;
-      padding: 24px 0;
+      font-size: 0.74rem;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      padding: 28px 0;
       text-align: center;
     }
 
     /* ── Error state ────────────────────────────────────────────────── */
     .error-msg {
-      background: rgba(224, 82, 82, 0.08);
-      border: 1px solid rgba(224, 82, 82, 0.3);
-      border-radius: 4px;
+      background: rgba(199, 96, 96, 0.07);
+      border: 1px solid rgba(199, 96, 96, 0.25);
+      border-radius: 8px;
       color: var(--low);
-      font-size: 0.82rem;
-      padding: 16px 20px;
+      font-size: 0.84rem;
+      padding: 18px 22px;
       margin: 24px 0;
     }
   </style>
@@ -548,12 +563,12 @@
 <header>
   <div class="container">
     <div class="header-inner">
-      <div class="site-title">WC2026 <span>//</span> PREDICTION MODEL</div>
+      <div class="site-title">WC 2026 <span>·</span> Prediction Model</div>
       <div class="site-subtitle" id="meta-subtitle">Statistical analysis · Monte Carlo simulation · 10,000 runs</div>
     </div>
     <nav class="tab-nav" role="tablist">
-      <button class="tab-btn active" data-tab="methodology" role="tab" aria-selected="true">METHODOLOGY</button>
-      <button class="tab-btn"        data-tab="results"     role="tab" aria-selected="false">RESULTS</button>
+      <button class="tab-btn active" data-tab="methodology" role="tab" aria-selected="true">Methodology</button>
+      <button class="tab-btn"        data-tab="results"     role="tab" aria-selected="false">Results</button>
     </nav>
   </div>
 </header>
@@ -710,10 +725,10 @@
     <div class="section">
       <div class="section-label">Model Agreement — Top 16 Contenders</div>
       <div id="agreement-grid" class="agreement-grid"></div>
-      <p style="color:var(--muted);font-size:0.72rem;margin-top:12px">
-        <strong style="color:var(--accent)">CONVERGE</strong> = all three base models (Elo, Poisson, Form) rank this team similarly. Higher confidence.
+      <p style="color:var(--muted);font-size:0.78rem;font-weight:400;margin-top:14px;line-height:1.6">
+        <strong style="color:var(--accent);font-weight:600">Converge</strong> = all three base models (Elo, Poisson, Form) rank this team similarly. Higher confidence.
         &nbsp;&nbsp;
-        <strong style="color:var(--med)">DIVERGE</strong> = models disagree on this team's strength. Wider uncertainty.
+        <strong style="color:var(--low);font-weight:600">Diverge</strong> = models disagree on this team's strength. Wider uncertainty.
       </p>
     </div>
 
@@ -952,7 +967,7 @@ function buildFinalCol(finalMatch, champion) {
   // Champion callout
   if (champion) {
     const champ = document.createElement('div');
-    champ.style.cssText = 'color:var(--accent);font-size:0.7rem;font-weight:700;letter-spacing:0.1em;padding:12px 8px 0;text-align:center;text-transform:uppercase;';
+    champ.style.cssText = 'color:var(--accent);font-size:0.72rem;font-weight:600;letter-spacing:0.03em;padding:12px 8px 0;text-align:center;';
     champ.textContent = '🏆 ' + champion;
     wrap.appendChild(champ);
   }

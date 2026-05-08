@@ -30,6 +30,104 @@ fulbol-mundial-26/
 4. **You write a `MODEL.md`** in your model folder describing the approach, author, methodology, last update, and any caveats.
 5. **The group compares** estimations side-by-side against prediction-market prices to surface where models agree, where they diverge, and where there's an exploitable edge.
 
+## Pipeline
+
+How the pieces connect — from raw sources to the published report:
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                        EXTERNAL SOURCES                             │
+│                                                                     │
+│  ┌─────────────┐  ┌─────────────┐  ┌───────────┐  ┌─────────────┐ │
+│  │  StatsBomb  │  │  Understat  │  │  Squads   │  │   Markets   │ │
+│  │ match event │  │ club player │  │ Wikipedia │  │Kalshi/Poly/ │ │
+│  │    data     │  │     xG      │  │ Sofascore │  │  Pinnacle   │ │
+│  └──────┬──────┘  └──────┬──────┘  └─────┬─────┘  └──────┬──────┘ │
+└─────────│────────────────│───────────────│────────────────│────────┘
+          │                │               │                │
+          ▼                ▼               ▼                ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                    tools/  PULL SCRIPTS                             │
+│                                                                     │
+│  ┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐  │
+│  │ pull_statsbomb   │  │pull_understat    │  │  weekly_pull.py  │  │
+│  │      .py         │  │  _players.py     │  │  (orchestrator)  │  │
+│  └────────┬─────────┘  └────────┬─────────┘  └────────┬─────────┘  │
+└───────────│────────────────────│────────────────────────│───────────┘
+            │                    │                        │
+            ▼                    ▼                        ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│              data/raw/   (immutable, gitignored)                    │
+│                                                                     │
+│     ┌───────────┐     ┌───────────┐     ┌───────────────────────┐  │
+│     │statsbomb/ │     │understat/ │     │ kalshi/ polymarket/   │  │
+│     │ squads/   │     │           │     │ elo/                  │  │
+│     └─────┬─────┘     └─────┬─────┘     └──────────┬────────────┘  │
+└───────────│───────────────── │────────────────────── │─────────────┘
+            │                  │                        │
+            ▼                  ▼                        │
+┌──────────────────────────────────────────┐            │
+│       tools/  BUILD SCRIPTS              │            │
+│                                          │            │
+│  ┌──────────────────────────────────┐   │            │
+│  │ aggregate_statsbomb_players.py   │   │            │
+│  │ build_squad_xg_ratings.py        │   │            │
+│  │ build_2026_ratings.py            │   │            │
+│  └─────────────────┬────────────────┘   │            │
+└────────────────────│─────────────────────┘            │
+                     │                                   │
+                     ▼                                   ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│              data/derived/   (parquets, gitignored)                 │
+│                                                                     │
+│  ┌──────────────────────┐  ┌──────────────────┐  ┌──────────────┐  │
+│  │squad_xg_ratings      │  │statsbomb_player  │  │kalshi_snap   │  │
+│  │team_attack_ratings   │  │  _xg.parquet     │  │polymarket_   │  │
+│  │team_defense_ratings  │  │statsbomb_team    │  │  snap .csv   │  │
+│  │understat_player_xg   │  │  _xg.parquet     │  │              │  │
+│  └──────────┬───────────┘  └────────┬─────────┘  └──────┬───────┘  │
+└─────────────│────────────────────── │────────────────────│──────────┘
+              │                       │                    │
+              ▼                       ▼                    │
+┌────────────────────────────────────────────────┐         │
+│         methodology/  MODEL CODE               │         │
+│                                                │         │
+│  ┌────────────┐ ┌──────────┐ ┌─────────────┐  │         │
+│  │  compound  │ │   elo    │ │  poisson /  │  │         │
+│  │   model    │ │ baseline │ │  ensemble   │  │         │
+│  │Dixon-Coles │ │          │ │  form / ..  │  │         │
+│  │ 10k sim    │ │          │ │             │  │         │
+│  └─────┬──────┘ └────┬─────┘ └──────┬──────┘  │         │
+└────────│─────────────│──────────────│──────────┘         │
+         │             │              │                    │
+         ▼             ▼              ▼                    ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                          results/                                   │
+│                                                                     │
+│  ┌───────────────────────────────────────────────────────────────┐  │
+│  │   <model>/<date>/predictions.csv   (8-col schema per model)   │  │
+│  └───────────────────────────────┬───────────────────────────────┘  │
+│                                  │                                  │
+│              ┌───────────────────▼──────────────────────┐           │
+│              │  comparisons/<date>/comparison.csv        │           │
+│              │  ← all models × devigged market prices   │◄──────────┘
+│              │  ← Golden Zone edge flags here            │
+│              └───────────────────┬──────────────────────┘           │
+└──────────────────────────────────│──────────────────────────────────┘
+                                   │
+                                   ▼
+                    ┌──────────────────────────┐
+                    │   export_web_data.py      │
+                    └──────────────┬───────────┘
+                                   │
+                                   ▼
+                    ┌──────────────────────────┐
+                    │       docs/              │
+                    │  data.json + index.html  │
+                    │   (GitHub Pages site)    │
+                    └──────────────────────────┘
+```
+
 ## Contributing models
 
 To add your model:
