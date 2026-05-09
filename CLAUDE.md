@@ -8,51 +8,36 @@ A multi-contributor 2026 World Cup prediction workbench. Models produce probabil
 
 ## Pick a role
 
-The full catalog and org chart is at [`docs/agents/README.md`](./docs/agents/README.md). 19 named roles across four groups:
+The 8 functional roles below are the active catalog. Pick one. Each spec is tight: what it reads, what it writes, what it must not do, when it runs, and how it knows it's done.
 
-### Data Acquisition
+| # | Role | Single job |
+|---|---|---|
+| 01 | [Data Engineering](./docs/agents/01-data-engineering.md) | Fetch external data into `data/raw/<source>/<date>/`. Nothing else. |
+| 02 | [Data Coverage](./docs/agents/02-data-coverage.md) | Read-only. Detect gaps + staleness. Write `player_coverage_report.csv`. |
+| 03 | [Data Cleaning & Feature Engineering](./docs/agents/03-data-cleaning.md) | `data/raw/**` → `data/derived/*.parquet`. The only role that owns transformations. |
+| 04 | [Market Normalization](./docs/agents/04-market-normalization.md) | Devig + liquidity filter. Power for 1X2, Shin for outrights. |
+| 05 | [Modeling / Data Science](./docs/agents/05-modeling.md) | Fit Elo / Form / Poisson / xG-Poisson / Ensemble / Compound. Write `predictions.csv`. |
+| 06 | [Backtest / Validation](./docs/agents/06-validation.md) | Schema gate per PR + held-out backtest per methodology change. The only promotion gate. |
+| 07 | [Edge / Comparison](./docs/agents/07-edge-comparison.md) | Join models vs. devigged markets. The only role that writes `actionable.md`. |
+| 08 | [Orchestration](./docs/agents/08-orchestration.md) | Daily 09:00 UTC cron. Triggers 01 → 07, opens a PR. |
 
-- [International results (martj42)](./docs/agents/acquisition-international-results.md)
-- [StatsBomb xG](./docs/agents/acquisition-statsbomb.md)
-- [Understat club xG](./docs/agents/acquisition-understat.md)
-- [WC2026 squads](./docs/agents/acquisition-wc2026-squads.md)
-- [National lineups (FIFA / UEFA / federation)](./docs/agents/acquisition-national-lineups.md)
-- [Elite-club form (UCL / UEL)](./docs/agents/acquisition-elite-club-form.md)
-- [Markets (Kalshi / Polymarket / Pinnacle)](./docs/agents/acquisition-markets.md)
-
-### Modeling
-
-- [Elo baseline](./docs/agents/modeling-elo-baseline.md)
-- [Form-last-10](./docs/agents/modeling-form-last-10.md)
-- [Poisson-goals](./docs/agents/modeling-poisson-goals.md)
-- [xG-Poisson](./docs/agents/modeling-poisson-xg.md)
-- [Ensemble](./docs/agents/modeling-ensemble.md)
-- [Compound-model](./docs/agents/modeling-compound-model.md)
-
-### Quality
-
-- [Coverage Audit](./docs/agents/quality-coverage-audit.md)
-- [Validation / Backtest](./docs/agents/quality-validation-backtest.md)
-- [Review](./docs/agents/quality-review.md)
-
-### Synthesis
-
-- [Comparison / Edge](./docs/agents/synthesis-comparison-edge.md)
-- [Documentation / Learnings](./docs/agents/synthesis-documentation-learnings.md)
-- [Orchestrator](./docs/agents/synthesis-orchestrator.md) — weekly cadence; the only role authorized to *trigger* the cycle
+The full org chart, cadence table, and per-source / per-model implementation specs are in [`docs/agents/README.md`](./docs/agents/README.md).
 
 ## Cross-cutting
 
 - [Role template](./docs/agents/_role-template.md) — copy when adding a new role
-- [Data gaps roadmap](./docs/agents/data-gaps-roadmap.md) — what acquisition roles should chase next
-- [Refinement loop](./docs/agents/refinement-loop.md) — how modeling roles change parameters without violating the no-post-hoc-fitting rule
+- [Data gaps roadmap](./docs/agents/data-gaps-roadmap.md) — what 01 should chase next
+- [Refinement loop](./docs/agents/refinement-loop.md) — how 05 changes parameters without violating the no-post-hoc-fitting rule
 
 ## Where work happens
 
 - Every contribution goes through a PR — `main` is protected. See [`DEVELOPMENT.md` — Contribution Workflow](./DEVELOPMENT.md#contribution-workflow).
-- Branch naming: `<your-name>/<description>`, except the [Orchestrator role](./docs/agents/synthesis-orchestrator.md) which uses `orchestrator/weekly-<date>`.
+- Branch naming: `<your-name>/<description>`, except [Orchestration](./docs/agents/08-orchestration.md) which uses `orchestrator/daily-<date>`.
 - Every PR requires one approving review before merge.
-- The four contributor tracks (Model / Data / Analysis / Docs) in `DEVELOPMENT.md` describe *what surface to land on*; the role catalog above describes *what responsibility you take on*.
+
+## Visualization
+
+The 8 agents are visualized in a local pixel world via [Miniverse](https://github.com/ianscott313/miniverse). Run `cd my-miniverse && npm run dev` and open http://localhost:5173/. Heartbeats are pushed via `tools/miniverse_heartbeat.py` from the pipeline scripts. Server runs on `localhost:4321`.
 
 ## Priority stack
 
