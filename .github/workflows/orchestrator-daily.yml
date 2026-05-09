@@ -1,0 +1,102 @@
+name: Orchestrator — daily snapshot
+
+# Daily cadence for the Orchestrator role (see docs/agents/08-orchestration.md).
+# Runs deterministic Python: weekly_pull.py, audit_player_coverage.py, validate_predictions.py.
+# Opens a PR back to main rather than pushing directly — preserves branch protection.
+# Cost: $0/mo (public repo, standard runners, ~5-10 min/run).
+#
+# Cadence policy (per docs/agents/08-orchestration.md):
+#   - The daily 09:00 UTC cron is configured below but COMMENTED OUT.
+#     For now we trigger manually via `workflow_dispatch` — this lets us watch
+#     the pipeline stabilise before letting it run unattended.
+#   - To turn on the daily schedule, uncomment the `schedule:` block below.
+
+on:
+  # schedule:
+  #   # Daily 09:00 UTC. GitHub Actions cron is best-effort; delays of up to ~1h are normal.
+  #   - cron: "0 9 * * *"
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Snapshot date (YYYY-MM-DD). Empty = today UTC."
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: orchestrator-daily
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas httpx pyarrow
+
+      - name: Resolve snapshot date
+        id: date
+        run: |
+          if [ -n "${{ inputs.date }}" ]; then
+            echo "value=${{ inputs.date }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=$(date -u +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Step 1+3+4: Data Engineering, Cleaning, Market Normalization
+      # (currently bundled inside weekly_pull.py — name kept for git history).
+      - name: Run pipeline (engineering + cleaning + markets + modeling + comparison)
+        run: python3 tools/weekly_pull.py "${{ steps.date.outputs.value }}"
+
+      # Step 2: Data Coverage
+      - name: Run player coverage audit
+        # Tolerated absent until the script lands.
+        continue-on-error: true
+        run: |
+          if [ -f tools/audit_player_coverage.py ]; then
+            python3 tools/audit_player_coverage.py
+          else
+            echo "audit_player_coverage.py not yet present — skipping."
+          fi
+
+      # Step 6: Validation gate
+      - name: Validate predictions
+        run: python3 tools/validate_predictions.py --all
+
+      - name: Open pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: orchestrator/daily-${{ steps.date.outputs.value }}
+          base: main
+          title: "chore(daily): orchestrator snapshot ${{ steps.date.outputs.value }}"
+          commit-message: "chore(daily): orchestrator snapshot ${{ steps.date.outputs.value }}"
+          body: |
+            Automated daily snapshot from the Orchestrator agent (08).
+
+            **Date:** `${{ steps.date.outputs.value }}`
+            **Workflow:** `.github/workflows/orchestrator-daily.yml`
+            **Trigger:** ${{ github.event_name }}
+
+            Steps that ran (per `docs/agents/08-orchestration.md`):
+            - 01 Data Engineering + 03 Cleaning + 04 Markets + 05 Modeling + 07 Edge: `tools/weekly_pull.py`
+            - 02 Coverage: `tools/audit_player_coverage.py` (when present)
+            - 06 Validation: `tools/validate_predictions.py --all`
+
+            Review per `docs/agents/08-orchestration.md` and the
+            "What reviewers check" list in `DEVELOPMENT.md`.
+          labels: |
+            orchestrator
+            daily-snapshot
+          delete-branch: true
