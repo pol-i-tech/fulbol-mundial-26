@@ -44,6 +44,15 @@ GitHub Actions cron is best-effort — delays of up to ~1h are normal. The job i
 - Step order is non-negotiable: Data Engineering → Cleaning → Market Normalization → Modeling → Validation → Coverage → Edge.
 - Timeout: 20 minutes. If a step exceeds, the run fails and a PR with logs is still opened so the failure is visible.
 
+### Cost gate ($2/run cap)
+
+Before any agent does work, the workflow runs `tools/estimate_run_cost.py`. The script sums the declared per-agent USD estimates and hard-fails the job if the total exceeds `MAX_RUN_COST_USD` (default **$2.00**). Today every agent runs against free / open-data sources, so the total is $0.00; the gate exists so we cannot quietly drift past the budget when a future agent adds a paid LLM call, paid market tier, or GPU-backed sim.
+
+- Per-agent estimates live in `AGENT_COST_ESTIMATES_USD` inside `tools/estimate_run_cost.py`. Update them whenever an agent gains a new paid dependency or changes scale.
+- The cap is set in the workflow via `env: MAX_RUN_COST_USD: "2.00"`. Raising it requires an explicit PR.
+- One-off overrides for testing: `AGENT_COST_OVERRIDES='{"modeling": 1.50}' python3 tools/estimate_run_cost.py`.
+- The breakdown writes to `$GITHUB_STEP_SUMMARY` so the cost table shows on the run page.
+
 ## Hand-offs
 
 | Downstream role | Artifact | Frequency |
