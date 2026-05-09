@@ -1,0 +1,92 @@
+name: Orchestrator — weekly snapshot
+
+# Weekly cadence for the Orchestrator role (see docs/agents/synthesis-orchestrator.md).
+# Runs deterministic Python: weekly_pull.py, audit_player_coverage.py, validate_predictions.py.
+# Opens a PR back to main rather than pushing directly — preserves branch protection.
+# Cost: $0/mo (public repo, standard runners, ~5-10 min/run).
+
+on:
+  schedule:
+    # Sunday 14:00 UTC. GitHub Actions cron is best-effort; delays of up to ~1h are normal.
+    - cron: "0 14 * * 0"
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Snapshot date (YYYY-MM-DD). Empty = today UTC."
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: orchestrator-weekly
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas httpx pyarrow
+
+      - name: Resolve snapshot date
+        id: date
+        run: |
+          if [ -n "${{ inputs.date }}" ]; then
+            echo "value=${{ inputs.date }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=$(date -u +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run weekly_pull
+        run: python3 tools/weekly_pull.py "${{ steps.date.outputs.value }}"
+
+      - name: Run player coverage audit
+        # Tolerated absent until Unit 6 lands the script.
+        continue-on-error: true
+        run: |
+          if [ -f tools/audit_player_coverage.py ]; then
+            python3 tools/audit_player_coverage.py
+          else
+            echo "audit_player_coverage.py not yet present — skipping (Unit 6)."
+          fi
+
+      - name: Validate predictions
+        run: python3 tools/validate_predictions.py --all
+
+      - name: Open pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: orchestrator/weekly-${{ steps.date.outputs.value }}
+          base: main
+          title: "chore(weekly): orchestrator snapshot ${{ steps.date.outputs.value }}"
+          commit-message: "chore(weekly): orchestrator snapshot ${{ steps.date.outputs.value }}"
+          body: |
+            Automated weekly snapshot from the Orchestrator role.
+
+            **Date:** `${{ steps.date.outputs.value }}`
+            **Workflow:** `.github/workflows/orchestrator-weekly.yml`
+            **Trigger:** ${{ github.event_name }}
+
+            Steps that ran:
+            - `tools/weekly_pull.py ${{ steps.date.outputs.value }}`
+            - `tools/audit_player_coverage.py` (when present)
+            - `tools/validate_predictions.py --all`
+
+            Review per `docs/agents/synthesis-orchestrator.md` and the
+            "What reviewers check" list in `DEVELOPMENT.md`.
+          labels: |
+            orchestrator
+            weekly-snapshot
+          delete-branch: true
