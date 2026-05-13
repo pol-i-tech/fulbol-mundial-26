@@ -122,12 +122,23 @@ def load_dims(con: duckdb.DuckDBPyConnection) -> int:
     return total
 
 
+def run_matching(db_path: Path) -> int:
+    """Invoke the matching layer (Unit 4) as a subprocess-equivalent in-process call."""
+    import match_sources_to_masters  # local sibling module
+    return match_sources_to_masters.main(["--db-path", str(db_path)])
+
+
 def parse_args(argv: list[str]) -> argparse.Namespace:
     p = argparse.ArgumentParser(description=__doc__.splitlines()[1])
     p.add_argument("--db-path", type=Path, default=DEFAULT_DB)
     p.add_argument("--data-dir", type=Path, default=DEFAULT_DATA_DIR)
     p.add_argument("--masters-dir", type=Path, default=DEFAULT_MASTERS_DIR)
     p.add_argument("--skip-raw", action="store_true", help="Skip raw layer; rebuild dims only")
+    p.add_argument(
+        "--skip-match",
+        action="store_true",
+        help="Skip the source→master matching layer (Unit 4)",
+    )
     return p.parse_args(argv)
 
 
@@ -150,7 +161,12 @@ def main(argv: list[str] | None = None) -> int:
         if n < 0:
             return 1
     finally:
-        con.close()
+        con.close()  # release lock before the matching layer reopens the DB
+
+    if not args.skip_match:
+        rc = run_matching(args.db_path)
+        if rc != 0:
+            return rc
 
     print(f"[done] {args.db_path.relative_to(ROOT) if args.db_path.is_relative_to(ROOT) else args.db_path}")
     return 0
