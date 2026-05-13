@@ -1,0 +1,99 @@
+team_code,team_name,iso2_code,confederation,is_wc2026_qualifier
+ALB,Albania,,UEFA,false
+ALG,Algeria,DZ,CAF,true
+AND,Andorra,,UEFA,false
+ARG,Argentina,AR,CONMEBOL,true
+ARM,Armenia,,UEFA,false
+AUS,Australia,AU,AFC,true
+AUT,Austria,AT,UEFA,true
+AZE,Azerbaijan,,UEFA,false
+BEL,Belgium,BE,UEFA,true
+BIH,Bosnia and Herzegovina,BA,UEFA,true
+BLR,Belarus,,UEFA,false
+BOL,Bolivia,,CONMEBOL,false
+BRA,Brazil,BR,CONMEBOL,true
+BUL,Bulgaria,,UEFA,false
+CAN,Canada,CA,CONCACAF,true
+CHI,Chile,,CONMEBOL,false
+CIV,Ivory Coast,CI,CAF,true
+CMR,Cameroon,CM,CAF,false
+COD,DR Congo,CD,CAF,true
+COL,Colombia,CO,CONMEBOL,true
+CPV,Cape Verde,CV,CAF,true
+CRC,Costa Rica,CR,CONCACAF,false
+CRO,Croatia,HR,UEFA,true
+CUB,Cuba,CU,CONCACAF,false
+CUW,Curaçao,CW,CONCACAF,true
+CYP,Cyprus,,UEFA,false
+CZE,Czech Republic,CZ,UEFA,true
+DEN,Denmark,DK,UEFA,false
+ECU,Ecuador,EC,CONMEBOL,true
+EGY,Egypt,EG,CAF,true
+ENG,England,GB,UEFA,true
+ESP,Spain,ES,UEFA,true
+EST,Estonia,,UEFA,false
+FIN,Finland,,UEFA,false
+FRA,France,FR,UEFA,true
+FRO,Faroe Islands,,UEFA,false
+GEO,Georgia,,UEFA,false
+GER,Germany,DE,UEFA,true
+GHA,Ghana,GH,CAF,true
+GIB,Gibraltar,,UEFA,false
+GRE,Greece,,UEFA,false
+HAI,Haiti,HT,CONCACAF,true
+HON,Honduras,HN,CONCACAF,false
+HUN,Hungary,,UEFA,false
+IRI,Iran,IR,AFC,true
+IRL,Ireland,,UEFA,false
+IRQ,Iraq,IQ,AFC,true
+ISL,Iceland,,UEFA,false
+ISR,Israel,,UEFA,false
+ITA,Italy,IT,UEFA,false
+JAM,Jamaica,,CONCACAF,false
+JOR,Jordan,JO,AFC,true
+JPN,Japan,JP,AFC,true
+KAZ,Kazakhstan,,AFC,false
+KOR,South Korea,KR,AFC,true
+KOS,Kosovo,,UEFA,false
+KSA,Saudi Arabia,SA,AFC,true
+LIE,Liechtenstein,,UEFA,false
+LTU,Lithuania,,UEFA,false
+LUX,Luxembourg,,UEFA,false
+LVA,Latvia,,UEFA,false
+MAR,Morocco,MA,CAF,true
+MDA,Moldova,,UEFA,false
+MEX,Mexico,MX,CONCACAF,true
+MKD,North Macedonia,,UEFA,false
+MLT,Malta,,UEFA,false
+MNE,Montenegro,,UEFA,false
+NED,Netherlands,NL,UEFA,true
+NGA,Nigeria,NG,CAF,false
+NIR,Northern Ireland,,UEFA,false
+NOR,Norway,NO,UEFA,true
+NZL,New Zealand,NZ,OFC,true
+PAN,Panama,PA,CONCACAF,true
+PAR,Paraguay,PY,CONMEBOL,true
+PER,Peru,,CONMEBOL,false
+POL,Poland,,UEFA,false
+POR,Portugal,PT,UEFA,true
+PRK,North Korea,KP,AFC,false
+QAT,Qatar,QA,AFC,true
+ROU,Romania,,UEFA,false
+RSA,South Africa,ZA,CAF,true
+RUS,Russia,,UEFA,false
+SCO,Scotland,,UEFA,true
+SEN,Senegal,SN,CAF,true
+SMR,San Marino,,UEFA,false
+SRB,Serbia,RS,UEFA,false
+SUI,Switzerland,CH,UEFA,true
+SVK,Slovakia,,UEFA,false
+SVN,Slovenia,,UEFA,false
+SWE,Sweden,SE,UEFA,true
+TUN,Tunisia,TN,CAF,true
+TUR,Turkey,TR,UEFA,true
+UKR,Ukraine,UA,UEFA,false
+URU,Uruguay,UY,CONMEBOL,true
+USA,United States,US,CONCACAF,true
+UZB,Uzbekistan,UZ,AFC,true
+VEN,Venezuela,,CONMEBOL,false
+WAL,Wales,WL,UEFA,false

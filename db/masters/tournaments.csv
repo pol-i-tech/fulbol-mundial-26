@@ -1,0 +1,7 @@
+tournament_id,tournament_name,start_date,end_date,host_country,competition_type
+copa2024,Copa America 2024,2024-06-20,2024-07-14,USA,copa_america
+euro2020,UEFA Euro 2020,2021-06-11,2021-07-11,Pan-European,euros
+euro2024,UEFA Euro 2024,2024-06-14,2024-07-14,Germany,euros
+wc2018,FIFA World Cup 2018,2018-06-14,2018-07-15,Russia,world_cup
+wc2022,FIFA World Cup 2022,2022-11-20,2022-12-18,Qatar,world_cup
+wc2026,FIFA World Cup 2026,2026-06-11,2026-07-19,USA/MEX/CAN,world_cup
