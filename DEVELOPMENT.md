@@ -220,6 +220,20 @@ python3 wc2022_xg_backtest.py             # walk-forward WC 2022; ~30 sec
 ```
 Outputs predictions to `results/poisson-xg/wc2022-backtest/` and `results/ensemble-v2/wc2022-backtest/`.
 
+### Analytics database (DuckDB)
+```bash
+python3 tools/build_duckdb.py             # build data/wc2026.duckdb end-to-end (~10 sec)
+python3 tools/verify_duckdb.py            # sanity assertions; exit 0 = healthy
+duckdb data/wc2026.duckdb                 # interactive shell
+```
+A single DuckDB file joining everything in `data/derived/` into a clean
+dim/fact schema with stable `P######` player IDs and source-to-master
+matching pre-resolved. Example queries live in `db/queries/examples/`;
+full data-model contract is `db/SCHEMA.md`; build + refresh workflows
+are `db/README.md`. This is the analytics surface for ad-hoc DuckDB CLI,
+notebooks, and future viz tools — it does not replace the pandas-based
+methodology scripts.
+
 ## Architecture
 
 ### Data flow
