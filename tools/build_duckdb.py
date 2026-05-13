@@ -27,8 +27,10 @@ import sys
 from pathlib import Path
 
 import duckdb
+import pandas as pd  # noqa: F401  used inside build_team_name_resolution
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "tools"))
 DEFAULT_DB = ROOT / "data" / "wc2026.duckdb"
 DEFAULT_DATA_DIR = ROOT / "data" / "derived"
 DEFAULT_MASTERS_DIR = ROOT / "db" / "masters"
@@ -128,6 +130,71 @@ def run_matching(db_path: Path) -> int:
     return match_sources_to_masters.main(["--db-path", str(db_path)])
 
 
+# Curated fact SQL files, in dependency order
+FACT_SQL_FILES = [
+    "fact_player_xg.sql",
+    "fact_team_rating.sql",
+]
+
+
+def build_team_name_resolution(con: duckdb.DuckDBPyConnection) -> None:
+    """Create staging.team_name_resolution mapping nation display names to
+    FIFA 3-letter codes. Used by the fact SQL files to join rating tables
+    (which carry display names) to dim_team."""
+    from lib.player_normalize import normalize_country  # local import
+
+    # Collect distinct nation values across the rating-source raw tables
+    sources = [
+        ("raw.team_attack_ratings", "nation"),
+        ("raw.team_defensive_ratings", "nation"),
+        ("raw.team_ratings_all_models", "nation"),
+        ("raw.team_attack_ratings_wc2022", "nation"),
+        ("raw.team_defense_ratings_wc2022", "nation"),
+        ("raw.team_xga_pedigree", "nation"),
+        ("raw.defensive_ratings_tournament", "team"),
+    ]
+    names: set[str] = set()
+    for tbl, col in sources:
+        for r in con.sql(f"SELECT DISTINCT {col} FROM {tbl} WHERE {col} IS NOT NULL").fetchall():
+            names.add(r[0])
+
+    rows = []
+    unresolved = []
+    for n in sorted(names):
+        cc = normalize_country(n)
+        if cc:
+            rows.append({"nation_name": n, "team_code": cc})
+        else:
+            unresolved.append(n)
+
+    if unresolved:
+        print(f"WARN: {len(unresolved)} nation names not resolved to FIFA3: {unresolved[:10]}")
+
+    df = pd.DataFrame(rows)  # noqa: F821
+    con.execute("DROP TABLE IF EXISTS staging.team_name_resolution")
+    if not df.empty:
+        con.execute("CREATE TABLE staging.team_name_resolution AS SELECT * FROM df")
+    print(f"[staging] team_name_resolution: {len(rows)} mappings")
+
+
+def load_facts(con: duckdb.DuckDBPyConnection) -> int:
+    total = 0
+    for sql_file in FACT_SQL_FILES:
+        path = CURATED_SQL_DIR / sql_file
+        if not path.exists():
+            print(f"ERROR: missing SQL file {path.relative_to(ROOT)}", file=sys.stderr)
+            return -1
+        sql = strip_line_comments(path.read_text())
+        for stmt in [s.strip() for s in sql.split(";") if s.strip()]:
+            con.execute(stmt)
+        table_name = sql_file.replace(".sql", "")
+        count = con.execute(f"SELECT COUNT(*) FROM curated.{table_name}").fetchone()[0]
+        total += count
+        print(f"[fact] {table_name}: {count:,} rows")
+    print(f"[fact] {len(FACT_SQL_FILES)} fact tables loaded, {total:,} total rows")
+    return total
+
+
 def parse_args(argv: list[str]) -> argparse.Namespace:
     p = argparse.ArgumentParser(description=__doc__.splitlines()[1])
     p.add_argument("--db-path", type=Path, default=DEFAULT_DB)
@@ -167,6 +234,16 @@ def main(argv: list[str] | None = None) -> int:
         rc = run_matching(args.db_path)
         if rc != 0:
             return rc
+
+    # Facts phase — re-open the DB (matching closed it) and build curated.fact_*
+    con = duckdb.connect(str(args.db_path))
+    try:
+        build_team_name_resolution(con)
+        n = load_facts(con)
+        if n < 0:
+            return 1
+    finally:
+        con.close()
 
     print(f"[done] {args.db_path.relative_to(ROOT) if args.db_path.is_relative_to(ROOT) else args.db_path}")
     return 0
