@@ -107,38 +107,6 @@ Free for any contributor. The compound-model has its own credentials section ([`
 - Write to your own folder, on your own cadence.
 - The bet ledger is private — each participant logs their own bets locally in `bets/ledger.csv` (gitignored).
 
-## Visualizing the agents (Miniverse)
-
-The 8 functional agents from [`docs/agents/`](docs/agents/README.md) are visualized in a local pixel-world built on [Miniverse](https://github.com/ianscott313/miniverse). Each agent is a citizen; states (`working`, `idle`, `thinking`, `error`, …) flip in real time as pipeline steps run.
-
-```bash
-# One-time bootstrap (already committed at ./my-miniverse/)
-cd my-miniverse && npm install
-
-# Start the world
-npm run dev
-```
-
-Then open:
-
-- **World:** http://localhost:5173/ (press `E` for the editor)
-- **Heartbeat / WebSocket server:** http://localhost:4321 (`/api/agents`, `/api/heartbeat`, `/api/inbox`)
-
-Register all 8 citizens at once:
-
-```bash
-python3 tools/miniverse_heartbeat.py register-all
-```
-
-From any pipeline script:
-
-```python
-from tools.miniverse_heartbeat import heartbeat
-heartbeat("modeling", state="working", task="Dixon-Coles fit")
-```
-
-Calls silently no-op when the server isn't running, so production runs are never blocked by visualization.
-
 ## Scope Control
 
 The project is intentionally narrow:
