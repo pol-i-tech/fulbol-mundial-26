@@ -28,16 +28,13 @@ The full org chart, cadence table, and per-source / per-model implementation spe
 - [Role template](./docs/agents/_role-template.md) — copy when adding a new role
 - [Data gaps roadmap](./docs/agents/data-gaps-roadmap.md) — what 01 should chase next
 - [Refinement loop](./docs/agents/refinement-loop.md) — how 05 changes parameters without violating the no-post-hoc-fitting rule
+- [Documented solutions](./docs/solutions/) — best practices, bug fixes, and workflow learnings indexed by category with YAML frontmatter (`module`, `tags`, `problem_type`). Relevant when implementing or debugging in documented areas.
 
 ## Where work happens
 
 - Every contribution goes through a PR — `main` is protected. See [`DEVELOPMENT.md` — Contribution Workflow](./DEVELOPMENT.md#contribution-workflow).
 - Branch naming: `<your-name>/<description>`, except [Orchestration](./docs/agents/08-orchestration.md) which uses `orchestrator/daily-<date>`.
 - Every PR requires one approving review before merge.
-
-## Visualization
-
-The 8 agents are visualized in a local pixel world via [Miniverse](https://github.com/ianscott313/miniverse). Run `cd my-miniverse && npm run dev` and open http://localhost:5173/. Heartbeats are pushed via `tools/miniverse_heartbeat.py` from the pipeline scripts. Server runs on `localhost:4321`.
 
 ## Priority stack
 
