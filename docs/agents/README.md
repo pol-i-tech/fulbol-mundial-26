@@ -6,7 +6,7 @@ Roles are *responsibilities*, not people. One person or one agent may fill sever
 
 This catalog operationalizes the rules in [`../../DEVELOPMENT.md`](../../DEVELOPMENT.md). When a role spec and `DEVELOPMENT.md` disagree, **`DEVELOPMENT.md` wins** — open a PR to fix the role spec.
 
-## The 8 functional roles
+## The 6 functional roles
 
 The active catalog. Pick one of these. Each spec is tight: what it reads, what it writes, what it must not do, when it runs, and how it knows it's done.
 
@@ -15,11 +15,11 @@ The active catalog. Pick one of these. Each spec is tight: what it reads, what i
 | 01 | [Data Engineering](01-data-engineering.md) | Fetch external data into `data/raw/<source>/<date>/`. Nothing else. |
 | 02 | [Data Coverage](02-data-coverage.md) | Read-only. Detect gaps + staleness. Write `player_coverage_report.csv`. |
 | 03 | [Data Cleaning & Feature Engineering](03-data-cleaning.md) | `data/raw/**` → `data/derived/*.parquet`. The only role that owns transformations. |
-| 04 | [Market Normalization](04-market-normalization.md) | Devig + liquidity filter. Power for 1X2, Shin for outrights. |
-| 05 | [Modeling / Data Science](05-modeling.md) | Fit Elo / Form / Poisson / xG-Poisson / Ensemble / Compound. Write `predictions.csv`. |
+| 05 | [Modeling / Data Science](05-modeling.md) | Fit the WC2026 predictor against the curated layer. Write `predictions.csv`. |
 | 06 | [Backtest / Validation](06-validation.md) | Schema gate per PR + held-out backtest per methodology change. The only promotion gate. |
-| 07 | [Edge / Comparison](07-edge-comparison.md) | Join models vs. devigged markets. The only role that writes `actionable.md`. |
-| 08 | [Orchestration](08-orchestration.md) | Daily 09:00 UTC cron. Triggers 01 → 07 in order, opens a PR. |
+| 08 | [Orchestration](08-orchestration.md) | Daily 09:00 UTC cron. Triggers 01 → 06 in order, opens a PR. |
+
+> **Note:** Roles 04 (Market Normalization) and 07 (Edge / Comparison) have been removed from the catalog. The project's scope is producing match probabilities — devig, market comparison, and actionable-edge work are out of scope.
 
 ## Org chart
 
@@ -29,13 +29,10 @@ flowchart LR
     DE[01 · Data Engineering<br/>fetch raw]
     DC[02 · Data Coverage<br/>find gaps]
     CL[03 · Cleaning + FE<br/>raw → derived]
-    MN[04 · Market<br/>Normalization]
     MD[05 · Modeling<br/>probabilities]
     VA[06 · Validation<br/>backtest gate]
-    ED[07 · Edge<br/>actionable]
 
-    O --> DE --> CL --> MD --> VA --> ED
-    O --> MN --> ED
+    O --> DE --> CL --> MD --> VA
     O --> DC
     DC -.gap signal.-> DE
     VA -.verdict.-> MD
@@ -48,13 +45,11 @@ flowchart LR
 | 01 Data Engineering | Daily for cron sources (martj42, Markets); on-demand for episodic sources | `tools/pull_*.py` |
 | 02 Data Coverage | Daily inside Orchestrator + per-PR on `data/derived/` changes | `tools/audit_player_coverage.py` |
 | 03 Cleaning + FE | Daily, after 01 | `tools/aggregate_*.py`, `tools/build_*.py` |
-| 04 Market Normalization | Daily, after 01's market pulls | `tools/normalize_*.py` |
-| 05 Modeling | Daily, after 03 + 04 | `methodology/<model>/`, `results/<model>/<date>/` |
+| 05 Modeling | Daily, after 03 | `methodology/<model>/`, `results/<model>/<date>/` |
 | 06 Validation | Per-PR (schema) + per-refinement (backtest) | `.github/workflows/validate-predictions.yml`, `wc2022_xg_backtest.py` |
-| 07 Edge / Comparison | Daily, last step | `tools/compare_models.py` |
 | 08 Orchestration | `cron: "0 9 * * *"` (daily 09:00 UTC) + `workflow_dispatch`. **Manual-only for now.** | `.github/workflows/orchestrator-daily.yml` |
 
-**Net: one scheduled cron tick per day at 09:00 UTC drives 01 → 07 in sequence. Validation also fires per-PR. Everything else is reactive.**
+**Net: one scheduled cron tick per day at 09:00 UTC drives 01 → 06 in sequence. Validation also fires per-PR. Everything else is reactive.**
 
 ## Implementation specs (per source / per model)
 
@@ -68,7 +63,6 @@ The 8 functional roles above are the contract. Each one has concrete *implementa
 - [WC2026 squads](acquisition-wc2026-squads.md)
 - [National lineups (FIFA / UEFA / federation)](acquisition-national-lineups.md)
 - [Elite-club form (UCL / UEL)](acquisition-elite-club-form.md)
-- [Markets (Kalshi / Polymarket / Pinnacle)](acquisition-markets.md)
 
 ### Implementations of 05 · Modeling
 
@@ -85,11 +79,14 @@ The 8 functional roles above are the contract. Each one has concrete *implementa
 - [Validation / Backtest](quality-validation-backtest.md)
 - [Review](quality-review.md)
 
-### Implementations of 07 · Edge and 08 · Orchestration
+### Implementations of 08 · Orchestration
 
-- [Comparison / Edge](synthesis-comparison-edge.md)
 - [Documentation / Learnings](synthesis-documentation-learnings.md)
 - [Orchestrator](synthesis-orchestrator.md)
+
+### Storytelling / Public output
+
+- [Storytelling Report Writer](storytelling-report-writer.md) — produces the < 2-page Graphene-rendered narrative report (`graphene-app-world-cup/wc2026_tournament_report.md`) summarizing the predictor's view of the tournament. Tone: funny, smart, structurally humble.
 
 ## Cross-cutting documents
 

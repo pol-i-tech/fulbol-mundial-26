@@ -1,3 +1,10 @@
+---
+title: "Player Data Gap Plan"
+type: feat
+status: active
+date: 2026-05-06
+---
+
 # Player Data Gap Plan
 
 Date: 2026-05-06

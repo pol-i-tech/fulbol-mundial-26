@@ -68,9 +68,10 @@ Work should stay inside this stack unless a lead explicitly changes scope:
 
 1. **Guardrails and validation** — keep prediction snapshots trustworthy and reproducible.
 2. **Player-data coverage** — close missing-player and stale-player gaps before adding model complexity.
-3. **Market normalization** — devig, volume filters, and Pinnacle comparison must match the documented betting rule.
-4. **Model consolidation** — move orphan model logic into `methodology/<model-name>/` and document how to regenerate each snapshot.
-5. **Only then:** tournament simulation, dashboards, notebooks, or new market types.
+3. **Model consolidation** — move orphan model logic into `methodology/<model-name>/` and document how to regenerate each snapshot.
+4. **Only then:** tournament simulation, dashboards, notebooks, or new market types.
+
+> Market normalization, devig, and edge-comparison work are out of scope for this repo. The single-model output is the deliverable; market comparison lives elsewhere.
 
 Deferred until after the core pipeline is stable:
 

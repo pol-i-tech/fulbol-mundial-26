@@ -1,3 +1,10 @@
+---
+title: "World Cup Player Data Acquisition Strategy"
+type: feat
+status: active
+date: 2026-05-06
+---
+
 # World Cup Player Data Acquisition Strategy
 
 Date: 2026-05-06

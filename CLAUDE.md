@@ -4,22 +4,22 @@ Entry point for Claude Code (and any AI agent) joining `fulbol-mundial-26`. Iden
 
 ## Where you are
 
-A multi-contributor 2026 World Cup prediction workbench. Models produce probabilities; the comparison framework joins them against devigged market prices to find positive-edge bets. See [`README.md`](./README.md) and [`DEVELOPMENT.md`](./DEVELOPMENT.md).
+A 2026 World Cup prediction workbench. The repo builds a single model — `wc2026-predictor` — that reads the curated DuckDB layer and emits probabilities for every WC2026 match. See [`README.md`](./README.md) and [`DEVELOPMENT.md`](./DEVELOPMENT.md).
 
 ## Pick a role
 
-The 8 functional roles below are the active catalog. Pick one. Each spec is tight: what it reads, what it writes, what it must not do, when it runs, and how it knows it's done.
+The 6 functional roles below are the active catalog. Pick one. Each spec is tight: what it reads, what it writes, what it must not do, when it runs, and how it knows it's done.
 
 | # | Role | Single job |
 |---|---|---|
 | 01 | [Data Engineering](./docs/agents/01-data-engineering.md) | Fetch external data into `data/raw/<source>/<date>/`. Nothing else. |
 | 02 | [Data Coverage](./docs/agents/02-data-coverage.md) | Read-only. Detect gaps + staleness. Write `player_coverage_report.csv`. |
 | 03 | [Data Cleaning & Feature Engineering](./docs/agents/03-data-cleaning.md) | `data/raw/**` → `data/derived/*.parquet`. The only role that owns transformations. |
-| 04 | [Market Normalization](./docs/agents/04-market-normalization.md) | Devig + liquidity filter. Power for 1X2, Shin for outrights. |
-| 05 | [Modeling / Data Science](./docs/agents/05-modeling.md) | Fit Elo / Form / Poisson / xG-Poisson / Ensemble / Compound. Write `predictions.csv`. |
+| 05 | [Modeling / Data Science](./docs/agents/05-modeling.md) | Fit the WC2026 predictor against the curated layer. Write `predictions.csv`. |
 | 06 | [Backtest / Validation](./docs/agents/06-validation.md) | Schema gate per PR + held-out backtest per methodology change. The only promotion gate. |
-| 07 | [Edge / Comparison](./docs/agents/07-edge-comparison.md) | Join models vs. devigged markets. The only role that writes `actionable.md`. |
-| 08 | [Orchestration](./docs/agents/08-orchestration.md) | Daily 09:00 UTC cron. Triggers 01 → 07, opens a PR. |
+| 08 | [Orchestration](./docs/agents/08-orchestration.md) | Daily 09:00 UTC cron. Triggers 01 → 06, opens a PR. |
+
+> Roles 04 (Market Normalization) and 07 (Edge / Comparison) are out of scope. The project produces match probabilities; devig and market-edge work do not live here.
 
 The full org chart, cadence table, and per-source / per-model implementation specs are in [`docs/agents/README.md`](./docs/agents/README.md).
 
@@ -42,9 +42,8 @@ The canonical priority order is in [`DEVELOPMENT.md` — Current Priority Stack]
 
 1. Guardrails and validation
 2. Player-data coverage
-3. Market normalization
-4. Model consolidation
-5. Then advanced features
+3. Model consolidation
+4. Then advanced features
 
 ## Conflict resolution
 

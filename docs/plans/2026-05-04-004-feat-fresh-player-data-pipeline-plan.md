@@ -1,7 +1,7 @@
 ---
 title: "feat: 2026-only player data pipeline via Sofascore"
 type: feat
-status: active
+status: superseded
 date: 2026-05-04
 ---
 
