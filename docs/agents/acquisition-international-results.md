@@ -38,10 +38,7 @@ Rate limit: GitHub raw is generous; one pull per Sunday is well under any limit.
 
 | Downstream role | Artifact | Frequency |
 |---|---|---|
-| [Elo baseline](modeling-elo-baseline.md) | `data/raw/martj42/latest/results.csv` | weekly |
-| [Form-last-10](modeling-form-last-10.md) | `data/raw/martj42/latest/results.csv` | weekly |
-| [Poisson-goals](modeling-poisson-goals.md) | `data/raw/martj42/latest/results.csv` | weekly |
-| [Compound-model](modeling-compound-model.md) | `data/raw/martj42/latest/results.csv` | weekly |
+| [Modeling](05-modeling.md) | `data/raw/martj42/latest/results.csv` (after curation into `curated.fact_match_results`) | on snapshot |
 
 ## Escalation
 

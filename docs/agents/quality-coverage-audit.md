@@ -42,7 +42,7 @@ Make data-coverage gaps observable. Without an audit, the project's known weakne
 
 | Downstream role | Artifact | Frequency |
 |---|---|---|
-| [International Results](acquisition-international-results.md), [StatsBomb](acquisition-statsbomb.md), [Understat](acquisition-understat.md), [WC2026 Squads](acquisition-wc2026-squads.md), [National Lineups](acquisition-national-lineups.md), [Elite-Club Form](acquisition-elite-club-form.md) | Priority signal (gap rows) | weekly |
+| [International Results](acquisition-international-results.md), [StatsBomb](acquisition-statsbomb.md), [Understat](acquisition-understat.md), [WC2026 Squads](acquisition-wc2026-squads.md), [Elite-Club Form](acquisition-elite-club-form.md) | Priority signal (gap rows) | weekly |
 | [Documentation/Learnings](synthesis-documentation-learnings.md) | Trend across weeks | weekly |
 | [Data gaps roadmap](data-gaps-roadmap.md) | Promotes P1 → P0 when stop-conditions fire | weekly |
 

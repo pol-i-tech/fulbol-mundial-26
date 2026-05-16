@@ -47,8 +47,7 @@ Rate limit: StatsBomb open-data is on GitHub; well-cached locally so re-runs are
 
 | Downstream role | Artifact | Frequency |
 |---|---|---|
-| [xG-Poisson](modeling-poisson-xg.md) | `statsbomb_team_xg.parquet`, `statsbomb_player_xg.parquet` | on update |
-| [Compound-model](modeling-compound-model.md) | `sb_player_stats_pedigree.parquet` | on update |
+| [Modeling](05-modeling.md) | `statsbomb_team_xg.parquet`, `statsbomb_player_xg.parquet`, `sb_player_stats_pedigree.parquet` | on update |
 | [Coverage Audit](quality-coverage-audit.md) | `sb_player_summary.parquet` for national-team minutes columns | weekly |
 
 ## Escalation

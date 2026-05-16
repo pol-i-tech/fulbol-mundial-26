@@ -48,7 +48,7 @@ Plus the additional checks added by this catalog:
 - For PRs labeled `refinement` or touching `methodology/<model>/`: the [refinement-loop protocol](refinement-loop.md) checklist (steps 1-7 in that doc).
 - For PRs adding to `docs/agents/`: the new spec uses the [template](../../docs/agents/_role-template.md), all sections are non-empty, and it does not duplicate `DEVELOPMENT.md` rules (cite by reference).
 - For PRs touching `results/<model>/`: writes are confined to that model's own subtree.
-- For PRs from the [Orchestrator](synthesis-orchestrator.md): branch prefix `orchestrator/` is allowed (exception to the `<your-name>/<description>` convention).
+- If an automated orchestrator is ever re-enabled (see [`../ideation/2026-05-15-role-08-orchestration.md`](../ideation/2026-05-15-role-08-orchestration.md)), the `orchestrator/` branch prefix is allowed for its PRs (exception to the `<your-name>/<description>` convention). Today this is not in effect.
 - `AGENTS.md` and `CLAUDE.md` stay in sync.
 
 ## Hand-offs

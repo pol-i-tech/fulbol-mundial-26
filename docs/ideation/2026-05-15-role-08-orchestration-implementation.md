@@ -1,4 +1,12 @@
-# Synthesis: Orchestrator
+---
+status: aspirational
+moved_from: docs/agents/synthesis-orchestrator.md
+moved_on: 2026-05-15
+---
+
+# Synthesis: Orchestrator (aspirational)
+
+> **Status — aspirational.** Implementation sibling of role 08; preserved alongside the parent spec at `2026-05-15-role-08-orchestration.md`.
 
 ## Mission
 

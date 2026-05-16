@@ -1,4 +1,12 @@
-# Acquisition: National Lineups
+---
+status: aspirational
+moved_from: docs/agents/acquisition-national-lineups.md
+moved_on: 2026-05-15
+---
+
+# Acquisition: National Lineups (aspirational)
+
+> **Status — aspirational.** No `tools/pull_national_lineups.py` exists. Spec preserved as a design contract for when this gap is picked up.
 
 ## Mission
 

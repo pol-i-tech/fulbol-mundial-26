@@ -8,7 +8,7 @@ A 2026 World Cup prediction workbench. The repo builds a single model — `wc202
 
 ## Pick a role
 
-The 6 functional roles below are the active catalog. Pick one. Each spec is tight: what it reads, what it writes, what it must not do, when it runs, and how it knows it's done.
+The 5 functional roles below are the active catalog. Pick one. Each spec is tight: what it reads, what it writes, what it must not do, when it runs, and how it knows it's done.
 
 | # | Role | Single job |
 |---|---|---|
@@ -17,9 +17,8 @@ The 6 functional roles below are the active catalog. Pick one. Each spec is tigh
 | 03 | [Data Cleaning & Feature Engineering](./docs/agents/03-data-cleaning.md) | `data/raw/**` → `data/derived/*.parquet`. The only role that owns transformations. |
 | 05 | [Modeling / Data Science](./docs/agents/05-modeling.md) | Fit the WC2026 predictor against the curated layer. Write `predictions.csv`. |
 | 06 | [Backtest / Validation](./docs/agents/06-validation.md) | Schema gate per PR + held-out backtest per methodology change. The only promotion gate. |
-| 08 | [Orchestration](./docs/agents/08-orchestration.md) | Daily 09:00 UTC cron. Triggers 01 → 06, opens a PR. |
 
-> Roles 04 (Market Normalization) and 07 (Edge / Comparison) are out of scope. The project produces match probabilities; devig and market-edge work do not live here.
+> Roles 04 (Market Normalization) and 07 (Edge / Comparison) are out of scope. Role 08 (Orchestration) is aspirational — no automated cron exists today; the pipeline is run manually. Its spec is preserved at [`docs/ideation/2026-05-15-role-08-orchestration.md`](./docs/ideation/2026-05-15-role-08-orchestration.md).
 
 The full org chart, cadence table, and per-source / per-model implementation specs are in [`docs/agents/README.md`](./docs/agents/README.md).
 
@@ -33,7 +32,7 @@ The full org chart, cadence table, and per-source / per-model implementation spe
 ## Where work happens
 
 - Every contribution goes through a PR — `main` is protected. See [`DEVELOPMENT.md` — Contribution Workflow](./DEVELOPMENT.md#contribution-workflow).
-- Branch naming: `<your-name>/<description>`, except [Orchestration](./docs/agents/08-orchestration.md) which uses `orchestrator/daily-<date>`.
+- Branch naming: `<your-name>/<description>`.
 - Every PR requires one approving review before merge.
 
 ## Priority stack

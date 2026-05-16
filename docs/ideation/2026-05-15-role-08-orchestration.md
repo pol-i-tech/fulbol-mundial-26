@@ -1,4 +1,12 @@
-# 08 · Orchestration Agent
+---
+status: aspirational
+moved_from: docs/agents/08-orchestration.md
+moved_on: 2026-05-15
+---
+
+# 08 · Orchestration Agent (aspirational)
+
+> **Status — aspirational.** No daily cron drives this today; `tools/weekly_pull.py` is run manually. Spec preserved for the day we re-enable automated orchestration.
 
 > Function-first agent: **the heartbeat**. The only role authorized to *trigger* the others. The legacy `synthesis-orchestrator.md` spec is its implementation.
 
