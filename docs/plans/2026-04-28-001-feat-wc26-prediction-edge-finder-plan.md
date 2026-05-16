@@ -1,11 +1,13 @@
 ---
 title: "feat: World Cup 2026 prediction-market edge finder (Python CLI + notebooks)"
 type: feat
-status: active
+status: superseded
 date: 2026-04-28
 ---
 
 # feat: World Cup 2026 prediction-market edge finder (Python CLI + notebooks)
+
+> **Superseded by the 2026-05-15 single-model cleanup.** Preserved as the original vision document; the compound-model was never implemented.
 
 ## Overview
 
