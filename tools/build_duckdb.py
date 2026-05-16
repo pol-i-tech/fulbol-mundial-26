@@ -35,6 +35,8 @@ DEFAULT_DB = ROOT / "data" / "wc2026.duckdb"
 DEFAULT_DATA_DIR = ROOT / "data" / "derived"
 DEFAULT_MASTERS_DIR = ROOT / "db" / "masters"
 CURATED_SQL_DIR = ROOT / "db" / "sql" / "curated"
+QUARANTINE_SQL_DIR = ROOT / "db" / "sql" / "quarantine"
+STAGING_SQL_DIR = ROOT / "db" / "sql" / "staging"
 
 
 # (parquet_filename, raw_table_name)
@@ -59,6 +61,12 @@ RAW_TABLES = [
     ("understat_player_xg_raw.parquet", "understat_player_xg_raw"),
     ("understat_2122_players.parquet", "understat_2122_players"),
     ("understat_2526_players.parquet", "understat_2526_players"),
+    # Country-context features (plan 2026-05-14-001)
+    ("country_gdp_per_capita.parquet", "country_gdp_per_capita"),
+    ("country_population.parquet", "country_population"),
+    ("fifa_world_ranking_current.parquet", "fifa_world_ranking_current"),
+    # International match results (plan 2026-05-15-001)
+    ("international_matches.parquet", "international_matches"),
 ]
 
 # Curated dim SQL files, in dependency order (dims have no inter-deps; sorted for stable behavior)
@@ -67,6 +75,7 @@ DIM_SQL_FILES = [
     "dim_team.sql",
     "dim_tournament.sql",
     "dim_model.sql",
+    "dim_tournament_tier_weight.sql",
 ]
 
 
@@ -134,6 +143,34 @@ def run_matching(db_path: Path) -> int:
 FACT_SQL_FILES = [
     "fact_player_xg.sql",
     "fact_team_rating.sql",
+    "fact_team_economics.sql",          # plan 2026-05-14-002 Unit 2
+    "fact_team_fifa_ranking.sql",       # plan 2026-05-14-002 Unit 3
+    "fact_international_match.sql",     # plan 2026-05-15-001 Unit 2
+    "fact_player_xg_per_90.sql",        # squad-pool blended xg per player
+    "fact_team_xg.sql",                 # team-aggregate xg per 90 (depends on fact_player_xg_per_90)
+    "fact_team_xg_against.sql",         # team-aggregate xga per 90 (depends on fact_player_xg_per_90)
+    "fact_team_xg_against_wc2022.sql",  # point-in-time WC2022-cut defensive xga
+]
+
+# Quarantine SQL files (run after the matching fact, opposite WHERE filter)
+QUARANTINE_SQL_FILES = [
+    "unmatched_team_economics.sql",        # plan 2026-05-14-002 Unit 2
+    "unmatched_team_fifa_ranking.sql",     # plan 2026-05-14-002 Unit 3
+    "unmatched_international_matches.sql", # plan 2026-05-15-001 Unit 2
+]
+
+# Staging SQL files (run after facts -- derived from curated.fact_*).
+# The matching layer's staging tables (staging.matched_*) are built by
+# tools/match_sources_to_masters.py; these SQL-defined staging tables are
+# additional derived intermediates.
+STAGING_SQL_FILES = [
+    "team_match.sql",                # plan 2026-05-15-001 Unit 3
+]
+
+# Curated view SQL files (must run AFTER facts and staging — views depend on both)
+VIEW_SQL_FILES = [
+    "dim_team_current.sql",          # plan 2026-05-14-002 Unit 4
+    "dim_team_recent_form.sql",      # plan 2026-05-15-001 Unit 3
 ]
 
 
@@ -195,6 +232,62 @@ def load_facts(con: duckdb.DuckDBPyConnection) -> int:
     return total
 
 
+def load_quarantine(con: duckdb.DuckDBPyConnection) -> int:
+    total = 0
+    for sql_file in QUARANTINE_SQL_FILES:
+        path = QUARANTINE_SQL_DIR / sql_file
+        if not path.exists():
+            print(f"ERROR: missing SQL file {path.relative_to(ROOT)}", file=sys.stderr)
+            return -1
+        sql = strip_line_comments(path.read_text())
+        for stmt in [s.strip() for s in sql.split(";") if s.strip()]:
+            con.execute(stmt)
+        table_name = sql_file.replace(".sql", "")
+        count = con.execute(f"SELECT COUNT(*) FROM quarantine.{table_name}").fetchone()[0]
+        total += count
+        print(f"[quarantine] {table_name}: {count:,} rows")
+    print(f"[quarantine] {len(QUARANTINE_SQL_FILES)} tables loaded, {total:,} total rows")
+    return total
+
+
+def load_staging(con: duckdb.DuckDBPyConnection) -> int:
+    """Build SQL-defined staging tables (run after facts -- depend on curated.fact_*)."""
+    total = 0
+    for sql_file in STAGING_SQL_FILES:
+        path = STAGING_SQL_DIR / sql_file
+        if not path.exists():
+            print(f"ERROR: missing SQL file {path.relative_to(ROOT)}", file=sys.stderr)
+            return -1
+        sql = strip_line_comments(path.read_text())
+        for stmt in [s.strip() for s in sql.split(";") if s.strip()]:
+            con.execute(stmt)
+        table_name = sql_file.replace(".sql", "")
+        count = con.execute(f"SELECT COUNT(*) FROM staging.{table_name}").fetchone()[0]
+        total += count
+        print(f"[staging] {table_name}: {count:,} rows")
+    print(f"[staging] {len(STAGING_SQL_FILES)} tables loaded, {total:,} total rows")
+    return total
+
+
+def load_views(con: duckdb.DuckDBPyConnection) -> int:
+    """Build curated views (run after facts and staging -- views depend on both)."""
+    total = 0
+    for sql_file in VIEW_SQL_FILES:
+        path = CURATED_SQL_DIR / sql_file
+        if not path.exists():
+            print(f"ERROR: missing SQL file {path.relative_to(ROOT)}", file=sys.stderr)
+            return -1
+        sql = strip_line_comments(path.read_text())
+        for stmt in [s.strip() for s in sql.split(";") if s.strip()]:
+            con.execute(stmt)
+        view_name = sql_file.replace(".sql", "")
+        count = con.execute(f"SELECT COUNT(*) FROM curated.{view_name}").fetchone()[0]
+        total += count
+        print(f"[view] {view_name}: {count:,} rows")
+    print(f"[view] {len(VIEW_SQL_FILES)} views loaded, {total:,} total rows")
+    return total
+
+
 def parse_args(argv: list[str]) -> argparse.Namespace:
     p = argparse.ArgumentParser(description=__doc__.splitlines()[1])
     p.add_argument("--db-path", type=Path, default=DEFAULT_DB)
@@ -240,6 +333,15 @@ def main(argv: list[str] | None = None) -> int:
     try:
         build_team_name_resolution(con)
         n = load_facts(con)
+        if n < 0:
+            return 1
+        n = load_quarantine(con)
+        if n < 0:
+            return 1
+        n = load_staging(con)
+        if n < 0:
+            return 1
+        n = load_views(con)
         if n < 0:
             return 1
     finally:

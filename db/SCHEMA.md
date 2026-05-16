@@ -7,6 +7,8 @@ This document is the contract for the DuckDB database at `data/wc2026.duckdb`. I
 
 **Design principle: master-data-management (MDM).** Every dim has an authoritative master source. Facts reference dims via stable surrogate keys (`player_id`) or canonical natural keys (`team_code`). Source stats are matched *to* the masters one-way; nothing extends a master from a fact source.
 
+**Naming standard:** see [`db/NAMING.md`](NAMING.md) — applies to every `curated.*` and `staging.*` column documented in this file.
+
 ---
 
 ## Schemas (DuckDB namespaces)
@@ -17,6 +19,35 @@ This document is the contract for the DuckDB database at `data/wc2026.duckdb`. I
 | `curated` | Authoritative dims (`dim_*`) and analytical facts (`fact_*`). | `CREATE OR REPLACE TABLE` on every build. |
 | `staging` | Intermediate per-source tables produced by the matching layer (raw stats with `player_id` resolved). | `CREATE OR REPLACE TABLE` on every build. |
 | `quarantine` | Raw stats rows that failed to match a master, with `reason` column. | `CREATE OR REPLACE TABLE` on every build. |
+
+---
+
+## Curated Schema Quick Reference
+
+The `curated.*` namespace is the **only** surface analytical code and models should read from. Everything below is built fresh on every `tools/build_duckdb.py` run; nothing here is hand-maintained state (the masters under `db/masters/*.csv` are). Row counts are as of 2026-05-15.
+
+| Name | Type | Grain | PK / natural key | Purpose | Canonical read query |
+|---|---|---|---|---|---|
+| `curated.dim_team` | dim | one row per international team | `team_code` (FIFA3) | Team master: name, ISO2, confederation, WC2026 qualifier flag. ~98 rows. | `SELECT * FROM curated.dim_team WHERE is_wc2026_qualifier;` |
+| `curated.dim_player` | dim | one row per player | `player_id` (`P######`) | Player master: canonical names, country, position, club, source-ID caches. ~1,274 rows. | `SELECT * FROM curated.dim_player WHERE country_code = 'ARG';` |
+| `curated.dim_tournament` | dim | one row per tournament | `tournament_id` (slug) | Tournament master: window, host, type. 6 rows. | `SELECT * FROM curated.dim_tournament;` |
+| `curated.dim_model` | dim | one row per model | `model_id` (slug) | Model master, auto-derived from `results/<model>/MODEL.md`. ~5 rows. | `SELECT * FROM curated.dim_model;` |
+| `curated.dim_tournament_tier_weight` | dim | one row per tournament tier | `tournament_tier` | **Single source of truth for tier→weight priors.** Models that weight matches by importance JOIN this dim — never hardcode the weights. 4 rows. | `SELECT * FROM curated.dim_tournament_tier_weight;` |
+| `curated.dim_team_current` | **view** | one row per team | `team_code` | Denormalized `dim_team` + latest economics + current FIFA rank. **Use this, not the underlying facts, for model reads.** | [`db/queries/examples/team_features_for_modeling.sql`](queries/examples/team_features_for_modeling.sql) |
+| `curated.dim_team_recent_form` | **view** | one row per team | `team_code` | Last-5 / last-10 / competitive-last-10 form features plus strength-of-schedule. **Canonical form read.** | [`db/queries/examples/team_form_for_modeling.sql`](queries/examples/team_form_for_modeling.sql) |
+| `curated.fact_international_match` | fact | one row per completed international match | (`match_date`, `home_team_code`, `away_team_code`) | All international results 1872→present, FIFA3-coded both sides, with `tournament_tier` and `neutral_site`. ~23k rows; ~3.5k since 2018. | [`db/queries/examples/team_recent_results.sql`](queries/examples/team_recent_results.sql) |
+| `curated.fact_team_economics` | fact | one row per (team, year) | (`team_code`, `year`) | World Bank GDP per capita + population. Joined into `dim_team_current` for the latest year. ~1.9k rows. | `SELECT * FROM curated.fact_team_economics WHERE team_code = 'BRA' ORDER BY year DESC;` |
+| `curated.fact_team_fifa_ranking` | fact | one row per team (current snapshot) | `team_code` | Single FIFA ranking snapshot — rank, points, rank_change. Joined into `dim_team_current`. 48 rows. | `SELECT * FROM curated.fact_team_fifa_ranking ORDER BY rank;` |
+| `curated.fact_team_rating` | fact | one row per (team, rating_type) | (`team_code`, `rating_type`, `as_of_date`) | Unpivoted internal team ratings: `historical`, `season`, `recent_form`, `attack`, `defense`. Point-in-time snapshot. ~244 rows. | [`db/queries/examples/attack_vs_defense_per_team.sql`](queries/examples/attack_vs_defense_per_team.sql) |
+| `curated.fact_player_xg` | fact | one row per (player, source, period) | (`player_id`, `source`, `period_id`) | Blended xG totals per player across StatsBomb tournaments and Understat club seasons. ~2.5k rows. | [`db/queries/examples/top_scorers_blended_xg.sql`](queries/examples/top_scorers_blended_xg.sql) |
+| `curated.fact_player_xg_per_90` | fact | one row per player | `player_id` | Per-player blended xG/xA per 90, with separate club and national-team components. Built from `raw.squad_xg_ratings`. 1,274 rows. | `SELECT * FROM curated.fact_player_xg_per_90 WHERE team_code = 'ARG' ORDER BY blended_xg_per_90 DESC;` |
+| `curated.fact_team_xg` | fact | one row per team | `team_code` | **Squad-aggregate xG per 90 — top-11-by-national-minutes (likely XI) summed.** Includes forwards-only and top-3-attacker variants plus a club-data-coverage flag. 52 rows. | [`db/queries/examples/team_xg_for_modeling.sql`](queries/examples/team_xg_for_modeling.sql) |
+| `curated.fact_team_xg_against` | fact | one row per team | `team_code` | **Squad-aggregate xGA per 90.** National signal (avg opponent xG across 5 SB tournaments) + squad-club signal (minutes-weighted club xGA via player's current_club). 98 rows; 59 with non-null blend. | [`db/queries/examples/team_xga_for_modeling.sql`](queries/examples/team_xga_for_modeling.sql) |
+| `curated.fact_team_xg_against_wc2022` | fact | one row per WC2022 team | `team_code` | **Point-in-time WC2022-cut defensive xGA** for honest held-out backtest. Sourced from `raw.team_defense_ratings_wc2022`. 32 rows. | `SELECT * FROM curated.fact_team_xg_against_wc2022 ORDER BY pre_wc2022_blended_xga_per_90;` |
+
+**Read discipline:** Prefer the two `dim_team_*` views over the underlying facts whenever a model needs per-team features. They're the project's denormalized read path — one query, every feature, no JOIN bookkeeping for the modeler. The per-fact tables are still the right read when you need history (`fact_team_economics` for the time series, `fact_international_match` for per-match analysis).
+
+**More examples:** see [`db/queries/examples/`](queries/examples/) for the full catalogue — `model_agreement_matrix.sql`, `squad_coverage_gaps.sql`, `inspect_quarantine.sql`, etc.
 
 ---
 
@@ -118,6 +149,22 @@ The four masters are the only persistent state in this database. They survive DB
 
 **Cardinality:** 9–10 rows (one per directory under `results/` excluding `_template` and `comparisons`).
 
+### `db/masters/tournament_tier_weights.csv` — the tier-weight master
+
+**Primary key:** `tournament_tier` (the same slug used by `curated.fact_international_match.tournament_tier`).
+
+**Source provenance:** hand-curated. Tiny enumeration table. **The single source of truth for the per-tier match-importance weight applied by every model that weights matches by competition.** Modeling code does not hardcode these values — it JOINs `curated.dim_tournament_tier_weight`.
+
+**Columns:**
+
+| Column | Type | Description |
+|---|---|---|
+| `tournament_tier` | VARCHAR | One of `tier_1_world_cup`, `tier_2_continental_final`, `tier_3_qualifier_or_nations_league`, `tier_4_friendly_or_other`. Must agree with the set produced by `curated.fact_international_match`. |
+| `weight` | DOUBLE | Per-tier weight in `(0, 1]`. Tier 1 is the reference. Verified by `tools/verify_duckdb.py`. |
+| `rationale` | VARCHAR | One-sentence justification. |
+
+**Cardinality:** 4 rows. Adding a new tier requires updating this master *and* the `tournament_tier` CASE inside `db/sql/curated/fact_international_match.sql` in the same PR — otherwise the verifier's coverage assertion will fail.
+
 ---
 
 ## Raw layer — `raw.*`
@@ -148,6 +195,7 @@ Every in-scope parquet from `data/derived/` becomes a `raw.<table>` table via `C
 | `understat_player_xg_raw.parquet` | `raw.understat_player_xg_raw` | 9,766 | per (player, league, season) | Detailed per-season Understat. |
 | `understat_2122_players.parquet` | `raw.understat_2122_players` | 2,242 | per player (2021-22 season) | Historical season. |
 | `understat_2526_players.parquet` | `raw.understat_2526_players` | 2,758 | per player (current 2025-26 season) | Current season; matches WC2026 squad timing. |
+| `international_matches.parquet` | `raw.international_matches` | ~49,300 | per match (1872–present) | Derived from `data/raw/martj42/latest/results.csv` by `tools/derive_international_matches.py`. Both team names pre-resolved to FIFA3 via `normalize_country()`. |
 
 ---
 
@@ -315,6 +363,286 @@ After matching completes, the script also UPDATEs `curated.dim_player` (and writ
 
 ---
 
+### `curated.fact_player_xg_per_90`
+
+Per-player blended xG/xA per 90, with the club component and national-team component preserved separately for downstream re-mixing.
+
+- **Grain:** one row per `player_id` (1:1 with `dim_player`).
+- **Primary key:** `player_id`. Uniqueness enforced by `verify_duckdb.py`.
+- **Source SQL:** `db/sql/curated/fact_player_xg_per_90.sql`. Joins `raw.squad_xg_ratings` to `curated.dim_player` on `(display_name, nation_name)` — a 1:1 match because `dim_player` was built from `squad_xg_ratings` upstream.
+- **FK constraints:** `player_id` exists in `dim_player`; `team_code` exists in `dim_team`.
+- **Cardinality:** ~1,274 rows.
+
+| Column | Type | Description |
+|---|---|---|
+| `player_id` | VARCHAR | FK to `dim_player`. |
+| `team_code` | VARCHAR(3) | FK to `dim_team`. The player's national team. |
+| `position` | VARCHAR | Free-form (e.g., `"F"`, `"F M S"`). Carried from `squad_xg_ratings`. |
+| `current_club`, `current_league` | VARCHAR | Club + league at squad-pool time. |
+| `national_team_matches`, `national_team_minutes` | INTEGER | National-team usage. |
+| `national_team_xg_per_90` | DOUBLE | StatsBomb national-team xG normalised per 90. |
+| `national_team_shots_per_90`, `national_team_key_passes_per_90`, `national_team_prog_passes_per_90`, `national_team_prog_carries_per_90`, `national_team_pressures_per_90` | DOUBLE | Other StatsBomb per-90 rates (for downstream models that want more than xG). |
+| `club_minutes` | INTEGER | 2024–25 Understat club minutes. |
+| `club_xg_per_90`, `club_xa_per_90` | DOUBLE | Understat club rates. NULL if league not in Understat (e.g., MLS, Brazilian Série A, Saudi Pro League). |
+| `blended_xg_per_90` | DOUBLE | Pre-blended club+national xG per 90 (upstream pipeline owns the blend). |
+| `found_in_understat` | BOOLEAN | TRUE if club xG was resolvable. |
+| `low_confidence` | BOOLEAN | TRUE when nat or club sample is too small for the per-90 rate to be stable. |
+| `as_of_date` | DATE | Build date. |
+
+---
+
+### `curated.fact_team_xg`
+
+Team-aggregate xG per 90, derived from `fact_player_xg_per_90`. The headline model-facing metric is `top_11_blended_xg_per_90`.
+
+- **Grain:** one row per `team_code` (the 52 nations with squad-pool data; not all `dim_team` rows have squad data).
+- **Primary key:** `team_code`. Uniqueness enforced by `verify_duckdb.py`.
+- **Source SQL:** `db/sql/curated/fact_team_xg.sql`. Three sub-aggregations: top-11 by national-team minutes, forwards-only (position contains `F`), top-3 attackers, full pool average.
+- **FK constraints:** `team_code` exists in `dim_team`.
+- **Model-facing read pattern:** use `top_11_blended_xg_per_90` as the squad-attack signal. Pair with `club_data_coverage_percent` to decide whether to trust the club-component split for that team (Brazil, Uruguay, Ecuador have < 40% Understat coverage because their domestic leagues are not in Understat).
+- **Aggregation math:** per-90 rates sum across a starting XI to give the team's expected per-match goal output. Sum-of-top-11 is a coarse proxy for "expected starting XI" pending real lineup data; the alternative aggregations let a modeler tune.
+- **Cardinality:** 52 rows.
+
+| Column | Type | Description |
+|---|---|---|
+| `team_code` | VARCHAR(3) | FK to `dim_team`. |
+| `team_name`, `confederation`, `is_wc2026_qualifier` | varies | Carried from `dim_team` for read convenience. |
+| `players_in_pool` | BIGINT | Count of `fact_player_xg_per_90` rows for this team. |
+| `players_with_club_data` | BIGINT | Subset of pool with `found_in_understat = TRUE`. |
+| `club_data_coverage_percent` | DOUBLE | `players_with_club_data / players_in_pool * 100`. Low values flag unreliable club components. |
+| `top_11_blended_xg_per_90` | DOUBLE | **Primary metric.** SUM of `blended_xg_per_90` over the 11 players with the most national-team minutes. |
+| `top_11_national_team_xg_per_90` | DOUBLE | SUM of `national_team_xg_per_90` for the same 11. |
+| `top_11_club_xg_per_90`, `top_11_club_xa_per_90` | DOUBLE | SUM of `club_xg_per_90` / `club_xa_per_90` for the same 11. NULL-suppressed by SUM, so coverage gaps show up as a low value rather than a NULL. |
+| `top_11_national_team_minutes` | INTEGER | Sample-size basis for the top-11 selection. |
+| `forwards_in_pool` | BIGINT | Count of players whose `position` contains `'F'`. |
+| `forwards_blended_xg_per_90` | DOUBLE | SUM over forwards. |
+| `forwards_avg_blended_xg_per_90` | DOUBLE | AVG over forwards. |
+| `top_3_attackers_blended_xg_per_90` | DOUBLE | SUM of the top-3 forwards by `blended_xg_per_90`. The "front line" view. |
+| `all_pool_avg_blended_xg_per_90` | DOUBLE | AVG over the whole squad pool. |
+| `total_national_team_minutes`, `total_club_minutes` | INTEGER | Pool-level minute totals. |
+| `as_of_date` | DATE | Build date. |
+
+**Caveat — Understat league coverage.** Brazilian Série A, MLS, Saudi Pro League, and other non-European leagues are not in Understat. Teams whose stars play in those leagues (Brazil, USA, Saudi Arabia, Mexico, parts of Belgium and Croatia) have `club_data_coverage_percent` below ~50%. For those teams, `top_11_blended_xg_per_90` leans more heavily on the national-team component, which is fine for international football modeling but worth noting when comparing teams across confederations.
+
+---
+
+### `curated.fact_team_xg_against`
+
+Defensive sibling of `fact_team_xg`. Squad-aggregate xGA per 90 from two independent sources blended into one model-facing metric.
+
+- **Grain:** one row per `team_code` (1:1 with `dim_team`).
+- **Primary key:** `team_code`. Uniqueness enforced by `verify_duckdb.py`.
+- **Source SQL:** `db/sql/curated/fact_team_xg_against.sql`. Three CTEs: per-match xGA via self-join on `raw.statsbomb_team_xg` (opponent's `xg` becomes our `xga`); squad-weighted club xGA via `raw.defensive_ratings_club_2526` joined through `dim_player.current_club`; top-11 pressures-per-90 from `fact_player_xg_per_90`.
+- **FK constraints:** `team_code` exists in `dim_team`.
+- **Model-facing read pattern:** use `blended_xga_per_90` as the squad-defense signal. Pair with `national_team_matches_in_sample` (sample-size honesty) and `squad_players_with_club_xga` (club-coverage honesty). Use `national_team_xga_vs_actual_gap_per_90` to flag defenses that have been over/underperforming their underlying metrics — large positive gaps (Belgium +0.47, Brazil +0.45, England +0.56) are a luck-detection signal.
+- **Blend:** 60% national + 40% club when both available; the single available source when only one is.
+- **Cardinality:** 98 rows total (one per `dim_team`); 59 with non-null `blended_xga_per_90`.
+
+| Column | Type | Description |
+|---|---|---|
+| `team_code` | VARCHAR(3) | FK to `dim_team`. |
+| `team_name`, `confederation`, `is_wc2026_qualifier` | varies | Carried from `dim_team` for read convenience. |
+| `national_team_matches_in_sample` | BIGINT | Match count across SB tournaments (WC18, WC22, Euro 2020, Euro 2024, Copa 2024). |
+| `national_team_minutes_in_sample` | BIGINT | `matches × 90` approximation. |
+| `national_team_xga_per_90` | DOUBLE | AVG of opponent's `xg` across SB matches. |
+| `national_team_goals_conceded_per_90` | DOUBLE | AVG of actual goals conceded. |
+| `national_team_xga_vs_actual_gap_per_90` | DOUBLE | `xga − actual`. Positive = defense overperforming (luck); negative = underperforming. |
+| `squad_players_with_club_xga` | BIGINT | Count of squad players whose `current_club` is in `defensive_ratings_club_2526`. |
+| `squad_club_xga_per_game` | DOUBLE | Minutes-weighted avg of those players' club `xga_per_game`. |
+| `top_11_national_team_pressures_per_90` | DOUBLE | Pressures-per-90 summed over the top-11 by `national_team_minutes`. Activity proxy. |
+| `blended_xga_per_90` | DOUBLE | **Primary metric.** 0.6 × `national_team_xga_per_90` + 0.4 × `squad_club_xga_per_game` when both available. |
+| `sb_tournaments_in_sample` | VARCHAR | Comma-separated list of contributing SB competitions. |
+| `as_of_date` | DATE | Build date. |
+
+**Caveat — limited club coverage.** `raw.defensive_ratings_club_2526` only covers ~5 leagues (~96 clubs); most non-European leagues are absent. Teams whose squad plays largely outside those leagues will have low `squad_players_with_club_xga` and the blended metric will lean more on the national-team component.
+
+**Caveat — small SB samples for some teams.** Iran, Qatar, Senegal, Scotland have fewer than 10 SB tournament matches in the sample. Their `national_team_xga_per_90` is statistically noisier. The `national_team_matches_in_sample` column makes this explicit.
+
+---
+
+### `curated.fact_team_xg_against_wc2022`
+
+Point-in-time WC2022-cut defensive xGA. Holds team-level defensive ratings as of WC2022 kickoff — used by the WC2022 backtest harness so the defensive signal doesn't leak post-tournament data.
+
+- **Grain:** one row per WC2022 team (the 32 nations that played).
+- **Primary key:** `team_code`. Uniqueness enforced by `verify_duckdb.py`.
+- **Source SQL:** `db/sql/curated/fact_team_xg_against_wc2022.sql`. Projects `raw.team_defense_ratings_wc2022` (already pre-aggregated upstream as a point-in-time snapshot) with the same blending convention as `fact_team_xg_against`.
+- **FK constraints:** `team_code` exists in `dim_team`.
+- **Cardinality:** 32 rows.
+
+| Column | Type | Description |
+|---|---|---|
+| `team_code` | VARCHAR(3) | FK to `dim_team`. |
+| `team_name` | VARCHAR | Source nation name (carried from raw). |
+| `pre_wc2022_defensive_rating` | DOUBLE | Upstream pipeline's defensive rating (one-number summary). |
+| `pre_wc2022_tournament_xga_per_90` | DOUBLE | Tournament-level xGA per 90 as of pre-WC2022. |
+| `pre_wc2022_club_xga_avg_per_game` | DOUBLE | Squad-weighted club xGA average as of pre-WC2022. May be NULL. |
+| `pre_wc2022_club_sample_size` | BIGINT | Players whose club xGA contributed. |
+| `pre_wc2022_used_fallback` | BOOLEAN | TRUE if the upstream pipeline had to fall back to a less-preferred xGA estimate (e.g., when the team had no SB-covered pre-WC2022 matches). |
+| `pre_wc2022_blended_xga_per_90` | DOUBLE | 0.6 × tournament + 0.4 × club blend (same formula as the current-snapshot table). |
+| `as_of_date` | DATE | Build date (NOT the snapshot date — the snapshot is implicitly pre-2022-11-20). |
+
+**Read discipline:** This table is for the WC2022 backtest only. For current modeling, use `fact_team_xg_against`. All column names start with `pre_wc2022_` to make the temporal scope unmistakable at the join site.
+
+---
+
+### `curated.fact_team_economics`
+
+Country-context macro features for model use. Built by plan [`2026-05-14-002-feat-fact-team-economics-and-fifa-ranking-plan.md`](../docs/plans/2026-05-14-002-feat-fact-team-economics-and-fifa-ranking-plan.md).
+
+- **Grain:** one row per `(team_code, year)`.
+- **Primary key:** `(team_code, year)`. Uniqueness enforced by `verify_duckdb.py`.
+- **Source SQL:** `db/sql/curated/fact_team_economics.sql`. CTE-first; `FULL OUTER JOIN raw.country_gdp_per_capita ⇄ raw.country_population` (so a (team, year) with only one measure still appears), then `LEFT JOIN curated.dim_team` and filter on `dim_team_code IS NOT NULL`. Unmatched rows route to `quarantine.unmatched_team_economics`.
+- **FK constraints:** `team_code` exists in `dim_team`.
+- **Coverage rule:** every WC2026 qualifier (except `SCO`) has a non-null measure for each of the 5 most-recent reported years. Window is computed dynamically as `[MAX(year) - 4 .. MAX(year)]` over rows with non-null measures, so it auto-shifts when World Bank publishes a new year.
+- **Year range:** 1986–2025 (last fully-reported year at time of writing: 2024).
+
+| Column | Type | Description |
+|---|---|---|
+| `team_code` | VARCHAR(3) | FK to `dim_team`. |
+| `year` | INTEGER | 1986–2025 inclusive. |
+| `gdp_per_capita_usd` | DOUBLE | World Bank `NY.GDP.PCAP.CD` (current US$). Nullable. |
+| `population` | DOUBLE | World Bank `SP.POP.TOTL`. Nullable. |
+
+**Scotland (SCO) exception:** Scotland has no World Bank entity (rolled into GBR upstream). Its rows are emitted with NULL measures and survive the FK filter so the time-series grain stays explicit — a `dim_team_current.gdp_per_capita_usd_latest = NULL` for Scotland is by design, and the modeler chooses whether to impute from GBR.
+
+---
+
+### `curated.fact_team_fifa_ranking`
+
+- **Grain:** one row per `(team_code, snapshot_date)`. Currently latest-snapshot only.
+- **Primary key:** `team_code` (single-snapshot grain). Uniqueness enforced by `verify_duckdb.py`.
+- **Source SQL:** `db/sql/curated/fact_team_fifa_ranking.sql`. CTE-first projection from `raw.fifa_world_ranking_current` (sourced from Wikipedia's `Module:SportsRankings/data/FIFA_World_Rankings`, the authoritative public mirror of the FIFA Men's World Ranking), `LEFT JOIN curated.dim_team`, filter on `dim_team_code IS NOT NULL`. Unmatched rows route to `quarantine.unmatched_team_fifa_ranking`.
+- **FK constraints:** `team_code` exists in `dim_team`.
+- **`CREATE OR REPLACE` semantics:** this fact holds the most recent FIFA ranking edition only. Historical accumulation lives in a future `fact_team_fifa_ranking_history` table (deferred).
+
+| Column | Type | Description |
+|---|---|---|
+| `team_code` | VARCHAR(3) | FK to `dim_team`. |
+| `rank` | INTEGER | Global FIFA rank (1 = top). |
+| `points` | DOUBLE | Current FIFA ranking points. |
+| `rank_change` | INTEGER | Change since the previous edition. |
+| `snapshot_date` | DATE | FIFA's published edition date (falls back to fetched-at, then build-date). |
+| `built_at` | TIMESTAMP | Build-time audit. |
+
+---
+
+### `curated.fact_international_match`
+
+Match-level results for international football. Built by plan [`2026-05-15-001-feat-fact-international-match-plan.md`](../docs/plans/2026-05-15-001-feat-fact-international-match-plan.md).
+
+- **Grain:** one row per completed international match.
+- **Primary key:** `(match_date, home_team_code, away_team_code)`. Uniqueness enforced by `verify_duckdb.py`.
+- **Source SQL:** `db/sql/curated/fact_international_match.sql`. CTE-first; LEFT JOIN `curated.dim_team` twice (once per team side), then split via `WHERE dim_home_code IS NOT NULL AND dim_away_code IS NOT NULL`. Unmatched rows route to `quarantine.unmatched_international_matches`.
+- **FK constraints:** both `home_team_code` and `away_team_code` exist in `dim_team`.
+- **Date range:** 1872-11-30 → most recent completed match in the martj42 weekly pull.
+- **Future-fixture exclusion:** rows with `NULL` `home_score` or `away_score` in the source CSV are excluded — this fact holds RESULTS only.
+- **Tournament tier scheme** (derived column, `VARCHAR`):
+  - `tier_1_world_cup` — `tournament = 'FIFA World Cup'`
+  - `tier_2_continental_final` — `UEFA Euro`, `Copa América`, `African Cup of Nations`, `AFC Asian Cup`, `Gold Cup`, `CONCACAF Championship`, `Oceania Nations Cup`, `Confederations Cup`
+  - `tier_3_qualifier_or_nations_league` — any `*qualification*` plus `UEFA Nations League`, `CONCACAF Nations League`
+  - `tier_4_friendly_or_other` — `Friendly`, regional cups, minor competitions, unclassified
+
+| Column | Type | Description |
+|---|---|---|
+| `match_date` | DATE | Calendar date of the match. |
+| `home_team_code` | VARCHAR(3) | FK to `dim_team`. |
+| `away_team_code` | VARCHAR(3) | FK to `dim_team`. |
+| `home_score` | INTEGER | Home team goals. |
+| `away_score` | INTEGER | Away team goals. |
+| `goal_difference` | INTEGER | `home_score - away_score`. |
+| `result` | VARCHAR(1) | `'H'` (home win), `'A'` (away win), `'D'` (draw). |
+| `tournament` | VARCHAR | Source competition string (free-form; ~200 distinct values). |
+| `tournament_tier` | VARCHAR | Derived; see scheme above. |
+| `is_competitive` | BOOLEAN | `tournament_tier <> 'tier_4_friendly_or_other'`. |
+| `city` | VARCHAR | Host city. |
+| `host_country` | VARCHAR | Host country (display name from source). |
+| `neutral_site` | BOOLEAN | `TRUE` when the match was at neutral venue. |
+
+---
+
+### `staging.team_match`
+
+The match-grain fact unpivoted to one row per team-perspective. Built by plan [`2026-05-15-001-feat-fact-international-match-plan.md`](../docs/plans/2026-05-15-001-feat-fact-international-match-plan.md).
+
+- **Grain:** one row per `(team_code, match_date, opponent_team_code, venue)`. Each fact row contributes two staging rows.
+- **Primary key:** `(team_code, match_date, opponent_team_code, venue)`. The `venue` component is required to disambiguate legitimate same-day double-headers (e.g., ARG vs URU on 1916-08-15 played both Copa Newton in Avellaneda AND Copa Lipton in Montevideo).
+- **Source SQL:** `db/sql/staging/team_match.sql`. `UNION ALL` of home-perspective and away-perspective projections from `curated.fact_international_match`.
+- **Row count:** exactly `2 * COUNT(fact_international_match)`.
+
+| Column | Type | Description |
+|---|---|---|
+| `team_code` | VARCHAR(3) | FK to `dim_team`. |
+| `opponent_team_code` | VARCHAR(3) | FK to `dim_team`. |
+| `match_date` | DATE | |
+| `team_score` | INTEGER | This team's goals. |
+| `opponent_score` | INTEGER | Opponent's goals. |
+| `goal_difference` | INTEGER | `team_score - opponent_score`. |
+| `outcome` | VARCHAR(1) | `'W'` / `'D'` / `'L'` from this team's perspective. |
+| `venue` | VARCHAR(1) | `'H'` (home), `'A'` (away), `'N'` (neutral). |
+| `tournament` | VARCHAR | Carried from fact. |
+| `tournament_tier` | VARCHAR | Carried from fact. |
+| `is_competitive` | BOOLEAN | Carried from fact. |
+
+---
+
+### `curated.dim_team_recent_form` (VIEW)
+
+Read-optimized per-team recent-form features. Built by plan [`2026-05-15-001-feat-fact-international-match-plan.md`](../docs/plans/2026-05-15-001-feat-fact-international-match-plan.md).
+
+- **Grain:** one row per `team_code` (parity with `dim_team`).
+- **Type:** `VIEW`, recomputes at query time.
+- **Source SQL:** `db/sql/curated/dim_team_recent_form.sql`. Ranks `staging.team_match` rows per team by `match_date DESC`, computes per-team aggregates with `FILTER` clauses for two recency windows (last-5, last-10) and an independent competitive-only window. Strength-of-schedule joins `curated.fact_team_fifa_ranking` (snapshot ranks).
+- **Two recency windows** (last-5, last-10) plus competitive-only variants. Competitive-only uses an independent rank window — a team whose recent 10 matches are 6 competitive + 4 friendlies has `competitive_matches_last_10` counted over the last 10 *competitive* matches (which may extend further back in calendar time).
+
+| Column | Type | Description |
+|---|---|---|
+| `team_code` | VARCHAR(3) | From `dim_team`. |
+| `team_name` | VARCHAR | From `dim_team`. |
+| `last_match_date` | DATE | Date of most recent match. |
+| `last_match_opponent_team_code` | VARCHAR(3) | |
+| `last_match_outcome` | VARCHAR(1) | `'W'` / `'D'` / `'L'`. |
+| `matches_last_10` | BIGINT | Match count in last 10. ≤ 10 — may be less for teams with fewer fact rows. |
+| `wins_last_10` / `draws_last_10` / `losses_last_10` | BIGINT | Outcome counts. |
+| `goals_for_last_10` / `goals_against_last_10` | INT128 | Goals for / against. |
+| `goal_difference_last_10` | INT128 | `goals_for - goals_against`. |
+| `form_points_last_10` | INT128 | `3*W + 1*D` over last 10. |
+| `matches_last_5` ... `form_points_last_5` | various | Same set, narrower window. |
+| `competitive_matches_last_10` | BIGINT | Match count in last 10 **competitive** matches. |
+| `competitive_goal_difference_last_10` | INT128 | |
+| `competitive_form_points_last_10` | INT128 | |
+| `avg_opponent_fifa_rank_last_10` | DOUBLE | Average of opponent's current FIFA rank over last 10 matches. **Limitation:** uses snapshot ranks, not rank-at-time-of-match. Historical ranking is deferred. |
+| `as_of_date` | DATE | Build-date stamp. |
+
+---
+
+### `curated.dim_team_current` (VIEW)
+
+Denormalized read-optimized projection — the model-facing read path. One read, every team feature.
+
+- **Grain:** one row per `team_code` (parity with `dim_team`).
+- **Type:** `VIEW`, not `TABLE`. Zero storage, recomputes at query time, never goes stale.
+- **Source SQL:** `db/sql/curated/dim_team_current.sql`. `dim_team` `LEFT JOIN` latest-economics (pre-filtered to rows with non-null measures, then `ROW_NUMBER() … = 1` by year DESC) `LEFT JOIN` current FIFA ranking. `LEFT JOIN` semantics preserve every dim row even when a fact is missing.
+
+| Column | Type | Description |
+|---|---|---|
+| `team_code` | VARCHAR(3) | From `dim_team`. |
+| `team_name` | VARCHAR | From `dim_team`. |
+| `iso2_code` | VARCHAR(2) | From `dim_team`. |
+| `confederation` | VARCHAR | From `dim_team`. |
+| `is_wc2026_qualifier` | BOOLEAN | From `dim_team`. |
+| `economics_year` | INTEGER | Year of the most-recent reported economics row (currently 2024). |
+| `gdp_per_capita_usd_latest` | DOUBLE | GDP per capita for `economics_year`. |
+| `population_latest` | DOUBLE | Population for `economics_year`. |
+| `fifa_rank` | INTEGER | Current FIFA rank. |
+| `fifa_points` | DOUBLE | Current FIFA ranking points. |
+| `fifa_rank_change` | INTEGER | Change since previous edition. |
+| `fifa_snapshot_date` | DATE | FIFA edition date. |
+
+**Model-side usage:** filter by `is_wc2026_qualifier` and order by `fifa_rank`. See `db/queries/examples/team_features_for_modeling.sql`.
+
+---
+
 ## Quarantine — `quarantine.*`
 
 Every raw stats row that failed to match `dim_player` lands in `quarantine.unmatched_<source>` with full row contents plus:
@@ -330,6 +658,9 @@ Every raw stats row that failed to match `dim_player` lands in `quarantine.unmat
 - `quarantine.unmatched_sb_player_stats_pedigree`
 - `quarantine.unmatched_understat_player_xg`
 - `quarantine.unmatched_understat_2526_players`
+- `quarantine.unmatched_team_economics` — World Bank rows whose `team_code` is not in `dim_team`. Schema: `team_code, year, gdp_per_capita_usd, population, source, reason`. Built from the same CTE pipeline as `fact_team_economics`, opposite `WHERE` filter.
+- `quarantine.unmatched_team_fifa_ranking` — FIFA ranking rows whose `team_code` is not in `dim_team`. Schema: `team_code, rank, points, rank_change, reason`.
+- `quarantine.unmatched_international_matches` — martj42 match rows whose home or away team failed to resolve to `dim_team`. Schema: `match_date, home_team_name, home_team_code, away_team_name, away_team_code, home_score, away_score, tournament, reason`. The `reason` column distinguishes `home_unresolved` / `away_unresolved` / `both_unresolved` (normalize_country returned NULL) from `home_not_in_dim` / `away_not_in_dim` / `both_not_in_dim` (FIFA3 returned, not in dim_team). Expected row count is large (~26K out of ~49K source rows) because martj42 covers all FIFA members across 154 years; `dim_team` is scoped to WC2026-relevant teams.
 
 **Expected v1 quarantine sizes (rough bounds for verification):**
 - StatsBomb: ~10-25% quarantined initially (historical players not in WC2026 squads — expected, not pathological).
@@ -371,7 +702,7 @@ These bounds shrink over time as `dim_player.statsbomb_name` / `understat_id` co
 
 - **Market snapshots** (`kalshi_snapshot_*.csv`, `polymarket_snapshot_*.csv`) → `fact_market_price`. Different ingestion cadence and schema.
 - **Model predictions** (`results/<model>/<date>/predictions.csv`) → `fact_prediction`. Wide and varies by model; deserves its own consolidation pass.
-- **Match-level facts** (`fact_match` from FIFA fixture list). Requires fixture pull script.
+- **Match-level fixtures** (`fact_international_fixture` — future-dated rows from the martj42 pull). Distinct from `fact_international_match`, which holds completed results. Deferred until the modeling layer needs scheduled fixtures.
 - **Comparison outputs** (`results/comparisons/*/comparison.csv`) → `fact_comparison`. Depends on `fact_prediction` first.
 - **Live in-tournament data refresh** (Sofascore / API-Football pull from ~Jun 4) — see `MEMORY.md` → `wc2026_live_pipeline_plan.md`. The refresh tool built in this plan is the mechanism for picking that up.
 

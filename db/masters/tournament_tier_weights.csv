@@ -1,0 +1,5 @@
+tournament_tier,weight,rationale
+tier_1_world_cup,1.0,"FIFA World Cup matches — the most selective rosters, highest competitive intensity. Reference weight."
+tier_2_continental_final,0.9,"Euro / Copa América / AFCON / AFC Asian Cup / Gold Cup. Top-tier rosters, near-WC intensity."
+tier_3_qualifier_or_nations_league,0.7,"WC qualifiers and Nations League. Competitive but rosters can be experimental."
+tier_4_friendly_or_other,0.4,"Friendlies and other non-competitive matches. Loose selection and high experimentation; least informative."

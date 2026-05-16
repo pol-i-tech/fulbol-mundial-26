@@ -1,0 +1,492 @@
+{
+  "matchInfo": {
+    "id": "b5v1bdk3yghbdtgjwyqyjz02c",
+    "coverageLevel": "13",
+    "date": "2026-04-28Z",
+    "time": "19:00:00Z",
+    "localDate": "2026-04-28",
+    "localTime": "21:00:00",
+    "numberOfPeriods": 2,
+    "periodLength": 45,
+    "overtimeLength": 15,
+    "var": "1",
+    "lastUpdated": "2026-04-29T10:06:08Z",
+    "description": "Paris Saint-Germain vs Bayern München",
+    "sport": {
+      "id": "289u5typ3vp4ifwh5thalohmq",
+      "name": "Soccer"
+    },
+    "ruleset": {
+      "id": "79plas4983031idr6vw83nuel",
+      "name": "Men"
+    },
+    "competition": {
+      "id": "4oogyu6o156iphvdvphwpck10",
+      "name": "UEFA Champions League",
+      "knownName": "UEFA Champions League",
+      "competitionCode": "UCL",
+      "competitionFormat": "International cup",
+      "country": {
+        "id": "7yiwjcnhat6jo3f901h266cwl",
+        "name": "Europe"
+      }
+    },
+    "tournamentCalendar": {
+      "id": "2mr0u0l78k2gdsm79q56tb2fo",
+      "startDate": "2025-07-08Z",
+      "endDate": "2026-05-30Z",
+      "name": "2025/2026"
+    },
+    "stage": {
+      "id": "2prgg5slp1de420l7eq6kwmj8",
+      "formatId": "2hrcobqge36fgp0q3wmc26f9x",
+      "startDate": "2026-04-28Z",
+      "endDate": "2026-05-06Z",
+      "name": "Semi-finals"
+    },
+    "contestant": [
+      {
+        "id": "2b3mar72yy8d6uvat1ka6tn3r",
+        "name": "Paris Saint-Germain",
+        "shortName": "Paris SG",
+        "officialName": "Paris Saint-Germain FC",
+        "code": "PSG",
+        "position": "home",
+        "country": {
+          "id": "7gww28djs405rfga69smki84o",
+          "name": "France"
+        }
+      },
+      {
+        "id": "apoawtpvac4zqlancmvw4nk4o",
+        "name": "Bayern München",
+        "shortName": "Bayern München",
+        "officialName": "FC Bayern München",
+        "code": "FCB",
+        "position": "away",
+        "country": {
+          "id": "36min0qztu8eydwvpv8t1is0m",
+          "name": "Germany"
+        }
+      }
+    ],
+    "venue": {
+      "id": "efcoydloex7y04q29pac9s67c",
+      "neutral": "no",
+      "longName": "Parc des Princes",
+      "shortName": "Parc des Princes",
+      "latitude": "48.841433445",
+      "longitude": "2.253048867"
+    }
+  },
+  "liveData": {
+    "matchDetails": {
+      "periodId": 14,
+      "matchStatus": "Played",
+      "winner": "home",
+      "leg": 1,
+      "relatedMatchId": "dkvlgk22rlyecfay5qgz48wes",
+      "aggregateId": "f2kqw8kkt3zq26hdk5is3hnv8",
+      "previousAggregateIds": "62y0iwz0bzf3gslkhuebt8l5g,6feu64scpa4g5ho4n2hcgsqok",
+      "matchLengthMin": 99,
+      "matchLengthSec": 57,
+      "period": [
+        {
+          "id": 1,
+          "start": "2026-04-28T19:01:32Z",
+          "end": "2026-04-28T19:52:17Z",
+          "lengthMin": 50,
+          "lengthSec": 45,
+          "announcedInjuryTime": 60
+        },
+        {
+          "id": 2,
+          "start": "2026-04-28T20:08:03Z",
+          "end": "2026-04-28T20:57:15Z",
+          "lengthMin": 49,
+          "lengthSec": 12,
+          "announcedInjuryTime": 240
+        }
+      ],
+      "scores": {
+        "ht": {
+          "home": 3,
+          "away": 2
+        },
+        "ft": {
+          "home": 5,
+          "away": 4
+        },
+        "total": {
+          "home": 5,
+          "away": 4
+        },
+        "aggregate": {
+          "home": 5,
+          "away": 4
+        }
+      }
+    },
+    "goal": [
+      {
+        "contestantId": "apoawtpvac4zqlancmvw4nk4o",
+        "periodId": 1,
+        "timeMin": 17,
+        "timeMinSec": "16:51",
+        "lastUpdated": "2026-04-28T19:18:36Z",
+        "timestamp": "2026-04-28T19:18:24Z",
+        "type": "PG",
+        "scorerId": "b9g4qurpll4wizajo95c406hh",
+        "scorerName": "H. Kane",
+        "optaEventId": "2930808499",
+        "homeScore": 0,
+        "awayScore": 1
+      },
+      {
+        "contestantId": "2b3mar72yy8d6uvat1ka6tn3r",
+        "periodId": 1,
+        "timeMin": 24,
+        "timeMinSec": "23:56",
+        "lastUpdated": "2026-04-28T19:26:27Z",
+        "timestamp": "2026-04-28T19:25:29Z",
+        "type": "G",
+        "scorerId": "4zy4d60v2qmaplm9xbe51y1gp",
+        "scorerName": "K. Kvaratskhelia",
+        "assistPlayerId": "dzv5f93w5fsnfzohaev6e3rx0",
+        "assistPlayerName": "D. Doué",
+        "optaEventId": "2930811043",
+        "homeScore": 1,
+        "awayScore": 1
+      },
+      {
+        "contestantId": "2b3mar72yy8d6uvat1ka6tn3r",
+        "periodId": 1,
+        "timeMin": 33,
+        "timeMinSec": "32:27",
+        "lastUpdated": "2026-04-28T19:35:10Z",
+        "timestamp": "2026-04-28T19:33:59Z",
+        "type": "G",
+        "scorerId": "929ho421g2zacylfc97m23uac",
+        "scorerName": "João Neves",
+        "assistPlayerId": "ckaqxlw257qzj8vjdumvwbaad",
+        "assistPlayerName": "O. Dembélé",
+        "optaEventId": "2930814037",
+        "homeScore": 2,
+        "awayScore": 1
+      },
+      {
+        "contestantId": "apoawtpvac4zqlancmvw4nk4o",
+        "periodId": 1,
+        "timeMin": 41,
+        "timeMinSec": "40:43",
+        "lastUpdated": "2026-04-28T19:43:08Z",
+        "timestamp": "2026-04-28T19:42:15Z",
+        "type": "G",
+        "scorerId": "m2c4lckkcr7yilnqxrrsgh2i",
+        "scorerName": "M. Olise",
+        "assistPlayerId": "9u0jnvttp25l5bp2pvx7pces",
+        "assistPlayerName": "A. Pavlović",
+        "optaEventId": "2930816303",
+        "homeScore": 2,
+        "awayScore": 2
+      },
+      {
+        "contestantId": "2b3mar72yy8d6uvat1ka6tn3r",
+        "periodId": 1,
+        "timeMin": 50,
+        "timeMinSec": "49:29",
+        "lastUpdated": "2026-04-28T19:51:10Z",
+        "timestamp": "2026-04-28T19:51:02Z",
+        "type": "PG",
+        "scorerId": "ckaqxlw257qzj8vjdumvwbaad",
+        "scorerName": "O. Dembélé",
+        "optaEventId": "2930818807",
+        "homeScore": 3,
+        "awayScore": 2
+      },
+      {
+        "contestantId": "2b3mar72yy8d6uvat1ka6tn3r",
+        "periodId": 2,
+        "timeMin": 56,
+        "timeMinSec": "55:35",
+        "lastUpdated": "2026-04-28T20:19:57Z",
+        "timestamp": "2026-04-28T20:18:38Z",
+        "type": "G",
+        "scorerId": "4zy4d60v2qmaplm9xbe51y1gp",
+        "scorerName": "K. Kvaratskhelia",
+        "assistPlayerId": "1vr896w03yky9kmu8x5tjkicp",
+        "assistPlayerName": "A. Hakimi",
+        "optaEventId": "2930827989",
+        "homeScore": 4,
+        "awayScore": 2
+      },
+      {
+        "contestantId": "2b3mar72yy8d6uvat1ka6tn3r",
+        "periodId": 2,
+        "timeMin": 58,
+        "timeMinSec": "57:58",
+        "lastUpdated": "2026-04-28T20:22:22Z",
+        "timestamp": "2026-04-28T20:21:02Z",
+        "type": "G",
+        "scorerId": "ckaqxlw257qzj8vjdumvwbaad",
+        "scorerName": "O. Dembélé",
+        "assistPlayerId": "dzv5f93w5fsnfzohaev6e3rx0",
+        "assistPlayerName": "D. Doué",
+        "optaEventId": "2930828863",
+        "homeScore": 5,
+        "awayScore": 2
+      },
+      {
+        "contestantId": "apoawtpvac4zqlancmvw4nk4o",
+        "periodId": 2,
+        "timeMin": 65,
+        "timeMinSec": "64:12",
+        "lastUpdated": "2026-04-28T20:27:58Z",
+        "timestamp": "2026-04-28T20:27:15Z",
+        "type": "G",
+        "scorerId": "x4qyxhfr2vi007sazoqe5vit",
+        "scorerName": "D. Upamecano",
+        "assistPlayerId": "97nv3y9z2ajz6b4ynoo0jn3kl",
+        "assistPlayerName": "J. Kimmich",
+        "optaEventId": "2930830839",
+        "homeScore": 5,
+        "awayScore": 3
+      },
+      {
+        "contestantId": "apoawtpvac4zqlancmvw4nk4o",
+        "periodId": 2,
+        "timeMin": 68,
+        "timeMinSec": "67:57",
+        "lastUpdated": "2026-04-28T20:33:02Z",
+        "timestamp": "2026-04-28T20:31:01Z",
+        "type": "G",
+        "scorerId": "5ch0r2awkzjfd4hv6kbw6c9gp",
+        "scorerName": "L. Díaz",
+        "assistPlayerId": "b9g4qurpll4wizajo95c406hh",
+        "assistPlayerName": "H. Kane",
+        "optaEventId": "2930832457",
+        "homeScore": 5,
+        "awayScore": 4,
+        "varReviewed": "yes",
+        "originalDecision": "Goal not awarded"
+      }
+    ],
+    "card": [
+      {
+        "contestantId": "2b3mar72yy8d6uvat1ka6tn3r",
+        "periodId": 1,
+        "timeMin": 12,
+        "timeMinSec": "11:45",
+        "lastUpdated": "2026-04-28T19:13:27Z",
+        "timestamp": "2026-04-28T19:13:17Z",
+        "type": "YC",
+        "playerId": "8z0395s37qe2lqi9qsvyskgk5",
+        "playerName": "Marquinhos",
+        "optaEventId": "2930806385",
+        "cardReason": "Foul"
+      },
+      {
+        "contestantId": "2b3mar72yy8d6uvat1ka6tn3r",
+        "periodId": 2,
+        "timeMin": 77,
+        "timeMinSec": "76:54",
+        "lastUpdated": "2026-04-28T20:40:16Z",
+        "timestamp": "2026-04-28T20:39:57Z",
+        "type": "YC",
+        "playerId": "f3v58fkymhrprt5gs0ccm29xx",
+        "playerName": "Fabián Ruiz",
+        "optaEventId": "2930835441",
+        "cardReason": "Off the ball foul"
+      },
+      {
+        "contestantId": "2b3mar72yy8d6uvat1ka6tn3r",
+        "periodId": 2,
+        "timeMin": 80,
+        "timeMinSec": "79:19",
+        "lastUpdated": "2026-04-28T20:42:37Z",
+        "timestamp": "2026-04-28T20:42:23Z",
+        "type": "YC",
+        "playerId": "1vr896w03yky9kmu8x5tjkicp",
+        "playerName": "A. Hakimi",
+        "optaEventId": "2930836199",
+        "cardReason": "Dissent"
+      }
+    ],
+    "substitute": [
+      {
+        "contestantId": "apoawtpvac4zqlancmvw4nk4o",
+        "periodId": 2,
+        "timeMin": 46,
+        "timeMinSec": "45:00",
+        "lastUpdated": "2026-04-28T20:07:08Z",
+        "timestamp": "2026-04-28T20:07:03Z",
+        "playerOnId": "1qthvf5krys0pzk24h8wtr9at",
+        "playerOnName": "K. Laimer",
+        "playerOffId": "582uvj0i3dvm0zwbou9q68pgp",
+        "playerOffName": "A. Davies",
+        "subReason": "Tactical"
+      },
+      {
+        "contestantId": "2b3mar72yy8d6uvat1ka6tn3r",
+        "periodId": 2,
+        "timeMin": 64,
+        "timeMinSec": "63:53",
+        "lastUpdated": "2026-04-28T20:27:02Z",
+        "timestamp": "2026-04-28T20:26:56Z",
+        "playerOnId": "f3v58fkymhrprt5gs0ccm29xx",
+        "playerOnName": "Fabián Ruiz",
+        "playerOffId": "2s2fzli5c7h9dfcertq2dwxec",
+        "playerOffName": "W. Zaïre-Emery",
+        "subReason": "Tactical"
+      },
+      {
+        "contestantId": "2b3mar72yy8d6uvat1ka6tn3r",
+        "periodId": 2,
+        "timeMin": 70,
+        "timeMinSec": "69:20",
+        "lastUpdated": "2026-04-28T20:33:15Z",
+        "timestamp": "2026-04-28T20:32:24Z",
+        "playerOnId": "a71n80h977h7fu99ftnri5zsa",
+        "playerOnName": "B. Barcola",
+        "playerOffId": "dzv5f93w5fsnfzohaev6e3rx0",
+        "playerOffName": "D. Doué",
+        "subReason": "Tactical"
+      },
+      {
+        "contestantId": "apoawtpvac4zqlancmvw4nk4o",
+        "periodId": 2,
+        "timeMin": 79,
+        "timeMinSec": "78:06",
+        "lastUpdated": "2026-04-28T20:41:15Z",
+        "timestamp": "2026-04-28T20:41:09Z",
+        "playerOnId": "4w4ldzomkj7fhrc51iimz8no5",
+        "playerOnName": "L. Goretzka",
+        "playerOffId": "bhsdzppop8jwjsxwftizot1t6",
+        "playerOffName": "J. Musiala",
+        "subReason": "Tactical"
+      },
+      {
+        "contestantId": "2b3mar72yy8d6uvat1ka6tn3r",
+        "periodId": 2,
+        "timeMin": 84,
+        "timeMinSec": "83:07",
+        "lastUpdated": "2026-04-28T20:46:17Z",
+        "timestamp": "2026-04-28T20:46:10Z",
+        "playerOnId": "54mv7lufwxcy2gih8owyr00lw",
+        "playerOnName": "S. Mayulu",
+        "playerOffId": "4zy4d60v2qmaplm9xbe51y1gp",
+        "playerOffName": "K. Kvaratskhelia",
+        "subReason": "Tactical"
+      },
+      {
+        "contestantId": "2b3mar72yy8d6uvat1ka6tn3r",
+        "periodId": 2,
+        "timeMin": 84,
+        "timeMinSec": "83:17",
+        "lastUpdated": "2026-04-28T20:46:29Z",
+        "timestamp": "2026-04-28T20:46:20Z",
+        "playerOnId": "c80tzy7t4hoa8fpbek1od4lw5",
+        "playerOnName": "L. Hernández",
+        "playerOffId": "d3dv3vc71981v5oems59892sq",
+        "playerOffName": "Nuno Mendes",
+        "subReason": "Injury"
+      },
+      {
+        "contestantId": "apoawtpvac4zqlancmvw4nk4o",
+        "periodId": 2,
+        "timeMin": 93,
+        "timeMinSec": "92:45",
+        "lastUpdated": "2026-04-28T20:56:08Z",
+        "timestamp": "2026-04-28T20:55:49Z",
+        "playerOnId": "amcwh6w0brmkttg4uc5qm6z9w",
+        "playerOnName": "N. Jackson",
+        "playerOffId": "9u0jnvttp25l5bp2pvx7pces",
+        "playerOffName": "A. Pavlović",
+        "subReason": "Tactical"
+      }
+    ],
+    "VAR": [
+      {
+        "contestantId": "2b3mar72yy8d6uvat1ka6tn3r",
+        "periodId": 1,
+        "timeMin": 48,
+        "timeMinSec": "47:27",
+        "lastUpdated": "2026-04-28T19:49:19Z",
+        "timestamp": "2026-04-28T19:49:00Z",
+        "type": "Penalty not awarded",
+        "decision": "Cancelled",
+        "outcome": "Penalty",
+        "playerId": "ckaqxlw257qzj8vjdumvwbaad",
+        "playerName": "O. Dembélé",
+        "optaEventId": "2930818245"
+      },
+      {
+        "contestantId": "apoawtpvac4zqlancmvw4nk4o",
+        "periodId": 2,
+        "timeMin": 70,
+        "timeMinSec": "69:01",
+        "lastUpdated": "2026-04-28T20:32:24Z",
+        "timestamp": "2026-04-28T20:31:33Z",
+        "type": "Goal not awarded",
+        "decision": "Cancelled",
+        "outcome": "Goal",
+        "playerId": "5ch0r2awkzjfd4hv6kbw6c9gp",
+        "playerName": "L. Díaz",
+        "optaEventId": "2930832413"
+      }
+    ],
+    "matchDetailsExtra": {
+      "attendance": "47511",
+      "matchOfficial": [
+        {
+          "id": "3jfxf5wh49ns3wf7h0tpnhp79",
+          "type": "Main",
+          "firstName": "Sandro",
+          "lastName": "Schärer",
+          "shortFirstName": "Sandro",
+          "shortLastName": "Schärer"
+        },
+        {
+          "id": "8bgm4a1oq5kqd8whfqyscqdw5",
+          "type": "Assistant referee 1",
+          "firstName": "Ángel",
+          "lastName": "Nevado Rodríguez",
+          "shortFirstName": "Ángel",
+          "shortLastName": "Nevado Rodríguez"
+        },
+        {
+          "id": "1j9rafnjjytytg46t84j4p80l",
+          "type": "Assistant referee 2",
+          "firstName": "Guadalupe",
+          "lastName": "Porras Ayuso",
+          "shortFirstName": "Guadalupe",
+          "shortLastName": "Porras Ayuso"
+        },
+        {
+          "id": "8vgg27g70jb2zffis3q8lmqj9",
+          "type": "Fourth official",
+          "firstName": "Jesús",
+          "lastName": "Gil Manzano",
+          "shortFirstName": "Jesús",
+          "shortLastName": "Gil Manzano"
+        },
+        {
+          "id": "37u09m3xbwx9v4p9ybc5xg2c5",
+          "type": "Video Assistant Referee",
+          "firstName": "Carlos",
+          "lastName": "del Cerro Grande",
+          "shortFirstName": "Carlos",
+          "shortLastName": "del Cerro Grande"
+        },
+        {
+          "id": "8wue7n8yhomnp6s0osmw9bqol",
+          "type": "Assistant VAR Official",
+          "firstName": "Guillermo",
+          "lastName": "Cuadra Fernández",
+          "shortFirstName": "Guillermo",
+          "shortLastName": "Cuadra Fernández"
+        }
+      ]
+    }
+  }
+}
