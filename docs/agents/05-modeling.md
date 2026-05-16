@@ -28,7 +28,7 @@ If a needed feature is not in `curated.*`, do not bypass it — open a PR agains
 | Methodology | `methodology/<model-name>/` | `README.md`, model code, `requirements.txt`. |
 | Model card | `results/<model-name>/MODEL.md` | Documents subjective adjustments + limitations. |
 
-Today the single canonical model is `wc2026-predictor` (currently lives under `methodology/curated-poisson-luck/` pending the Phase C rename).
+Today the single canonical model is `wc2026-predictor` (currently lives under `methodology/wc2026-predictor/` pending the Phase C rename).
 
 ## Allowed write paths
 

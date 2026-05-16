@@ -1,4 +1,4 @@
--- methodology/curated-poisson-luck/queries/team_goal_stats.sql
+-- methodology/wc2026-predictor/queries/team_goal_stats.sql
 -- Grain: one row per team_code that has played at least one international
 --        match since 2022-01-01.
 -- Source: curated.fact_international_match (curated-only — see db/SCHEMA.md).
@@ -19,7 +19,7 @@
 --
 -- Naming: follows db/NAMING.md. Allowed shorts: avg, std, mean, stats.
 --
--- Plan: docs/plans/2026-05-15-002-feat-curated-poisson-luck-model-plan.md (Unit 1)
+-- Plan: docs/plans/2026-05-15-002-feat-wc2026-predictor-model-plan.md (Unit 1)
 
 WITH
 team_match AS (

@@ -22,7 +22,7 @@ The writer must read these before writing a single word. All paths are relative 
 
 | Input | Path | Notes |
 |---|---|---|
-| Per-match predictions | `results/wc2026-predictor/<latest-date>/predictions.csv` | If the cleanup rename has not landed yet, the path is `results/curated-poisson-luck/<latest-date>/predictions.csv`. Same schema. |
+| Per-match predictions | `results/wc2026-predictor/<latest-date>/predictions.csv` | If the cleanup rename has not landed yet, the path is `results/wc2026-predictor/<latest-date>/predictions.csv`. Same schema. |
 | Per-team tournament probabilities | `results/wc2026-predictor/<latest-date>/probabilities.csv` | Must include the `p_top2_in_group` column added by Storyteller Unit 1. If the column is missing, stop and escalate. |
 | Marquee-games shortlist | `results/wc2026-predictor/<latest-date>/marquee_games.csv` | Deterministic shortlist (≤8 group-stage matches). If empty, the "games to watch" section acknowledges the empty case in prose. |
 | Model card | `results/wc2026-predictor/MODEL.md` | Source material for the methodology footnote. The writer translates this card to plain language — does not copy it. |
@@ -125,5 +125,5 @@ A section that fails any check is rewritten and re-audited. The audits run on th
 ## References
 
 - Plan: [`docs/plans/2026-05-16-001-feat-tournament-report-writer-agent-plan.md`](../plans/2026-05-16-001-feat-tournament-report-writer-agent-plan.md) — the originating spec; Unit 2 is the contract this file fulfills.
-- Methodology source: [`methodology/curated-poisson-luck/MODEL.md`](../../methodology/curated-poisson-luck/MODEL.md) — the model card the methodology footnote translates to plain language.
+- Methodology source: [`methodology/wc2026-predictor/MODEL.md`](../../methodology/wc2026-predictor/MODEL.md) — the model card the methodology footnote translates to plain language.
 - Structural template: [`docs/agents/_role-template.md`](./_role-template.md) — the role-spec template this file is built against.

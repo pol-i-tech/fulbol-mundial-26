@@ -1,9 +1,9 @@
--- Inspect the wide model-input table consumed by methodology/curated-poisson-luck.
+-- Inspect the wide model-input table consumed by methodology/wc2026-predictor.
 -- One row per WC2026 qualifier with every feature the model uses: FIFA, economics,
 -- recent form, and tier-weighted historical goal mean + std-dev since 2022.
 --
 -- Canonical home for the query:
---   methodology/curated-poisson-luck/queries/team_model_features.sql
+--   methodology/wc2026-predictor/queries/team_model_features.sql
 --
 -- This example is a 1:1 wrapper so the read pattern is discoverable from
 -- db/queries/examples/ alongside the other curated read patterns.
@@ -11,7 +11,7 @@
 -- Naming: follows db/NAMING.md. Allowed shorts: avg, std, mean, stats.
 --
 -- Run via:
---   duckdb data/wc2026.duckdb < db/queries/examples/curated_poisson_luck_per_team_features.sql
+--   duckdb data/wc2026.duckdb < db/queries/examples/wc2026_predictor_per_team_features.sql
 
 -- Tier weights sourced from curated.dim_tournament_tier_weight (single source of truth).
 WITH

@@ -1,2 +1,2 @@
 model_id,model_name,model_type,methodology_path,results_path,last_validation_status
-curated-poisson-luck,curated-poisson-luck,single-source,methodology/curated-poisson-luck/,results/curated-poisson-luck,pending_backtest
+wc2026-predictor,wc2026-predictor,single-source,methodology/wc2026-predictor/,results/wc2026-predictor,pending_backtest

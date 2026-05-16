@@ -1,13 +1,13 @@
--- methodology/curated-poisson-luck/queries/team_model_features.sql
+-- methodology/wc2026-predictor/queries/team_model_features.sql
 -- Grain: one row per WC2026 qualifier (48 rows).
 -- Joins curated.dim_team_current + curated.dim_team_recent_form + the
--- goal-stats CTE (mirror of methodology/curated-poisson-luck/queries/team_goal_stats.sql)
+-- goal-stats CTE (mirror of methodology/wc2026-predictor/queries/team_goal_stats.sql)
 -- into a single wide model-input row.
 --
 -- Read-only against curated.*; no parquet reads.
 -- Naming: follows db/NAMING.md.
 --
--- Plan: docs/plans/2026-05-15-002-feat-curated-poisson-luck-model-plan.md (Unit 2)
+-- Plan: docs/plans/2026-05-15-002-feat-wc2026-predictor-model-plan.md (Unit 2)
 
 -- Tier weights sourced from curated.dim_tournament_tier_weight (single source of truth).
 WITH

@@ -1,4 +1,4 @@
-"""Tests for the curated-poisson-luck model.
+"""Tests for the wc2026-predictor model.
 
 Validates the contract that downstream consumers (predictions.csv writers and
 the simulator) rely on:
@@ -24,7 +24,7 @@ import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
 DB_PATH = ROOT / "data" / "wc2026.duckdb"
-MODEL_DIR = ROOT / "methodology" / "curated-poisson-luck"
+MODEL_DIR = ROOT / "methodology" / "wc2026-predictor"
 
 
 @pytest.fixture(scope="module")
@@ -34,10 +34,10 @@ def model_module():
     if not (MODEL_DIR / "model.py").exists():
         pytest.skip(f"{MODEL_DIR / 'model.py'} not yet implemented")
     spec = importlib.util.spec_from_file_location(
-        "curated_poisson_luck_model", MODEL_DIR / "model.py"
+        "wc2026_predictor_model", MODEL_DIR / "model.py"
     )
     mod = importlib.util.module_from_spec(spec)
-    sys.modules["curated_poisson_luck_model"] = mod
+    sys.modules["wc2026_predictor_model"] = mod
     spec.loader.exec_module(mod)
     return mod
 
@@ -65,9 +65,9 @@ def test_load_features_returns_48_qualifiers(features):
     assert len(features) == 48
     required = {
         "team_code", "fifa_rank", "fifa_points",
-        "matches_last_10", "gf_last_10", "ga_last_10",
-        "hist_n_matches", "hist_gf_mean", "hist_gf_std",
-        "hist_ga_mean", "hist_ga_std",
+        "matches_last_10", "goals_for_last_10", "goals_against_last_10",
+        "historical_match_count", "historical_goals_for_mean", "historical_goals_for_std",
+        "historical_goals_against_mean", "historical_goals_against_std",
         "gdp_per_capita_usd_latest", "population_latest",
     }
     assert required.issubset(set(features.columns))

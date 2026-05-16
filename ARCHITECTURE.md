@@ -1,7 +1,7 @@
 > **Cleanup in progress.** A large refactor is underway — see
 > [`docs/plans/2026-05-15-004-refactor-project-cleanup-plan.md`](docs/plans/2026-05-15-004-refactor-project-cleanup-plan.md).
 > It will collapse the multi-model workbench down to a single DuckDB-native predictor
-> (`methodology/curated-poisson-luck/` → `methodology/wc2026-predictor/`), delete dead
+> (`methodology/wc2026-predictor/` → `methodology/wc2026-predictor/`), delete dead
 > pulls and stale model folders, and trim `docs/agents/`. This document describes the
 > repo **as it is today**, before that work lands; it will be rewritten as the cleanup
 > merges.
@@ -12,7 +12,7 @@
 
 `fulbol-mundial-26` is a workbench for building probability models that predict the
 2026 FIFA World Cup. The current production-grade model is
-[`methodology/curated-poisson-luck/`](methodology/curated-poisson-luck/) — a
+[`methodology/wc2026-predictor/`](methodology/wc2026-predictor/) — a
 Poisson-with-luck goals model that reads **only** from the `curated.*` namespace in
 [`data/wc2026.duckdb`](data/wc2026.duckdb) (no parquet, CSV, or HTTP reads at runtime).
 Older multi-model code (`ensemble_model.py`, `tools/simulate_wc2026.py`, the
@@ -24,7 +24,7 @@ plan above.
 
 | Layer | Tech | Notes |
 |---|---|---|
-| Modeling + tools | Python 3 (no pinned version; `requirements.txt` and `pyproject.toml` are absent) | Stack imports observed in [`tools/build_duckdb.py`](tools/build_duckdb.py), [`tools/verify_duckdb.py`](tools/verify_duckdb.py), [`methodology/curated-poisson-luck/model.py`](methodology/curated-poisson-luck/model.py): `duckdb`, `pandas`, `numpy`. Scipy/sklearn not present in the active model. |
+| Modeling + tools | Python 3 (no pinned version; `requirements.txt` and `pyproject.toml` are absent) | Stack imports observed in [`tools/build_duckdb.py`](tools/build_duckdb.py), [`tools/verify_duckdb.py`](tools/verify_duckdb.py), [`methodology/wc2026-predictor/model.py`](methodology/wc2026-predictor/model.py): `duckdb`, `pandas`, `numpy`. Scipy/sklearn not present in the active model. |
 | Analytics DB | DuckDB (single file `data/wc2026.duckdb`) | Built from `data/derived/*.parquet` + `db/masters/*.csv` via [`tools/build_duckdb.py`](tools/build_duckdb.py). Contract: [`db/SCHEMA.md`](db/SCHEMA.md). |
 | Viz app | Node + [`@graphenedata/cli`](https://www.npmjs.com/package/@graphenedata/cli) `0.0.18`, [`@duckdb/node-api`](https://www.npmjs.com/package/@duckdb/node-api) `1.3.2-alpha.26`, `npm@11.5.2` | See [`graphene-app-world-cup/package.json`](graphene-app-world-cup/package.json). Points at `../data/wc2026.duckdb`. |
 | Public report | Static HTML + JSON in [`docs/`](docs/) served via GitHub Pages | `docs/data.json` + `docs/index.html`. |
@@ -38,15 +38,15 @@ plan above.
 | [`DEVELOPMENT.md`](DEVELOPMENT.md) | active | Contributor tracks, model guardrails, contribution workflow, priority stack. |
 | `data/raw/` | active, **gitignored** | Immutable per-source/per-date pulls (`statsbomb/`, `understat/`, `martj42/`, `kalshi/`, `polymarket/`, `worldbank/`, `fifa_rankings/`, `squads/`, `elo/`, `sofascore/`). |
 | `data/derived/` | active, **gitignored** | Normalized parquet/CSV outputs of pulls + aggregators (~31 files). Bridge between pulls and DuckDB. |
-| `data/wc2026/` | active | `tournament.json` — bracket structure and group fixtures consumed by `methodology/curated-poisson-luck/simulate.py`. |
+| `data/wc2026/` | active | `tournament.json` — bracket structure and group fixtures consumed by `methodology/wc2026-predictor/simulate.py`. |
 | `data/wc2026.duckdb` | active | The analytics DB. Single file. Rebuilt end-to-end in ~10s. |
 | [`db/`](db/) | active | DuckDB layer: [`SCHEMA.md`](db/SCHEMA.md), [`NAMING.md`](db/NAMING.md), [`README.md`](db/README.md). Also contains an orphan `db/wc.duckdb` flagged for deletion. |
 | [`db/masters/`](db/masters/) | active, **committed** | The four+ master CSVs: `players.csv`, `teams.csv`, `tournaments.csv`, `models.csv`, `tournament_tier_weights.csv`. Hand-maintained + refresh scripts. |
 | [`db/sql/curated/`](db/sql/curated/) | active | 16 SQL files defining every `curated.dim_*` / `curated.fact_*` / `curated.view_*` table. Single-source-of-truth DDL. |
 | [`db/queries/examples/`](db/queries/examples/) | active | 12 example queries: model-feature reads (`team_features_for_modeling.sql`, `team_xg_for_modeling.sql`) + analysis (`model_agreement_matrix.sql`, `inspect_quarantine.sql`). |
-| [`methodology/curated-poisson-luck/`](methodology/curated-poisson-luck/) | active — canonical model | `model.py` (closed-form group-stage 1X2) + `simulate.py` (10k-iter MC). DuckDB-only at runtime. Cleanup renames this to `methodology/wc2026-predictor/`. |
+| [`methodology/wc2026-predictor/`](methodology/wc2026-predictor/) | active — canonical model | `model.py` (closed-form group-stage 1X2) + `simulate.py` (10k-iter MC). DuckDB-only at runtime. Cleanup renames this to `methodology/wc2026-predictor/`. |
 | `methodology/_template/` | active | Starter scaffold for new model contributors. |
-| `results/curated-poisson-luck/` | active | Latest snapshot at `2026-05-15/` (`predictions.csv`, `probabilities.csv`, `probabilities.json`) + `MODEL.md` model card. |
+| `results/wc2026-predictor/` | active | Latest snapshot at `2026-05-15/` (`predictions.csv`, `probabilities.csv`, `probabilities.json`) + `MODEL.md` model card. |
 | `results/elo-baseline/` | dormant — scheduled for deletion | 2026-04-28 snapshot + `MODEL.md`. |
 | `results/form-last-10/` | dormant — scheduled for deletion | 2026-04-28 snapshot + `MODEL.md`. |
 | `results/poisson-goals/` | dormant — scheduled for deletion | 2026-04-28 snapshot + `MODEL.md`. |
@@ -58,7 +58,7 @@ plan above.
 | [`compound-model/`](compound-model/) | aspirational — scheduled for deletion | Never implemented. `MODEL.md` describes a planned production wrapper; `docs/plans/` inside preserves the original vision. |
 | `tools/` | active — mixed | 27 scripts. Pulls (`pull_*.py`), aggregators (`aggregate_*.py`, `build_*.py`), DuckDB build/verify, validators, the legacy `simulate_wc2026.py`, the broken `pull_fbref*.py` (Cloudflare-blocked) and `pull_sofascore_*.py` (never wired in) — those four flagged for deletion. |
 | `tools/lib/` | active | `player_normalize.py` — Unicode/ASCII normalization used by the matching layer. |
-| `tests/` | active | `pytest` tests: `test_country_features_parquets.py`, `test_curated_poisson_luck_model.py`, `test_duckdb_country_facts.py`. |
+| `tests/` | active | `pytest` tests: `test_country_features_parquets.py`, `test_wc2026_predictor_model.py`, `test_duckdb_country_facts.py`. |
 | `docs/agents/` | active — partly aspirational | 8-role catalog + per-source / per-model implementation specs. Roles 04 (Market Normalization) and 07 (Edge Comparison) were just removed; their files are gone. Role 08 (Orchestration) stays as a spec; no cron exists. |
 | `docs/plans/` | active | 14 plans dated 2026-04-28 → 2026-05-16. Cleanup adds `status:` frontmatter (completed / superseded / active). |
 | `docs/brainstorms/` | active | Single requirements doc (`2026-05-05-wc2026-prediction-report-requirements.md`). |
@@ -69,7 +69,7 @@ plan above.
 | `event-data/raw/` | minimal | Two scratch files (`match_stats.json`, `match_summary.json`). No active pipeline consumes them. |
 | [`.github/`](.github/) | active | `CODEOWNERS`, `pull_request_template.md`, `workflows/`. |
 | `.context/` | local-only | `compound-engineering/ce-review` — agent harness state, not a code dir. |
-| `ensemble_model.py` (root) | dormant — scheduled for deletion | Original multi-model blender. Superseded by `methodology/curated-poisson-luck/`. |
+| `ensemble_model.py` (root) | dormant — scheduled for deletion | Original multi-model blender. Superseded by `methodology/wc2026-predictor/`. |
 | `wc2022_xg_backtest.py` (root) | active (kept) | Historical WC2022 walk-forward backtest harness. Multi-model-era code; the renamed predictor will get its own `backtest.py` in a future plan. |
 
 ## Data flow
@@ -86,10 +86,10 @@ data/wc2026.duckdb          ──tools/build_duckdb.py──▶  raw.* / stagin
         │                         │
         │                   db/masters/*.csv  (committed, surrogate-key state)
         ▼
-methodology/curated-poisson-luck/  ──model.py / simulate.py──▶  reads curated.* only
+methodology/wc2026-predictor/  ──model.py / simulate.py──▶  reads curated.* only
         │
         ▼
-results/curated-poisson-luck/<date>/  predictions.csv + probabilities.csv
+results/wc2026-predictor/<date>/  predictions.csv + probabilities.csv
         │
         ▼
 tools/export_web_data.py → docs/data.json → GitHub Pages
@@ -134,8 +134,8 @@ graph LR
     end
 
     subgraph "Canonical model"
-        M[methodology/curated-poisson-luck/model.py]
-        S[methodology/curated-poisson-luck/simulate.py]
+        M[methodology/wc2026-predictor/model.py]
+        S[methodology/wc2026-predictor/simulate.py]
     end
 
     subgraph "Dormant model code - scheduled for deletion"
@@ -146,8 +146,8 @@ graph LR
     end
 
     subgraph "Active outputs"
-        PRED[results/curated-poisson-luck/&lt;date&gt;/predictions.csv]
-        PROB[results/curated-poisson-luck/&lt;date&gt;/probabilities.csv]
+        PRED[results/wc2026-predictor/&lt;date&gt;/predictions.csv]
+        PROB[results/wc2026-predictor/&lt;date&gt;/probabilities.csv]
     end
 
     subgraph "Consumers"
@@ -202,12 +202,12 @@ fact-to-master matching, quarantine of unmatched rows) are in the same file.
 | `ensemble-e3` | `ensemble_model.py` (root) | `results/ensemble-e3/` | 2026-04-28 + WC2022 backtest | `data/derived/` parquets | dormant — scheduled for deletion |
 | `ensemble-v2` | `wc2022_xg_backtest.py` (root) | `results/ensemble-v2/` | WC2022 backtest only | `data/derived/` parquets | dormant — scheduled for deletion |
 | `poisson-xg` | `wc2022_xg_backtest.py` (root) | `results/poisson-xg/` | WC2022 backtest only | `data/derived/` parquets | dormant — scheduled for deletion |
-| `curated-poisson-luck` | `methodology/curated-poisson-luck/` | `results/curated-poisson-luck/2026-05-15/` | 2026-05-15 | **`data/wc2026.duckdb` curated.* only** | **active — canonical** (will be renamed `wc2026-predictor`) |
+| `wc2026-predictor` | `methodology/wc2026-predictor/` | `results/wc2026-predictor/2026-05-15/` | 2026-05-15 | **`data/wc2026.duckdb` curated.* only** | **active — canonical** (will be renamed `wc2026-predictor`) |
 | `wc2026-sim` | `tools/simulate_wc2026.py` (orphan) | `results/wc2026-sim/` | recent | `data/derived/` parquets directly | orphan — scheduled for deletion (consumed by `tools/export_web_data.py`; cleanup migrates that exporter to read the canonical model output instead) |
 | `compound-model` | `compound-model/` | n/a | never implemented | n/a | aspirational — scheduled for deletion (vision plan preserved in `docs/plans/`) |
 
-`curated-poisson-luck` is currently `pending_backtest` — see
-[`results/curated-poisson-luck/MODEL.md`](results/curated-poisson-luck/MODEL.md). The
+`wc2026-predictor` is currently `pending_backtest` — see
+[`results/wc2026-predictor/MODEL.md`](results/wc2026-predictor/MODEL.md). The
 WC2022 held-out backtest is tracked separately and not yet run.
 
 ## How to run
@@ -220,12 +220,12 @@ python3 tools/build_duckdb.py
 python3 tools/verify_duckdb.py
 
 # 3. Run the canonical model — group-stage 1X2
-python3 methodology/curated-poisson-luck/model.py
+python3 methodology/wc2026-predictor/model.py
 
 # 4. Run the tournament Monte Carlo (10k iters, seed=42 by default)
-python3 methodology/curated-poisson-luck/simulate.py
+python3 methodology/wc2026-predictor/simulate.py
 
-# Both write to results/curated-poisson-luck/<today>/.
+# Both write to results/wc2026-predictor/<today>/.
 ```
 
 Other entry points that still exist today:

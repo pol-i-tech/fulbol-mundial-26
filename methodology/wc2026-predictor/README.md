@@ -1,4 +1,4 @@
-# curated-poisson-luck
+# wc2026-predictor
 
 Poisson goals model with a per-game **luck factor**, built entirely off the `curated.*` namespace in `data/wc2026.duckdb`. No parquet reads, no manual data entry, no HTTP fetches.
 
@@ -6,13 +6,13 @@ Poisson goals model with a per-game **luck factor**, built entirely off the `cur
 
 ```bash
 # Match-level 1X2 for the 72 group-stage fixtures
-python3 methodology/curated-poisson-luck/model.py
+python3 methodology/wc2026-predictor/model.py
 
 # Tournament Monte Carlo (default n=10000, seed=42)
-python3 methodology/curated-poisson-luck/simulate.py
+python3 methodology/wc2026-predictor/simulate.py
 ```
 
-Both write to `results/curated-poisson-luck/<today>/`.
+Both write to `results/wc2026-predictor/<today>/`.
 
 ## What this model uses
 
@@ -63,7 +63,7 @@ Host nations (USA, MEX, CAN) get a `+0.25` boost on `λ_home` when they're the l
 
 ## Calibration status
 
-`pending_backtest`. The WC2022 held-out backtest is required before this model is ensembled in or treated as actionable. See the [MODEL.md card](../../results/curated-poisson-luck/MODEL.md) for full validation policy.
+`pending_backtest`. The WC2022 held-out backtest is required before this model is ensembled in or treated as actionable. See the [MODEL.md card](../../results/wc2026-predictor/MODEL.md) for full validation policy.
 
 The luck factor *deliberately* widens goal distributions, which softens favorites' `p_home` compared to pure Poisson. Whether that's a win or a loss against market-implied prices is exactly what the backtest will tell us.
 
@@ -76,4 +76,4 @@ The luck factor *deliberately* widens goal distributions, which softens favorite
 
 ## Plan
 
-[`docs/plans/2026-05-15-002-feat-curated-poisson-luck-model-plan.md`](../../docs/plans/2026-05-15-002-feat-curated-poisson-luck-model-plan.md)
+[`docs/plans/2026-05-15-002-feat-wc2026-predictor-model-plan.md`](../../docs/plans/2026-05-15-002-feat-wc2026-predictor-model-plan.md)

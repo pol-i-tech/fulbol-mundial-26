@@ -1,4 +1,4 @@
-"""curated-poisson-luck — Monte Carlo tournament simulator with luck factor.
+"""wc2026-predictor — Monte Carlo tournament simulator with luck factor.
 
 Runs N WC2026 simulations using lambdas + sigmas computed by model.py. For
 every simulated match, draws independent per-team luck perturbations:
@@ -10,10 +10,10 @@ every simulated match, draws independent per-team luck perturbations:
 Knockout matches that draw in regulation simulate extra time (30 min ~ 1/3 of
 90), then a penalty shootout coin-flip weighted by relative lambdas.
 
-Writes results/curated-poisson-luck/<today>/probabilities.{csv,json} with the
+Writes results/wc2026-predictor/<today>/probabilities.{csv,json} with the
 standard (team, p_champion, p_final, p_semi, p_qf, p_r16, p_r32) schema.
 
-Plan: docs/plans/2026-05-15-002-feat-curated-poisson-luck-model-plan.md (Unit 4)
+Plan: docs/plans/2026-05-15-002-feat-wc2026-predictor-model-plan.md (Unit 4)
 """
 
 from __future__ import annotations
@@ -35,19 +35,19 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
 DB_PATH = ROOT / "data" / "wc2026.duckdb"
 TOURNAMENT_PATH = ROOT / "data" / "wc2026" / "tournament.json"
-OUT_DIR_ROOT = ROOT / "results" / "curated-poisson-luck"
+OUT_DIR_ROOT = ROOT / "results" / "wc2026-predictor"
 
 
 def _load_model_module():
-    """Load methodology/curated-poisson-luck/model.py as a Python module.
+    """Load methodology/wc2026-predictor/model.py as a Python module.
 
     The directory name contains a hyphen so we can't use a normal import.
     """
     spec = importlib.util.spec_from_file_location(
-        "curated_poisson_luck_model", HERE / "model.py"
+        "wc2026_predictor_model", HERE / "model.py"
     )
     mod = importlib.util.module_from_spec(spec)
-    sys.modules["curated_poisson_luck_model"] = mod
+    sys.modules["wc2026_predictor_model"] = mod
     spec.loader.exec_module(mod)
     return mod
 

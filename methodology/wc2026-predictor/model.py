@@ -1,8 +1,8 @@
-"""curated-poisson-luck — Poisson goals model with per-game luck factor.
+"""wc2026-predictor — Poisson goals model with per-game luck factor.
 
 Reads team features exclusively from data/wc2026.duckdb (the curated.* namespace).
 Produces match-level 1X2 predictions for the WC2026 group stage and writes them
-to results/curated-poisson-luck/<today>/predictions.csv.
+to results/wc2026-predictor/<today>/predictions.csv.
 
 Three building blocks the simulator (simulate.py) re-imports:
 
@@ -14,7 +14,7 @@ The luck factor is a per-game perturbation epsilon ~ Normal(0, sigma_team) trunc
 at [-2*sigma_team, +2*sigma_team]. Goals are then sampled (or analytically
 marginalised) from Poisson(max(0.05, lambda_team + epsilon)).
 
-Plan: docs/plans/2026-05-15-002-feat-curated-poisson-luck-model-plan.md
+Plan: docs/plans/2026-05-15-002-feat-wc2026-predictor-model-plan.md
 """
 
 from __future__ import annotations
@@ -31,12 +31,12 @@ import numpy as np
 import pandas as pd
 
 
-MODEL_VERSION = "curated-poisson-luck-xg-xga-v0.3"
+MODEL_VERSION = "wc2026-predictor-xg-xga-v0.3"
 ROOT = Path(__file__).resolve().parent.parent.parent
 DB_PATH = ROOT / "data" / "wc2026.duckdb"
 QUERY_PATH = Path(__file__).resolve().parent / "queries" / "team_model_features.sql"
 TOURNAMENT_PATH = ROOT / "data" / "wc2026" / "tournament.json"
-OUT_DIR_ROOT = ROOT / "results" / "curated-poisson-luck"
+OUT_DIR_ROOT = ROOT / "results" / "wc2026-predictor"
 
 # Tuning constants. Centralised so the simulator picks the same values.
 HOST_BOOST = 0.25                # added to lambda_home when the home team is USA/MEX/CAN
@@ -377,7 +377,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--db-path", default=str(DB_PATH))
     parser.add_argument("--out-dir", default=None,
-                        help="Override the default results/curated-poisson-luck/<today>/")
+                        help="Override the default results/wc2026-predictor/<today>/")
     args = parser.parse_args()
 
     random.seed(SEED)
