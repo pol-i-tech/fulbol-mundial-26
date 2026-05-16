@@ -31,7 +31,7 @@ import numpy as np
 import pandas as pd
 
 
-MODEL_VERSION = "wc2026-predictor-xg-xga-v0.3"
+MODEL_VERSION = "wc2026-predictor-xg-xga-v0.4"
 ROOT = Path(__file__).resolve().parent.parent.parent
 DB_PATH = ROOT / "data" / "wc2026.duckdb"
 QUERY_PATH = Path(__file__).resolve().parent / "queries" / "team_model_features.sql"
