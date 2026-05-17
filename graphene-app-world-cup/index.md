@@ -7,6 +7,8 @@ layout: notebook
 
 A first look at the curated DuckDB layer through Graphene. Underlying tables live in `data/wc2026.duckdb` (built by `python3 tools/build_duckdb.py`); semantic models in `tables.gsql`.
 
+📖 **[WC2026 — The Story the Model Tells](./wc2026_tournament_report.md)** — narrative tournament report rendered from the latest wc2026-predictor snapshot. Top-2-per-group grid, marquee xG, knockout reach.
+
 ## Headline numbers
 
 ```sql universe_summary
