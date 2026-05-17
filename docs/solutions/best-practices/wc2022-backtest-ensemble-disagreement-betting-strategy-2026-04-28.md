@@ -10,9 +10,18 @@ applies_when:
   - Building or evaluating a multi-model ensemble for tournament football prediction
   - Deciding which WC 2026 matches to bet on Kalshi or Polymarket
   - Interpreting ensemble output where models give conflicting signals
+status: superseded
+superseded_by: docs/plans/2026-05-15-004-refactor-project-cleanup-plan.md
 tags:
   - ensemble, xg-model, betting-strategy, wc2026, kalshi, model-disagreement, calibration, backtest
 ---
+
+> **Superseded by the 2026-05-17 single-model cleanup.** This doc describes the
+> multi-model "Golden Zone" betting rule that required Elo / Form / Poisson to
+> all agree on a favourite. The project has since consolidated to a single
+> canonical model and removed market normalization / edge comparison from
+> scope. Preserved as historical reference; do not apply the betting rule
+> against current outputs.
 
 # WC 2022 Backtest: Model Disagreement Taxonomy and Betting Strategy
 
