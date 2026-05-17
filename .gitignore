@@ -34,3 +34,4 @@ data/derived/
 
 # Build-step quarantine review queue (generated each build)
 db/registry/unmatched.csv
+.claude/worktrees/
