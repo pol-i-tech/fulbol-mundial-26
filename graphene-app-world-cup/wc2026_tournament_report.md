@@ -19,7 +19,7 @@ layout: notebook
 -->
 
 <!-- agent prose: opening_hook -->
-*~80 words, opening hook. Framing: this is a forecast; the forecast is a guess; here's what the guess looks like. End with a humility framing from the role spec.*
+What every model that has ever predicted a World Cup has in common is this: it was wrong about something. The 2026 forecast that follows is no different. The model gives Germany about a 7.9% chance to lift the trophy and Argentina about a 4.9% chance — small numbers because there are 48 teams and a lot of variance baked into a one-month tournament. Read this as an estimate, not a prophecy.
 <!-- /agent prose: opening_hook -->
 
 ```sql snapshot
@@ -55,7 +55,7 @@ where is_wc2026_qualifier
 ## The favorites
 
 <!-- agent prose: favorites -->
-*~150 words. The top 5 by p_champion, the path each one needs to take, what the model sees in their group. Use "the model gives …" framing at least once.*
+At the top, the field looks unusually flat. The model gives Germany about a 7.9% chance to be champion, France about 7.0%, Belgium about 6.2%, Norway about 6.0%, and Brazil about 5.7%. That's five teams within two percentage points of each other — closer than any pre-tournament read on a recent World Cup has produced. Germany's path runs through Group E (Ecuador, Côte d'Ivoire, Curaçao), which the model calls the easiest top-of-group draw of the favorites. France is in Group I with Norway — the only group containing two top-six contenders, which is also why both of them get punished on champion probability relative to their underlying lambdas. Belgium gets Group G with Iran, Egypt, and New Zealand; the model thinks Belgium walks out of the group at 77% and then has to beat one of the other top-five to make a semifinal.
 <!-- /agent prose: favorites -->
 
 ```sql top12_knockout_reach
@@ -89,7 +89,7 @@ limit 12
 ## The group stage in one breath
 
 <!-- agent prose: group_stage -->
-*~180 words. Group-by-group highlights — the tight groups and the foregone conclusions. Let the grid below carry the data; the prose just adds story. Use a humility framing once.*
+The grid below carries the data, so the prose just flags the shape. Germany (Group E), Belgium (Group G), Portugal (Group K), England (Group L), and Netherlands (Group F) are the cleanest top-of-group bets — each crosses 73% to advance and faces nobody else above 65%. Group I is the death group: France 71% and Norway 67% — two teams above any other group's runner-up percentage in the entire tournament. Brazil pulls Scotland in Group C, where the model gives Scotland about a 50% chance to advance against a 72%-Brazil that would normally bulldoze its way through. The Asian + Concacaf groups (A, D, J) are open. Group A has South Korea 48% / Mexico 45% / South Africa 40% — the closest group in the bracket, where any of three teams could finish second. If the model is right — and history says it routinely isn't — the broad story of the group stage is "favorites mostly survive, Group I is a sword fight, and Group A is a coin toss for second place."
 <!-- /agent prose: group_stage -->
 
 ```sql top2_in_group_grid
@@ -97,18 +97,23 @@ limit 12
 -- Sorted within group by p_top2_in_group descending. Render as a faceted
 -- table (by group_letter) or — if Graphene supports it — as a 12-card grid
 -- mirroring the Figure 1 reference image.
+-- Team names are the canonical curated.dim_team display names used in
+-- probabilities.csv (not the tournament.json display strings — see the
+-- alias map in methodology/wc2026-predictor/simulate.py for the
+-- canonical/display divergence: Czechia -> Czech Republic, USA ->
+-- United States, etc.).
 with tournament_groups as (
-  select 'A' as group_letter, ['South Korea','Czechia','Mexico','South Africa']                as teams union all
+  select 'A' as group_letter, ['Korea Republic','Czech Republic','Mexico','South Africa']      as teams union all
   select 'B', ['Switzerland','Qatar','Canada','Bosnia and Herzegovina']                        union all
   select 'C', ['Brazil','Morocco','Scotland','Haiti']                                          union all
-  select 'D', ['Australia','Turkey','USA','Paraguay']                                          union all
-  select 'E', ['Germany','Ecuador','Ivory Coast','Curaçao']                                    union all
+  select 'D', ['Australia','Turkey','United States','Paraguay']                                union all
+  select 'E', ['Germany','Ecuador','Côte d''Ivoire','Curaçao']                                 union all
   select 'F', ['Netherlands','Japan','Sweden','Tunisia']                                       union all
   select 'G', ['Belgium','Iran','Egypt','New Zealand']                                         union all
-  select 'H', ['Spain','Uruguay','Saudi Arabia','Cape Verde']                                  union all
+  select 'H', ['Spain','Uruguay','Saudi Arabia','Cabo Verde']                                  union all
   select 'I', ['France','Senegal','Norway','Iraq']                                             union all
   select 'J', ['Argentina','Austria','Algeria','Jordan']                                       union all
-  select 'K', ['Portugal','Colombia','Uzbekistan','DR Congo']                                  union all
+  select 'K', ['Portugal','Colombia','Uzbekistan','Congo DR']                                  union all
   select 'L', ['England','Croatia','Panama','Ghana']
 ),
 flat as (
@@ -129,7 +134,11 @@ order by flat.group_letter, p.p_top2_in_group desc
 ## The games to watch
 
 <!-- agent prose: games_to_watch -->
-*~180 words. Call out 3-4 marquee fixtures by name. What the model sees (lambdas, p_top2 split, 1X2). Why the model might be wrong — at least one specific way. Use one of the forbidden-phrase substitutes.*
+Eight games crossed the marquee threshold (both teams above 50% to advance). Three stand out:
+
+- **Norway vs France (Group I, June 26).** λ_home 2.59, λ_away 2.61 — the most evenly matched lambdas on the slate. The model gives France about a 44% chance to win and Norway about a 40%, with the rest a draw. Whoever loses likely finishes second and inherits a tougher knockout draw.
+- **Colombia vs Portugal (Group K, June 27).** Portugal favored 47/19/34 with the higher λ (2.33 vs 1.65), but Colombia at 61% top-2 is already a contender — this is the model's best guess at who tops Group K.
+- **Scotland vs Brazil (Group C, June 24).** The model gives Brazil about a 47% chance, with 25% to Scotland — surprising upside for a team most punters would write off. The reason: Brazil's λ at 1.95 is lower than every other top-five favorite's home λ in their respective marquee fixtures. If the model is right about Scotland's defense, this is the kind of upset the bracket has been quietly waiting for.
 <!-- /agent prose: games_to_watch -->
 
 ```sql marquee_xg_view
@@ -157,17 +166,19 @@ order by (p_top2_home + p_top2_away) desc
 ## The dark horses and the cautionary tales
 
 <!-- agent prose: dark_horses -->
-*~150 words. One team the model loves you should doubt; one team the model dismisses you should watch. Use one of the required framings. Editorialize about the model's blind spots, not the data itself.*
+The team the model loves that you should probably doubt: **Norway**. Norway is sixth in champion probability (6.0%) on the back of recent xG and a manageable group, but it's never reached a World Cup quarter-final. The model weights recent club form heavily, and Norway's recent form is propped up by Erling Haaland — a single-point-of-failure injury risk the model has no way to encode. If Haaland's hamstring decides otherwise, Norway's bracket evaporates fast.
+
+The team the model dismisses that you should watch: **Croatia**. Croatia sits at just 57% top-2 in Group L and under 1% to win the whole thing — but they were finalists in 2018 and bronze in 2022. The model is using post-2022 form data, and an aging Modrić-era midfield doesn't backtest well against a fresh tournament where 35-year-olds remember how to run.
 <!-- /agent prose: dark_horses -->
 
 ## A word from the model
 
 <!-- agent prose: closing -->
-*~60 words. Closing humility paragraph naming specific blind spots the model has (no player data, FIFA-rank snapshot frozen in time, no injuries, no tactics, no weather). Required framing once.*
+A word from the model: it knows what it doesn't know. It has no player data beyond xG totals, no injury feed, no tactical awareness. It can't see who Haaland or Bellingham hurt their hamstring against. It weights last-10 form heavily, so hot streaks beat pedigree on paper. None of that makes it useless. It does make it an estimate, not a prophecy.
 <!-- /agent prose: closing -->
 
 ## How the model works
 
 <!-- agent prose: methodology -->
-*~100 words. Methodology footnote — variables and data sources at concept level only. NO pull-script paths, NO API endpoint names. Acceptable mentions: "international match results since 2022", "current FIFA World Ranking", "country-level GDP and population", "host-country boost". Link to results/wc2026-predictor/MODEL.md for the full card.*
+The model is a Poisson goals model with a per-game luck factor, fit on every international match since January 2022 and a current snapshot of FIFA World Ranking points. Each team's expected goals draws on tier-weighted recent form, a goal-mean prior calibrated against FIFA rank within the 48 qualifiers, and a small economic prior (GDP per capita + population). Host nations get a modest home boost only on home turf. The closed-form group-stage 1X2 probabilities come from a two-dimensional truncated-Normal quadrature; the knockout bracket is a 10,000-iteration Monte Carlo. Full model card: [`results/wc2026-predictor/MODEL.md`](../results/wc2026-predictor/MODEL.md).
 <!-- /agent prose: methodology -->
