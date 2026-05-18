@@ -1,0 +1,249 @@
+-- Graphene semantic layer over the WC2026 DuckDB analytics database.
+-- The underlying tables live in the `curated` schema; Graphene ATTACHes
+-- the .duckdb file as `graphene_cli` (read-only) so multiple processes
+-- can query it concurrently.
+-- See db/SCHEMA.md for the full column-level contract.
+
+-- Player master (one row per WC2026 candidate, stable P###### IDs).
+table curated.dim_player (
+  player_id VARCHAR           -- surrogate key, format P######
+  display_name VARCHAR
+  normalized_name VARCHAR     -- NFKD-stripped, lowercased; used for matching
+  country_code VARCHAR        -- FIFA 3-letter
+  nation_name VARCHAR
+  birth_date DATE
+  birth_year INTEGER
+  position VARCHAR
+  current_club VARCHAR
+  current_league VARCHAR
+  statsbomb_name VARCHAR      -- cached source-specific name
+  understat_id VARCHAR
+  understat_name VARCHAR
+  is_active BOOLEAN
+  first_seen_at DATE
+  last_updated_at DATE
+
+  join many curated.fact_player_xg on player_id = fact_player_xg.player_id
+
+  player_count: count(distinct player_id)
+)
+
+-- Team master (FIFA 3-letter codes as canonical natural key).
+table curated.dim_team (
+  team_code VARCHAR
+  team_name VARCHAR
+  iso2_code VARCHAR
+  confederation VARCHAR
+  is_wc2026_qualifier BOOLEAN
+
+  join many curated.fact_player_xg on team_code = fact_player_xg.team_code
+  join many curated.fact_team_rating on team_code = fact_team_rating.team_code
+
+  team_count: count(distinct team_code)
+)
+
+-- Player xG fact: one row per (player_id, source, period_id).
+-- Tournament rows carry team_code; club-grain rows carry club_name and have NULL team_code.
+table curated.fact_player_xg (
+  player_id VARCHAR
+  source VARCHAR              -- 'statsbomb' or 'understat'
+  period_id VARCHAR           -- tournament_id or season slug (e.g. 'club_2526')
+  team_code VARCHAR           -- national team (NULL for club rows)
+  club_name VARCHAR
+  minutes INTEGER
+  goals INTEGER
+  xg_total DOUBLE
+  xg_per_90 DOUBLE
+  xa_total DOUBLE
+  xa_per_90 DOUBLE
+  shots INTEGER
+  as_of_date VARCHAR
+
+  join one curated.dim_player on player_id = dim_player.player_id
+  join one curated.dim_team on team_code = dim_team.team_code
+
+  total_xg: sum(xg_total)
+  total_xa: sum(xa_total)
+  total_minutes: sum(minutes)
+  total_goals: sum(goals)
+  total_shots: sum(shots)
+  fact_rows: count(*)
+)
+
+-- Team rating fact: one row per (team_code, rating_type, as_of_date).
+table curated.fact_team_rating (
+  team_code VARCHAR
+  model_id INTEGER            -- NULL for internal M1/M2/M3 rating layers
+  rating_value DOUBLE
+  rating_type VARCHAR         -- 'attack' / 'defense' / 'historical' / 'season' / 'recent_form'
+  as_of_date DATE
+
+  join one curated.dim_team on team_code = dim_team.team_code
+
+  avg_rating: avg(rating_value)
+  rating_count: count(*)
+)
+
+-- ── Country-context features (plan 2026-05-14-001/002) ─────────────────
+-- One row per (team_code, year). GDP per capita and population from the
+-- World Bank (1986-2024 reported; 2025 NULL pending publication).
+table curated.fact_team_economics (
+  team_code VARCHAR
+  year INTEGER
+  gdp_per_capita_usd DOUBLE
+  population DOUBLE
+
+  join one curated.dim_team on team_code = dim_team.team_code
+
+  avg_gdp_pc: avg(gdp_per_capita_usd)
+  total_pop: sum(population)
+  econ_rows: count(*)
+)
+
+-- One row per team_code. Latest FIFA Men's World Ranking edition.
+table curated.fact_team_fifa_ranking (
+  team_code VARCHAR
+  rank INTEGER
+  points DOUBLE
+  rank_change INTEGER
+  snapshot_date DATE
+  built_at TIMESTAMP
+
+  join one curated.dim_team on team_code = dim_team.team_code
+
+  avg_points: avg(points)
+  fifa_rows: count(*)
+)
+
+-- International match fact: one row per (match_date, home, away).
+-- Source: martj42 international results (~50k matches).
+table curated.fact_international_match (
+  match_date DATE
+  home_team_code VARCHAR
+  away_team_code VARCHAR
+  home_score INTEGER
+  away_score INTEGER
+  goal_diff INTEGER
+  result VARCHAR
+  tournament VARCHAR
+  tournament_tier VARCHAR
+  is_competitive BOOLEAN
+  city VARCHAR
+  host_country VARCHAR
+  neutral_site BOOLEAN
+
+  match_count: count(*)
+)
+
+-- Denormalized view: dim_team enriched with latest economics + current FIFA ranking.
+-- This is the model-facing one-table read.
+table curated.dim_team_current (
+  team_code VARCHAR
+  team_name VARCHAR
+  iso2_code VARCHAR
+  confederation VARCHAR
+  is_wc2026_qualifier BOOLEAN
+  economics_year INTEGER
+  gdp_per_capita_usd_latest DOUBLE
+  population_latest DOUBLE
+  fifa_rank INTEGER
+  fifa_points DOUBLE
+  fifa_rank_change INTEGER
+  fifa_snapshot_date DATE
+
+  team_count: count(distinct team_code)
+)
+
+
+-- ── Match-level team xG (StatsBomb tournament data) ───────────────────
+-- One row per (competition, match_id, team). Used for team xG / xGA aggregates.
+table raw.statsbomb_team_xg (
+  competition VARCHAR
+  season VARCHAR
+  match_id BIGINT
+  match_date VARCHAR
+  team VARCHAR
+  opponent VARCHAR
+  is_home BOOLEAN
+  goals BIGINT
+  goals_conceded BIGINT
+  xg DOUBLE
+  xa DOUBLE
+  shots BIGINT
+  shots_on_target BIGINT
+  passes BIGINT
+  pressures BIGINT
+  carries BIGINT
+
+  team_xg: sum(xg)
+  team_goals: sum(goals)
+  team_xga: sum(goals_conceded)   -- proxy when xGA not available per match
+  team_shots: sum(shots)
+  matches: count(*)
+)
+
+-- Composite attack rating per WC2026 qualifier (squad-aggregated club xG).
+table raw.team_attack_ratings (
+  nation VARCHAR
+  squad_players INTEGER
+  matched_to_club INTEGER
+  attack_rating DOUBLE
+  attack_nat_only DOUBLE
+  attack_club_only DOUBLE
+  creativity_rating DOUBLE
+  progressive_pass_rating DOUBLE
+  press_intensity DOUBLE
+)
+
+-- Composite defensive rating per WC2026 qualifier.
+table raw.team_defensive_ratings (
+  nation VARCHAR
+  defensive_rating DOUBLE
+  tournament_xga DOUBLE
+  club_xga_avg DOUBLE
+  club_sample_size BIGINT
+  used_fallback BOOLEAN
+)
+
+
+-- ── Raw layer references for historical / ad-hoc analysis ─────────────
+-- These mirror the parquet schemas 1:1 and let GSQL pages query the
+-- pre-MDM tournament data (players outside the WC2026 master).
+
+table raw.sb_player_summary_pre_wc22 (
+  player VARCHAR
+  team VARCHAR
+  xg_total DOUBLE
+  shots BIGINT
+  goals BIGINT
+  minutes BIGINT
+  xg_per_90 DOUBLE
+)
+
+table raw.sb_player_stats_pedigree (
+  player VARCHAR
+  team VARCHAR
+  competition VARCHAR
+  season VARCHAR
+  xg_total DOUBLE
+  shots BIGINT
+  goals BIGINT
+  minutes BIGINT
+  xg_per_90 DOUBLE
+)
+
+-- Match-level player rows; for WC22 / Euro24 / Copa24 aggregations.
+table raw.sb_player_stats (
+  competition VARCHAR
+  season VARCHAR
+  match_id BIGINT
+  match_date VARCHAR
+  team VARCHAR
+  opponent VARCHAR
+  is_home BOOLEAN
+  player VARCHAR
+  shots BIGINT
+  goals BIGINT
+  xg DOUBLE
+  minutes_played BIGINT
+)

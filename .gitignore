@@ -21,5 +21,17 @@ data/*.duckdb
 data/*.duckdb-wal
 data/*.duckdb-tmp
 
+# Stray DuckDB scratch files anywhere under db/
+db/*.duckdb
+db/*.duckdb-wal
+db/*.duckdb-tmp
+
+# Raw and derived data layers. Per DEVELOPMENT.md the raw tree is
+# immutable per-source-per-date dumps and the derived tree is rebuildable
+# from `data/raw/` via `tools/`. Neither is committed.
+data/raw/
+data/derived/
+
 # Build-step quarantine review queue (generated each build)
 db/registry/unmatched.csv
+.claude/worktrees/

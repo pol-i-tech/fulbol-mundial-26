@@ -134,5 +134,5 @@ If any of (3) or (4) fails, the PR is closed without merge — these are hard ru
 ## What this protocol does *not* cover
 
 - Adding a new model from scratch — see [`DEVELOPMENT.md` — Adding a New Model](../../DEVELOPMENT.md#adding-a-new-model).
-- Producing a fresh dated snapshot with no methodology change — that is the regular weekly cadence run by the [Orchestrator](synthesis-orchestrator.md).
+- Producing a fresh dated snapshot with no methodology change — that is a regular re-run of the model against the latest curated layer (manual today; an automated cadence is sketched in [`../ideation/2026-05-15-role-08-orchestration.md`](../ideation/2026-05-15-role-08-orchestration.md)).
 - Adding a new data layer that does not yet feed any model — that is acquisition work, owned by an Acquisition role.

@@ -45,8 +45,7 @@ Rate limit: Understat tolerates polite scraping. The puller throttles per-league
 
 | Downstream role | Artifact | Frequency |
 |---|---|---|
-| [Compound-model](modeling-compound-model.md) | `squad_xg_ratings.parquet`, `team_attack_ratings.parquet` | weekly |
-| [xG-Poisson](modeling-poisson-xg.md) | `understat_player_xg.parquet` (when wired in) | weekly |
+| [Modeling](05-modeling.md) | `squad_xg_ratings.parquet`, `team_attack_ratings.parquet`, `understat_player_xg.parquet` (when wired in) | on snapshot |
 | [Coverage Audit](quality-coverage-audit.md) | `understat_player_xg_raw.parquet` for `match_rate` per nation | weekly |
 
 ## Escalation

@@ -48,8 +48,8 @@ Targets per [acquisition strategy](../plans/2026-05-06-world-cup-player-data-acq
 
 | Gap | Owning role | Priority | Stop-condition |
 |---|---|---|---|
-| No structured pull of FIFA / confederation / federation match reports for recent qualifiers and friendlies. martj42 covers results but not lineups, minutes, or substitutions. | [National Lineups](acquisition-national-lineups.md) | **P0** for any model that wants to use lineup-level signal | Any modeling role wires lineup data into a snapshot before this exists |
-| Nations League and WC qualifying xG not pulled. [Documented as the highest-impact missing signal](../solutions/best-practices/model-roles-and-best-use-2026-04-28.md) — closes the 6-pt accuracy gap on xG-Poisson. | [StatsBomb](acquisition-statsbomb.md) (if open data covers) or [National Lineups](acquisition-national-lineups.md) (verified-media fallback) | **P0** for xG-Poisson refinement | Next refinement-loop pass on xG-Poisson without this layer |
+| No structured pull of FIFA / confederation / federation match reports for recent qualifiers and friendlies. martj42 covers results but not lineups, minutes, or substitutions. | National Lineups — *spec preserved at [`docs/ideation/2026-05-15-acquisition-national-lineups.md`](../ideation/2026-05-15-acquisition-national-lineups.md), no implementation yet* | **P0** for any model that wants to use lineup-level signal | Any modeling role wires lineup data into a snapshot before this exists |
+| Nations League and WC qualifying xG not pulled. [Documented as the highest-impact missing signal](../solutions/best-practices/model-roles-and-best-use-2026-04-28.md) — closes the 6-pt accuracy gap on xG models. | [StatsBomb](acquisition-statsbomb.md) (if open data covers) or National Lineups (verified-media fallback — *see ideation*) | **P0** for xG refinement | Next refinement-loop pass on the xG path without this layer |
 
 ### Layer 4 — Club Recent Form
 

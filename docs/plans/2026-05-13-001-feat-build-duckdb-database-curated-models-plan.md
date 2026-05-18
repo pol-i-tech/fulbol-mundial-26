@@ -1,7 +1,7 @@
 ---
 title: "feat: Build DuckDB Database with Master-Data-Management for WC2026 Analytics"
 type: feat
-status: active
+status: completed
 date: 2026-05-13
 ---
 

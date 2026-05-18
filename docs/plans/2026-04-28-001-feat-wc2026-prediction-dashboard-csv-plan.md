@@ -1,7 +1,7 @@
 ---
 title: "feat: WC2026 Match Prediction Dashboard CSV"
 type: feat
-status: active
+status: completed
 date: 2026-04-28
 ---
 
