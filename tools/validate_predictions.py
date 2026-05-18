@@ -52,7 +52,12 @@ DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 FIFA3_RE = re.compile(r"^[A-Z]{3}$")
 GROUP_RE = re.compile(r"^GROUP-[A-L]-WC2026$")
 GROUP_MATCH_RE = re.compile(r"^WC26-[A-Z]{3}-[A-Z]{3}-\d{4}-\d{2}-\d{2}$")
-KNOCKOUT_RE = re.compile(r"^WC26-(R32|R16|QF|SF)-\d{2}$|^WC26-F$")
+# Slot-based knockout IDs (e.g. WC26-R32-08, WC26-F): pre-tournament bracket
+# placeholders for outputs that emit one row per bracket slot.
+KNOCKOUT_SLOT_RE = re.compile(r"^WC26-(R32|R16|QF|SF)-\d{2}$|^WC26-F$")
+# Pair-based knockout IDs (e.g. WC26-R32-FRA-GER, WC26-FINAL-BRA-ESP): emitted
+# by the MC simulator for every actually-occurring team-pair at each stage.
+KNOCKOUT_PAIR_RE = re.compile(r"^WC26-(R32|R16|QF|SF|FINAL)-[A-Z]{3}-[A-Z]{3}$")
 ADVANCE_RE = re.compile(r"^ADVANCE-[A-Z]{3}-WC2026$")
 TOTALS_RE = re.compile(r"^(over|under)_[0-9]+(_[0-9]+)?$")
 
@@ -86,7 +91,8 @@ def discover_prediction_files(include_backtests: bool) -> list[Path]:
 def valid_match_id(match_id: str) -> bool:
     return (
         GROUP_MATCH_RE.match(match_id) is not None
-        or KNOCKOUT_RE.match(match_id) is not None
+        or KNOCKOUT_SLOT_RE.match(match_id) is not None
+        or KNOCKOUT_PAIR_RE.match(match_id) is not None
         or match_id == "OUTRIGHT-WC2026"
         or GROUP_RE.match(match_id) is not None
         or ADVANCE_RE.match(match_id) is not None

@@ -11,11 +11,20 @@ applies_when:
   - Deciding how much weight to give each model signal
   - Diagnosing why the ensemble gave a surprising prediction
   - Adding a new model to the ensemble in the future
+status: superseded
+superseded_by: docs/plans/2026-05-15-004-refactor-project-cleanup-plan.md
 tags:
   - elo, form, xg-poisson, ensemble, model-design, wc2026, signal-hierarchy
 ---
 
 # Statistical Model Roles: When and How to Use Each Model
+
+> **Superseded by the 2026-05-17 single-model cleanup.** This doc describes the
+> multi-model era (Elo / Form / Poisson / xG-Poisson / Ensemble). The project
+> has since consolidated to a single canonical model
+> (`methodology/wc2026-predictor/`); the model-disagreement / signal-hierarchy
+> framing below no longer applies to active code. Preserved as historical
+> reference.
 
 ## Context
 

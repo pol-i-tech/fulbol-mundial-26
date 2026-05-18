@@ -1,7 +1,7 @@
 ---
 title: Multi-Agent Org Chart and Collaboration Guidelines
 type: feat
-status: active
+status: completed
 date: 2026-05-09
 ---
 

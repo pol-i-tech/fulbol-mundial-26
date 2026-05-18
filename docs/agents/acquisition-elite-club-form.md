@@ -50,7 +50,7 @@ Source order from [`player-data-gap-plan.md`](../plans/2026-05-06-player-data-ga
 
 | Downstream role | Artifact | Frequency |
 |---|---|---|
-| [Compound-model](modeling-compound-model.md) | `club_recent_player_minutes.parquet` once wired | weekly during knockout phase |
+| [Modeling](05-modeling.md) | `club_recent_player_minutes.parquet` once wired | weekly during knockout phase |
 | [Coverage Audit](quality-coverage-audit.md) | `ucl_recent_player_minutes.csv` for elite-club exposure flag | weekly |
 
 ## Escalation

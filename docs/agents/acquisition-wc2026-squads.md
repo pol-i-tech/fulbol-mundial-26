@@ -45,7 +45,7 @@ Maintain the canonical list of players each qualified nation will (or might) tak
 
 | Downstream role | Artifact | Frequency |
 |---|---|---|
-| [Compound-model](modeling-compound-model.md) | `wc2026_final_squads.csv` once available; `wc2026_preliminary_squads.csv` before | weekly until 2026-05-25, daily after |
+| [Modeling](05-modeling.md) | `wc2026_final_squads.csv` once available; `wc2026_preliminary_squads.csv` before | weekly until 2026-05-25, daily after |
 | [Coverage Audit](quality-coverage-audit.md) | `wc2026_preliminary_squads.csv` for per-nation player count | weekly |
 | Every player-level model | filtered to `squad_status in ('preliminary','confirmed')` after the cutoff | continuous |
 
