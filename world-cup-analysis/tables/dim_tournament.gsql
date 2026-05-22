@@ -1,0 +1,17 @@
+-- The tournament master: hand-curated enumeration of in-scope tournaments.
+-- Each row is one tournament (tournament_id slug).
+table graphene_cli.curated.dim_tournament (
+
+  tournament_id VARCHAR    -- Slug. One of: wc2026, wc2022, wc2018, euro2024, euro2020, copa2024, copa2021.
+  tournament_name VARCHAR  -- Display, e.g. "FIFA World Cup 2022".
+  start_date DATE          -- First match date.
+  end_date DATE            -- Final date.
+  host_country VARCHAR     -- Display name of host (or "USA/MEX/CAN" for joint hosts).
+  competition_type VARCHAR -- One of: world_cup, euros, copa_america.
+
+  /* Join relationships */
+
+  -- fact_player_xg.period_id is a tournament_id for tournament rows, or a club-season slug
+  -- (e.g. "club_2526") for club rows. Club-season rows simply won't match here.
+  join many graphene_cli.curated.fact_player_xg on tournament_id = fact_player_xg.period_id
+)

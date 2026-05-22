@@ -1,0 +1,15 @@
+-- The model master: one row per named model under results/.
+-- Each row is one model (model_id, equal to the directory name under results/).
+table graphene_cli.curated.dim_model (
+
+  model_id VARCHAR                -- Slug = directory name. E.g. "elo-baseline", "ensemble-v2", "poisson-xg".
+  model_name VARCHAR              -- Display name from MODEL.md.
+  model_type VARCHAR              -- One of: baseline, compound, single-source.
+  methodology_path VARCHAR        -- Repo-relative path to methodology/<dir>/ or canonical implementation.
+  results_path VARCHAR            -- Repo-relative results/<dir>/.
+  last_validation_status VARCHAR  -- Parsed from MODEL.md "Validation status" row.
+
+  /* Join relationships */
+
+  join many graphene_cli.curated.fact_team_rating on model_id = fact_team_rating.model_id
+)
