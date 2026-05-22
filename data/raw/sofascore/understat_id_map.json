@@ -1,0 +1,3080 @@
+{
+  "Mirlind Daku": {
+    "id": "11649",
+    "league": "RFPL",
+    "club": "Rubin Kazan",
+    "nation": "Albania"
+  },
+  "Armando Broja": {
+    "id": "8384",
+    "league": "EPL",
+    "club": "Burnley",
+    "nation": "Albania"
+  },
+  "Medon Berisha": {
+    "id": "10908",
+    "league": "Serie_A",
+    "club": "Lecce",
+    "nation": "Albania"
+  },
+  "Kristjan Asllani": {
+    "id": "9854",
+    "league": "Serie_A",
+    "club": "Torino",
+    "nation": "Albania"
+  },
+  "Berat Djimsiti": {
+    "id": "1927",
+    "league": "Serie_A",
+    "club": "Atalanta",
+    "nation": "Albania"
+  },
+  "Elseid Hysaj": {
+    "id": "1375",
+    "league": "Serie_A",
+    "club": "Lazio",
+    "nation": "Albania"
+  },
+  "Ylber Ramadani": {
+    "id": "11945",
+    "league": "Serie_A",
+    "club": "Lecce",
+    "nation": "Albania"
+  },
+  "Lautaro Javier Martínez": {
+    "id": "7006",
+    "league": "Serie_A",
+    "club": "Inter",
+    "nation": "Argentina"
+  },
+  "Paulo Bruno Exequiel Dybala": {
+    "id": "1294",
+    "league": "Serie_A",
+    "club": "Roma",
+    "nation": "Argentina"
+  },
+  "Julián Álvarez": {
+    "id": "10846",
+    "league": "La_liga",
+    "club": "Atletico Madrid",
+    "nation": "Argentina"
+  },
+  "Nicolás Iván González": {
+    "id": "7074",
+    "league": "La_liga",
+    "club": "Atletico Madrid",
+    "nation": "Argentina"
+  },
+  "Enzo Fernandez": {
+    "id": "11356",
+    "league": "EPL",
+    "club": "Chelsea",
+    "nation": "Argentina"
+  },
+  "Thiago Ezequiel Almada": {
+    "id": "13358",
+    "league": "La_liga",
+    "club": "Atletico Madrid",
+    "nation": "Argentina"
+  },
+  "Giovani Lo Celso": {
+    "id": "5681",
+    "league": "La_liga",
+    "club": "Real Betis",
+    "nation": "Argentina"
+  },
+  "Valentin Carboni": {
+    "id": "11080",
+    "league": "Serie_A",
+    "club": "Genoa",
+    "nation": "Argentina"
+  },
+  "Alexis Mac Allister": {
+    "id": "8379",
+    "league": "EPL",
+    "club": "Liverpool",
+    "nation": "Argentina"
+  },
+  "Lucas Martínez Quarta": {
+    "id": "7365",
+    "league": "EPL",
+    "club": "West Ham",
+    "nation": "Argentina"
+  },
+  "Nicolás Alejandro Tagliafico": {
+    "id": "10701",
+    "league": "Ligue_1",
+    "club": "Lyon",
+    "nation": "Argentina"
+  },
+  "Cristian Gabriel Romero": {
+    "id": "7218",
+    "league": "EPL",
+    "club": "Tottenham",
+    "nation": "Argentina"
+  },
+  "Guido Rodríguez": {
+    "id": "8267",
+    "league": "La_liga",
+    "club": "Valencia",
+    "nation": "Argentina"
+  },
+  "Alejandro Darío Gómez": {
+    "id": "13627",
+    "league": "La_liga",
+    "club": "Athletic Club",
+    "nation": "Argentina"
+  },
+  "Lisandro Martínez": {
+    "id": "10802",
+    "league": "EPL",
+    "club": "Manchester United",
+    "nation": "Argentina"
+  },
+  "Exequiel Alejandro Palacios": {
+    "id": "8325",
+    "league": "Bundesliga",
+    "club": "Bayer Leverkusen",
+    "nation": "Argentina"
+  },
+  "Juan Marcos Foyth": {
+    "id": "6306",
+    "league": "La_liga",
+    "club": "Villarreal",
+    "nation": "Argentina"
+  },
+  "Damián Emiliano Martínez": {
+    "id": "14233",
+    "league": "La_liga",
+    "club": "Atletico Madrid",
+    "nation": "Argentina"
+  },
+  "Fran Karačić": {
+    "id": "9810",
+    "league": "La_liga",
+    "club": "Real Madrid",
+    "nation": "Australia"
+  },
+  "Jackson Irvine": {
+    "id": "12978",
+    "league": "Bundesliga",
+    "club": "St. Pauli",
+    "nation": "Australia"
+  },
+  "Mathew Ryan": {
+    "id": "2385",
+    "league": "La_liga",
+    "club": "Levante",
+    "nation": "Australia"
+  },
+  "Michael Gregoritsch": {
+    "id": "171",
+    "league": "Bundesliga",
+    "club": "Augsburg",
+    "nation": "Austria"
+  },
+  "Christoph Baumgartner": {
+    "id": "7422",
+    "league": "Bundesliga",
+    "club": "RasenBallsport Leipzig",
+    "nation": "Austria"
+  },
+  "Romano Schmid": {
+    "id": "9069",
+    "league": "Bundesliga",
+    "club": "Werder Bremen",
+    "nation": "Austria"
+  },
+  "Stefan Posch": {
+    "id": "5329",
+    "league": "Bundesliga",
+    "club": "Mainz 05",
+    "nation": "Austria"
+  },
+  "Patrick Wimmer": {
+    "id": "9730",
+    "league": "Bundesliga",
+    "club": "Wolfsburg",
+    "nation": "Austria"
+  },
+  "Leopold Querfeld": {
+    "id": "12920",
+    "league": "Bundesliga",
+    "club": "Union Berlin",
+    "nation": "Austria"
+  },
+  "Konrad Laimer": {
+    "id": "6109",
+    "league": "Bundesliga",
+    "club": "Bayern Munich",
+    "nation": "Austria"
+  },
+  "Marcel Sabitzer": {
+    "id": "5248",
+    "league": "Bundesliga",
+    "club": "Borussia Dortmund",
+    "nation": "Austria"
+  },
+  "Alexander Prass": {
+    "id": "12928",
+    "league": "Bundesliga",
+    "club": "Hoffenheim",
+    "nation": "Austria"
+  },
+  "Philipp Lienhart": {
+    "id": "2611",
+    "league": "Bundesliga",
+    "club": "Freiburg",
+    "nation": "Austria"
+  },
+  "Philipp Mwene": {
+    "id": "7106",
+    "league": "Bundesliga",
+    "club": "Mainz 05",
+    "nation": "Austria"
+  },
+  "Nicolas Seiwald": {
+    "id": "11871",
+    "league": "Bundesliga",
+    "club": "RasenBallsport Leipzig",
+    "nation": "Austria"
+  },
+  "Kevin Danso": {
+    "id": "5261",
+    "league": "EPL",
+    "club": "Tottenham",
+    "nation": "Austria"
+  },
+  "Maximilian Wöber": {
+    "id": "7366",
+    "league": "Bundesliga",
+    "club": "Werder Bremen",
+    "nation": "Austria"
+  },
+  "Johan Bakayoko": {
+    "id": "13850",
+    "league": "Bundesliga",
+    "club": "RasenBallsport Leipzig",
+    "nation": "Belgium"
+  },
+  "Kevin De Bruyne": {
+    "id": "447",
+    "league": "Serie_A",
+    "club": "Napoli",
+    "nation": "Belgium"
+  },
+  "Leandro Trossard": {
+    "id": "7698",
+    "league": "EPL",
+    "club": "Arsenal",
+    "nation": "Belgium"
+  },
+  "Charles De Ketelaere": {
+    "id": "10877",
+    "league": "Serie_A",
+    "club": "Atalanta",
+    "nation": "Belgium"
+  },
+  "Jeremy Doku": {
+    "id": "8981",
+    "league": "EPL",
+    "club": "Manchester City",
+    "nation": "Belgium"
+  },
+  "Amadou Onana": {
+    "id": "9667",
+    "league": "EPL",
+    "club": "Aston Villa",
+    "nation": "Belgium"
+  },
+  "Youri Tielemans": {
+    "id": "5956",
+    "league": "EPL",
+    "club": "Aston Villa",
+    "nation": "Belgium"
+  },
+  "Axel Witsel": {
+    "id": "3059",
+    "league": "La_liga",
+    "club": "Girona",
+    "nation": "Belgium"
+  },
+  "Thomas Meunier": {
+    "id": "5680",
+    "league": "Ligue_1",
+    "club": "Lille",
+    "nation": "Belgium"
+  },
+  "Timothy Castagne": {
+    "id": "6157",
+    "league": "EPL",
+    "club": "Fulham",
+    "nation": "Belgium"
+  },
+  "Arthur Theate": {
+    "id": "9999",
+    "league": "Bundesliga",
+    "club": "Eintracht Frankfurt",
+    "nation": "Belgium"
+  },
+  "Leander Dendoncker": {
+    "id": "7236",
+    "league": "La_liga",
+    "club": "Real Oviedo",
+    "nation": "Belgium"
+  },
+  "Wout Faes": {
+    "id": "8646",
+    "league": "Ligue_1",
+    "club": "Monaco",
+    "nation": "Belgium"
+  },
+  "Orel Mangala": {
+    "id": "6088",
+    "league": "Ligue_1",
+    "club": "Lyon",
+    "nation": "Belgium"
+  },
+  "Dodi Lukebakio": {
+    "id": "5706",
+    "league": "La_liga",
+    "club": "Sevilla",
+    "nation": "Belgium"
+  },
+  "Thibaut Courtois": {
+    "id": "680",
+    "league": "La_liga",
+    "club": "Real Madrid",
+    "nation": "Belgium"
+  },
+  "Luis Fernando Haquín Lopez": {
+    "id": "4091",
+    "league": "La_liga",
+    "club": "Rayo Vallecano",
+    "nation": "Bolivia"
+  },
+  "Diego Daniel Medina Roman": {
+    "id": "9839",
+    "league": "La_liga",
+    "club": "Mallorca",
+    "nation": "Bolivia"
+  },
+  "Jesús Manuel Sagredo Chávez": {
+    "id": "12058",
+    "league": "RFPL",
+    "club": "Dinamo Moscow",
+    "nation": "Bolivia"
+  },
+  "Gabriel Fernando de Jesus": {
+    "id": "5543",
+    "league": "EPL",
+    "club": "Arsenal",
+    "nation": "Brazil"
+  },
+  "Daniel Alves da Silva": {
+    "id": "6170",
+    "league": "La_liga",
+    "club": "Elche",
+    "nation": "Brazil"
+  },
+  "Vinícius José Paixão de Oliveira Júnior": {
+    "id": "7008",
+    "league": "La_liga",
+    "club": "Real Madrid",
+    "nation": "Brazil"
+  },
+  "Alex Sandro Lobo Silva": {
+    "id": "7424",
+    "league": "La_liga",
+    "club": "Getafe",
+    "nation": "Brazil"
+  },
+  "Rodrygo Silva de Goes": {
+    "id": "12756",
+    "league": "EPL",
+    "club": "Wolverhampton Wanderers",
+    "nation": "Brazil"
+  },
+  "Danilo Luiz da Silva": {
+    "id": "8778",
+    "league": "Bundesliga",
+    "club": "Borussia Dortmund",
+    "nation": "Brazil"
+  },
+  "João Victor Gomes da Silva": {
+    "id": "12766",
+    "league": "EPL",
+    "club": "Nottingham Forest",
+    "nation": "Brazil"
+  },
+  "Éder Gabriel Militão": {
+    "id": "7829",
+    "league": "La_liga",
+    "club": "Real Madrid",
+    "nation": "Brazil"
+  },
+  "Guilherme Antonio Arana Lopes": {
+    "id": "13026",
+    "league": "EPL",
+    "club": "West Ham",
+    "nation": "Brazil"
+  },
+  "Éderson José dos Santos Lourenço da Silva": {
+    "id": "14296",
+    "league": "Ligue_1",
+    "club": "Nice",
+    "nation": "Brazil"
+  },
+  "Éverton Augusto de Barros Ribeiro": {
+    "id": "13265",
+    "league": "Ligue_1",
+    "club": "Nice",
+    "nation": "Brazil"
+  },
+  "Bryan Mbeumo": {
+    "id": "6552",
+    "league": "EPL",
+    "club": "Manchester United",
+    "nation": "Cameroon"
+  },
+  "Nicolas Moumi Ngamaleu": {
+    "id": "11129",
+    "league": "RFPL",
+    "club": "Dinamo Moscow",
+    "nation": "Cameroon"
+  },
+  "Ngoran Suiru Fai Collins": {
+    "id": "9733",
+    "league": "EPL",
+    "club": "Brentford",
+    "nation": "Cameroon"
+  },
+  "Christopher Wooh": {
+    "id": "9631",
+    "league": "Ligue_1",
+    "club": "Rennes",
+    "nation": "Cameroon"
+  },
+  "Martin Hongla Yma II": {
+    "id": "7529",
+    "league": "La_liga",
+    "club": "Girona",
+    "nation": "Cameroon"
+  },
+  "Enzo Ebosse": {
+    "id": "8632",
+    "league": "Serie_A",
+    "club": "Torino,Verona",
+    "nation": "Cameroon"
+  },
+  "Tanitoluwa Oluwaseyi": {
+    "id": "13996",
+    "league": "La_liga",
+    "club": "Villarreal",
+    "nation": "Canada"
+  },
+  "Jonathan David": {
+    "id": "8636",
+    "league": "Serie_A",
+    "club": "Juventus",
+    "nation": "Canada"
+  },
+  "Jacen Russell-Rowe": {
+    "id": "14435",
+    "league": "Ligue_1",
+    "club": "Toulouse",
+    "nation": "Canada"
+  },
+  "Jonathan Osorio": {
+    "id": "10172",
+    "league": "Serie_A",
+    "club": "Bologna",
+    "nation": "Canada"
+  },
+  "Moise Bombito": {
+    "id": "12969",
+    "league": "Ligue_1",
+    "club": "Nice",
+    "nation": "Canada"
+  },
+  "Ismael Koné": {
+    "id": "13069",
+    "league": "Serie_A",
+    "club": "Sassuolo",
+    "nation": "Canada"
+  },
+  "Tajon Buchanan": {
+    "id": "12322",
+    "league": "La_liga",
+    "club": "Villarreal",
+    "nation": "Canada"
+  },
+  "Alphonso Davies": {
+    "id": "7345",
+    "league": "Bundesliga",
+    "club": "Bayern Munich",
+    "nation": "Canada"
+  },
+  "Derek Cornelius": {
+    "id": "12769",
+    "league": "Ligue_1",
+    "club": "Marseille",
+    "nation": "Canada"
+  },
+  "Thelonius Bair": {
+    "id": "12825",
+    "league": "Ligue_1",
+    "club": "Auxerre",
+    "nation": "Canada"
+  },
+  "Alexis Alejandro Sánchez Sánchez": {
+    "id": "498",
+    "league": "La_liga",
+    "club": "Sevilla",
+    "nation": "Chile"
+  },
+  "Mauricio Aníbal Isla Isla": {
+    "id": "10577",
+    "league": "Serie_A",
+    "club": "Lazio",
+    "nation": "Chile"
+  },
+  "Nicolás Esteban Fernández Muñoz": {
+    "id": "6321",
+    "league": "Bundesliga",
+    "club": "Borussia M.Gladbach",
+    "nation": "Chile"
+  },
+  "Andrés Mateus Uribe Villa": {
+    "id": "6170",
+    "league": "La_liga",
+    "club": "Elche",
+    "nation": "Colombia"
+  },
+  "Daniel Muñoz Mejía": {
+    "id": "13558",
+    "league": "La_liga",
+    "club": "Real Sociedad",
+    "nation": "Colombia"
+  },
+  "Johan Andrés Mojica Palacio": {
+    "id": "14470",
+    "league": "RFPL",
+    "club": "FC Orenburg",
+    "nation": "Colombia"
+  },
+  "Jhon Jáder Durán Palacio": {
+    "id": "14470",
+    "league": "RFPL",
+    "club": "FC Orenburg",
+    "nation": "Colombia"
+  },
+  "Miguel Ángel Borja Hernández": {
+    "id": "13787",
+    "league": "La_liga",
+    "club": "Celta Vigo",
+    "nation": "Colombia"
+  },
+  "Alvaro José Zamora Mata": {
+    "id": "1804",
+    "league": "Serie_A",
+    "club": "Como",
+    "nation": "Costa Rica"
+  },
+  "Álvaro José Zamora Mata": {
+    "id": "1804",
+    "league": "Serie_A",
+    "club": "Como",
+    "nation": "Costa Rica"
+  },
+  "Manfred Ugalde": {
+    "id": "12508",
+    "league": "RFPL",
+    "club": "Spartak Moscow",
+    "nation": "Costa Rica"
+  },
+  "Jefferson Brenes Rojas": {
+    "id": "2182",
+    "league": "EPL",
+    "club": "Crystal Palace",
+    "nation": "Costa Rica"
+  },
+  "Patrick Gilmar Sequeira Mejías": {
+    "id": "11853",
+    "league": "Bundesliga",
+    "club": "FC Heidenheim",
+    "nation": "Costa Rica"
+  },
+  "Alejandro Jesús Bran Flores": {
+    "id": "12723",
+    "league": "La_liga",
+    "club": "Girona",
+    "nation": "Costa Rica"
+  },
+  "Joseph Martín Mora Cortéz": {
+    "id": "987",
+    "league": "EPL",
+    "club": "Liverpool",
+    "nation": "Costa Rica"
+  },
+  "Ante Budimir": {
+    "id": "1235",
+    "league": "La_liga",
+    "club": "Osasuna",
+    "nation": "Croatia"
+  },
+  "Andrej Kramarić": {
+    "id": "956",
+    "league": "Bundesliga",
+    "club": "Hoffenheim",
+    "nation": "Croatia"
+  },
+  "Nikola Vlašić": {
+    "id": "6276",
+    "league": "Serie_A",
+    "club": "Torino",
+    "nation": "Croatia"
+  },
+  "Lovro Majer": {
+    "id": "9931",
+    "league": "Bundesliga",
+    "club": "Wolfsburg",
+    "nation": "Croatia"
+  },
+  "Mario Pašalić": {
+    "id": "1134",
+    "league": "Serie_A",
+    "club": "Atalanta",
+    "nation": "Croatia"
+  },
+  "Luka Sučić": {
+    "id": "12862",
+    "league": "La_liga",
+    "club": "Real Sociedad",
+    "nation": "Croatia"
+  },
+  "Martin Baturina": {
+    "id": "13934",
+    "league": "Serie_A",
+    "club": "Como",
+    "nation": "Croatia"
+  },
+  "Luka Modrić": {
+    "id": "2250",
+    "league": "Serie_A",
+    "club": "AC Milan",
+    "nation": "Croatia"
+  },
+  "Joško Gvardiol": {
+    "id": "9790",
+    "league": "EPL",
+    "club": "Manchester City",
+    "nation": "Croatia"
+  },
+  "Josip Stanišić": {
+    "id": "9458",
+    "league": "Bundesliga",
+    "club": "Bayern Munich",
+    "nation": "Croatia"
+  },
+  "Mateo Kovačić": {
+    "id": "2254",
+    "league": "EPL",
+    "club": "Manchester City",
+    "nation": "Croatia"
+  },
+  "Josip Juranović": {
+    "id": "11333",
+    "league": "Bundesliga",
+    "club": "Union Berlin",
+    "nation": "Croatia"
+  },
+  "Marin Pongracic": {
+    "id": "8303",
+    "league": "Serie_A",
+    "club": "Fiorentina",
+    "nation": "Croatia"
+  },
+  "Borna Sosa": {
+    "id": "7075",
+    "league": "EPL",
+    "club": "Crystal Palace",
+    "nation": "Croatia"
+  },
+  "Patrik Schick": {
+    "id": "1236",
+    "league": "Bundesliga",
+    "club": "Bayer Leverkusen",
+    "nation": "Czech Republic"
+  },
+  "Pavel Šulc": {
+    "id": "13735",
+    "league": "Ligue_1",
+    "club": "Lyon",
+    "nation": "Czech Republic"
+  },
+  "Adam Hložek": {
+    "id": "10774",
+    "league": "Bundesliga",
+    "club": "Hoffenheim",
+    "nation": "Czech Republic"
+  },
+  "Tomáš Souček": {
+    "id": "8288",
+    "league": "EPL",
+    "club": "West Ham",
+    "nation": "Czech Republic"
+  },
+  "Robin Hranáč": {
+    "id": "13012",
+    "league": "Bundesliga",
+    "club": "Hoffenheim",
+    "nation": "Czech Republic"
+  },
+  "Ladislav Krejčí": {
+    "id": "12721",
+    "league": "La_liga",
+    "club": "Girona",
+    "nation": "Czech Republic"
+  },
+  "Vladimír Coufal": {
+    "id": "8965",
+    "league": "Bundesliga",
+    "club": "Hoffenheim",
+    "nation": "Czech Republic"
+  },
+  "Václav Černý": {
+    "id": "11851",
+    "league": "Bundesliga",
+    "club": "Wolfsburg",
+    "nation": "Czech Republic"
+  },
+  "Rasmus Winther Højlund": {
+    "id": "11055",
+    "league": "Serie_A",
+    "club": "Napoli",
+    "nation": "Denmark"
+  },
+  "Alexander Hartmann Bah": {
+    "id": "5232",
+    "league": "EPL",
+    "club": "Liverpool",
+    "nation": "Denmark"
+  },
+  "Jonas Older Wind": {
+    "id": "10394",
+    "league": "Bundesliga",
+    "club": "Wolfsburg",
+    "nation": "Denmark"
+  },
+  "Yussuf Yurary Poulsen": {
+    "id": "5250",
+    "league": "Bundesliga",
+    "club": "Hamburger SV",
+    "nation": "Denmark"
+  },
+  "Jesper Lindstrøm": {
+    "id": "9752",
+    "league": "Bundesliga",
+    "club": "Wolfsburg",
+    "nation": "Denmark"
+  },
+  "Christian Dannemann Eriksen": {
+    "id": "646",
+    "league": "Bundesliga",
+    "club": "Wolfsburg",
+    "nation": "Denmark"
+  },
+  "Jacob Bruun Larsen": {
+    "id": "5355",
+    "league": "EPL",
+    "club": "Burnley",
+    "nation": "Denmark"
+  },
+  "Pierre-Emile Højbjerg": {
+    "id": "343",
+    "league": "Ligue_1",
+    "club": "Marseille",
+    "nation": "Denmark"
+  },
+  "Mikkel Damsgaard": {
+    "id": "8859",
+    "league": "EPL",
+    "club": "Brentford",
+    "nation": "Denmark"
+  },
+  "Andreas Skov Olsen": {
+    "id": "7934",
+    "league": "Bundesliga",
+    "club": "Wolfsburg",
+    "nation": "Denmark"
+  },
+  "Mathias Jensen": {
+    "id": "7166",
+    "league": "EPL",
+    "club": "Brentford",
+    "nation": "Denmark"
+  },
+  "Andreas Christensen": {
+    "id": "200",
+    "league": "La_liga",
+    "club": "Barcelona",
+    "nation": "Denmark"
+  },
+  "Rasmus Nissen Kristensen": {
+    "id": "10750",
+    "league": "Bundesliga",
+    "club": "Eintracht Frankfurt",
+    "nation": "Denmark"
+  },
+  "Joachim Andersen": {
+    "id": "6314",
+    "league": "EPL",
+    "club": "Fulham",
+    "nation": "Denmark"
+  },
+  "Joakim Mæhle": {
+    "id": "9233",
+    "league": "Bundesliga",
+    "club": "Wolfsburg",
+    "nation": "Denmark"
+  },
+  "Thomas Delaney": {
+    "id": "7765",
+    "league": "Ligue_1",
+    "club": "Le Havre",
+    "nation": "Denmark"
+  },
+  "Robert Skov": {
+    "id": "7867",
+    "league": "Bundesliga",
+    "club": "Union Berlin",
+    "nation": "Denmark"
+  },
+  "Victor Nelsson": {
+    "id": "13449",
+    "league": "Serie_A",
+    "club": "Verona",
+    "nation": "Denmark"
+  },
+  "Christian Nørgaard": {
+    "id": "7083",
+    "league": "EPL",
+    "club": "Arsenal",
+    "nation": "Denmark"
+  },
+  "Alan Steve Minda García": {
+    "id": "7071",
+    "league": "La_liga",
+    "club": "Rayo Vallecano",
+    "nation": "Ecuador"
+  },
+  "José Adoni Cifuentes Charcopa": {
+    "id": "9809",
+    "league": "La_liga",
+    "club": "Sevilla",
+    "nation": "Ecuador"
+  },
+  "Carlos Armando Gruezo Arboleda": {
+    "id": "10527",
+    "league": "EPL",
+    "club": "Brighton",
+    "nation": "Ecuador"
+  },
+  "Harry Kane": {
+    "id": "647",
+    "league": "Bundesliga",
+    "club": "Bayern Munich",
+    "nation": "England"
+  },
+  "Marcus Rashford": {
+    "id": "556",
+    "league": "La_liga",
+    "club": "Barcelona",
+    "nation": "England"
+  },
+  "Callum Wilson": {
+    "id": "468",
+    "league": "EPL",
+    "club": "West Ham",
+    "nation": "England"
+  },
+  "Cole Palmer": {
+    "id": "8497",
+    "league": "EPL",
+    "club": "Chelsea",
+    "nation": "England"
+  },
+  "Ollie Watkins": {
+    "id": "8865",
+    "league": "EPL",
+    "club": "Aston Villa",
+    "nation": "England"
+  },
+  "Anthony Gordon": {
+    "id": "8150",
+    "league": "EPL",
+    "club": "Newcastle United",
+    "nation": "England"
+  },
+  "Jude Bellingham": {
+    "id": "8824",
+    "league": "La_liga",
+    "club": "Real Madrid",
+    "nation": "England"
+  },
+  "Philip Foden": {
+    "id": "6055",
+    "league": "EPL",
+    "club": "Manchester City",
+    "nation": "England"
+  },
+  "Bukayo Saka": {
+    "id": "7322",
+    "league": "EPL",
+    "club": "Arsenal",
+    "nation": "England"
+  },
+  "Jack Grealish": {
+    "id": "675",
+    "league": "EPL",
+    "club": "Everton",
+    "nation": "England"
+  },
+  "Phil Foden": {
+    "id": "6055",
+    "league": "EPL",
+    "club": "Manchester City",
+    "nation": "England"
+  },
+  "Jarrod Bowen": {
+    "id": "1776",
+    "league": "EPL",
+    "club": "West Ham",
+    "nation": "England"
+  },
+  "Trent Alexander-Arnold": {
+    "id": "1791",
+    "league": "La_liga",
+    "club": "Real Madrid",
+    "nation": "England"
+  },
+  "Eberechi Eze": {
+    "id": "8706",
+    "league": "EPL",
+    "club": "Arsenal,Crystal Palace",
+    "nation": "England"
+  },
+  "Mason Mount": {
+    "id": "7768",
+    "league": "EPL",
+    "club": "Manchester United",
+    "nation": "England"
+  },
+  "Conor Gallagher": {
+    "id": "9040",
+    "league": "La_liga",
+    "club": "Atletico Madrid",
+    "nation": "England"
+  },
+  "Marc Guehi": {
+    "id": "7603",
+    "league": "EPL",
+    "club": "Crystal Palace,Manchester City",
+    "nation": "England"
+  },
+  "Declan Rice": {
+    "id": "5553",
+    "league": "EPL",
+    "club": "Arsenal",
+    "nation": "England"
+  },
+  "Harry Maguire": {
+    "id": "1687",
+    "league": "EPL",
+    "club": "Manchester United",
+    "nation": "England"
+  },
+  "Eric Dier": {
+    "id": "643",
+    "league": "Ligue_1",
+    "club": "Monaco",
+    "nation": "England"
+  },
+  "Jordan Brian Henderson": {
+    "id": "605",
+    "league": "EPL",
+    "club": "Brentford",
+    "nation": "England"
+  },
+  "Kobbie Mainoo": {
+    "id": "11174",
+    "league": "EPL",
+    "club": "Manchester United",
+    "nation": "England"
+  },
+  "Ezri Konsa Ngoyo": {
+    "id": "7726",
+    "league": "EPL",
+    "club": "Aston Villa",
+    "nation": "England"
+  },
+  "John Stones": {
+    "id": "586",
+    "league": "EPL",
+    "club": "Manchester City",
+    "nation": "England"
+  },
+  "Luke Shaw": {
+    "id": "1006",
+    "league": "EPL",
+    "club": "Manchester United",
+    "nation": "England"
+  },
+  "Kieran Trippier": {
+    "id": "652",
+    "league": "EPL",
+    "club": "Newcastle United",
+    "nation": "England"
+  },
+  "Kyle Walker": {
+    "id": "638",
+    "league": "EPL",
+    "club": "Burnley",
+    "nation": "England"
+  },
+  "Jordan Pickford": {
+    "id": "741",
+    "league": "EPL",
+    "club": "Everton",
+    "nation": "England"
+  },
+  "Kylian Mbappé Lottin": {
+    "id": "3423",
+    "league": "La_liga",
+    "club": "Real Madrid",
+    "nation": "France"
+  },
+  "Bradley Barcola": {
+    "id": "10016",
+    "league": "Ligue_1",
+    "club": "Paris Saint Germain",
+    "nation": "France"
+  },
+  "Olivier Giroud": {
+    "id": "502",
+    "league": "Ligue_1",
+    "club": "Lille",
+    "nation": "France"
+  },
+  "Ousmane Dembélé": {
+    "id": "3226",
+    "league": "Ligue_1",
+    "club": "Paris Saint Germain",
+    "nation": "France"
+  },
+  "Marcus Thuram": {
+    "id": "5992",
+    "league": "Serie_A",
+    "club": "Inter",
+    "nation": "France"
+  },
+  "Antoine Griezmann": {
+    "id": "2270",
+    "league": "La_liga",
+    "club": "Atletico Madrid",
+    "nation": "France"
+  },
+  "Randal Kolo Muani": {
+    "id": "5743",
+    "league": "EPL",
+    "club": "Tottenham",
+    "nation": "France"
+  },
+  "Youssouf Fofana": {
+    "id": "6945",
+    "league": "Serie_A",
+    "club": "AC Milan",
+    "nation": "France"
+  },
+  "Adrien Rabiot": {
+    "id": "3291",
+    "league": "Serie_A",
+    "club": "AC Milan",
+    "nation": "France"
+  },
+  "Aurélien Djani Tchouaméni": {
+    "id": "6560",
+    "league": "La_liga",
+    "club": "Real Madrid",
+    "nation": "France"
+  },
+  "Theo Bernard François Hernández": {
+    "id": "14393",
+    "league": "La_liga",
+    "club": "Real Oviedo",
+    "nation": "France"
+  },
+  "Jules Koundé": {
+    "id": "6433",
+    "league": "La_liga",
+    "club": "Barcelona",
+    "nation": "France"
+  },
+  "Axel Disasi": {
+    "id": "6885",
+    "league": "EPL",
+    "club": "West Ham",
+    "nation": "France"
+  },
+  "Eduardo Camavinga": {
+    "id": "7359",
+    "league": "La_liga",
+    "club": "Real Madrid",
+    "nation": "France"
+  },
+  "Ibrahima Konaté": {
+    "id": "6326",
+    "league": "EPL",
+    "club": "Liverpool",
+    "nation": "France"
+  },
+  "Benjamin Pavard": {
+    "id": "3363",
+    "league": "Serie_A",
+    "club": "Inter",
+    "nation": "France"
+  },
+  "William Saliba": {
+    "id": "6888",
+    "league": "EPL",
+    "club": "Arsenal",
+    "nation": "France"
+  },
+  "Lucas Hernández Pi": {
+    "id": "11824",
+    "league": "EPL",
+    "club": "Burnley",
+    "nation": "France"
+  },
+  "Dayotchanculle Upamecano": {
+    "id": "5243",
+    "league": "Bundesliga",
+    "club": "Bayern Munich",
+    "nation": "France"
+  },
+  "Mike Maignan": {
+    "id": "3737",
+    "league": "Serie_A",
+    "club": "AC Milan",
+    "nation": "France"
+  },
+  "Georges Mikautadze": {
+    "id": "8187",
+    "league": "La_liga",
+    "club": "Villarreal",
+    "nation": "Georgia"
+  },
+  "Budu Zivzivadze": {
+    "id": "13323",
+    "league": "Bundesliga",
+    "club": "FC Heidenheim",
+    "nation": "Georgia"
+  },
+  "Khvicha Kvaratskhelia": {
+    "id": "7453",
+    "league": "Ligue_1",
+    "club": "Paris Saint Germain",
+    "nation": "Georgia"
+  },
+  "Giorgi Kvilitaia": {
+    "id": "14431",
+    "league": "Ligue_1",
+    "club": "Metz",
+    "nation": "Georgia"
+  },
+  "Giorgi Kochorashvili": {
+    "id": "13921",
+    "league": "Bundesliga",
+    "club": "Hamburger SV",
+    "nation": "Georgia"
+  },
+  "Heorhii Tsitaishvili": {
+    "id": "13809",
+    "league": "Ligue_1",
+    "club": "Metz",
+    "nation": "Georgia"
+  },
+  "Giorgi Mamardashvili": {
+    "id": "9693",
+    "league": "EPL",
+    "club": "Liverpool",
+    "nation": "Georgia"
+  },
+  "Deniz Undav": {
+    "id": "10804",
+    "league": "Bundesliga",
+    "club": "VfB Stuttgart",
+    "nation": "Germany"
+  },
+  "Kai Havertz": {
+    "id": "5220",
+    "league": "EPL",
+    "club": "Arsenal",
+    "nation": "Germany"
+  },
+  "Niclas Füllkrug": {
+    "id": "6098",
+    "league": "Serie_A",
+    "club": "AC Milan",
+    "nation": "Germany"
+  },
+  "Jamal Musiala": {
+    "id": "8418",
+    "league": "Bundesliga",
+    "club": "Bayern Munich",
+    "nation": "Germany"
+  },
+  "Serge Gnabry": {
+    "id": "993",
+    "league": "Bundesliga",
+    "club": "Bayern Munich",
+    "nation": "Germany"
+  },
+  "Maximilian Beier": {
+    "id": "8137",
+    "league": "Bundesliga",
+    "club": "Borussia Dortmund",
+    "nation": "Germany"
+  },
+  "Emre Can": {
+    "id": "604",
+    "league": "Bundesliga",
+    "club": "Borussia Dortmund",
+    "nation": "Germany"
+  },
+  "Chris Führich": {
+    "id": "6449",
+    "league": "Bundesliga",
+    "club": "VfB Stuttgart",
+    "nation": "Germany"
+  },
+  "Florian Wirtz": {
+    "id": "8397",
+    "league": "EPL",
+    "club": "Liverpool",
+    "nation": "Germany"
+  },
+  "Leon Goretzka": {
+    "id": "335",
+    "league": "Bundesliga",
+    "club": "Bayern Munich",
+    "nation": "Germany"
+  },
+  "Jonas Hofmann": {
+    "id": "320",
+    "league": "Bundesliga",
+    "club": "Bayer Leverkusen",
+    "nation": "Germany"
+  },
+  "Maximilian Mittelstädt": {
+    "id": "419",
+    "league": "Bundesliga",
+    "club": "VfB Stuttgart",
+    "nation": "Germany"
+  },
+  "Pascal Groß": {
+    "id": "239",
+    "league": "Bundesliga",
+    "club": "Borussia Dortmund",
+    "nation": "Germany"
+  },
+  "Thomas Müller": {
+    "id": "12023",
+    "league": "Bundesliga",
+    "club": "FC Heidenheim",
+    "nation": "Germany"
+  },
+  "Nico Schlotterbeck": {
+    "id": "7485",
+    "league": "Bundesliga",
+    "club": "Borussia Dortmund",
+    "nation": "Germany"
+  },
+  "Antonio Rüdiger": {
+    "id": "1822",
+    "league": "La_liga",
+    "club": "Real Madrid",
+    "nation": "Germany"
+  },
+  "Joshua Kimmich": {
+    "id": "223",
+    "league": "Bundesliga",
+    "club": "Bayern Munich",
+    "nation": "Germany"
+  },
+  "Benjamin Henrichs": {
+    "id": "435",
+    "league": "Bundesliga",
+    "club": "RasenBallsport Leipzig",
+    "nation": "Germany"
+  },
+  "David Raum": {
+    "id": "9724",
+    "league": "Bundesliga",
+    "club": "RasenBallsport Leipzig",
+    "nation": "Germany"
+  },
+  "Waldemar Anton": {
+    "id": "106",
+    "league": "Bundesliga",
+    "club": "Borussia Dortmund",
+    "nation": "Germany"
+  },
+  "Thilo Kehrer": {
+    "id": "2674",
+    "league": "Ligue_1",
+    "club": "Monaco",
+    "nation": "Germany"
+  },
+  "Matthias Ginter": {
+    "id": "315",
+    "league": "Bundesliga",
+    "club": "Freiburg",
+    "nation": "Germany"
+  },
+  "Mario Götze": {
+    "id": "422",
+    "league": "Bundesliga",
+    "club": "Eintracht Frankfurt",
+    "nation": "Germany"
+  },
+  "Robert Andrich": {
+    "id": "7877",
+    "league": "Bundesliga",
+    "club": "Bayer Leverkusen",
+    "nation": "Germany"
+  },
+  "Jonathan Tah": {
+    "id": "183",
+    "league": "Bundesliga",
+    "club": "Bayern Munich",
+    "nation": "Germany"
+  },
+  "Niklas Süle": {
+    "id": "75",
+    "league": "Bundesliga",
+    "club": "Borussia Dortmund",
+    "nation": "Germany"
+  },
+  "Lukas Klostermann": {
+    "id": "5358",
+    "league": "Bundesliga",
+    "club": "RasenBallsport Leipzig",
+    "nation": "Germany"
+  },
+  "Manuel Neuer": {
+    "id": "217",
+    "league": "Bundesliga",
+    "club": "Bayern Munich",
+    "nation": "Germany"
+  },
+  "Antoine Semenyo": {
+    "id": "11363",
+    "league": "EPL",
+    "club": "Bournemouth,Manchester City",
+    "nation": "Ghana"
+  },
+  "Kamaldeen Sulemana": {
+    "id": "9630",
+    "league": "Serie_A",
+    "club": "Atalanta",
+    "nation": "Ghana"
+  },
+  "Mohammed Kudus": {
+    "id": "12027",
+    "league": "EPL",
+    "club": "Tottenham",
+    "nation": "Ghana"
+  },
+  "Mohamed Salisu": {
+    "id": "6923",
+    "league": "Ligue_1",
+    "club": "Monaco",
+    "nation": "Ghana"
+  },
+  "Tariq Lamptey": {
+    "id": "8226",
+    "league": "Serie_A",
+    "club": "Fiorentina",
+    "nation": "Ghana"
+  },
+  "Thomas Teye Partey": {
+    "id": "2328",
+    "league": "La_liga",
+    "club": "Villarreal",
+    "nation": "Ghana"
+  },
+  "Alexander Djiku": {
+    "id": "3322",
+    "league": "RFPL",
+    "club": "Spartak Moscow",
+    "nation": "Ghana"
+  },
+  "Alidu Seidu": {
+    "id": "9652",
+    "league": "Ligue_1",
+    "club": "Rennes",
+    "nation": "Ghana"
+  },
+  "Salis Abdul Samed": {
+    "id": "9642",
+    "league": "Ligue_1",
+    "club": "Nice",
+    "nation": "Ghana"
+  },
+  "Gideon Mensah": {
+    "id": "9807",
+    "league": "Ligue_1",
+    "club": "Auxerre",
+    "nation": "Ghana"
+  },
+  "Abdul Rahman Baba": {
+    "id": "5732",
+    "league": "Ligue_1",
+    "club": "Angers",
+    "nation": "Ghana"
+  },
+  "Willi Orban": {
+    "id": "5257",
+    "league": "Bundesliga",
+    "club": "RasenBallsport Leipzig",
+    "nation": "Hungary"
+  },
+  "Dominik Szoboszlai": {
+    "id": "9788",
+    "league": "EPL",
+    "club": "Liverpool",
+    "nation": "Hungary"
+  },
+  "András Schäfer": {
+    "id": "7410",
+    "league": "Bundesliga",
+    "club": "Union Berlin",
+    "nation": "Hungary"
+  },
+  "Milos Kerkez": {
+    "id": "11709",
+    "league": "EPL",
+    "club": "Liverpool",
+    "nation": "Hungary"
+  },
+  "Martin Ádám": {
+    "id": "1441",
+    "league": "Serie_A",
+    "club": "Torino",
+    "nation": "Hungary"
+  },
+  "Péter Gulácsi": {
+    "id": "5241",
+    "league": "Bundesliga",
+    "club": "RasenBallsport Leipzig",
+    "nation": "Hungary"
+  },
+  "Giacomo Raspadori": {
+    "id": "7500",
+    "league": "La_liga",
+    "club": "Atletico Madrid",
+    "nation": "Italy"
+  },
+  "Federico Chiesa": {
+    "id": "1433",
+    "league": "EPL",
+    "club": "Liverpool",
+    "nation": "Italy"
+  },
+  "Gianluca Scamacca": {
+    "id": "6253",
+    "league": "Serie_A",
+    "club": "Atalanta",
+    "nation": "Italy"
+  },
+  "Davide Frattesi": {
+    "id": "4981",
+    "league": "Serie_A",
+    "club": "Inter",
+    "nation": "Italy"
+  },
+  "Lorenzo Pellegrini": {
+    "id": "1471",
+    "league": "Serie_A",
+    "club": "Roma",
+    "nation": "Italy"
+  },
+  "Mattia Zaccagni": {
+    "id": "1958",
+    "league": "Serie_A",
+    "club": "Lazio",
+    "nation": "Italy"
+  },
+  "Stephan El Shaarawy": {
+    "id": "1252",
+    "league": "Serie_A",
+    "club": "Roma",
+    "nation": "Italy"
+  },
+  "Federico Dimarco": {
+    "id": "1324",
+    "league": "Serie_A",
+    "club": "Inter",
+    "nation": "Italy"
+  },
+  "Riccardo Calafiori": {
+    "id": "8129",
+    "league": "EPL",
+    "club": "Arsenal",
+    "nation": "Italy"
+  },
+  "Michael Ijemuan Folorunsho": {
+    "id": "11877",
+    "league": "Serie_A",
+    "club": "Cagliari",
+    "nation": "Italy"
+  },
+  "Nicolò Barella": {
+    "id": "1409",
+    "league": "Serie_A",
+    "club": "Inter",
+    "nation": "Italy"
+  },
+  "Andrea Cambiaso": {
+    "id": "9841",
+    "league": "Serie_A",
+    "club": "Juventus",
+    "nation": "Italy"
+  },
+  "Alessandro Bastoni": {
+    "id": "4939",
+    "league": "Serie_A",
+    "club": "Inter",
+    "nation": "Italy"
+  },
+  "Giovanni Di Lorenzo": {
+    "id": "6978",
+    "league": "Serie_A",
+    "club": "Napoli",
+    "nation": "Italy"
+  },
+  "Bryan Cristante": {
+    "id": "1168",
+    "league": "Serie_A",
+    "club": "Roma",
+    "nation": "Italy"
+  },
+  "Nicolò Fagioli": {
+    "id": "7379",
+    "league": "Serie_A",
+    "club": "Fiorentina",
+    "nation": "Italy"
+  },
+  "Gianluca Mancini": {
+    "id": "6159",
+    "league": "Serie_A",
+    "club": "Roma",
+    "nation": "Italy"
+  },
+  "Matteo Darmian": {
+    "id": "557",
+    "league": "Serie_A",
+    "club": "Inter",
+    "nation": "Italy"
+  },
+  "Gianluigi Donnarumma": {
+    "id": "1116",
+    "league": "EPL",
+    "club": "Manchester City",
+    "nation": "Italy"
+  },
+  "Renaldo Showayne Cephas": {
+    "id": "13681",
+    "league": "RFPL",
+    "club": "Nizhny Novgorod",
+    "nation": "Jamaica"
+  },
+  "Damion Lowe": {
+    "id": "11411",
+    "league": "Bundesliga",
+    "club": "Hamburger SV",
+    "nation": "Jamaica"
+  },
+  "Karoy Anderson": {
+    "id": "14006",
+    "league": "RFPL",
+    "club": "Rubin Kazan",
+    "nation": "Jamaica"
+  },
+  "Ethan Pinnock": {
+    "id": "9678",
+    "league": "EPL",
+    "club": "Brentford",
+    "nation": "Jamaica"
+  },
+  "Alex Marshall": {
+    "id": "12359",
+    "league": "EPL",
+    "club": "West Ham",
+    "nation": "Jamaica"
+  },
+  "Takuma Asano": {
+    "id": "6087",
+    "league": "La_liga",
+    "club": "Mallorca",
+    "nation": "Japan"
+  },
+  "Takumi Minamino": {
+    "id": "8239",
+    "league": "Ligue_1",
+    "club": "Monaco",
+    "nation": "Japan"
+  },
+  "Kaoru Mitoma": {
+    "id": "10806",
+    "league": "EPL",
+    "club": "Brighton",
+    "nation": "Japan"
+  },
+  "Ao Tanaka": {
+    "id": "13834",
+    "league": "EPL",
+    "club": "Leeds",
+    "nation": "Japan"
+  },
+  "Ritsu Doan": {
+    "id": "8791",
+    "league": "Bundesliga",
+    "club": "Eintracht Frankfurt",
+    "nation": "Japan"
+  },
+  "Hiroki Ito": {
+    "id": "9715",
+    "league": "Bundesliga",
+    "club": "Bayern Munich",
+    "nation": "Japan"
+  },
+  "Takefusa Kubo": {
+    "id": "8001",
+    "league": "La_liga",
+    "club": "Real Sociedad",
+    "nation": "Japan"
+  },
+  "Daichi Kamada": {
+    "id": "6145",
+    "league": "EPL",
+    "club": "Crystal Palace",
+    "nation": "Japan"
+  },
+  "Wataru Endo": {
+    "id": "8808",
+    "league": "EPL",
+    "club": "Liverpool",
+    "nation": "Japan"
+  },
+  "Raúl Alonso Jiménez Rodríguez": {
+    "id": "11186",
+    "league": "La_liga",
+    "club": "Elche",
+    "nation": "Mexico"
+  },
+  "Santiago Tomás Giménez": {
+    "id": "13453",
+    "league": "Serie_A",
+    "club": "AC Milan",
+    "nation": "Mexico"
+  },
+  "José Andrés Guardado Hernández": {
+    "id": "6954",
+    "league": "La_liga",
+    "club": "Real Betis",
+    "nation": "Mexico"
+  },
+  "Israel Reyes Romero": {
+    "id": "12305",
+    "league": "La_liga",
+    "club": "Sevilla",
+    "nation": "Mexico"
+  },
+  "Carlos Alberto Rodríguez Gómez": {
+    "id": "11402",
+    "league": "La_liga",
+    "club": "Espanyol",
+    "nation": "Mexico"
+  },
+  "Carlos Uriel Antuna Romero": {
+    "id": "11402",
+    "league": "La_liga",
+    "club": "Espanyol",
+    "nation": "Mexico"
+  },
+  "Roberto Carlos Alvarado Hernández": {
+    "id": "13350",
+    "league": "La_liga",
+    "club": "Espanyol",
+    "nation": "Mexico"
+  },
+  "Kevin Nahin Álvarez Campos": {
+    "id": "188",
+    "league": "Bundesliga",
+    "club": "RasenBallsport Leipzig",
+    "nation": "Mexico"
+  },
+  "Jorge Eduardo Sánchez Ramos": {
+    "id": "14202",
+    "league": "La_liga",
+    "club": "Getafe",
+    "nation": "Mexico"
+  },
+  "Abdessamad Ezzalzouli": {
+    "id": "10095",
+    "league": "La_liga",
+    "club": "Real Betis",
+    "nation": "Morocco"
+  },
+  "Walid Cheddira": {
+    "id": "11989",
+    "league": "Serie_A",
+    "club": "Lecce,Sassuolo",
+    "nation": "Morocco"
+  },
+  "Ilias Chair": {
+    "id": "13701",
+    "league": "La_liga",
+    "club": "Real Oviedo",
+    "nation": "Morocco"
+  },
+  "Zakaria Aboukhlal": {
+    "id": "10796",
+    "league": "Serie_A",
+    "club": "Torino",
+    "nation": "Morocco"
+  },
+  "Abdelhamid Sabiri": {
+    "id": "6296",
+    "league": "Serie_A",
+    "club": "Fiorentina",
+    "nation": "Morocco"
+  },
+  "Bilal El Khannous": {
+    "id": "13020",
+    "league": "Bundesliga",
+    "club": "VfB Stuttgart",
+    "nation": "Morocco"
+  },
+  "Azzedine Ounahi": {
+    "id": "8328",
+    "league": "La_liga",
+    "club": "Girona",
+    "nation": "Morocco"
+  },
+  "Nayef Aguerd": {
+    "id": "6935",
+    "league": "EPL",
+    "club": "West Ham",
+    "nation": "Morocco"
+  },
+  "Sofiane Boufal": {
+    "id": "1734",
+    "league": "Ligue_1",
+    "club": "Le Havre",
+    "nation": "Morocco"
+  },
+  "Noussair Mazraoui": {
+    "id": "10696",
+    "league": "EPL",
+    "club": "Manchester United",
+    "nation": "Morocco"
+  },
+  "Sofyan Amrabat": {
+    "id": "7927",
+    "league": "La_liga",
+    "club": "Real Betis",
+    "nation": "Morocco"
+  },
+  "Donyell Malen": {
+    "id": "9749",
+    "league": "Serie_A",
+    "club": "Roma",
+    "nation": "Netherlands"
+  },
+  "Joshua Zirkzee": {
+    "id": "8044",
+    "league": "EPL",
+    "club": "Manchester United",
+    "nation": "Netherlands"
+  },
+  "Brian Brobbey": {
+    "id": "9789",
+    "league": "EPL",
+    "club": "Sunderland",
+    "nation": "Netherlands"
+  },
+  "Cody Mathès Gakpo": {
+    "id": "11296",
+    "league": "EPL",
+    "club": "Liverpool",
+    "nation": "Netherlands"
+  },
+  "Tijjani Reijnders": {
+    "id": "11965",
+    "league": "EPL",
+    "club": "Manchester City",
+    "nation": "Netherlands"
+  },
+  "Denzel Dumfries": {
+    "id": "9840",
+    "league": "Serie_A",
+    "club": "Inter",
+    "nation": "Netherlands"
+  },
+  "Noa Lang": {
+    "id": "13881",
+    "league": "Serie_A",
+    "club": "Napoli",
+    "nation": "Netherlands"
+  },
+  "Teun Koopmeiners": {
+    "id": "9969",
+    "league": "Serie_A",
+    "club": "Juventus",
+    "nation": "Netherlands"
+  },
+  "Kenneth Taylor": {
+    "id": "14341",
+    "league": "Serie_A",
+    "club": "Lazio",
+    "nation": "Netherlands"
+  },
+  "Xavi Simons": {
+    "id": "8700",
+    "league": "Bundesliga",
+    "club": "RasenBallsport Leipzig",
+    "nation": "Netherlands"
+  },
+  "Virgil van Dijk": {
+    "id": "833",
+    "league": "EPL",
+    "club": "Liverpool",
+    "nation": "Netherlands"
+  },
+  "Jurriën David Norman Timber": {
+    "id": "11707",
+    "league": "EPL",
+    "club": "Arsenal",
+    "nation": "Netherlands"
+  },
+  "Frenkie de Jong": {
+    "id": "7781",
+    "league": "La_liga",
+    "club": "Barcelona",
+    "nation": "Netherlands"
+  },
+  "Micky van de Ven": {
+    "id": "10050",
+    "league": "EPL",
+    "club": "Tottenham",
+    "nation": "Netherlands"
+  },
+  "Jeremie Frimpong": {
+    "id": "9328",
+    "league": "EPL",
+    "club": "Liverpool",
+    "nation": "Netherlands"
+  },
+  "Matthijs de Ligt": {
+    "id": "7902",
+    "league": "EPL",
+    "club": "Manchester United",
+    "nation": "Netherlands"
+  },
+  "Stefan de Vrij": {
+    "id": "1541",
+    "league": "Serie_A",
+    "club": "Inter",
+    "nation": "Netherlands"
+  },
+  "Daley Blind": {
+    "id": "548",
+    "league": "La_liga",
+    "club": "Girona",
+    "nation": "Netherlands"
+  },
+  "Lutsharel Geertruida": {
+    "id": "13064",
+    "league": "EPL",
+    "club": "Sunderland",
+    "nation": "Netherlands"
+  },
+  "Nathan Aké": {
+    "id": "579",
+    "league": "EPL",
+    "club": "Manchester City",
+    "nation": "Netherlands"
+  },
+  "Marten de Roon": {
+    "id": "1710",
+    "league": "Serie_A",
+    "club": "Atalanta",
+    "nation": "Netherlands"
+  },
+  "Bart Verbruggen": {
+    "id": "11711",
+    "league": "EPL",
+    "club": "Brighton",
+    "nation": "Netherlands"
+  },
+  "Ismael Díaz De León": {
+    "id": "13069",
+    "league": "Serie_A",
+    "club": "Sassuolo",
+    "nation": "Panama"
+  },
+  "Christian Jesús Martinez": {
+    "id": "13948",
+    "league": "Serie_A",
+    "club": "Parma Calcio 1913",
+    "nation": "Panama"
+  },
+  "Alejandro Romero Gamarra": {
+    "id": "10552",
+    "league": "EPL",
+    "club": "Chelsea",
+    "nation": "Paraguay"
+  },
+  "Adam Fernando Bareiro Gamarra": {
+    "id": "13805",
+    "league": "Ligue_1",
+    "club": "Paris FC",
+    "nation": "Paraguay"
+  },
+  "Rodrigo Mario Morínigo Acosta": {
+    "id": "12692",
+    "league": "RFPL",
+    "club": "FC Krasnodar",
+    "nation": "Paraguay"
+  },
+  "Víctor Gustavo Velázquez Ramos": {
+    "id": "11345",
+    "league": "RFPL",
+    "club": "CSKA Moscow",
+    "nation": "Paraguay"
+  },
+  "Omar Federico Alderete Fernández": {
+    "id": "13787",
+    "league": "La_liga",
+    "club": "Celta Vigo",
+    "nation": "Paraguay"
+  },
+  "Alexander Martín Marquinho Callens Asín": {
+    "id": "3161",
+    "league": "RFPL",
+    "club": "Akron",
+    "nation": "Peru"
+  },
+  "José Daniel Rivera Martínez": {
+    "id": "9052",
+    "league": "Serie_A",
+    "club": "Inter",
+    "nation": "Peru"
+  },
+  "Oliver Sonne": {
+    "id": "13726",
+    "league": "EPL",
+    "club": "Burnley",
+    "nation": "Peru"
+  },
+  "Robert Lewandowski": {
+    "id": "227",
+    "league": "La_liga",
+    "club": "Barcelona",
+    "nation": "Poland"
+  },
+  "Adam Buksa": {
+    "id": "11102",
+    "league": "Serie_A",
+    "club": "Udinese",
+    "nation": "Poland"
+  },
+  "Jakub Kamiński": {
+    "id": "10732",
+    "league": "Bundesliga",
+    "club": "FC Cologne",
+    "nation": "Poland"
+  },
+  "Jakub Piotrowski": {
+    "id": "13955",
+    "league": "Serie_A",
+    "club": "Udinese",
+    "nation": "Poland"
+  },
+  "Nicola Zalewski": {
+    "id": "9036",
+    "league": "Serie_A",
+    "club": "Atalanta",
+    "nation": "Poland"
+  },
+  "Arkadiusz Milik": {
+    "id": "1583",
+    "league": "Serie_A",
+    "club": "Juventus",
+    "nation": "Poland"
+  },
+  "Piotr Zieliński": {
+    "id": "1386",
+    "league": "Serie_A",
+    "club": "Inter",
+    "nation": "Poland"
+  },
+  "Damian Szymański": {
+    "id": "7631",
+    "league": "Ligue_1",
+    "club": "Rennes",
+    "nation": "Poland"
+  },
+  "Sebastian Szymański": {
+    "id": "7631",
+    "league": "Ligue_1",
+    "club": "Rennes",
+    "nation": "Poland"
+  },
+  "Matty Cash": {
+    "id": "8864",
+    "league": "EPL",
+    "club": "Aston Villa",
+    "nation": "Poland"
+  },
+  "Przemysław Frankowski": {
+    "id": "9633",
+    "league": "Ligue_1",
+    "club": "Rennes",
+    "nation": "Poland"
+  },
+  "Wojciech Szczęsny": {
+    "id": "1244",
+    "league": "La_liga",
+    "club": "Barcelona",
+    "nation": "Poland"
+  },
+  "Gonçalo Matias Ramos": {
+    "id": "11767",
+    "league": "Ligue_1",
+    "club": "Paris Saint Germain",
+    "nation": "Portugal"
+  },
+  "André Miguel Valente Silva": {
+    "id": "6170",
+    "league": "La_liga",
+    "club": "Elche",
+    "nation": "Portugal"
+  },
+  "Bruno Miguel Borges Fernandes": {
+    "id": "1228",
+    "league": "EPL",
+    "club": "Manchester United",
+    "nation": "Portugal"
+  },
+  "Francisco Fernandes Conceição": {
+    "id": "13052",
+    "league": "Serie_A",
+    "club": "Juventus",
+    "nation": "Portugal"
+  },
+  "Rafael Alexandre Conceição Leão": {
+    "id": "7193",
+    "league": "Serie_A",
+    "club": "AC Milan",
+    "nation": "Portugal"
+  },
+  "Raphaël Adelino José Guerreiro": {
+    "id": "3455",
+    "league": "Bundesliga",
+    "club": "Bayern Munich",
+    "nation": "Portugal"
+  },
+  "Nuno Mendes": {
+    "id": "9961",
+    "league": "Ligue_1",
+    "club": "Paris Saint Germain",
+    "nation": "Portugal"
+  },
+  "Diogo José Teixeira da Silva": {
+    "id": "9661",
+    "league": "Ligue_1",
+    "club": "Lorient",
+    "nation": "Portugal"
+  },
+  "João Neves": {
+    "id": "12734",
+    "league": "Ligue_1",
+    "club": "Paris Saint Germain",
+    "nation": "Portugal"
+  },
+  "Bernardo Mota Veiga de Carvalho e Silva": {
+    "id": "3635",
+    "league": "EPL",
+    "club": "Manchester City",
+    "nation": "Portugal"
+  },
+  "Pedro Lomba Neto": {
+    "id": "6382",
+    "league": "EPL",
+    "club": "Chelsea",
+    "nation": "Portugal"
+  },
+  "João Pedro Cavaco Cancelo": {
+    "id": "2379",
+    "league": "La_liga",
+    "club": "Barcelona",
+    "nation": "Portugal"
+  },
+  "Matheus Luiz Nunes": {
+    "id": "11000",
+    "league": "EPL",
+    "club": "Manchester City",
+    "nation": "Portugal"
+  },
+  "Diogo Meireles Costa": {
+    "id": "12692",
+    "league": "RFPL",
+    "club": "FC Krasnodar",
+    "nation": "Portugal"
+  },
+  "António João Pereira Albuquerque Tavares Silva": {
+    "id": "6075",
+    "league": "La_liga",
+    "club": "Alaves",
+    "nation": "Portugal"
+  },
+  "Rúben Santos Gato Alves Dias": {
+    "id": "8961",
+    "league": "EPL",
+    "club": "Manchester City",
+    "nation": "Portugal"
+  },
+  "Mohammed Waed Abdulwahhab Al Bayati": {
+    "id": "12383",
+    "league": "Ligue_1",
+    "club": "Lorient",
+    "nation": "Qatar"
+  },
+  "Răzvan Gabriel Marin": {
+    "id": "10200",
+    "league": "La_liga",
+    "club": "Villarreal",
+    "nation": "Romania"
+  },
+  "Andrei Florin Ratiu": {
+    "id": "7515",
+    "league": "La_liga",
+    "club": "Rayo Vallecano",
+    "nation": "Romania"
+  },
+  "Radu Drăgușin": {
+    "id": "9105",
+    "league": "EPL",
+    "club": "Tottenham",
+    "nation": "Romania"
+  },
+  "Nicolae Claudiu Stanciu": {
+    "id": "13873",
+    "league": "Serie_A",
+    "club": "Genoa",
+    "nation": "Romania"
+  },
+  "Marius Mihai Marin": {
+    "id": "4990",
+    "league": "Serie_A",
+    "club": "Pisa",
+    "nation": "Romania"
+  },
+  "Mohammed Al Burayk": {
+    "id": "13062",
+    "league": "Bundesliga",
+    "club": "Wolfsburg",
+    "nation": "Saudi Arabia"
+  },
+  "Saud Abdullah Abdul Hamid": {
+    "id": "13053",
+    "league": "Ligue_1",
+    "club": "Lens",
+    "nation": "Saudi Arabia"
+  },
+  "Mohammed Khalil Al Owais": {
+    "id": "6923",
+    "league": "Ligue_1",
+    "club": "Monaco",
+    "nation": "Saudi Arabia"
+  },
+  "Scott McTominay": {
+    "id": "5560",
+    "league": "Serie_A",
+    "club": "Napoli",
+    "nation": "Scotland"
+  },
+  "Che Adams": {
+    "id": "7700",
+    "league": "Serie_A",
+    "club": "Torino",
+    "nation": "Scotland"
+  },
+  "Ryan Christie": {
+    "id": "10744",
+    "league": "EPL",
+    "club": "Bournemouth",
+    "nation": "Scotland"
+  },
+  "Anthony Ralston": {
+    "id": "10789",
+    "league": "Ligue_1",
+    "club": "Rennes",
+    "nation": "Scotland"
+  },
+  "John McGinn": {
+    "id": "7723",
+    "league": "EPL",
+    "club": "Aston Villa",
+    "nation": "Scotland"
+  },
+  "Billy Gilmour": {
+    "id": "7988",
+    "league": "Serie_A",
+    "club": "Napoli",
+    "nation": "Scotland"
+  },
+  "Andrew Robertson": {
+    "id": "1688",
+    "league": "EPL",
+    "club": "Liverpool",
+    "nation": "Scotland"
+  },
+  "Angus Gunn": {
+    "id": "5544",
+    "league": "EPL",
+    "club": "Nottingham Forest",
+    "nation": "Scotland"
+  },
+  "Nicolas Jackson": {
+    "id": "10048",
+    "league": "Bundesliga",
+    "club": "Bayern Munich",
+    "nation": "Senegal"
+  },
+  "Ismaïla Sarr": {
+    "id": "5675",
+    "league": "EPL",
+    "club": "Crystal Palace",
+    "nation": "Senegal"
+  },
+  "Idrissa Gana Gueye": {
+    "id": "13811",
+    "league": "Serie_A",
+    "club": "Udinese",
+    "nation": "Senegal"
+  },
+  "Boulaye Dia": {
+    "id": "7224",
+    "league": "Serie_A",
+    "club": "Lazio",
+    "nation": "Senegal"
+  },
+  "Pape Gueye": {
+    "id": "8696",
+    "league": "La_liga",
+    "club": "Villarreal",
+    "nation": "Senegal"
+  },
+  "Iliman Ndiaye": {
+    "id": "9307",
+    "league": "EPL",
+    "club": "Everton",
+    "nation": "Senegal"
+  },
+  "Pathé Ismaël Ciss": {
+    "id": "9815",
+    "league": "La_liga",
+    "club": "Rayo Vallecano",
+    "nation": "Senegal"
+  },
+  "Pape Abou Cissé": {
+    "id": "9815",
+    "league": "La_liga",
+    "club": "Rayo Vallecano",
+    "nation": "Senegal"
+  },
+  "Pape Matar Sarr": {
+    "id": "9021",
+    "league": "EPL",
+    "club": "Tottenham",
+    "nation": "Senegal"
+  },
+  "Krépin Diatta": {
+    "id": "9279",
+    "league": "Ligue_1",
+    "club": "Monaco",
+    "nation": "Senegal"
+  },
+  "Fodé Ballo Touré": {
+    "id": "5803",
+    "league": "Ligue_1",
+    "club": "Metz",
+    "nation": "Senegal"
+  },
+  "Dušan Vlahović": {
+    "id": "7084",
+    "league": "Serie_A",
+    "club": "Juventus",
+    "nation": "Serbia"
+  },
+  "Lazar Samardžić": {
+    "id": "8341",
+    "league": "Serie_A",
+    "club": "Atalanta",
+    "nation": "Serbia"
+  },
+  "Aleksandar Mitrović": {
+    "id": "13173",
+    "league": "RFPL",
+    "club": "Dinamo Moscow",
+    "nation": "Serbia"
+  },
+  "Saša Lukić": {
+    "id": "1537",
+    "league": "EPL",
+    "club": "Fulham",
+    "nation": "Serbia"
+  },
+  "Strahinja Pavlović": {
+    "id": "8642",
+    "league": "Serie_A",
+    "club": "AC Milan",
+    "nation": "Serbia"
+  },
+  "Filip Kostić": {
+    "id": "64",
+    "league": "Serie_A",
+    "club": "Juventus",
+    "nation": "Serbia"
+  },
+  "Filip Đuričić": {
+    "id": "13761",
+    "league": "La_liga",
+    "club": "Valencia",
+    "nation": "Serbia"
+  },
+  "Nemanja Gudelj": {
+    "id": "7888",
+    "league": "La_liga",
+    "club": "Sevilla",
+    "nation": "Serbia"
+  },
+  "Sergej Milinković-Savić": {
+    "id": "6167",
+    "league": "Serie_A",
+    "club": "Napoli",
+    "nation": "Serbia"
+  },
+  "Nemanja Radonjić": {
+    "id": "14040",
+    "league": "RFPL",
+    "club": "PFC Sochi",
+    "nation": "Serbia"
+  },
+  "Srđan Babić": {
+    "id": "10971",
+    "league": "RFPL",
+    "club": "Spartak Moscow",
+    "nation": "Serbia"
+  },
+  "Nikola Milenković": {
+    "id": "6174",
+    "league": "EPL",
+    "club": "Nottingham Forest",
+    "nation": "Serbia"
+  },
+  "Ivan Ilić": {
+    "id": "8828",
+    "league": "Serie_A",
+    "club": "Torino",
+    "nation": "Serbia"
+  },
+  "Veljko Birmančević": {
+    "id": "11091",
+    "league": "La_liga",
+    "club": "Getafe",
+    "nation": "Serbia"
+  },
+  "Denis Vavro": {
+    "id": "7940",
+    "league": "Bundesliga",
+    "club": "Wolfsburg",
+    "nation": "Slovakia"
+  },
+  "Tomáš Suslov": {
+    "id": "12095",
+    "league": "Serie_A",
+    "club": "Verona",
+    "nation": "Slovakia"
+  },
+  "Adam Obert": {
+    "id": "10073",
+    "league": "Serie_A",
+    "club": "Cagliari",
+    "nation": "Slovakia"
+  },
+  "Dávid Hancko": {
+    "id": "7086",
+    "league": "La_liga",
+    "club": "Atletico Madrid",
+    "nation": "Slovakia"
+  },
+  "Stanislav Lobotka": {
+    "id": "6125",
+    "league": "Serie_A",
+    "club": "Napoli",
+    "nation": "Slovakia"
+  },
+  "Martin Dúbravka": {
+    "id": "6532",
+    "league": "EPL",
+    "club": "Burnley",
+    "nation": "Slovakia"
+  },
+  "Benjamin Šeško": {
+    "id": "11974",
+    "league": "EPL",
+    "club": "Manchester United",
+    "nation": "Slovenia"
+  },
+  "Benjamin Verbič": {
+    "id": "435",
+    "league": "Bundesliga",
+    "club": "RasenBallsport Leipzig",
+    "nation": "Slovenia"
+  },
+  "Jaka Bijol": {
+    "id": "6807",
+    "league": "EPL",
+    "club": "Leeds",
+    "nation": "Slovenia"
+  },
+  "Vanja Drkušić": {
+    "id": "10449",
+    "league": "RFPL",
+    "club": "Zenit St. Petersburg",
+    "nation": "Slovenia"
+  },
+  "Jan Oblak": {
+    "id": "2261",
+    "league": "La_liga",
+    "club": "Atletico Madrid",
+    "nation": "Slovenia"
+  },
+  "Hee-Chan Hwang": {
+    "id": "8845",
+    "league": "EPL",
+    "club": "Wolverhampton Wanderers",
+    "nation": "South Korea"
+  },
+  "Kang-In Lee": {
+    "id": "7313",
+    "league": "Ligue_1",
+    "club": "Paris Saint Germain",
+    "nation": "South Korea"
+  },
+  "Woo-Yeong Jeong": {
+    "id": "7267",
+    "league": "Bundesliga",
+    "club": "Union Berlin",
+    "nation": "South Korea"
+  },
+  "Jae-Sung Lee": {
+    "id": "9783",
+    "league": "Bundesliga",
+    "club": "Mainz 05",
+    "nation": "South Korea"
+  },
+  "Woo-Young Jung": {
+    "id": "7267",
+    "league": "Bundesliga",
+    "club": "Union Berlin",
+    "nation": "South Korea"
+  },
+  "Anssumane Fati": {
+    "id": "7967",
+    "league": "Ligue_1",
+    "club": "Monaco",
+    "nation": "Spain"
+  },
+  "Alejandro Baena Rodríguez": {
+    "id": "11186",
+    "league": "La_liga",
+    "club": "Elche",
+    "nation": "Spain"
+  },
+  "Pablo Sarabia García": {
+    "id": "13376",
+    "league": "La_liga",
+    "club": "Real Betis",
+    "nation": "Spain"
+  },
+  "Pablo Martín Páez Gavira": {
+    "id": "13376",
+    "league": "La_liga",
+    "club": "Real Betis",
+    "nation": "Spain"
+  },
+  "José Luis Sanmartín Mato": {
+    "id": "11208",
+    "league": "La_liga",
+    "club": "Mallorca",
+    "nation": "Spain"
+  },
+  "Alejandro Grimaldo García": {
+    "id": "7071",
+    "league": "La_liga",
+    "club": "Rayo Vallecano",
+    "nation": "Spain"
+  },
+  "Ferrán Torres García": {
+    "id": "9810",
+    "league": "La_liga",
+    "club": "Real Madrid",
+    "nation": "Spain"
+  },
+  "Álvaro Borja Morata Martín": {
+    "id": "5133",
+    "league": "Serie_A",
+    "club": "Genoa",
+    "nation": "Spain"
+  },
+  "Mikel Oyarzabal Ugarte": {
+    "id": "11766",
+    "league": "EPL",
+    "club": "Manchester United",
+    "nation": "Spain"
+  },
+  "Pedro González López": {
+    "id": "14122",
+    "league": "Serie_A",
+    "club": "Sassuolo",
+    "nation": "Spain"
+  },
+  "Daniel Carvajal Ramos": {
+    "id": "5595",
+    "league": "EPL",
+    "club": "Leeds",
+    "nation": "Spain"
+  },
+  "Daniel Olmo Carvajal": {
+    "id": "2260",
+    "league": "La_liga",
+    "club": "Real Madrid",
+    "nation": "Spain"
+  },
+  "David Raya Martin": {
+    "id": "14233",
+    "league": "La_liga",
+    "club": "Atletico Madrid",
+    "nation": "Spain"
+  },
+  "Daniel Vivian Moreno": {
+    "id": "12408",
+    "league": "EPL",
+    "club": "Crystal Palace",
+    "nation": "Spain"
+  },
+  "Aymeric Laporte": {
+    "id": "2498",
+    "league": "La_liga",
+    "club": "Athletic Club",
+    "nation": "Spain"
+  },
+  "Robin Aime Robert Le Normand": {
+    "id": "7276",
+    "league": "La_liga",
+    "club": "Atletico Madrid",
+    "nation": "Spain"
+  },
+  "Martín Zubimendi Ibáñez": {
+    "id": "7529",
+    "league": "La_liga",
+    "club": "Girona",
+    "nation": "Spain"
+  },
+  "Pau Francisco Torres": {
+    "id": "6221",
+    "league": "EPL",
+    "club": "Aston Villa",
+    "nation": "Spain"
+  },
+  "Alejandro Balde Martínez": {
+    "id": "10802",
+    "league": "EPL",
+    "club": "Manchester United",
+    "nation": "Spain"
+  },
+  "Mohamed Zeki Amdouni": {
+    "id": "13062",
+    "league": "Bundesliga",
+    "club": "Wolfsburg",
+    "nation": "Switzerland"
+  },
+  "Noah Okafor": {
+    "id": "11966",
+    "league": "EPL",
+    "club": "Leeds",
+    "nation": "Switzerland"
+  },
+  "Ruben Vargas": {
+    "id": "7810",
+    "league": "La_liga",
+    "club": "Sevilla",
+    "nation": "Switzerland"
+  },
+  "Dan Ndoye": {
+    "id": "8662",
+    "league": "EPL",
+    "club": "Nottingham Forest",
+    "nation": "Switzerland"
+  },
+  "Fabian Rieder": {
+    "id": "12038",
+    "league": "Bundesliga",
+    "club": "Augsburg",
+    "nation": "Switzerland"
+  },
+  "Eray Ervin Cömert": {
+    "id": "10382",
+    "league": "La_liga",
+    "club": "Valencia",
+    "nation": "Switzerland"
+  },
+  "Silvan Widmer": {
+    "id": "1139",
+    "league": "Bundesliga",
+    "club": "Mainz 05",
+    "nation": "Switzerland"
+  },
+  "Manuel Obafemi Akanji": {
+    "id": "6490",
+    "league": "Serie_A",
+    "club": "Inter",
+    "nation": "Switzerland"
+  },
+  "Fabian Lukas Schär": {
+    "id": "76",
+    "league": "EPL",
+    "club": "Newcastle United",
+    "nation": "Switzerland"
+  },
+  "Djibril Sow": {
+    "id": "2624",
+    "league": "La_liga",
+    "club": "Sevilla",
+    "nation": "Switzerland"
+  },
+  "Remo Freuler": {
+    "id": "1488",
+    "league": "Serie_A",
+    "club": "Bologna",
+    "nation": "Switzerland"
+  },
+  "Ardon Jashari": {
+    "id": "13895",
+    "league": "Serie_A",
+    "club": "AC Milan",
+    "nation": "Switzerland"
+  },
+  "Nico Elvedi": {
+    "id": "212",
+    "league": "Bundesliga",
+    "club": "Borussia M.Gladbach",
+    "nation": "Switzerland"
+  },
+  "Granit Xhaka": {
+    "id": "204",
+    "league": "EPL",
+    "club": "Sunderland",
+    "nation": "Switzerland"
+  },
+  "Michel Aebischer": {
+    "id": "10383",
+    "league": "Serie_A",
+    "club": "Pisa",
+    "nation": "Switzerland"
+  },
+  "Gregor Kobel": {
+    "id": "5288",
+    "league": "Bundesliga",
+    "club": "Borussia Dortmund",
+    "nation": "Switzerland"
+  },
+  "Leonidas Stergiou": {
+    "id": "11975",
+    "league": "Bundesliga",
+    "club": "FC Heidenheim,VfB Stuttgart",
+    "nation": "Switzerland"
+  },
+  "Yann Sommer": {
+    "id": "199",
+    "league": "Serie_A",
+    "club": "Inter",
+    "nation": "Switzerland"
+  },
+  "Youssef Msakni": {
+    "id": "14378",
+    "league": "Ligue_1",
+    "club": "Nantes",
+    "nation": "Tunisia"
+  },
+  "Ali Abdi": {
+    "id": "13070",
+    "league": "Ligue_1",
+    "club": "Nice",
+    "nation": "Tunisia"
+  },
+  "Ellyes Joris Skhiri": {
+    "id": "3347",
+    "league": "Bundesliga",
+    "club": "Eintracht Frankfurt",
+    "nation": "Tunisia"
+  },
+  "Hannibal Mejbri": {
+    "id": "9558",
+    "league": "EPL",
+    "club": "Burnley",
+    "nation": "Tunisia"
+  },
+  "Montassar Omar Talbi": {
+    "id": "9873",
+    "league": "Ligue_1",
+    "club": "Lorient",
+    "nation": "Tunisia"
+  },
+  "Nader Ghandri": {
+    "id": "12501",
+    "league": "RFPL",
+    "club": "FK Akhmat",
+    "nation": "Tunisia"
+  },
+  "Kenan Yildiz": {
+    "id": "11942",
+    "league": "Serie_A",
+    "club": "Juventus",
+    "nation": "Turkey"
+  },
+  "Hakan Çalhanoğlu": {
+    "id": "189",
+    "league": "Serie_A",
+    "club": "Inter",
+    "nation": "Turkey"
+  },
+  "Semih Kılıçsoy": {
+    "id": "13930",
+    "league": "Serie_A",
+    "club": "Cagliari",
+    "nation": "Turkey"
+  },
+  "Arda Güler": {
+    "id": "12190",
+    "league": "La_liga",
+    "club": "Real Madrid",
+    "nation": "Turkey"
+  },
+  "Mehmet Zeki Çelik": {
+    "id": "6872",
+    "league": "Serie_A",
+    "club": "Roma",
+    "nation": "Turkey"
+  },
+  "Ferdi Erenay Kadıoğlu": {
+    "id": "13066",
+    "league": "EPL",
+    "club": "Brighton",
+    "nation": "Turkey"
+  },
+  "Salih Özcan": {
+    "id": "5294",
+    "league": "Bundesliga",
+    "club": "Borussia Dortmund",
+    "nation": "Turkey"
+  },
+  "Altay Bayındır": {
+    "id": "12054",
+    "league": "EPL",
+    "club": "Manchester United",
+    "nation": "Turkey"
+  },
+  "Bertuğ Özgür Yıldırım": {
+    "id": "12039",
+    "league": "Ligue_1",
+    "club": "Rennes",
+    "nation": "Turkey"
+  },
+  "Roman Yaremchuk": {
+    "id": "12041",
+    "league": "Ligue_1",
+    "club": "Lyon",
+    "nation": "Ukraine"
+  },
+  "Artem Dovbyk": {
+    "id": "11736",
+    "league": "Serie_A",
+    "club": "Roma",
+    "nation": "Ukraine"
+  },
+  "Vladyslav Vanat": {
+    "id": "14041",
+    "league": "La_liga",
+    "club": "Girona",
+    "nation": "Ukraine"
+  },
+  "Viktor Tsygankov": {
+    "id": "11322",
+    "league": "La_liga",
+    "club": "Girona",
+    "nation": "Ukraine"
+  },
+  "Ruslan Malinovskiy": {
+    "id": "7947",
+    "league": "Serie_A",
+    "club": "Genoa",
+    "nation": "Ukraine"
+  },
+  "Illia Zabarnyi": {
+    "id": "11486",
+    "league": "Ligue_1",
+    "club": "Paris Saint Germain",
+    "nation": "Ukraine"
+  },
+  "Oleksandr Zinchenko": {
+    "id": "2958",
+    "league": "EPL",
+    "club": "Nottingham Forest",
+    "nation": "Ukraine"
+  },
+  "Vitalii Mykolenko": {
+    "id": "10291",
+    "league": "EPL",
+    "club": "Everton",
+    "nation": "Ukraine"
+  },
+  "Andriy Lunin": {
+    "id": "7194",
+    "league": "La_liga",
+    "club": "Real Madrid",
+    "nation": "Ukraine"
+  },
+  "Folarin Balogun": {
+    "id": "9690",
+    "league": "Ligue_1",
+    "club": "Monaco",
+    "nation": "United States"
+  },
+  "Christian Pulisic": {
+    "id": "2662",
+    "league": "Serie_A",
+    "club": "AC Milan",
+    "nation": "United States"
+  },
+  "Malik Tillman": {
+    "id": "9860",
+    "league": "Bundesliga",
+    "club": "Bayer Leverkusen",
+    "nation": "United States"
+  },
+  "Weston McKennie": {
+    "id": "5360",
+    "league": "Serie_A",
+    "club": "Juventus",
+    "nation": "United States"
+  },
+  "Brenden Aaronson": {
+    "id": "10751",
+    "league": "EPL",
+    "club": "Leeds",
+    "nation": "United States"
+  },
+  "Timothy Weah": {
+    "id": "6601",
+    "league": "Ligue_1",
+    "club": "Marseille",
+    "nation": "United States"
+  },
+  "Yunus Dimoara Musah": {
+    "id": "8771",
+    "league": "Serie_A",
+    "club": "AC Milan,Atalanta",
+    "nation": "United States"
+  },
+  "Luca de la Torre": {
+    "id": "7050",
+    "league": "La_liga",
+    "club": "Osasuna",
+    "nation": "United States"
+  },
+  "Joseph Scally": {
+    "id": "9674",
+    "league": "Bundesliga",
+    "club": "Borussia M.Gladbach",
+    "nation": "United States"
+  },
+  "Giovanni Reyna": {
+    "id": "8191",
+    "league": "Bundesliga",
+    "club": "Borussia M.Gladbach",
+    "nation": "United States"
+  },
+  "Chris Richards": {
+    "id": "8430",
+    "league": "EPL",
+    "club": "Crystal Palace",
+    "nation": "United States"
+  },
+  "Tyler Adams": {
+    "id": "7352",
+    "league": "EPL",
+    "club": "Bournemouth",
+    "nation": "United States"
+  },
+  "Antonee Robinson": {
+    "id": "8940",
+    "league": "EPL",
+    "club": "Fulham",
+    "nation": "United States"
+  },
+  "João Lucas de Souza Cardoso": {
+    "id": "14012",
+    "league": "La_liga",
+    "club": "Sevilla",
+    "nation": "United States"
+  },
+  "Luis Alberto Suárez Díaz": {
+    "id": "10408",
+    "league": "Bundesliga",
+    "club": "Bayern Munich",
+    "nation": "Uruguay"
+  },
+  "Sebastián Coates Nión": {
+    "id": "12970",
+    "league": "Ligue_1",
+    "club": "Strasbourg",
+    "nation": "Uruguay"
+  },
+  "Diego Roberto Godín Leal": {
+    "id": "12522",
+    "league": "RFPL",
+    "club": "Baltika",
+    "nation": "Uruguay"
+  },
+  "Diego Nicolás De La Cruz Arcosa": {
+    "id": "12692",
+    "league": "RFPL",
+    "club": "FC Krasnodar",
+    "nation": "Uruguay"
+  },
+  "José María Giménez de Vargas": {
+    "id": "14439",
+    "league": "La_liga",
+    "club": "Atletico Madrid",
+    "nation": "Uruguay"
+  },
+  "José Martín Cáceres Silva": {
+    "id": "9740",
+    "league": "EPL",
+    "club": "Wolverhampton Wanderers",
+    "nation": "Uruguay"
+  },
+  "Alexander David González Sibulo": {
+    "id": "6531",
+    "league": "La_liga",
+    "club": "Atletico Madrid",
+    "nation": "Venezuela"
+  },
+  "Eric Kleybel Ramírez Matheus": {
+    "id": "9053",
+    "league": "Bundesliga",
+    "club": "FC Cologne",
+    "nation": "Venezuela"
+  },
+  "José Andrés Martínez Torres": {
+    "id": "13748",
+    "league": "La_liga",
+    "club": "Barcelona",
+    "nation": "Venezuela"
+  },
+  "Tomás Eduardo Rincón Hernández": {
+    "id": "2276",
+    "league": "Ligue_1",
+    "club": "Paris Saint Germain",
+    "nation": "Venezuela"
+  },
+  "Christian Frederick Bayoi Makoun Reyes": {
+    "id": "11131",
+    "league": "Ligue_1",
+    "club": "Monaco",
+    "nation": "Venezuela"
+  },
+  "Nahuel Adolfo Ferraresi Hernández": {
+    "id": "13787",
+    "league": "La_liga",
+    "club": "Celta Vigo",
+    "nation": "Venezuela"
+  },
+  "Harry Wilson": {
+    "id": "5596",
+    "league": "EPL",
+    "club": "Fulham",
+    "nation": "Wales"
+  },
+  "Brennan Johnson": {
+    "id": "10760",
+    "league": "EPL",
+    "club": "Crystal Palace,Tottenham",
+    "nation": "Wales"
+  },
+  "Ben Davies": {
+    "id": "660",
+    "league": "EPL",
+    "club": "Tottenham",
+    "nation": "Wales"
+  },
+  "Daniel James": {
+    "id": "5595",
+    "league": "EPL",
+    "club": "Leeds",
+    "nation": "Wales"
+  },
+  "Neco Williams": {
+    "id": "8204",
+    "league": "EPL",
+    "club": "Nottingham Forest",
+    "nation": "Wales"
+  },
+  "Ethan Ampadu": {
+    "id": "6369",
+    "league": "EPL",
+    "club": "Leeds",
+    "nation": "Wales"
+  },
+  "Joe Rodon": {
+    "id": "6377",
+    "league": "EPL",
+    "club": "Leeds",
+    "nation": "Wales"
+  },
+  "Aaron Ramsey": {
+    "id": "5603",
+    "league": "EPL",
+    "club": "Newcastle United",
+    "nation": "Wales"
+  }
+}

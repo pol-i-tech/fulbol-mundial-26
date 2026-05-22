@@ -1,0 +1,24 @@
+[
+  {
+    "goals": "0",
+    "shots": "0",
+    "xG": "0",
+    "time": "90",
+    "position": "DC",
+    "h_team": "Sevilla",
+    "a_team": "Atletico Madrid",
+    "h_goals": "2",
+    "a_goals": "1",
+    "date": "2026-04-11",
+    "id": "29463",
+    "season": "2025",
+    "roster_id": "781979",
+    "xA": "0",
+    "assists": "0",
+    "key_passes": "0",
+    "npg": "0",
+    "npxG": "0",
+    "xGChain": "0.6260418891906738",
+    "xGBuildup": "0.6260418891906738"
+  }
+]

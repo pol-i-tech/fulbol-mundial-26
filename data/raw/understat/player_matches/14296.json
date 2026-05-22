@@ -1,0 +1,24 @@
+[
+  {
+    "goals": "0",
+    "shots": "1",
+    "xG": "0.07540552318096161",
+    "time": "71",
+    "position": "DMC",
+    "h_team": "Nice",
+    "a_team": "Strasbourg",
+    "h_goals": "1",
+    "a_goals": "1",
+    "date": "2026-01-03",
+    "id": "29688",
+    "season": "2025",
+    "roster_id": "761260",
+    "xA": "0",
+    "assists": "0",
+    "key_passes": "0",
+    "npg": "0",
+    "npxG": "0.07540552318096161",
+    "xGChain": "0.03524787351489067",
+    "xGBuildup": "0.03524787351489067"
+  }
+]

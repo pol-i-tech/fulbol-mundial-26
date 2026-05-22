@@ -1,0 +1,24 @@
+[
+  {
+    "goals": "0",
+    "shots": "0",
+    "xG": "0",
+    "time": "90",
+    "position": "DC",
+    "h_team": "Lorient",
+    "a_team": "Nantes",
+    "h_goals": "2",
+    "a_goals": "1",
+    "date": "2026-01-31",
+    "id": "29711",
+    "season": "2025",
+    "roster_id": "767400",
+    "xA": "0",
+    "assists": "0",
+    "key_passes": "0",
+    "npg": "0",
+    "npxG": "0",
+    "xGChain": "0.4589385688304901",
+    "xGBuildup": "0.4589385688304901"
+  }
+]
