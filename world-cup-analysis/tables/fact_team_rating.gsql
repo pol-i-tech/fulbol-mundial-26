@@ -1,0 +1,21 @@
+-- Team-level rating snapshots from each model layer (history / season / recent form / attack / defense).
+-- Each row is one (team_code, model_id, as_of_date). model_id may be NULL for internal-only rating layers.
+table graphene_cli.curated.fact_team_rating (
+
+  /* Keys */
+
+  team_code VARCHAR    -- FK to dim_team.
+  model_id VARCHAR     -- FK to dim_model. NULL for internal-only layers (M1_History, M2_Season, M3_RecentForm).
+  as_of_date DATE      -- Build date.
+
+  /* Rating */
+
+  rating_value DOUBLE  -- The raw rating value.
+  rating_type VARCHAR  -- One of: composite, attack, defense, historical, season, recent_form.
+  confidence VARCHAR   -- One of: high, medium, low. Defaults to "medium".
+
+  /* Join relationships */
+
+  join one graphene_cli.curated.dim_team on team_code = dim_team.team_code
+  join one graphene_cli.curated.dim_model on model_id = dim_model.model_id
+)

@@ -1,0 +1,45 @@
+-- The player master: one canonical record per WC2026 candidate-pool player.
+-- Each row is one player (player_id, surrogate key in format P######).
+table graphene_cli.curated.dim_player (
+
+  /* Identity */
+
+  player_id VARCHAR        -- Stable surrogate key, never reassigned. Format `P######`.
+  display_name VARCHAR     -- Canonical display form (roster JSON wins over squad_xg_ratings).
+  normalized_name VARCHAR  -- NFKD → ASCII → lower → strip non-alphanumeric. Used by the matching layer.
+
+  /* Nationality */
+
+  country_code VARCHAR     -- FIFA 3-letter code. Canonical for cross-table joins.
+  nation_name VARCHAR      -- Display form preserved, e.g. "South Africa".
+
+  /* Demographics */
+
+  birth_date DATE          -- NULL in v1 until rosters drop (~Jun 4).
+  birth_year INTEGER       -- Derived from birth_date; NULL when DOB missing. Used by Tier 1 matching.
+
+  /* Football attributes */
+
+  position VARCHAR         -- Free-form, e.g. "F", "M S", "D".
+  current_club VARCHAR     -- May be NULL if unknown at squad time.
+  current_league VARCHAR
+
+  /* Source-specific name caches (written back by the matching layer) */
+
+  statsbomb_name VARCHAR   -- Cached for next-build Tier-2 fast path.
+  understat_id VARCHAR     -- Understat's stable internal ID. Gold standard for Tier 0 re-matching.
+  understat_name VARCHAR
+
+  /* Lifecycle */
+
+  is_active BOOLEAN        -- TRUE if present in latest master refresh; never deleted.
+  first_seen_at DATE
+  last_updated_at DATE
+
+  /* Join relationships */
+
+  -- Aliased as `nation` to distinguish "the player's nationality team" from any other
+  -- dim_team role reached via fact_player_xg.team_code.
+  join one graphene_cli.curated.dim_team as nation on country_code = nation.team_code
+  join many graphene_cli.curated.fact_player_xg on player_id = fact_player_xg.player_id
+)

@@ -1,0 +1,19 @@
+-- The team master: one row per national team known to the project.
+-- Each row is one country (team_code, FIFA 3-letter natural key).
+table graphene_cli.curated.dim_team (
+
+  team_code VARCHAR           -- FIFA 3-letter code, e.g. "MEX", "ARG", "BRA".
+  team_name VARCHAR           -- Canonical display name, e.g. "Mexico".
+  iso2_code VARCHAR           -- ISO 3166-1 alpha-2 when available; NULL otherwise.
+  confederation VARCHAR       -- One of: AFC, CAF, CONCACAF, CONMEBOL, OFC, UEFA.
+  is_wc2026_qualifier BOOLEAN -- TRUE for the 48 confirmed/pending WC2026 teams.
+
+  /* Join relationships */
+
+  -- Aliased as `nationals` so this side is the inverse of dim_player's `nation` join.
+  join many graphene_cli.curated.dim_player as nationals on team_code = nationals.country_code
+  -- Aliased as `xg_facts` to keep this transitive path distinct from dim_player's direct
+  -- join to fact_player_xg (otherwise queries from dim_player can't resolve `fact_player_xg`).
+  join many graphene_cli.curated.fact_player_xg as xg_facts on team_code = xg_facts.team_code
+  join many graphene_cli.curated.fact_team_rating on team_code = fact_team_rating.team_code
+)

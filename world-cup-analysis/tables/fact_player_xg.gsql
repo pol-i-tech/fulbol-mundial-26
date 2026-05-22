@@ -1,0 +1,40 @@
+-- Per-player expected-goals stats from StatsBomb and Understat, resolved to dim_player.
+-- Each row is one (player_id, source, period_id) — a player's totals for one tournament or club-season from one source.
+table graphene_cli.curated.fact_player_xg (
+
+  /* Keys */
+
+  player_id VARCHAR  -- FK to dim_player.
+  source VARCHAR     -- One of: "statsbomb", "understat".
+  period_id VARCHAR  -- tournament_id for tournament rows; season slug (e.g. "club_2526") for club rows.
+
+  /* Context */
+
+  team_code VARCHAR  -- FK to dim_team for tournament rows; NULL for club rows.
+  club_name VARCHAR  -- Club name for club rows; NULL for tournament rows.
+
+  /* Volume */
+
+  minutes INTEGER    -- Total minutes played in this period.
+  goals INTEGER
+  shots INTEGER
+
+  /* Expected goals / assists */
+
+  xg_total DOUBLE    -- Total xG across the period.
+  xg_per_90 DOUBLE   -- xG normalized per 90 minutes. #unit=per 90
+  xa_total DOUBLE    -- Expected assists (Understat only; NULL for StatsBomb where unavailable).
+  xa_per_90 DOUBLE   -- #unit=per 90
+
+  /* Provenance */
+
+  as_of_date DATE    -- Build date — when this fact row was last computed.
+
+  /* Join relationships */
+
+  join one graphene_cli.curated.dim_player on player_id = dim_player.player_id
+  join one graphene_cli.curated.dim_team on team_code = dim_team.team_code
+  -- period_id matches dim_tournament.tournament_id only for tournament rows; club-season rows simply
+  -- won't resolve, which is the intended behavior.
+  join one graphene_cli.curated.dim_tournament on period_id = dim_tournament.tournament_id
+)
