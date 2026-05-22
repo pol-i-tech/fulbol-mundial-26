@@ -1,0 +1,6672 @@
+{
+  "as_of_date": "2026-05-22",
+  "source_url": "https://www.espn.com/soccer/story/_/id/48757621/2026-world-cup-squad-lists-players-announced-all-48-teams",
+  "teams": [
+    {
+      "nation": "Mexico",
+      "group": "GROUP A",
+      "announced_date": "May 12",
+      "announce_type": "preliminary",
+      "manager": "Javier Aguirre",
+      "players": [
+        {
+          "espn_player_id": "347411",
+          "name": "Álex Padilla",
+          "position_bucket": "GK",
+          "club": "Athletic Club"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Antonio Rodríguez",
+          "position_bucket": "GK",
+          "club": "Tijuana"
+        },
+        {
+          "espn_player_id": "236368",
+          "name": "Carlos Acevedo",
+          "position_bucket": "GK",
+          "club": "Santos Laguna"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Carlos Moreno",
+          "position_bucket": "GK",
+          "club": "Pachuca"
+        },
+        {
+          "espn_player_id": "137038",
+          "name": "Guillermo Ochoa",
+          "position_bucket": "GK",
+          "club": "AEL Limassol"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Raúl Rangel",
+          "position_bucket": "GK",
+          "club": "Chivas"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Bryan González",
+          "position_bucket": "DF",
+          "club": "Chivas"
+        },
+        {
+          "espn_player_id": null,
+          "name": "César Montes",
+          "position_bucket": "DF",
+          "club": "Lokomotiv Moscow"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Edson Álvarez",
+          "position_bucket": "DF",
+          "club": "Fenerbahçe"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Eduardo Águila",
+          "position_bucket": "DF",
+          "club": "Atlético de San Luis"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Everardo López",
+          "position_bucket": "DF",
+          "club": "Toluca"
+        },
+        {
+          "espn_player_id": "290414",
+          "name": "Israel Reyes",
+          "position_bucket": "DF",
+          "club": "América"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Jesús Angulo",
+          "position_bucket": "DF",
+          "club": "Tigres"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Jesús Gallardo",
+          "position_bucket": "DF",
+          "club": "Toluca"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Jesús Gómez",
+          "position_bucket": "DF",
+          "club": "Tijuana"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Johan Vásquez",
+          "position_bucket": "DF",
+          "club": "Genoa"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Jorge Sánchez",
+          "position_bucket": "DF",
+          "club": "PAOK"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Julián Araujo",
+          "position_bucket": "DF",
+          "club": "Celtic"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Luis Rey",
+          "position_bucket": "DF",
+          "club": "Puebla"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Mateo Chávez",
+          "position_bucket": "DF",
+          "club": "AZ Alkmaar"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ramón Juárez",
+          "position_bucket": "DF",
+          "club": "América"
+        },
+        {
+          "espn_player_id": "271844",
+          "name": "Richard Ledezma",
+          "position_bucket": "DF",
+          "club": "Chivas"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Víctor Guzmán",
+          "position_bucket": "DF",
+          "club": "Monterrey"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Alexei Domínguez",
+          "position_bucket": "MF",
+          "club": "Pachuca"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Alexis Gutiérrez",
+          "position_bucket": "MF",
+          "club": "America"
+        },
+        {
+          "espn_player_id": "283827",
+          "name": "Álvaro Fidalgo",
+          "position_bucket": "MF",
+          "club": "Real Betis"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Brian Gutiérrez",
+          "position_bucket": "MF",
+          "club": "Chivas"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Carlos Rodríguez",
+          "position_bucket": "MF",
+          "club": "Cruz Azul"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Denzell Garcia",
+          "position_bucket": "MF",
+          "club": "FC Juarez"
+        },
+        {
+          "espn_player_id": "253830",
+          "name": "Diego Lainez",
+          "position_bucket": "MF",
+          "club": "Tigres"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Efrain Álvarez",
+          "position_bucket": "MF",
+          "club": "Chivas"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Elias Montiel",
+          "position_bucket": "MF",
+          "club": "Pachuca"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Erick Sánchez",
+          "position_bucket": "MF",
+          "club": "America"
+        },
+        {
+          "espn_player_id": "276942",
+          "name": "Erik Lira",
+          "position_bucket": "MF",
+          "club": "Cruz Azul"
+        },
+        {
+          "espn_player_id": "389575",
+          "name": "Gilberto Mora",
+          "position_bucket": "MF",
+          "club": "Tijuana"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Isaías Violante",
+          "position_bucket": "MF",
+          "club": "America"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Jeremy Márquez",
+          "position_bucket": "MF",
+          "club": "Cruz Azul"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Jordan Carrillo",
+          "position_bucket": "MF",
+          "club": "Pumas"
+        },
+        {
+          "espn_player_id": "329917",
+          "name": "Jorge Ruvalcaba",
+          "position_bucket": "MF",
+          "club": "NY Red Bulls"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Kevin Castañeda",
+          "position_bucket": "MF",
+          "club": "Tijuana"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Luis Chávez",
+          "position_bucket": "MF",
+          "club": "Dinamo Moscu"
+        },
+        {
+          "espn_player_id": "242614",
+          "name": "Luis Romo",
+          "position_bucket": "MF",
+          "club": "Chivas"
+        },
+        {
+          "espn_player_id": "272395",
+          "name": "Marcel Ruiz",
+          "position_bucket": "MF",
+          "club": "Toluca"
+        },
+        {
+          "espn_player_id": "318554",
+          "name": "Obed Vargas",
+          "position_bucket": "MF",
+          "club": "Atlético de Madrid"
+        },
+        {
+          "espn_player_id": "207011",
+          "name": "Orbelín Pineda",
+          "position_bucket": "MF",
+          "club": "AEK"
+        },
+        {
+          "espn_player_id": "229487",
+          "name": "Alexis Vega",
+          "position_bucket": "FW",
+          "club": "Toluca"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Armando González",
+          "position_bucket": "FW",
+          "club": "Chivas"
+        },
+        {
+          "espn_player_id": null,
+          "name": "César Huerta",
+          "position_bucket": "FW",
+          "club": "Anderlecht"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Germán Berterame",
+          "position_bucket": "FW",
+          "club": "Inter Miami"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Guillermo Martínez",
+          "position_bucket": "FW",
+          "club": "Pumas"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Julián Quiñones",
+          "position_bucket": "FW",
+          "club": "Al-Qadisiyah"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Raúl Jiménez",
+          "position_bucket": "FW",
+          "club": "Fulham"
+        },
+        {
+          "espn_player_id": "194308",
+          "name": "Roberto Alvarado",
+          "position_bucket": "FW",
+          "club": "Chivas"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Santiago Giménez",
+          "position_bucket": "FW",
+          "club": "Milan"
+        }
+      ]
+    },
+    {
+      "nation": "South Korea",
+      "group": "GROUP A",
+      "announced_date": "May 16",
+      "announce_type": "final",
+      "manager": "Hong Myung-Bo",
+      "players": [
+        {
+          "espn_player_id": null,
+          "name": "Jo Hyun-Woo",
+          "position_bucket": "GK",
+          "club": "Ulsan HD"
+        },
+        {
+          "espn_player_id": "175921",
+          "name": "Kim Seung-Gyu",
+          "position_bucket": "GK",
+          "club": "FC Tokyo"
+        },
+        {
+          "espn_player_id": "256724",
+          "name": "Song Bum-Keun",
+          "position_bucket": "GK",
+          "club": "Jeonbuk Hyundai"
+        },
+        {
+          "espn_player_id": "157688",
+          "name": "Kim Min-Jae",
+          "position_bucket": "DF",
+          "club": "Bayern Munich"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Jo Yu-Min",
+          "position_bucket": "DF",
+          "club": "Sharjah"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Lee Han-Beom",
+          "position_bucket": "DF",
+          "club": "Midtjylland"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Kim Tae-Hyun",
+          "position_bucket": "DF",
+          "club": "Kashima Antlers"
+        },
+        {
+          "espn_player_id": "336178",
+          "name": "Park Jin-Seop",
+          "position_bucket": "DF",
+          "club": "Zhejiang FC"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Lee Ki-Hyeok",
+          "position_bucket": "DF",
+          "club": "Gangwon FC"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Lee Tae-Seok",
+          "position_bucket": "DF",
+          "club": "Austria Vienna"
+        },
+        {
+          "espn_player_id": "302793",
+          "name": "Seol Young-Woo",
+          "position_bucket": "DF",
+          "club": "Red Star Belgrade"
+        },
+        {
+          "espn_player_id": "304793",
+          "name": "Jens Castrop",
+          "position_bucket": "DF",
+          "club": "Borussia Mönchengladbach"
+        },
+        {
+          "espn_player_id": "280060",
+          "name": "Kim Moon-Hwan",
+          "position_bucket": "DF",
+          "club": "Daejeon Hana"
+        },
+        {
+          "espn_player_id": "350711",
+          "name": "Yang Hyun-Jun",
+          "position_bucket": "MF",
+          "club": "Celtic"
+        },
+        {
+          "espn_player_id": "256598",
+          "name": "Paik Seung-Ho",
+          "position_bucket": "MF",
+          "club": "Birmingham City"
+        },
+        {
+          "espn_player_id": "280061",
+          "name": "Hwang In-Beom",
+          "position_bucket": "MF",
+          "club": "Feyenoord"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Kim Jin-Kyu",
+          "position_bucket": "MF",
+          "club": "Jeonbuk Hyundai"
+        },
+        {
+          "espn_player_id": "362208",
+          "name": "Bae Jun-Ho",
+          "position_bucket": "MF",
+          "club": "Stoke City"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Um Ji-Sung",
+          "position_bucket": "MF",
+          "club": "Swansea City"
+        },
+        {
+          "espn_player_id": "237224",
+          "name": "Hwang Hee-Chan",
+          "position_bucket": "MF",
+          "club": "Wolverhampton"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Lee Dong-Gyeong",
+          "position_bucket": "MF",
+          "club": "Ulsan HD"
+        },
+        {
+          "espn_player_id": "134103",
+          "name": "Lee Jae-Sung",
+          "position_bucket": "MF",
+          "club": "Mainz"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Lee Kang-In",
+          "position_bucket": "MF",
+          "club": "Paris Saint-Germain"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Oh Hyun-Kyu",
+          "position_bucket": "FW",
+          "club": "Besiktas"
+        },
+        {
+          "espn_player_id": "149945",
+          "name": "Son Heung-Min",
+          "position_bucket": "FW",
+          "club": "LAFC"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Cho Kyu-Sung",
+          "position_bucket": "FW",
+          "club": "Midtjylland"
+        }
+      ]
+    },
+    {
+      "nation": "Czechia",
+      "group": "GROUP A",
+      "announced_date": "May 12",
+      "announce_type": "preliminary",
+      "manager": "Miroslav Koubek",
+      "players": [
+        {
+          "espn_player_id": "319267",
+          "name": "Lukas Hornicek",
+          "position_bucket": "GK",
+          "club": "Braga"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Martin Jedlicka",
+          "position_bucket": "GK",
+          "club": "Banik Ostrava"
+        },
+        {
+          "espn_player_id": "324393",
+          "name": "Antonín Kinsky",
+          "position_bucket": "GK",
+          "club": "Tottenham"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Jan Koutny",
+          "position_bucket": "GK",
+          "club": "Sigma Olomouc"
+        },
+        {
+          "espn_player_id": "277313",
+          "name": "Matej Kovar",
+          "position_bucket": "GK",
+          "club": "PSV Eindhoven"
+        },
+        {
+          "espn_player_id": "291407",
+          "name": "Jakub Markovic",
+          "position_bucket": "GK",
+          "club": "Slavia Prague"
+        },
+        {
+          "espn_player_id": "199988",
+          "name": "Jindrich Stanek",
+          "position_bucket": "GK",
+          "club": "Slavia Prague"
+        },
+        {
+          "espn_player_id": "191209",
+          "name": "Vladimír Coufal",
+          "position_bucket": "DF",
+          "club": "TSG Hoffenheim"
+        },
+        {
+          "espn_player_id": null,
+          "name": "David Douděra",
+          "position_bucket": "DF",
+          "club": "Slavia Prague"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Matěj Hadaš",
+          "position_bucket": "DF",
+          "club": "Sigma Olomouc"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Tomáš Holeš",
+          "position_bucket": "DF",
+          "club": "Slavia Prague"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Robin Hranáč",
+          "position_bucket": "DF",
+          "club": "TSG Hoffenheim"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Štěpán Chaloupek",
+          "position_bucket": "DF",
+          "club": "Slavia Prague"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Václav Jemelka",
+          "position_bucket": "DF",
+          "club": "Viktoria Plzen"
+        },
+        {
+          "espn_player_id": null,
+          "name": "David Jurásek",
+          "position_bucket": "DF",
+          "club": "Slavia Prague"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ladislav Krejčí",
+          "position_bucket": "DF",
+          "club": "Wolverhampton Wanderers"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Karel Spáčil",
+          "position_bucket": "DF",
+          "club": "Viktoria Plzen"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Adam Ševínský",
+          "position_bucket": "DF",
+          "club": "Sparta Prague"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Martin Vitík",
+          "position_bucket": "DF",
+          "club": "Bologna"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Tomáš Vlček",
+          "position_bucket": "DF",
+          "club": "Slavia Prague"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Jaroslav Zelený",
+          "position_bucket": "DF",
+          "club": "Sparta Prague"
+        },
+        {
+          "espn_player_id": "290116",
+          "name": "David Zima",
+          "position_bucket": "DF",
+          "club": "Slavia Prague"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Lukas Ambros",
+          "position_bucket": "MF",
+          "club": "Gornik Zabrze"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Michal Beran",
+          "position_bucket": "MF",
+          "club": "Sigma Olomouc"
+        },
+        {
+          "espn_player_id": "279180",
+          "name": "Pavel Bucha",
+          "position_bucket": "MF",
+          "club": "FC Cincinnati"
+        },
+        {
+          "espn_player_id": "326596",
+          "name": "Lukás Cerv",
+          "position_bucket": "MF",
+          "club": "Viktoria Plzen"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Krystof Danek",
+          "position_bucket": "MF",
+          "club": "LASK Linz"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Vladimir Darida",
+          "position_bucket": "MF",
+          "club": "Hradec Kralove"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Patrik Hellebrand",
+          "position_bucket": "MF",
+          "club": "Gornik Zabrze"
+        },
+        {
+          "espn_player_id": "306895",
+          "name": "Adam Karabec",
+          "position_bucket": "MF",
+          "club": "Lyon"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ondrej Kricfaluši",
+          "position_bucket": "MF",
+          "club": "Banik Ostrava"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Tomáš Ladra",
+          "position_bucket": "MF",
+          "club": "Viktoria Plzen"
+        },
+        {
+          "espn_player_id": null,
+          "name": "David Planka",
+          "position_bucket": "MF",
+          "club": "Banik Ostrava"
+        },
+        {
+          "espn_player_id": "294618",
+          "name": "Lukás Provod",
+          "position_bucket": "MF",
+          "club": "Slavia Prague"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Matěj Ryneš",
+          "position_bucket": "MF",
+          "club": "Sparta Prague"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Lukas Sadílek",
+          "position_bucket": "MF",
+          "club": "Gornik Zabrze"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Michal Sadílek",
+          "position_bucket": "MF",
+          "club": "Slavia Prague"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Hugo Sochůrek",
+          "position_bucket": "MF",
+          "club": "Sparta Prague"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Alexandr Sojka",
+          "position_bucket": "MF",
+          "club": "Viktoria Plzen"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Tomáš Souček",
+          "position_bucket": "MF",
+          "club": "West Ham"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Pavel Šulc",
+          "position_bucket": "MF",
+          "club": "Lyon"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Denis Višinský",
+          "position_bucket": "MF",
+          "club": "Viktoria Plzen"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Adam Hložek",
+          "position_bucket": "FW",
+          "club": "TSG Hoffenheim"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Tomáš Chorý",
+          "position_bucket": "FW",
+          "club": "Slavia Prague"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Mojmír Chytil",
+          "position_bucket": "FW",
+          "club": "Slavia Prague"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Christophe Kabongo",
+          "position_bucket": "FW",
+          "club": "Mlada Boleslav"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Jan Kliment",
+          "position_bucket": "FW",
+          "club": "Sigma Olomouc"
+        },
+        {
+          "espn_player_id": "306008",
+          "name": "Jan Kuchta",
+          "position_bucket": "FW",
+          "club": "Sparta Prague"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Vasil Kušej",
+          "position_bucket": "FW",
+          "club": "Slavia Prague"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ondřej Mihálik",
+          "position_bucket": "FW",
+          "club": "Hradec Kralove"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Vojtěch Patrák",
+          "position_bucket": "FW",
+          "club": "Pardubice"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Václav Sejk",
+          "position_bucket": "FW",
+          "club": "Sigma Olomouc"
+        },
+        {
+          "espn_player_id": "212330",
+          "name": "Patrik Schick",
+          "position_bucket": "FW",
+          "club": "Bayer Leverkusen"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Matej Vydra",
+          "position_bucket": "FW",
+          "club": "Viktoria Plzen"
+        }
+      ]
+    },
+    {
+      "nation": "Bosnia-Herzegovina",
+      "group": "GROUP B",
+      "announced_date": "May 11",
+      "announce_type": "final",
+      "manager": "Sergej Barbarez",
+      "players": [
+        {
+          "espn_player_id": null,
+          "name": "Nikola Vasilj",
+          "position_bucket": "GK",
+          "club": "St Pauli"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Martin Zlomislic",
+          "position_bucket": "GK",
+          "club": "Rijeka"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Osman Hadzikic",
+          "position_bucket": "GK",
+          "club": "Slaven Belupo"
+        },
+        {
+          "espn_player_id": "170553",
+          "name": "Sead Kolasinac",
+          "position_bucket": "DF",
+          "club": "Atalanta"
+        },
+        {
+          "espn_player_id": "308979",
+          "name": "Amar Dedic",
+          "position_bucket": "DF",
+          "club": "Benfica"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Nihad Mujakic",
+          "position_bucket": "DF",
+          "club": "Gaziantep"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Nikola Katic",
+          "position_bucket": "DF",
+          "club": "Schalke 04"
+        },
+        {
+          "espn_player_id": "318390",
+          "name": "Tarik Muharemovic",
+          "position_bucket": "DF",
+          "club": "Sassuolo"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Stjepan Radeljic",
+          "position_bucket": "DF",
+          "club": "Rijeka"
+        },
+        {
+          "espn_player_id": "246836",
+          "name": "Dennis Hadzikadunic",
+          "position_bucket": "DF",
+          "club": "Sampdoria"
+        },
+        {
+          "espn_player_id": "387044",
+          "name": "Nidal Celik",
+          "position_bucket": "DF",
+          "club": "Lens"
+        },
+        {
+          "espn_player_id": "221961",
+          "name": "Amir Hadziahmetovic",
+          "position_bucket": "MF",
+          "club": "Hull City"
+        },
+        {
+          "espn_player_id": "194767",
+          "name": "Ivan Sunjic",
+          "position_bucket": "MF",
+          "club": "Pafos"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ivan Basic",
+          "position_bucket": "MF",
+          "club": "Astana"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Dzenis Burnic",
+          "position_bucket": "MF",
+          "club": "Karlsruher SC"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ermin Mahmic",
+          "position_bucket": "MF",
+          "club": "Slovan Liberec"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Benjamin Tahirovic",
+          "position_bucket": "MF",
+          "club": "Brondby"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Amar Memic",
+          "position_bucket": "MF",
+          "club": "Viktoria Plzen"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Armin Gigovic",
+          "position_bucket": "MF",
+          "club": "Young Boys"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Kerim Alajbegovic",
+          "position_bucket": "MF",
+          "club": "RB Salzburg"
+        },
+        {
+          "espn_player_id": "325410",
+          "name": "Esmir Bajraktarevic",
+          "position_bucket": "MF",
+          "club": "PSV Eindhoven"
+        },
+        {
+          "espn_player_id": "269136",
+          "name": "Ermedin Demirovic",
+          "position_bucket": "FW",
+          "club": "VfB Stuttgart"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Jovo Lukic",
+          "position_bucket": "FW",
+          "club": "Universitatea Cluj"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Samed Bazdar",
+          "position_bucket": "FW",
+          "club": "Jagiellonia Bialystok"
+        },
+        {
+          "espn_player_id": "184869",
+          "name": "Haris Tabakovic",
+          "position_bucket": "FW",
+          "club": "Borussia Moenchengladbach"
+        },
+        {
+          "espn_player_id": "102337",
+          "name": "Edin Dzeko",
+          "position_bucket": "FW",
+          "club": "Schalke 04"
+        }
+      ]
+    },
+    {
+      "nation": "Qatar",
+      "group": "GROUP B",
+      "announced_date": "May 12",
+      "announce_type": "preliminary",
+      "manager": "Julen Lopetegui",
+      "players": [
+        {
+          "espn_player_id": null,
+          "name": "Shehab Elleithy",
+          "position_bucket": "GK",
+          "club": "Al Shahania"
+        },
+        {
+          "espn_player_id": "288537",
+          "name": "Salah Zakaria",
+          "position_bucket": "GK",
+          "club": "Al Duhail"
+        },
+        {
+          "espn_player_id": "270844",
+          "name": "Meshaal Barsham",
+          "position_bucket": "GK",
+          "club": "Al Sadd"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Mahmoud Abunada",
+          "position_bucket": "GK",
+          "club": "Al Rayyan"
+        },
+        {
+          "espn_player_id": "205377",
+          "name": "Boualem Khoukhi",
+          "position_bucket": "DF",
+          "club": "Al Sadd"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Pedro Miguel",
+          "position_bucket": "DF",
+          "club": "Al Sadd"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Sultan Al Brake",
+          "position_bucket": "DF",
+          "club": "Al Duhail"
+        },
+        {
+          "espn_player_id": "219718",
+          "name": "Tarek Salman",
+          "position_bucket": "DF",
+          "club": "Al Sadd"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Al-Hashmi Al-Hussain",
+          "position_bucket": "DF",
+          "club": "Al Arabi"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ayoub Al-Alawi",
+          "position_bucket": "DF",
+          "club": "Al Gharafa"
+        },
+        {
+          "espn_player_id": "219511",
+          "name": "Bassam Al-Rawi",
+          "position_bucket": "DF",
+          "club": "Al Duhail"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Rayyan Al-Ali",
+          "position_bucket": "DF",
+          "club": "Al Gharafa"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Issa Laye",
+          "position_bucket": "DF",
+          "club": "Al Arabi"
+        },
+        {
+          "espn_player_id": "125617",
+          "name": "Lucas Mendes",
+          "position_bucket": "DF",
+          "club": "Al Wakrah"
+        },
+        {
+          "espn_player_id": "270409",
+          "name": "Mohammed Waad",
+          "position_bucket": "DF",
+          "club": "Al Shamal"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Niall Mason",
+          "position_bucket": "DF",
+          "club": "Qatar"
+        },
+        {
+          "espn_player_id": "268018",
+          "name": "Ahmed Fathi",
+          "position_bucket": "MF",
+          "club": "Al Arabi"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Jassim Gaber",
+          "position_bucket": "MF",
+          "club": "Al Rayyan"
+        },
+        {
+          "espn_player_id": "219254",
+          "name": "Assim Madibo",
+          "position_bucket": "MF",
+          "club": "Al Wakrah"
+        },
+        {
+          "espn_player_id": "143613",
+          "name": "Abdulaziz Hatem",
+          "position_bucket": "MF",
+          "club": "Al Rayyan"
+        },
+        {
+          "espn_player_id": "172245",
+          "name": "Karim Boudiaf",
+          "position_bucket": "MF",
+          "club": "Al Duhail"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Mohammed Mannai",
+          "position_bucket": "MF",
+          "club": "Al Shamal"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Homam Al-Amin",
+          "position_bucket": "MF",
+          "club": "Cultural Leonesa"
+        },
+        {
+          "espn_player_id": "219252",
+          "name": "Almoez Ali",
+          "position_bucket": "FW",
+          "club": "Al Duhail"
+        },
+        {
+          "espn_player_id": "219258",
+          "name": "Akram Afif",
+          "position_bucket": "FW",
+          "club": "Al Sadd"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Tahsin Mohammed",
+          "position_bucket": "FW",
+          "club": "Al Duhail"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Edmílson Junior",
+          "position_bucket": "FW",
+          "club": "Al Duhail"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ahmed Al-Ganehi",
+          "position_bucket": "FW",
+          "club": "Al Gharafa"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ahmed Alaa",
+          "position_bucket": "FW",
+          "club": "Al Rayyan"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Sebastián Soria",
+          "position_bucket": "FW",
+          "club": "Qatar"
+        },
+        {
+          "espn_player_id": "236586",
+          "name": "Hassan Al-Haydos",
+          "position_bucket": "FW",
+          "club": "Al Sadd"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Mubarak Shannan",
+          "position_bucket": "FW",
+          "club": "Al Duhail"
+        },
+        {
+          "espn_player_id": "185984",
+          "name": "Mohammed Muntari",
+          "position_bucket": "FW",
+          "club": "Al Gharafa"
+        },
+        {
+          "espn_player_id": "274164",
+          "name": "Yusuf Abdurisag",
+          "position_bucket": "FW",
+          "club": "Al Wakrah"
+        }
+      ]
+    },
+    {
+      "nation": "Switzerland",
+      "group": "GROUP B",
+      "announced_date": "May 19",
+      "announce_type": "final",
+      "manager": "Murat Yakin",
+      "players": [
+        {
+          "espn_player_id": "238544",
+          "name": "Gregor Kobel",
+          "position_bucket": "GK",
+          "club": "Borussia Dortmund"
+        },
+        {
+          "espn_player_id": "199381",
+          "name": "Yvon Mvogo",
+          "position_bucket": "GK",
+          "club": "Lorient"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Marvin Keller",
+          "position_bucket": "GK",
+          "club": "Young Boys"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Manuel Akanji",
+          "position_bucket": "DF",
+          "club": "Inter Milan"
+        },
+        {
+          "espn_player_id": "212237",
+          "name": "Nico Elvedi",
+          "position_bucket": "DF",
+          "club": "Borussia Mönchengladbach"
+        },
+        {
+          "espn_player_id": "136865",
+          "name": "Ricardo Rodriguez",
+          "position_bucket": "DF",
+          "club": "Real Betis"
+        },
+        {
+          "espn_player_id": "175905",
+          "name": "Silvan Widmer",
+          "position_bucket": "DF",
+          "club": "Mainz"
+        },
+        {
+          "espn_player_id": "243626",
+          "name": "Miro Muheim",
+          "position_bucket": "DF",
+          "club": "Hamburger SV"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Aurèle Amenda",
+          "position_bucket": "DF",
+          "club": "Eintracht Frankfurt"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Eray Cömert",
+          "position_bucket": "DF",
+          "club": "Valencia"
+        },
+        {
+          "espn_player_id": "332574",
+          "name": "Luca Jaquez",
+          "position_bucket": "DF",
+          "club": "Stuttgart"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Granit Xhaka",
+          "position_bucket": "MF",
+          "club": "Sunderland"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Johan Manzambi",
+          "position_bucket": "MF",
+          "club": "Freiburg"
+        },
+        {
+          "espn_player_id": "152600",
+          "name": "Remo Freuler",
+          "position_bucket": "MF",
+          "club": "Bologna"
+        },
+        {
+          "espn_player_id": "222628",
+          "name": "Denis Zakaria",
+          "position_bucket": "MF",
+          "club": "Monaco"
+        },
+        {
+          "espn_player_id": "303973",
+          "name": "Ardon Jashari",
+          "position_bucket": "MF",
+          "club": "AC Milan"
+        },
+        {
+          "espn_player_id": "222446",
+          "name": "Djibril Sow",
+          "position_bucket": "MF",
+          "club": "Sevilla"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Christian Fassnacht",
+          "position_bucket": "MF",
+          "club": "Young Boys"
+        },
+        {
+          "espn_player_id": "245623",
+          "name": "Michel Aebischer",
+          "position_bucket": "MF",
+          "club": "Pisa"
+        },
+        {
+          "espn_player_id": "308908",
+          "name": "Fabian Rieder",
+          "position_bucket": "MF",
+          "club": "Augsburg"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Rubén Vargas",
+          "position_bucket": "MF",
+          "club": "Sevilla"
+        },
+        {
+          "espn_player_id": "202099",
+          "name": "Breel Embolo",
+          "position_bucket": "FW",
+          "club": "Rennes"
+        },
+        {
+          "espn_player_id": "270641",
+          "name": "Noah Okafor",
+          "position_bucket": "FW",
+          "club": "Leeds"
+        },
+        {
+          "espn_player_id": "275842",
+          "name": "Dan Ndoye",
+          "position_bucket": "FW",
+          "club": "Nottingham Forest"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Zeki Amdouni",
+          "position_bucket": "FW",
+          "club": "Burnley"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Cedric Itten",
+          "position_bucket": "FW",
+          "club": "Fortuna Dusseldorf"
+        }
+      ]
+    },
+    {
+      "nation": "Brazil",
+      "group": "GROUP C",
+      "announced_date": "May 18",
+      "announce_type": "final",
+      "manager": "Carlo Ancelotti",
+      "players": [
+        {
+          "espn_player_id": "196876",
+          "name": "Alisson",
+          "position_bucket": "GK",
+          "club": "Liverpool"
+        },
+        {
+          "espn_player_id": "278210",
+          "name": "Éderson",
+          "position_bucket": "GK",
+          "club": "Fenerbahce"
+        },
+        {
+          "espn_player_id": "198983",
+          "name": "Weverton",
+          "position_bucket": "GK",
+          "club": "Grêmio"
+        },
+        {
+          "espn_player_id": "125514",
+          "name": "Alex Sandro",
+          "position_bucket": "DF",
+          "club": "Flamengo"
+        },
+        {
+          "espn_player_id": "258307",
+          "name": "Bremer",
+          "position_bucket": "DF",
+          "club": "Juventus"
+        },
+        {
+          "espn_player_id": "272224",
+          "name": "Danilo",
+          "position_bucket": "DF",
+          "club": "Flamengo"
+        },
+        {
+          "espn_player_id": "186575",
+          "name": "Douglas Santos",
+          "position_bucket": "DF",
+          "club": "Zenit St. Petersburg"
+        },
+        {
+          "espn_player_id": "236322",
+          "name": "Gabriel Magalhães",
+          "position_bucket": "DF",
+          "club": "Arsenal"
+        },
+        {
+          "espn_player_id": "145405",
+          "name": "Léo Pereira",
+          "position_bucket": "DF",
+          "club": "Flamengo"
+        },
+        {
+          "espn_player_id": "159047",
+          "name": "Marquinhos",
+          "position_bucket": "DF",
+          "club": "Paris Saint-Germain"
+        },
+        {
+          "espn_player_id": "259835",
+          "name": "Roger Ibañez",
+          "position_bucket": "DF",
+          "club": "Al Ahli"
+        },
+        {
+          "espn_player_id": "332354",
+          "name": "Wesley",
+          "position_bucket": "DF",
+          "club": "AS Roma"
+        },
+        {
+          "espn_player_id": "218522",
+          "name": "Bruno Guimarães",
+          "position_bucket": "MF",
+          "club": "Newcastle United"
+        },
+        {
+          "espn_player_id": "173666",
+          "name": "Casemiro",
+          "position_bucket": "MF",
+          "club": "Manchester United"
+        },
+        {
+          "espn_player_id": "306764",
+          "name": "Danilo Santos",
+          "position_bucket": "MF",
+          "club": "Botafogo"
+        },
+        {
+          "espn_player_id": "176287",
+          "name": "Fabinho",
+          "position_bucket": "MF",
+          "club": "Al Ittihad"
+        },
+        {
+          "espn_player_id": "234715",
+          "name": "Lucas Paquetá",
+          "position_bucket": "MF",
+          "club": "Flamengo"
+        },
+        {
+          "espn_player_id": "346612",
+          "name": "Endrick",
+          "position_bucket": "FW",
+          "club": "Lyon"
+        },
+        {
+          "espn_player_id": "269844",
+          "name": "Gabriel Martinelli",
+          "position_bucket": "FW",
+          "club": "Arsenal"
+        },
+        {
+          "espn_player_id": "301894",
+          "name": "Igor Thiago",
+          "position_bucket": "FW",
+          "club": "Brentford"
+        },
+        {
+          "espn_player_id": "304215",
+          "name": "Luiz Henrique",
+          "position_bucket": "FW",
+          "club": "Zenit St. Petersburg"
+        },
+        {
+          "espn_player_id": "259902",
+          "name": "Matheus Cunha",
+          "position_bucket": "FW",
+          "club": "Manchester United"
+        },
+        {
+          "espn_player_id": "132948",
+          "name": "Neymar",
+          "position_bucket": "FW",
+          "club": "Santos"
+        },
+        {
+          "espn_player_id": "231050",
+          "name": "Raphinha",
+          "position_bucket": "FW",
+          "club": "Barcelona"
+        },
+        {
+          "espn_player_id": "357719",
+          "name": "Rayan",
+          "position_bucket": "FW",
+          "club": "Bournemouth"
+        },
+        {
+          "espn_player_id": "252107",
+          "name": "Vinícius Júnior",
+          "position_bucket": "FW",
+          "club": "Real Madrid"
+        }
+      ]
+    },
+    {
+      "nation": "Haiti",
+      "group": "GROUP C",
+      "announced_date": "May 15",
+      "announce_type": "final",
+      "manager": "Sebastien Migne",
+      "players": [
+        {
+          "espn_player_id": "89090",
+          "name": "Johny Placide",
+          "position_bucket": "GK",
+          "club": "Bastia"
+        },
+        {
+          "espn_player_id": "310715",
+          "name": "Alexandre Pierre",
+          "position_bucket": "GK",
+          "club": "Sochaux"
+        },
+        {
+          "espn_player_id": "274131",
+          "name": "Josue Duverger",
+          "position_bucket": "GK",
+          "club": "Cosmos Koblenz"
+        },
+        {
+          "espn_player_id": "218703",
+          "name": "Carlens Arcus",
+          "position_bucket": "DF",
+          "club": "Angers"
+        },
+        {
+          "espn_player_id": "385479",
+          "name": "Wilguens Paugain",
+          "position_bucket": "DF",
+          "club": "Zulte Waregem"
+        },
+        {
+          "espn_player_id": "235401",
+          "name": "Duke Lacroix",
+          "position_bucket": "DF",
+          "club": "Colorado Springs Switchbacks"
+        },
+        {
+          "espn_player_id": "320212",
+          "name": "Martin Expérience",
+          "position_bucket": "DF",
+          "club": "Nancy"
+        },
+        {
+          "espn_player_id": "241032",
+          "name": "Jean-Kévin Duverne",
+          "position_bucket": "DF",
+          "club": "Gent"
+        },
+        {
+          "espn_player_id": "188106",
+          "name": "Ricardo Adé",
+          "position_bucket": "DF",
+          "club": "LDU Quito"
+        },
+        {
+          "espn_player_id": "252521",
+          "name": "Hannes Delcroix",
+          "position_bucket": "DF",
+          "club": "Lugano"
+        },
+        {
+          "espn_player_id": "409965",
+          "name": "Keeto Thermoncy",
+          "position_bucket": "DF",
+          "club": "Young Boys"
+        },
+        {
+          "espn_player_id": "297177",
+          "name": "Carl Fred Sainté",
+          "position_bucket": "MF",
+          "club": "El Paso Locomotive"
+        },
+        {
+          "espn_player_id": "268134",
+          "name": "Leverton Pierre",
+          "position_bucket": "MF",
+          "club": "Vizela"
+        },
+        {
+          "espn_player_id": "333939",
+          "name": "Danley Jean Jacques",
+          "position_bucket": "MF",
+          "club": "Philadelphia Union"
+        },
+        {
+          "espn_player_id": "240369",
+          "name": "Jean-Ricner Bellegarde",
+          "position_bucket": "MF",
+          "club": "Wolverhampton Wanderers"
+        },
+        {
+          "espn_player_id": "359946",
+          "name": "Woodensky Pierre",
+          "position_bucket": "MF",
+          "club": "Violette"
+        },
+        {
+          "espn_player_id": "342631",
+          "name": "Dominique Simon",
+          "position_bucket": "MF",
+          "club": "FC Tatran Prešov"
+        },
+        {
+          "espn_player_id": "291608",
+          "name": "Don Deedson Louicius",
+          "position_bucket": "FW",
+          "club": "FC Dallas"
+        },
+        {
+          "espn_player_id": "304212",
+          "name": "Josué Casimir",
+          "position_bucket": "FW",
+          "club": "Auxerre"
+        },
+        {
+          "espn_player_id": "231098",
+          "name": "Derrick Etienne",
+          "position_bucket": "FW",
+          "club": "Toronto FC"
+        },
+        {
+          "espn_player_id": "307861",
+          "name": "Ruben Providence",
+          "position_bucket": "FW",
+          "club": "Almere"
+        },
+        {
+          "espn_player_id": "210778",
+          "name": "Duckens Nazon",
+          "position_bucket": "FW",
+          "club": "Esteghlal"
+        },
+        {
+          "espn_player_id": "250241",
+          "name": "Frantzdy Pierrot",
+          "position_bucket": "FW",
+          "club": "Çaykur Rizespor"
+        },
+        {
+          "espn_player_id": "265915",
+          "name": "Wilson Isidor",
+          "position_bucket": "FW",
+          "club": "Sunderland"
+        },
+        {
+          "espn_player_id": "275007",
+          "name": "Yassin Fortuné",
+          "position_bucket": "FW",
+          "club": "Vizela"
+        },
+        {
+          "espn_player_id": "301093",
+          "name": "Lenny Joseph",
+          "position_bucket": "FW",
+          "club": "Ferencváros"
+        }
+      ]
+    },
+    {
+      "nation": "Scotland",
+      "group": "GROUP C",
+      "announced_date": "May 19",
+      "announce_type": "final",
+      "manager": "Steve Clarke",
+      "players": [
+        {
+          "espn_player_id": "17617",
+          "name": "Craig Gordon",
+          "position_bucket": "GK",
+          "club": "Hearts"
+        },
+        {
+          "espn_player_id": "181299",
+          "name": "Angus Gunn",
+          "position_bucket": "GK",
+          "club": "Nottingham Forest"
+        },
+        {
+          "espn_player_id": "16264",
+          "name": "Liam Kelly",
+          "position_bucket": "GK",
+          "club": "Rangers"
+        },
+        {
+          "espn_player_id": "146577",
+          "name": "Grant Hanley",
+          "position_bucket": "DF",
+          "club": "Hibernian"
+        },
+        {
+          "espn_player_id": "207454",
+          "name": "Jack Hendry",
+          "position_bucket": "DF",
+          "club": "Al Etiffaq"
+        },
+        {
+          "espn_player_id": "283940",
+          "name": "Aaron Hickey",
+          "position_bucket": "DF",
+          "club": "Brentford"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Dom Hyam",
+          "position_bucket": "DF",
+          "club": "Wrexham"
+        },
+        {
+          "espn_player_id": "191450",
+          "name": "Scott McKenna",
+          "position_bucket": "DF",
+          "club": "Dinamo Zagreb"
+        },
+        {
+          "espn_player_id": "271191",
+          "name": "Nathan Patterson",
+          "position_bucket": "DF",
+          "club": "Everton"
+        },
+        {
+          "espn_player_id": "224305",
+          "name": "Anthony Ralston",
+          "position_bucket": "DF",
+          "club": "Celtic"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Andy Robertson",
+          "position_bucket": "DF",
+          "club": "Liverpool"
+        },
+        {
+          "espn_player_id": null,
+          "name": "John Souttar",
+          "position_bucket": "DF",
+          "club": "Rangers"
+        },
+        {
+          "espn_player_id": "214794",
+          "name": "Kieran Tierney",
+          "position_bucket": "DF",
+          "club": "Celtic"
+        },
+        {
+          "espn_player_id": "93435",
+          "name": "Ryan Christie",
+          "position_bucket": "MF",
+          "club": "Bournemouth"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Finlay Curtis",
+          "position_bucket": "MF",
+          "club": "Kilmarnock"
+        },
+        {
+          "espn_player_id": "202429",
+          "name": "Lewis Ferguson",
+          "position_bucket": "MF",
+          "club": "Bologna"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ben Gannon-Doak",
+          "position_bucket": "MF",
+          "club": "Bournemouth"
+        },
+        {
+          "espn_player_id": "274217",
+          "name": "Billy Gilmour",
+          "position_bucket": "MF",
+          "club": "Napoli"
+        },
+        {
+          "espn_player_id": "162843",
+          "name": "John McGinn",
+          "position_bucket": "MF",
+          "club": "Aston Villa"
+        },
+        {
+          "espn_player_id": "141870",
+          "name": "Kenny McLean",
+          "position_bucket": "MF",
+          "club": "Norwich"
+        },
+        {
+          "espn_player_id": "255850",
+          "name": "Scott McTominay",
+          "position_bucket": "MF",
+          "club": "Napoli"
+        },
+        {
+          "espn_player_id": "213725",
+          "name": "Ché Adams",
+          "position_bucket": "FW",
+          "club": "Torino"
+        },
+        {
+          "espn_player_id": "207538",
+          "name": "Lyndon Dykes",
+          "position_bucket": "FW",
+          "club": "Charlton Athletic"
+        },
+        {
+          "espn_player_id": "241325",
+          "name": "George Hirst",
+          "position_bucket": "FW",
+          "club": "Ipswich"
+        },
+        {
+          "espn_player_id": "173306",
+          "name": "Lawrence Shankland",
+          "position_bucket": "FW",
+          "club": "Hearts"
+        },
+        {
+          "espn_player_id": "251936",
+          "name": "Ross Stewart",
+          "position_bucket": "FW",
+          "club": "Southampton"
+        }
+      ]
+    },
+    {
+      "nation": "Paraguay",
+      "group": "GROUP D",
+      "announced_date": "May 12",
+      "announce_type": "preliminary",
+      "manager": "Gustavo Alfaro",
+      "players": [
+        {
+          "espn_player_id": null,
+          "name": "Roberto Fernández",
+          "position_bucket": "GK",
+          "club": "Cerro Porteño"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Orlando Gill",
+          "position_bucket": "GK",
+          "club": "San Lorenzo"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Gastón Olveira",
+          "position_bucket": "GK",
+          "club": "Olimpia"
+        },
+        {
+          "espn_player_id": "215961",
+          "name": "Carlos Coronel",
+          "position_bucket": "GK",
+          "club": "Sao Paulo"
+        },
+        {
+          "espn_player_id": "252626",
+          "name": "Santiago Rojas",
+          "position_bucket": "GK",
+          "club": "Nacional"
+        },
+        {
+          "espn_player_id": "186085",
+          "name": "Juan Espínola",
+          "position_bucket": "GK",
+          "club": "Barracas Central"
+        },
+        {
+          "espn_player_id": "118395",
+          "name": "Gustavo Gómez",
+          "position_bucket": "DF",
+          "club": "Palmeiras"
+        },
+        {
+          "espn_player_id": "181657",
+          "name": "Júnior Alonso",
+          "position_bucket": "DF",
+          "club": "Atletico Mineiro"
+        },
+        {
+          "espn_player_id": "199101",
+          "name": "Fabián Balbuena",
+          "position_bucket": "DF",
+          "club": "Gremio"
+        },
+        {
+          "espn_player_id": "215401",
+          "name": "Omar Alderete",
+          "position_bucket": "DF",
+          "club": "Sunderland"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Juan Caceres",
+          "position_bucket": "DF",
+          "club": "Dynamo Moscow"
+        },
+        {
+          "espn_player_id": "228577",
+          "name": "Blas Riveros",
+          "position_bucket": "DF",
+          "club": "Cerro Porteno"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Alan Benitez",
+          "position_bucket": "DF",
+          "club": "Libertad"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Agustin Sandez",
+          "position_bucket": "DF",
+          "club": "Rosario Central"
+        },
+        {
+          "espn_player_id": "285755",
+          "name": "Mateo Gamarra",
+          "position_bucket": "DF",
+          "club": "Cruzeiro"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Saul Salcedo",
+          "position_bucket": "DF",
+          "club": "Newell's Old Boys"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Jose Canale",
+          "position_bucket": "DF",
+          "club": "Lanus"
+        },
+        {
+          "espn_player_id": "387634",
+          "name": "Diego León",
+          "position_bucket": "DF",
+          "club": "Manchester United"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Alexandro Maidana",
+          "position_bucket": "DF",
+          "club": "Talleres"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Alcides Benitez",
+          "position_bucket": "DF",
+          "club": "Belgrano"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ronaldo Dejesus",
+          "position_bucket": "DF",
+          "club": "Lanus"
+        },
+        {
+          "espn_player_id": "318200",
+          "name": "Alan Nuñez",
+          "position_bucket": "DF",
+          "club": "Nacional"
+        },
+        {
+          "espn_player_id": "48128",
+          "name": "Miguel Almirón",
+          "position_bucket": "MF",
+          "club": "Atlanta United"
+        },
+        {
+          "espn_player_id": "238449",
+          "name": "Mathías Villasanti",
+          "position_bucket": "MF",
+          "club": "Gremio"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Kaku",
+          "position_bucket": "MF",
+          "club": "Al Ain"
+        },
+        {
+          "espn_player_id": "202501",
+          "name": "Andrés Cubas",
+          "position_bucket": "MF",
+          "club": "Vancouver Whitecaps"
+        },
+        {
+          "espn_player_id": "301653",
+          "name": "Ramón Sosa",
+          "position_bucket": "MF",
+          "club": "Palmeiras"
+        },
+        {
+          "espn_player_id": "192278",
+          "name": "Diego Gómez",
+          "position_bucket": "MF",
+          "club": "Brighton & Hove Albion"
+        },
+        {
+          "espn_player_id": "301516",
+          "name": "Damián Bobadilla",
+          "position_bucket": "MF",
+          "club": "Sao Paulo"
+        },
+        {
+          "espn_player_id": "265977",
+          "name": "Braian Ojeda",
+          "position_bucket": "MF",
+          "club": "Orlando City"
+        },
+        {
+          "espn_player_id": "297328",
+          "name": "Matías Galarza",
+          "position_bucket": "MF",
+          "club": "Atlanta United"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Robert Piris Da Motta",
+          "position_bucket": "MF",
+          "club": "Cerro Porteno"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Alvaro Campuzano",
+          "position_bucket": "MF",
+          "club": "Libertad"
+        },
+        {
+          "espn_player_id": "362345",
+          "name": "Diego Gonzalez",
+          "position_bucket": "MF",
+          "club": "Atlas"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Hugo Cuenca",
+          "position_bucket": "MF",
+          "club": "Burgos"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Mauricio Magalhaes",
+          "position_bucket": "MF",
+          "club": "Palmeiras"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Lucas Romero",
+          "position_bucket": "MF",
+          "club": "Universidad de Chile"
+        },
+        {
+          "espn_player_id": "349723",
+          "name": "Enso González",
+          "position_bucket": "MF",
+          "club": "Wolverhampton Wanderers"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ruben Lezcano",
+          "position_bucket": "MF",
+          "club": "Olimpia"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Oscar Romero",
+          "position_bucket": "FW",
+          "club": "Huracan"
+        },
+        {
+          "espn_player_id": "193634",
+          "name": "Ángel Romero",
+          "position_bucket": "FW",
+          "club": "Boca Juniors"
+        },
+        {
+          "espn_player_id": "192162",
+          "name": "Antonio Sanabria",
+          "position_bucket": "FW",
+          "club": "Cremonese"
+        },
+        {
+          "espn_player_id": "20975",
+          "name": "Julio Enciso",
+          "position_bucket": "FW",
+          "club": "Strasbourg"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Gabriel Avalos",
+          "position_bucket": "FW",
+          "club": "Independiente"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Carlos Gonzalez",
+          "position_bucket": "FW",
+          "club": "Independiente del Valle"
+        },
+        {
+          "espn_player_id": "257754",
+          "name": "Alex Arce",
+          "position_bucket": "FW",
+          "club": "Independiente Rivadavia"
+        },
+        {
+          "espn_player_id": "252629",
+          "name": "Adam Bareiro",
+          "position_bucket": "FW",
+          "club": "Boca Juniors"
+        },
+        {
+          "espn_player_id": "132708",
+          "name": "Lorenzo Melgarejo",
+          "position_bucket": "FW",
+          "club": "Libertad"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Isidro Pitta",
+          "position_bucket": "FW",
+          "club": "Red Bull Bragantino"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ronaldo Martinez",
+          "position_bucket": "FW",
+          "club": "Talleres"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Gustavo Caballero",
+          "position_bucket": "FW",
+          "club": "Portsmouth"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Robert Morales",
+          "position_bucket": "FW",
+          "club": "UNAM"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Adrian Alcaraz",
+          "position_bucket": "FW",
+          "club": "Olimpia"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Rodney Redes",
+          "position_bucket": "FW",
+          "club": "LDU Quito"
+        }
+      ]
+    },
+    {
+      "nation": "Türkiye",
+      "group": "GROUP D",
+      "announced_date": "May 18",
+      "announce_type": "preliminary",
+      "manager": "Vincenzo Montella",
+      "players": [
+        {
+          "espn_player_id": null,
+          "name": "Ugurcan Cakir",
+          "position_bucket": "GK",
+          "club": "Galatasaray"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Mert Gunok",
+          "position_bucket": "GK",
+          "club": "Fenerbahce"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Altay Bayindir",
+          "position_bucket": "GK",
+          "club": "Man United"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Muhammed Sengezer",
+          "position_bucket": "GK",
+          "club": "Istanbul Basaksehir"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ersin Destanoglou",
+          "position_bucket": "GK",
+          "club": "Besiktas"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Merih Demiral",
+          "position_bucket": "DF",
+          "club": "Al-Ahli"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Zeki Celik",
+          "position_bucket": "DF",
+          "club": "AS Roma"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Caglar Soyuncu",
+          "position_bucket": "DF",
+          "club": "Fenerbahce"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Mert Muldur (Fenerbahce) Ferdi Kadioglu",
+          "position_bucket": "DF",
+          "club": "Brighton & Hove Albion"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ozan Kabak",
+          "position_bucket": "DF",
+          "club": "TSG Hoffenheim"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Abdulkerim Bardakci",
+          "position_bucket": "DF",
+          "club": "Galatasaray"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Eren Elmali",
+          "position_bucket": "DF",
+          "club": "Galatasaray"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Samet Akaydin",
+          "position_bucket": "DF",
+          "club": "Caykur Rizesport"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Mustafa Eskihellac",
+          "position_bucket": "DF",
+          "club": "Trabzonspor"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Yusuf Akcicek",
+          "position_bucket": "DF",
+          "club": "Al-Hilal"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ahmetcan Kaplan",
+          "position_bucket": "DF",
+          "club": "NEC Nijmegen"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Hakan Calhanoglou (Inter Milan, Kaan Ayhan (Galatasaray), Orkun Kokcu (Besiktas), Ismail Yuksek (Fenerbahce), Salih Ozcan (Borussia Dortmund), Atakan Karazor (VfB Stuttgart), Demir Ege Tiknaz",
+          "position_bucket": "MF",
+          "club": "Besiktas"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Kerem Akturkoglu",
+          "position_bucket": "FW",
+          "club": "Fenerbahce"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Irfan Can Kahveci",
+          "position_bucket": "FW",
+          "club": "Kasimpasa"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Baris Apler Yilmaz",
+          "position_bucket": "FW",
+          "club": "Galatasaray"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Arda Guler",
+          "position_bucket": "FW",
+          "club": "Real Madrid"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Kenan Yildiz",
+          "position_bucket": "FW",
+          "club": "Juventus"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Yunus Akgun",
+          "position_bucket": "FW",
+          "club": "Galatasaray"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Oguz Aydin",
+          "position_bucket": "FW",
+          "club": "Fenerbahce"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Deniz Gul",
+          "position_bucket": "FW",
+          "club": "Porto"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Yusuf Sari",
+          "position_bucket": "FW",
+          "club": "Basaksehir"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Can Uzun",
+          "position_bucket": "FW",
+          "club": "Eintracht Frankfurt"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Aral Simsir",
+          "position_bucket": "FW",
+          "club": "Midtjylland"
+        }
+      ]
+    },
+    {
+      "nation": "Germany",
+      "group": "GROUP E",
+      "announced_date": "May 21",
+      "announce_type": "final",
+      "manager": "Julian Nagelsmann",
+      "players": [
+        {
+          "espn_player_id": "138213",
+          "name": "Oliver Baumann",
+          "position_bucket": "GK",
+          "club": "Hoffenheim"
+        },
+        {
+          "espn_player_id": "84774",
+          "name": "Manuel Neuer",
+          "position_bucket": "GK",
+          "club": "Bayern Munich"
+        },
+        {
+          "espn_player_id": "205750",
+          "name": "Alexander Nübel",
+          "position_bucket": "GK",
+          "club": "Stuttgart"
+        },
+        {
+          "espn_player_id": "220714",
+          "name": "Waldemar Anton",
+          "position_bucket": "DF",
+          "club": "Borussia Dortmund"
+        },
+        {
+          "espn_player_id": "120829",
+          "name": "Nathaniel Brown",
+          "position_bucket": "DF",
+          "club": "Eintracht Frankfurt"
+        },
+        {
+          "espn_player_id": "249548",
+          "name": "David Raum",
+          "position_bucket": "DF",
+          "club": "RB Leipzig"
+        },
+        {
+          "espn_player_id": "169438",
+          "name": "Antonio Rüdiger",
+          "position_bucket": "DF",
+          "club": "Real Madrid"
+        },
+        {
+          "espn_player_id": "286828",
+          "name": "Nico Schlotterbeck",
+          "position_bucket": "DF",
+          "club": "Borussia Dortmund"
+        },
+        {
+          "espn_player_id": "188052",
+          "name": "Jonathan Tah",
+          "position_bucket": "DF",
+          "club": "Bayern Munich"
+        },
+        {
+          "espn_player_id": "303444",
+          "name": "Malick Thiaw",
+          "position_bucket": "DF",
+          "club": "Newcastle"
+        },
+        {
+          "espn_player_id": "132659",
+          "name": "Pascal Gross",
+          "position_bucket": "MF",
+          "club": "Brighton"
+        },
+        {
+          "espn_player_id": "190161",
+          "name": "Joshua Kimmich",
+          "position_bucket": "MF",
+          "club": "Bayern Munich"
+        },
+        {
+          "espn_player_id": "281122",
+          "name": "Felix Nmecha",
+          "position_bucket": "MF",
+          "club": "Borussia Dortmund"
+        },
+        {
+          "espn_player_id": "359370",
+          "name": "Aleksandar Pavlovic",
+          "position_bucket": "MF",
+          "club": "Bayern Munich"
+        },
+        {
+          "espn_player_id": "290232",
+          "name": "Angelo Stiller",
+          "position_bucket": "MF",
+          "club": "Stuttgart"
+        },
+        {
+          "espn_player_id": "174550",
+          "name": "Leon Goretzka",
+          "position_bucket": "MF",
+          "club": "Bayern Munich"
+        },
+        {
+          "espn_player_id": "303748",
+          "name": "Florian Wirtz",
+          "position_bucket": "MF",
+          "club": "Liverpool"
+        },
+        {
+          "espn_player_id": "290811",
+          "name": "Jamie Leweling",
+          "position_bucket": "MF",
+          "club": "Stuttgart"
+        },
+        {
+          "espn_player_id": "290639",
+          "name": "Maximilian Beier",
+          "position_bucket": "FW",
+          "club": "Borussia Dortmund"
+        },
+        {
+          "espn_player_id": "231182",
+          "name": "Kai Havertz",
+          "position_bucket": "FW",
+          "club": "Arsenal"
+        },
+        {
+          "espn_player_id": "402841",
+          "name": "Lennart Karl",
+          "position_bucket": "FW",
+          "club": "Bayern Munich"
+        },
+        {
+          "espn_player_id": "303821",
+          "name": "Jamal Musiala",
+          "position_bucket": "FW",
+          "club": "Bayern Munich"
+        },
+        {
+          "espn_player_id": "202641",
+          "name": "Leroy Sané",
+          "position_bucket": "FW",
+          "club": "Galatasaray"
+        },
+        {
+          "espn_player_id": "273300",
+          "name": "Deniz Undav",
+          "position_bucket": "FW",
+          "club": "Stuttgart"
+        },
+        {
+          "espn_player_id": "298349",
+          "name": "Nick Woltemade",
+          "position_bucket": "FW",
+          "club": "Newcastle"
+        }
+      ]
+    },
+    {
+      "nation": "Curacao",
+      "group": "GROUP E",
+      "announced_date": "May 18",
+      "announce_type": "final",
+      "manager": "Dick Advocaat",
+      "players": [
+        {
+          "espn_player_id": null,
+          "name": "Eloy Room",
+          "position_bucket": "GK",
+          "club": "Miami FC"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Tyrick Bodak",
+          "position_bucket": "GK",
+          "club": "Telstar"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Trevor Doornbusch",
+          "position_bucket": "GK",
+          "club": "VVV Venlo"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Riechedly Bazoer",
+          "position_bucket": "DF",
+          "club": "Konyaspor"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Joshua Brenet",
+          "position_bucket": "DF",
+          "club": "Kayserispor"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Roshon van Eijma",
+          "position_bucket": "DF",
+          "club": "RKC Waalwijk"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Sherel Floranus",
+          "position_bucket": "DF",
+          "club": "PEC Zwolle"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Deveron Fonville",
+          "position_bucket": "DF",
+          "club": "NEC Nijmegen"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Jurien Gaari",
+          "position_bucket": "DF",
+          "club": "Abha"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Armando Obispo",
+          "position_bucket": "DF",
+          "club": "PSV Eindhoven"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Shurandy Sambo",
+          "position_bucket": "DF",
+          "club": "Sparta Rotterdam"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Juninho Bacuna",
+          "position_bucket": "MF",
+          "club": "Volendam"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Leandro Bacuna",
+          "position_bucket": "MF",
+          "club": "Igdir"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Livano Comenencia",
+          "position_bucket": "MF",
+          "club": "Zurich"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Kevin Felida",
+          "position_bucket": "MF",
+          "club": "Den Bosch"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ar'jany Martha",
+          "position_bucket": "MF",
+          "club": "Rotherham United"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Tyrese Noslin",
+          "position_bucket": "MF",
+          "club": "Telstar"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Godfried Roemeratoe",
+          "position_bucket": "MF",
+          "club": "RKC Waalwijk"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Jeremy Antonisse",
+          "position_bucket": "FW",
+          "club": "Kifisia"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Tahith Chong",
+          "position_bucket": "FW",
+          "club": "Sheffield United"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Kenji Gorre",
+          "position_bucket": "FW",
+          "club": "Maccabi Haifa"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Sontje Hansen",
+          "position_bucket": "FW",
+          "club": "Middlesbrough"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Gervane Kastaneer",
+          "position_bucket": "FW",
+          "club": "Terengganu"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Brandley Kuwas",
+          "position_bucket": "FW",
+          "club": "Volendam"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Jurgen Locadia",
+          "position_bucket": "FW",
+          "club": "Miami FC"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Jearl Margaritha",
+          "position_bucket": "FW",
+          "club": "Beveren"
+        }
+      ]
+    },
+    {
+      "nation": "Ivory Coast",
+      "group": "GROUP E",
+      "announced_date": "May 15",
+      "announce_type": "final",
+      "manager": "Emerse Faé",
+      "players": [
+        {
+          "espn_player_id": "261595",
+          "name": "Yahia Fofana",
+          "position_bucket": "GK",
+          "club": "Rizespor"
+        },
+        {
+          "espn_player_id": "385004",
+          "name": "Mohamed Koné",
+          "position_bucket": "GK",
+          "club": "Charleroi"
+        },
+        {
+          "espn_player_id": "231282",
+          "name": "Alban Lafont",
+          "position_bucket": "GK",
+          "club": "Panathinaikos"
+        },
+        {
+          "espn_player_id": "308449",
+          "name": "Emmanuel Agbadou",
+          "position_bucket": "DF",
+          "club": "Beşiktaş"
+        },
+        {
+          "espn_player_id": "344520",
+          "name": "Clément Akpa",
+          "position_bucket": "DF",
+          "club": "AJ Auxerre"
+        },
+        {
+          "espn_player_id": "343964",
+          "name": "Ousmane Diomande",
+          "position_bucket": "DF",
+          "club": "Sporting CP"
+        },
+        {
+          "espn_player_id": "346636",
+          "name": "Guela Doué",
+          "position_bucket": "DF",
+          "club": "Strasbourg"
+        },
+        {
+          "espn_player_id": "250888",
+          "name": "Ghislain Konan",
+          "position_bucket": "DF",
+          "club": "Gil Vicente"
+        },
+        {
+          "espn_player_id": "284822",
+          "name": "Odilon Kossounou",
+          "position_bucket": "DF",
+          "club": "Atalanta"
+        },
+        {
+          "espn_player_id": "242593",
+          "name": "Evan Ndicka",
+          "position_bucket": "DF",
+          "club": "AS Roma"
+        },
+        {
+          "espn_player_id": "286569",
+          "name": "Wilfried Singo",
+          "position_bucket": "DF",
+          "club": "Galatasaray"
+        },
+        {
+          "espn_player_id": "184118",
+          "name": "Seko Fofana",
+          "position_bucket": "MF",
+          "club": "Porto"
+        },
+        {
+          "espn_player_id": "257055",
+          "name": "Parfait Guiagon",
+          "position_bucket": "MF",
+          "club": "Charleroi"
+        },
+        {
+          "espn_player_id": "194711",
+          "name": "Franck Kessié",
+          "position_bucket": "MF",
+          "club": "Al Ahli"
+        },
+        {
+          "espn_player_id": "386989",
+          "name": "Christ Inao Oulaï",
+          "position_bucket": "MF",
+          "club": "Trabzonspor"
+        },
+        {
+          "espn_player_id": "213718",
+          "name": "Ibrahim Sangaré",
+          "position_bucket": "MF",
+          "club": "Nottingham Forest"
+        },
+        {
+          "espn_player_id": "193539",
+          "name": "Jean Michaël Seri",
+          "position_bucket": "MF",
+          "club": "NK Maribor"
+        },
+        {
+          "espn_player_id": "317404",
+          "name": "Simon Adingra",
+          "position_bucket": "FW",
+          "club": "AS Monaco"
+        },
+        {
+          "espn_player_id": "309185",
+          "name": "Ange-Yoan Bonny",
+          "position_bucket": "FW",
+          "club": "Internazionale"
+        },
+        {
+          "espn_player_id": "291630",
+          "name": "Amad Diallo",
+          "position_bucket": "FW",
+          "club": "Manchester United"
+        },
+        {
+          "espn_player_id": "329483",
+          "name": "Oumar Diakité",
+          "position_bucket": "FW",
+          "club": "Cercle Brugge"
+        },
+        {
+          "espn_player_id": "402479",
+          "name": "Yan Diomande",
+          "position_bucket": "FW",
+          "club": "RB Leipzig"
+        },
+        {
+          "espn_player_id": "288924",
+          "name": "Evann Guessand",
+          "position_bucket": "FW",
+          "club": "Aston Villa"
+        },
+        {
+          "espn_player_id": "210397",
+          "name": "Nicolas Pépé",
+          "position_bucket": "FW",
+          "club": "Villarreal"
+        },
+        {
+          "espn_player_id": "359108",
+          "name": "Bazoumana Touré",
+          "position_bucket": "FW",
+          "club": "Hoffenheim"
+        },
+        {
+          "espn_player_id": "311118",
+          "name": "Elye Wahi",
+          "position_bucket": "FW",
+          "club": "Nice"
+        }
+      ]
+    },
+    {
+      "nation": "Japan",
+      "group": "GROUP F",
+      "announced_date": "May 15",
+      "announce_type": "final",
+      "manager": "Hajime Moriyasu",
+      "players": [
+        {
+          "espn_player_id": "265958",
+          "name": "Zion Suzuki",
+          "position_bucket": "GK",
+          "club": "Parma"
+        },
+        {
+          "espn_player_id": "255723",
+          "name": "Keisuke Osako",
+          "position_bucket": "GK",
+          "club": "Sanfrecce Hiroshima"
+        },
+        {
+          "espn_player_id": "312924",
+          "name": "Tomoki Hayakawa",
+          "position_bucket": "GK",
+          "club": "Kashima Antlers"
+        },
+        {
+          "espn_player_id": "119082",
+          "name": "Yūto Nagatomo",
+          "position_bucket": "DF",
+          "club": "FC Tokyo"
+        },
+        {
+          "espn_player_id": "202728",
+          "name": "Shogo Taniguchi",
+          "position_bucket": "DF",
+          "club": "Sint-Truiden"
+        },
+        {
+          "espn_player_id": "238033",
+          "name": "Ko Itakura",
+          "position_bucket": "DF",
+          "club": "Ajax"
+        },
+        {
+          "espn_player_id": "276279",
+          "name": "Tsuyoshi Watanabe",
+          "position_bucket": "DF",
+          "club": "Feyenoord"
+        },
+        {
+          "espn_player_id": "238004",
+          "name": "Takehiro Tomiyasu",
+          "position_bucket": "DF",
+          "club": "Ajax"
+        },
+        {
+          "espn_player_id": "97111",
+          "name": "Hiroki Ito",
+          "position_bucket": "DF",
+          "club": "Bayern Munich"
+        },
+        {
+          "espn_player_id": "258270",
+          "name": "Ayumu Seko",
+          "position_bucket": "DF",
+          "club": "Le Havre"
+        },
+        {
+          "espn_player_id": "265965",
+          "name": "Yukinari Sugawara",
+          "position_bucket": "DF",
+          "club": "Werder Bremen"
+        },
+        {
+          "espn_player_id": "333663",
+          "name": "Junnosuke Suzuki",
+          "position_bucket": "MF",
+          "club": "Copenhagen"
+        },
+        {
+          "espn_player_id": "152479",
+          "name": "Wataru Endo",
+          "position_bucket": "MF",
+          "club": "Liverpool"
+        },
+        {
+          "espn_player_id": "219350",
+          "name": "Junya Ito",
+          "position_bucket": "MF",
+          "club": "Genk"
+        },
+        {
+          "espn_player_id": "219362",
+          "name": "Daichi Kamada",
+          "position_bucket": "MF",
+          "club": "Crystal Palace"
+        },
+        {
+          "espn_player_id": "219627",
+          "name": "Ritsu Doan",
+          "position_bucket": "MF",
+          "club": "Eintracht Frankfurt"
+        },
+        {
+          "espn_player_id": "253173",
+          "name": "Ao Tanaka",
+          "position_bucket": "MF",
+          "club": "Leeds United"
+        },
+        {
+          "espn_player_id": "265953",
+          "name": "Keito Nakamura",
+          "position_bucket": "MF",
+          "club": "Reims"
+        },
+        {
+          "espn_player_id": "357030",
+          "name": "Kaishu Sano",
+          "position_bucket": "MF",
+          "club": "Mainz"
+        },
+        {
+          "espn_player_id": "256587",
+          "name": "Takefusa Kubo",
+          "position_bucket": "MF",
+          "club": "Real Sociedad"
+        },
+        {
+          "espn_player_id": "303031",
+          "name": "Yuito Suzuki",
+          "position_bucket": "MF",
+          "club": "Freiburg"
+        },
+        {
+          "espn_player_id": "238016",
+          "name": "Koki Ogawa",
+          "position_bucket": "FW",
+          "club": "NEC Nijmegen"
+        },
+        {
+          "espn_player_id": "286347",
+          "name": "Daizen Maeda",
+          "position_bucket": "FW",
+          "club": "Celtic"
+        },
+        {
+          "espn_player_id": "274277",
+          "name": "Ayase Ueda",
+          "position_bucket": "FW",
+          "club": "Feyenoord"
+        },
+        {
+          "espn_player_id": "362959",
+          "name": "Kento Shiogai",
+          "position_bucket": "FW",
+          "club": "VfL Wolfsburg"
+        },
+        {
+          "espn_player_id": "346208",
+          "name": "Keisuke Goto",
+          "position_bucket": "FW",
+          "club": "Sint-Truiden"
+        }
+      ]
+    },
+    {
+      "nation": "Sweden",
+      "group": "GROUP F",
+      "announced_date": "May 12",
+      "announce_type": "final",
+      "manager": "Graham Potter",
+      "players": [
+        {
+          "espn_player_id": "258902",
+          "name": "Viktor Johansson",
+          "position_bucket": "GK",
+          "club": "Stoke City"
+        },
+        {
+          "espn_player_id": "133993",
+          "name": "Kristoffer Nordfeldt",
+          "position_bucket": "GK",
+          "club": "AIK"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Jacob Widell Zetterstrom",
+          "position_bucket": "GK",
+          "club": "Derby County"
+        },
+        {
+          "espn_player_id": "290413",
+          "name": "Hjalmar Ekdal",
+          "position_bucket": "DF",
+          "club": "Burnley"
+        },
+        {
+          "espn_player_id": "250166",
+          "name": "Gabriel Gudmundsson",
+          "position_bucket": "DF",
+          "club": "Leeds United"
+        },
+        {
+          "espn_player_id": "312862",
+          "name": "Isak Hien",
+          "position_bucket": "DF",
+          "club": "Atalanta"
+        },
+        {
+          "espn_player_id": "286814",
+          "name": "Emil Holm",
+          "position_bucket": "DF",
+          "club": "Juventus"
+        },
+        {
+          "espn_player_id": "324930",
+          "name": "Gustaf Lagerbielke",
+          "position_bucket": "DF",
+          "club": "Braga"
+        },
+        {
+          "espn_player_id": "204679",
+          "name": "Victor Lindelöf",
+          "position_bucket": "DF",
+          "club": "Aston Villa"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Erik Smith",
+          "position_bucket": "DF",
+          "club": "St. Pauli"
+        },
+        {
+          "espn_player_id": "195790",
+          "name": "Carl Starfelt",
+          "position_bucket": "DF",
+          "club": "Celta Vigo"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Elliot Stroud",
+          "position_bucket": "DF",
+          "club": "Mjallby"
+        },
+        {
+          "espn_player_id": "310709",
+          "name": "Daniel Svensson",
+          "position_bucket": "DF",
+          "club": "Borussia Dortmund"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Taha Ali",
+          "position_bucket": "MF",
+          "club": "Malmo"
+        },
+        {
+          "espn_player_id": "304242",
+          "name": "Yasin Ayari",
+          "position_bucket": "MF",
+          "club": "Brighton"
+        },
+        {
+          "espn_player_id": "356379",
+          "name": "Lucas Bergvall",
+          "position_bucket": "MF",
+          "club": "Tottenham"
+        },
+        {
+          "espn_player_id": "237055",
+          "name": "Jesper Karlström",
+          "position_bucket": "MF",
+          "club": "Udinese"
+        },
+        {
+          "espn_player_id": "186004",
+          "name": "Ken Sema",
+          "position_bucket": "MF",
+          "club": "Pafos"
+        },
+        {
+          "espn_player_id": "220120",
+          "name": "Mattias Svanberg",
+          "position_bucket": "MF",
+          "club": "Wolfsburg"
+        },
+        {
+          "espn_player_id": "334024",
+          "name": "Besfort Zeneli",
+          "position_bucket": "MF",
+          "club": "Union St-Gilloise"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Alexander Bernhardsson",
+          "position_bucket": "FW",
+          "club": "Holstein Kiel"
+        },
+        {
+          "espn_player_id": "296622",
+          "name": "Anthony Elanga",
+          "position_bucket": "FW",
+          "club": "Newcastle United"
+        },
+        {
+          "espn_player_id": "258906",
+          "name": "Viktor Gyökeres",
+          "position_bucket": "FW",
+          "club": "Arsenal"
+        },
+        {
+          "espn_player_id": "235662",
+          "name": "Alexander Isak",
+          "position_bucket": "FW",
+          "club": "Liverpool"
+        },
+        {
+          "espn_player_id": "238183",
+          "name": "Gustaf Nilsson",
+          "position_bucket": "FW",
+          "club": "Club Brugge"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Benjamin Nygren",
+          "position_bucket": "FW",
+          "club": "Celtic"
+        }
+      ]
+    },
+    {
+      "nation": "Tunisia",
+      "group": "GROUP F",
+      "announced_date": "May 15",
+      "announce_type": "final",
+      "manager": "Sabri Lamouchi",
+      "players": [
+        {
+          "espn_player_id": "265272",
+          "name": "Aymen Dahmen",
+          "position_bucket": "GK",
+          "club": "CS Sfaxien"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Sabri Ben Hessen",
+          "position_bucket": "GK",
+          "club": "Étoile du Sahel"
+        },
+        {
+          "espn_player_id": "420888",
+          "name": "Abdelmouhib Chamakh",
+          "position_bucket": "GK",
+          "club": "Club Africain"
+        },
+        {
+          "espn_player_id": "265099",
+          "name": "Montassar Talbi",
+          "position_bucket": "DF",
+          "club": "Lorient"
+        },
+        {
+          "espn_player_id": "240371",
+          "name": "Dylan Bronn",
+          "position_bucket": "DF",
+          "club": "Servette"
+        },
+        {
+          "espn_player_id": "303848",
+          "name": "Omar Rekik",
+          "position_bucket": "DF",
+          "club": "Maribor"
+        },
+        {
+          "espn_player_id": "240588",
+          "name": "Yan Valery",
+          "position_bucket": "DF",
+          "club": "Young Boys"
+        },
+        {
+          "espn_player_id": "265234",
+          "name": "Ali Abdi",
+          "position_bucket": "DF",
+          "club": "Nice"
+        },
+        {
+          "espn_player_id": "345975",
+          "name": "Moutaz Neffati",
+          "position_bucket": "DF",
+          "club": "IFK Norrköping"
+        },
+        {
+          "espn_player_id": "420890",
+          "name": "Raed Chikhaoui",
+          "position_bucket": "DF",
+          "club": "US Monastir"
+        },
+        {
+          "espn_player_id": "410358",
+          "name": "Adam Arous",
+          "position_bucket": "DF",
+          "club": "Kasımpaşa"
+        },
+        {
+          "espn_player_id": "296982",
+          "name": "Mohamed Amine Ben Hamida",
+          "position_bucket": "DF",
+          "club": "Espérance de Tunis"
+        },
+        {
+          "espn_player_id": "209595",
+          "name": "Ellyes Skhiri",
+          "position_bucket": "MF",
+          "club": "Eintracht Frankfurt"
+        },
+        {
+          "espn_player_id": "300007",
+          "name": "Hannibal Mejbri",
+          "position_bucket": "MF",
+          "club": "Burnley"
+        },
+        {
+          "espn_player_id": "302944",
+          "name": "Anis Ben Slimane",
+          "position_bucket": "MF",
+          "club": "Norwich City"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Hadj Mahmoud",
+          "position_bucket": "MF",
+          "club": "Lugano"
+        },
+        {
+          "espn_player_id": "159152",
+          "name": "Rani Khedira",
+          "position_bucket": "MF",
+          "club": "Union Berlin"
+        },
+        {
+          "espn_player_id": "273170",
+          "name": "Mortadha Ben Ouanes",
+          "position_bucket": "MF",
+          "club": "Kasımpaşa"
+        },
+        {
+          "espn_player_id": "324510",
+          "name": "Elias Achouri",
+          "position_bucket": "FW",
+          "club": "Copenhagen"
+        },
+        {
+          "espn_player_id": "317473",
+          "name": "Ismaël Gharbi",
+          "position_bucket": "FW",
+          "club": "Augsburg"
+        },
+        {
+          "espn_player_id": "323950",
+          "name": "Elias Saad",
+          "position_bucket": "FW",
+          "club": "Hannover 96"
+        },
+        {
+          "espn_player_id": "303702",
+          "name": "Sebastian Tounekti",
+          "position_bucket": "FW",
+          "club": "Celtic"
+        },
+        {
+          "espn_player_id": "265207",
+          "name": "Firas Chaouat",
+          "position_bucket": "FW",
+          "club": "Club Africain"
+        },
+        {
+          "espn_player_id": "404769",
+          "name": "Khalil Ayari",
+          "position_bucket": "FW",
+          "club": "Paris Saint-Germain"
+        },
+        {
+          "espn_player_id": "396085",
+          "name": "Hazem Mastouri",
+          "position_bucket": "FW",
+          "club": "Dynamo Makhachkala"
+        },
+        {
+          "espn_player_id": "405591",
+          "name": "Rayan Elloumi",
+          "position_bucket": "FW",
+          "club": "Vancouver Whitecaps"
+        }
+      ]
+    },
+    {
+      "nation": "Belgium",
+      "group": "GROUP G",
+      "announced_date": "May 15",
+      "announce_type": "final",
+      "manager": "Rudi Garcia",
+      "players": [
+        {
+          "espn_player_id": "134283",
+          "name": "Thibaut Courtois",
+          "position_bucket": "GK",
+          "club": "Real Madrid"
+        },
+        {
+          "espn_player_id": "301425",
+          "name": "Senne Lammens",
+          "position_bucket": "GK",
+          "club": "Manchester United"
+        },
+        {
+          "espn_player_id": "332343",
+          "name": "Mike Penders",
+          "position_bucket": "GK",
+          "club": "Chelsea"
+        },
+        {
+          "espn_player_id": "197163",
+          "name": "Timothy Castagne",
+          "position_bucket": "DF",
+          "club": "Fulham"
+        },
+        {
+          "espn_player_id": "314473",
+          "name": "Zeno Debast",
+          "position_bucket": "DF",
+          "club": "Sporting CP"
+        },
+        {
+          "espn_player_id": "301327",
+          "name": "Maxim De Cuyper",
+          "position_bucket": "DF",
+          "club": "Brighton & Hove Albion"
+        },
+        {
+          "espn_player_id": "309570",
+          "name": "Koni De Winter",
+          "position_bucket": "DF",
+          "club": "AC Milan"
+        },
+        {
+          "espn_player_id": "191222",
+          "name": "Brandon Mechele",
+          "position_bucket": "DF",
+          "club": "Club Brugge"
+        },
+        {
+          "espn_player_id": "166473",
+          "name": "Thomas Meunier",
+          "position_bucket": "DF",
+          "club": "Lille"
+        },
+        {
+          "espn_player_id": "318577",
+          "name": "Nathan Ngoy",
+          "position_bucket": "DF",
+          "club": "Lille"
+        },
+        {
+          "espn_player_id": "363068",
+          "name": "Joaquin Seys",
+          "position_bucket": "DF",
+          "club": "Club Brugge"
+        },
+        {
+          "espn_player_id": "304222",
+          "name": "Arthur Theate",
+          "position_bucket": "DF",
+          "club": "Eintracht Frankfurt"
+        },
+        {
+          "espn_player_id": "134947",
+          "name": "Kevin De Bruyne",
+          "position_bucket": "MF",
+          "club": "Napoli"
+        },
+        {
+          "espn_player_id": "304799",
+          "name": "Amadou Onana",
+          "position_bucket": "MF",
+          "club": "Aston Villa"
+        },
+        {
+          "espn_player_id": "260027",
+          "name": "Nicolas Raskin",
+          "position_bucket": "MF",
+          "club": "Rangers"
+        },
+        {
+          "espn_player_id": "193297",
+          "name": "Youri Tielemans",
+          "position_bucket": "MF",
+          "club": "Aston Villa"
+        },
+        {
+          "espn_player_id": "193849",
+          "name": "Hans Vanaken",
+          "position_bucket": "MF",
+          "club": "Club Brugge"
+        },
+        {
+          "espn_player_id": "164895",
+          "name": "Axel Witsel",
+          "position_bucket": "MF",
+          "club": "Girona"
+        },
+        {
+          "espn_player_id": "296319",
+          "name": "Charles De Ketelaere",
+          "position_bucket": "FW",
+          "club": "Atalanta"
+        },
+        {
+          "espn_player_id": "283672",
+          "name": "Jérémy Doku",
+          "position_bucket": "FW",
+          "club": "Manchester City"
+        },
+        {
+          "espn_player_id": "359651",
+          "name": "Matias Fernandez-Pardo",
+          "position_bucket": "FW",
+          "club": "Lille"
+        },
+        {
+          "espn_player_id": "139437",
+          "name": "Romelu Lukaku",
+          "position_bucket": "FW",
+          "club": "Napoli"
+        },
+        {
+          "espn_player_id": "229443",
+          "name": "Dodi Lukebakio",
+          "position_bucket": "FW",
+          "club": "Benfica"
+        },
+        {
+          "espn_player_id": "340678",
+          "name": "Diego Moreira",
+          "position_bucket": "FW",
+          "club": "Strasbourg"
+        },
+        {
+          "espn_player_id": "271132",
+          "name": "Alexis Saelemaekers",
+          "position_bucket": "FW",
+          "club": "AC Milan"
+        },
+        {
+          "espn_player_id": "174980",
+          "name": "Leandro Trossard",
+          "position_bucket": "FW",
+          "club": "Arsenal"
+        }
+      ]
+    },
+    {
+      "nation": "Egypt",
+      "group": "GROUP G",
+      "announced_date": "May 21",
+      "announce_type": "preliminary",
+      "manager": "Hossam Hassan",
+      "players": [
+        {
+          "espn_player_id": "205212",
+          "name": "Mohamed El Shenawy",
+          "position_bucket": "GK",
+          "club": "Al Ahly"
+        },
+        {
+          "espn_player_id": "308915",
+          "name": "Mostafa Shobeir",
+          "position_bucket": "GK",
+          "club": "Al Ahly"
+        },
+        {
+          "espn_player_id": null,
+          "name": "El Mahdi Soliman",
+          "position_bucket": "GK",
+          "club": "Zamalek"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Mohamed Alaa",
+          "position_bucket": "GK",
+          "club": "El Gouna"
+        },
+        {
+          "espn_player_id": "119993",
+          "name": "Mohamed Hany",
+          "position_bucket": "DF",
+          "club": "Al Ahly"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Tarek Alaa",
+          "position_bucket": "DF",
+          "club": "Zed"
+        },
+        {
+          "espn_player_id": "285057",
+          "name": "Hamdy Fathy",
+          "position_bucket": "DF",
+          "club": "Al Wakrah"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Rami Rabia",
+          "position_bucket": "DF",
+          "club": "Al Ain"
+        },
+        {
+          "espn_player_id": "265417",
+          "name": "Yasser Ibrahim",
+          "position_bucket": "DF",
+          "club": "Al Ahly"
+        },
+        {
+          "espn_player_id": "308926",
+          "name": "Hossam Abdelmaguid",
+          "position_bucket": "DF",
+          "club": "Zamalek"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Mohamed Abdelmonemn",
+          "position_bucket": "DF",
+          "club": "Nice"
+        },
+        {
+          "espn_player_id": "265176",
+          "name": "Ahmed Fatouh",
+          "position_bucket": "DF",
+          "club": "Zamalek"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Karim Hafez",
+          "position_bucket": "DF",
+          "club": "Pyramids"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Marwan Ateya",
+          "position_bucket": "MF",
+          "club": "Al Ahly"
+        },
+        {
+          "espn_player_id": "328932",
+          "name": "Mohanad Lasheen",
+          "position_bucket": "MF",
+          "club": "Pyramids"
+        },
+        {
+          "espn_player_id": "287177",
+          "name": "Nabil Emad",
+          "position_bucket": "MF",
+          "club": "Al Najma"
+        },
+        {
+          "espn_player_id": "314444",
+          "name": "Mahmoud Saber",
+          "position_bucket": "MF",
+          "club": "Zed"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ahmed Zizo",
+          "position_bucket": "MF",
+          "club": "Al Ahly"
+        },
+        {
+          "espn_player_id": "299365",
+          "name": "Emam Ashour",
+          "position_bucket": "MF",
+          "club": "Al Ahly"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Mostafa Ziko",
+          "position_bucket": "MF",
+          "club": "Pyramids"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Mahmoud Trezeguet",
+          "position_bucket": "MF",
+          "club": "Al Ahly"
+        },
+        {
+          "espn_player_id": "299619",
+          "name": "Ibrahim Adel",
+          "position_bucket": "MF",
+          "club": "Nordsjaelland"
+        },
+        {
+          "espn_player_id": "276440",
+          "name": "Haissem Hassan",
+          "position_bucket": "MF",
+          "club": "Real Ovideo"
+        },
+        {
+          "espn_player_id": "303745",
+          "name": "Omar Marmoush",
+          "position_bucket": "FW",
+          "club": "Manchester City"
+        },
+        {
+          "espn_player_id": "173896",
+          "name": "Mohamed Salah",
+          "position_bucket": "FW",
+          "club": "Liverpool"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Aqtay Abdallah",
+          "position_bucket": "FW",
+          "club": "Enppi"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Hamza Abdelkarim",
+          "position_bucket": "FW",
+          "club": "Barcelona"
+        }
+      ]
+    },
+    {
+      "nation": "Iran",
+      "group": "GROUP G",
+      "announced_date": "May 18",
+      "announce_type": "preliminary",
+      "manager": "Amir Ghalenoei",
+      "players": [
+        {
+          "espn_player_id": null,
+          "name": "Alireza Beiranvand",
+          "position_bucket": "GK",
+          "club": "Tractor"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Hossein Hosseini",
+          "position_bucket": "GK",
+          "club": "Sepahan"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Payam Niazmand",
+          "position_bucket": "GK",
+          "club": "Persepolis"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Mohammed Khalifeh",
+          "position_bucket": "GK",
+          "club": "Aluminium Arak"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Danial Eiri",
+          "position_bucket": "DF",
+          "club": "Malavan"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ehsan Hajsafi",
+          "position_bucket": "DF",
+          "club": "Sepahan"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Saleh Hardani",
+          "position_bucket": "DF",
+          "club": "Esteghlal"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Hossein Kanaani",
+          "position_bucket": "DF",
+          "club": "Persepolis"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Shoka Khalilzadeh",
+          "position_bucket": "DF",
+          "club": "Tractor"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Milad Mohammadi",
+          "position_bucket": "DF",
+          "club": "Persepolis"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ali Nemati Omid Noorafkan",
+          "position_bucket": "DF",
+          "club": "Foolad"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ramin Rezaeian",
+          "position_bucket": "DF",
+          "club": "Foolad"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Rouzbeh Cheshmi",
+          "position_bucket": "MF",
+          "club": "Esteghlal"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Saeid Ezatolahi",
+          "position_bucket": "MF",
+          "club": "Shabab Al-Ahli"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Mehdi Ghaedi",
+          "position_bucket": "MF",
+          "club": "Al-Nasr"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Saman Ghoddos",
+          "position_bucket": "MF",
+          "club": "Kalba"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Mohammad Ghorbani",
+          "position_bucket": "MF",
+          "club": "Al-Wahda"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Alireza Jahanbakhsh",
+          "position_bucket": "MF",
+          "club": "Dender"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Mohammad Mohebi",
+          "position_bucket": "MF",
+          "club": "Rostovv"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Amir Mohammad Razzaghinia",
+          "position_bucket": "MF",
+          "club": "Esteghlal"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Mehdi Torabi",
+          "position_bucket": "MF",
+          "club": "Tractor"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Aria Yousefi",
+          "position_bucket": "MF",
+          "club": "Sepahan"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ali Alipour",
+          "position_bucket": "FW",
+          "club": "Persepolis"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Dennis Dargahi",
+          "position_bucket": "FW",
+          "club": "Standard Liege"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Hadi Habibinejad",
+          "position_bucket": "FW",
+          "club": "Chadormalou"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Amirhossein Hosseinzadeh",
+          "position_bucket": "FW",
+          "club": "Tractor"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Amirhossein Mahmoudi",
+          "position_bucket": "FW",
+          "club": "Persepolis"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Kasra Taheri",
+          "position_bucket": "FW",
+          "club": "Paykan"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Mehdi Taremi",
+          "position_bucket": "FW",
+          "club": "Olympiacos"
+        }
+      ]
+    },
+    {
+      "nation": "New Zealand",
+      "group": "GROUP G",
+      "announced_date": "May 14",
+      "announce_type": "final",
+      "manager": "Darren Bazeley",
+      "players": [
+        {
+          "espn_player_id": "168747",
+          "name": "Max Crocombe",
+          "position_bucket": "GK",
+          "club": "Millwall"
+        },
+        {
+          "espn_player_id": "297800",
+          "name": "Alex Paulsen",
+          "position_bucket": "GK",
+          "club": "Lechia Gdańsk"
+        },
+        {
+          "espn_player_id": "228288",
+          "name": "Michael Woud",
+          "position_bucket": "GK",
+          "club": "Auckland FC"
+        },
+        {
+          "espn_player_id": "159470",
+          "name": "Tim Payne",
+          "position_bucket": "DF",
+          "club": "Wellington Phoenix"
+        },
+        {
+          "espn_player_id": "254441",
+          "name": "Francis De Vries",
+          "position_bucket": "DF",
+          "club": "Auckland FC"
+        },
+        {
+          "espn_player_id": "367427",
+          "name": "Tyler Bindon",
+          "position_bucket": "DF",
+          "club": "Nottingham Forest"
+        },
+        {
+          "espn_player_id": "101934",
+          "name": "Michael Boxall",
+          "position_bucket": "DF",
+          "club": "Minnesota United"
+        },
+        {
+          "espn_player_id": "266554",
+          "name": "Liberato Cacace",
+          "position_bucket": "DF",
+          "club": "Wrexham"
+        },
+        {
+          "espn_player_id": "288469",
+          "name": "Nando Pijnaker",
+          "position_bucket": "DF",
+          "club": "Auckland FC"
+        },
+        {
+          "espn_player_id": "332367",
+          "name": "Finn Surman",
+          "position_bucket": "DF",
+          "club": "Portland Timbers"
+        },
+        {
+          "espn_player_id": "282239",
+          "name": "Callan Elliot",
+          "position_bucket": "DF",
+          "club": "Auckland FC"
+        },
+        {
+          "espn_player_id": "103819",
+          "name": "Tommy Smith",
+          "position_bucket": "DF",
+          "club": "Braintree Town"
+        },
+        {
+          "espn_player_id": "228294",
+          "name": "Joe Bell",
+          "position_bucket": "MF",
+          "club": "Viking FK"
+        },
+        {
+          "espn_player_id": "297803",
+          "name": "Matt Garbett",
+          "position_bucket": "MF",
+          "club": "Peterborough United"
+        },
+        {
+          "espn_player_id": "297798",
+          "name": "Marko Stamenic",
+          "position_bucket": "MF",
+          "club": "Swansea City"
+        },
+        {
+          "espn_player_id": "228283",
+          "name": "Sarpreet Singh",
+          "position_bucket": "MF",
+          "club": "Wellington Phoenix"
+        },
+        {
+          "espn_player_id": "194736",
+          "name": "Alex Rufer",
+          "position_bucket": "MF",
+          "club": "Wellington Phoenix"
+        },
+        {
+          "espn_player_id": "156146",
+          "name": "Ryan Thomas",
+          "position_bucket": "MF",
+          "club": "PEC Zwolle"
+        },
+        {
+          "espn_player_id": "134190",
+          "name": "Chris Wood",
+          "position_bucket": "FW",
+          "club": "Nottingham Forest"
+        },
+        {
+          "espn_player_id": "266555",
+          "name": "Eli Just",
+          "position_bucket": "FW",
+          "club": "Motherwell"
+        },
+        {
+          "espn_player_id": "175958",
+          "name": "Kosta Barbarouses",
+          "position_bucket": "FW",
+          "club": "Western Sydney Wanderers"
+        },
+        {
+          "espn_player_id": "277113",
+          "name": "Ben Waine",
+          "position_bucket": "FW",
+          "club": "Port Vale"
+        },
+        {
+          "espn_player_id": "297802",
+          "name": "Ben Old",
+          "position_bucket": "FW",
+          "club": "Saint-Étienne"
+        },
+        {
+          "espn_player_id": "228279",
+          "name": "Callum McCowatt",
+          "position_bucket": "FW",
+          "club": "Silkeborg IF"
+        },
+        {
+          "espn_player_id": "297794",
+          "name": "Jesse Randall",
+          "position_bucket": "FW",
+          "club": "Auckland FC"
+        },
+        {
+          "espn_player_id": "351369",
+          "name": "Lachlan Bayliss",
+          "position_bucket": "FW",
+          "club": "Newcastle Jets"
+        }
+      ]
+    },
+    {
+      "nation": "Cape Verde",
+      "group": "GROUP H",
+      "announced_date": "May 18",
+      "announce_type": "final",
+      "manager": "Bubista",
+      "players": [
+        {
+          "espn_player_id": null,
+          "name": "Vozinha",
+          "position_bucket": "GK",
+          "club": "Chaves"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Marcio Rosa",
+          "position_bucket": "GK",
+          "club": "Montana"
+        },
+        {
+          "espn_player_id": null,
+          "name": "CJ dos Santos",
+          "position_bucket": "GK",
+          "club": "San Diego FC"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Steven Moreira",
+          "position_bucket": "DF",
+          "club": "Columbus Crew"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Wagner Pina",
+          "position_bucket": "DF",
+          "club": "Trabzonspor"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Joao Paulo",
+          "position_bucket": "DF",
+          "club": "FCSB"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Sidny Lopes Cabral",
+          "position_bucket": "DF",
+          "club": "Benfica"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Logan Costa",
+          "position_bucket": "DF",
+          "club": "Villarreal"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Pico",
+          "position_bucket": "DF",
+          "club": "Shamrock Rovers"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Kelvin Pires",
+          "position_bucket": "DF",
+          "club": "SJK"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Stopira",
+          "position_bucket": "DF",
+          "club": "Torreense"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Diney",
+          "position_bucket": "DF",
+          "club": "Al Bataeh"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Jamiro Monteiro",
+          "position_bucket": "MF",
+          "club": "PEC Zwolle"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Telmo Arcanjo",
+          "position_bucket": "MF",
+          "club": "Vitoria Guimaraes"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Yannick Semedo",
+          "position_bucket": "MF",
+          "club": "Farense"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Laros Duarte",
+          "position_bucket": "MF",
+          "club": "Puskas Akademia"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Deroy Duarte",
+          "position_bucket": "MF",
+          "club": "Ludogorets Razgrad"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Kevin Pina",
+          "position_bucket": "MF",
+          "club": "Krasnodar"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ryan Mendes",
+          "position_bucket": "FW",
+          "club": "Igdir"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Willy Semedo",
+          "position_bucket": "FW",
+          "club": "Omonia"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Garry Rodrigues",
+          "position_bucket": "FW",
+          "club": "Apollon Limassol"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Jovane Cabral",
+          "position_bucket": "FW",
+          "club": "Estrela Amadora"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Nuno da Costa",
+          "position_bucket": "FW",
+          "club": "Istanbul Basaksehir"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Dailon Livramento",
+          "position_bucket": "FW",
+          "club": "Casa Pia"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Gilson Benchimol",
+          "position_bucket": "FW",
+          "club": "Akron Tolyatti"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Helio Varela",
+          "position_bucket": "FW",
+          "club": "Maccabi Tel Aviv"
+        }
+      ]
+    },
+    {
+      "nation": "France",
+      "group": "GROUP I",
+      "announced_date": "May 14",
+      "announce_type": "final",
+      "manager": "Didier Deschamps",
+      "players": [
+        {
+          "espn_player_id": "189026",
+          "name": "Mike Maignan",
+          "position_bucket": "GK",
+          "club": "AC Milan"
+        },
+        {
+          "espn_player_id": "344517",
+          "name": "Robin Risser",
+          "position_bucket": "GK",
+          "club": "Lens"
+        },
+        {
+          "espn_player_id": "164126",
+          "name": "Brice Samba",
+          "position_bucket": "GK",
+          "club": "Rennes"
+        },
+        {
+          "espn_player_id": "160115",
+          "name": "Lucas Digne",
+          "position_bucket": "DF",
+          "club": "Aston Villa"
+        },
+        {
+          "espn_player_id": "308947",
+          "name": "Malo Gusto",
+          "position_bucket": "DF",
+          "club": "Chelsea"
+        },
+        {
+          "espn_player_id": "196200",
+          "name": "Lucas Hernández",
+          "position_bucket": "DF",
+          "club": "Paris Saint-Germain"
+        },
+        {
+          "espn_player_id": "233621",
+          "name": "Theo Hernández",
+          "position_bucket": "DF",
+          "club": "Al Hilal"
+        },
+        {
+          "espn_player_id": "251634",
+          "name": "Ibrahima Konaté",
+          "position_bucket": "DF",
+          "club": "Liverpool"
+        },
+        {
+          "espn_player_id": "231692",
+          "name": "Jules Koundé",
+          "position_bucket": "DF",
+          "club": "Barcelona"
+        },
+        {
+          "espn_player_id": "265918",
+          "name": "Maxence Lacroix",
+          "position_bucket": "DF",
+          "club": "Crystal Palace"
+        },
+        {
+          "espn_player_id": "277385",
+          "name": "William Saliba",
+          "position_bucket": "DF",
+          "club": "Arsenal"
+        },
+        {
+          "espn_player_id": "222793",
+          "name": "Dayot Upamecano",
+          "position_bucket": "DF",
+          "club": "Bayern Munich"
+        },
+        {
+          "espn_player_id": "173556",
+          "name": "N'Golo Kanté",
+          "position_bucket": "MF",
+          "club": "Fenerbahçe"
+        },
+        {
+          "espn_player_id": "285226",
+          "name": "Manu Koné",
+          "position_bucket": "MF",
+          "club": "AS Roma"
+        },
+        {
+          "espn_player_id": "176203",
+          "name": "Adrien Rabiot",
+          "position_bucket": "MF",
+          "club": "AC Milan"
+        },
+        {
+          "espn_player_id": "265919",
+          "name": "Aurélien Tchouaméni",
+          "position_bucket": "MF",
+          "club": "Real Madrid"
+        },
+        {
+          "espn_player_id": "345581",
+          "name": "Warren Zaïre-Emery",
+          "position_bucket": "MF",
+          "club": "Paris Saint-Germain"
+        },
+        {
+          "espn_player_id": "329690",
+          "name": "Maghnes Akliouche",
+          "position_bucket": "FW",
+          "club": "AS Monaco"
+        },
+        {
+          "espn_player_id": "328238",
+          "name": "Bradley Barcola",
+          "position_bucket": "FW",
+          "club": "Paris Saint-Germain"
+        },
+        {
+          "espn_player_id": "298008",
+          "name": "Rayan Cherki",
+          "position_bucket": "FW",
+          "club": "Manchester City"
+        },
+        {
+          "espn_player_id": "229744",
+          "name": "Ousmane Dembélé",
+          "position_bucket": "FW",
+          "club": "Paris Saint-Germain"
+        },
+        {
+          "espn_player_id": "336388",
+          "name": "Désiré Doué",
+          "position_bucket": "FW",
+          "club": "Paris Saint-Germain"
+        },
+        {
+          "espn_player_id": "241187",
+          "name": "Jean-Philippe Mateta",
+          "position_bucket": "FW",
+          "club": "Crystal Palace"
+        },
+        {
+          "espn_player_id": "231388",
+          "name": "Kylian Mbappé",
+          "position_bucket": "FW",
+          "club": "Real Madrid"
+        },
+        {
+          "espn_player_id": "286831",
+          "name": "Michael Olise",
+          "position_bucket": "FW",
+          "club": "Bayern Munich"
+        },
+        {
+          "espn_player_id": "217331",
+          "name": "Marcus Thuram",
+          "position_bucket": "FW",
+          "club": "Internazionale"
+        }
+      ]
+    },
+    {
+      "nation": "Senegal",
+      "group": "GROUP I",
+      "announced_date": "May 21",
+      "announce_type": "preliminary",
+      "manager": "Pape Thiaw",
+      "players": [
+        {
+          "espn_player_id": "238362",
+          "name": "Édouard Mendy",
+          "position_bucket": "GK",
+          "club": "Al Ahli"
+        },
+        {
+          "espn_player_id": "197631",
+          "name": "Mory Diaw",
+          "position_bucket": "GK",
+          "club": "Le Havre AC"
+        },
+        {
+          "espn_player_id": "241029",
+          "name": "Yehvann Diouf",
+          "position_bucket": "GK",
+          "club": "OGC Nice"
+        },
+        {
+          "espn_player_id": "253992",
+          "name": "Krépin Diatta",
+          "position_bucket": "DF",
+          "club": "AS Monaco"
+        },
+        {
+          "espn_player_id": "319161",
+          "name": "Antoine Mendy",
+          "position_bucket": "DF",
+          "club": "OGC Nice"
+        },
+        {
+          "espn_player_id": "150312",
+          "name": "Kalidou Koulibaly",
+          "position_bucket": "DF",
+          "club": "Al Hilal"
+        },
+        {
+          "espn_player_id": "359796",
+          "name": "El Hadji Malick Diouf",
+          "position_bucket": "DF",
+          "club": "West Ham United"
+        },
+        {
+          "espn_player_id": "355433",
+          "name": "Mamadou Sarr",
+          "position_bucket": "DF",
+          "club": "Chelsea"
+        },
+        {
+          "espn_player_id": "213181",
+          "name": "Moussa Niakhaté",
+          "position_bucket": "DF",
+          "club": "Lyon"
+        },
+        {
+          "espn_player_id": "287474",
+          "name": "Moustapha Mbow",
+          "position_bucket": "DF",
+          "club": "Paris FC"
+        },
+        {
+          "espn_player_id": "251614",
+          "name": "Abdoulaye Seck",
+          "position_bucket": "DF",
+          "club": "Maccabi Haifa"
+        },
+        {
+          "espn_player_id": "268796",
+          "name": "Ismail Jakobs",
+          "position_bucket": "DF",
+          "club": "Galatasaray"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ilay Camara",
+          "position_bucket": "DF",
+          "club": "Anderlecht"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Idrissa Gana Gueye",
+          "position_bucket": "MF",
+          "club": "Everton"
+        },
+        {
+          "espn_player_id": "255889",
+          "name": "Pape Gueye",
+          "position_bucket": "MF",
+          "club": "Villarreal CF"
+        },
+        {
+          "espn_player_id": "38721",
+          "name": "Lamine Camara",
+          "position_bucket": "MF",
+          "club": "AS Monaco"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Habib Diarra",
+          "position_bucket": "MF",
+          "club": "Sunderland"
+        },
+        {
+          "espn_player_id": "294228",
+          "name": "Pathé Ciss",
+          "position_bucket": "MF",
+          "club": "Rayo Vallecano"
+        },
+        {
+          "espn_player_id": "297337",
+          "name": "Pape Matar Sarr",
+          "position_bucket": "MF",
+          "club": "Tottenham Hotspur"
+        },
+        {
+          "espn_player_id": "409016",
+          "name": "Bara Sapoko Ndiaye",
+          "position_bucket": "MF",
+          "club": "Bayern Munich"
+        },
+        {
+          "espn_player_id": "169797",
+          "name": "Sadio Mané",
+          "position_bucket": "FW",
+          "club": "Al Nassr"
+        },
+        {
+          "espn_player_id": "241012",
+          "name": "Ismaïla Sarr",
+          "position_bucket": "FW",
+          "club": "Crystal Palace"
+        },
+        {
+          "espn_player_id": "268641",
+          "name": "Iliman Ndiaye",
+          "position_bucket": "FW",
+          "club": "Everton"
+        },
+        {
+          "espn_player_id": "364742",
+          "name": "Assane Diao",
+          "position_bucket": "FW",
+          "club": "Como"
+        },
+        {
+          "espn_player_id": "388522",
+          "name": "Ibrahim Mbaye",
+          "position_bucket": "FW",
+          "club": "Paris Saint-Germian"
+        },
+        {
+          "espn_player_id": "308524",
+          "name": "Nicolas Jackson",
+          "position_bucket": "FW",
+          "club": "Chelsea"
+        },
+        {
+          "espn_player_id": "313889",
+          "name": "Bamba Dieng",
+          "position_bucket": "FW",
+          "club": "Lorient"
+        },
+        {
+          "espn_player_id": "251924",
+          "name": "Cherif Ndiaye",
+          "position_bucket": "FW",
+          "club": "Samsunspor"
+        }
+      ]
+    },
+    {
+      "nation": "Norway",
+      "group": "GROUP I",
+      "announced_date": "May 21",
+      "announce_type": "final",
+      "manager": "Stale Solbakken",
+      "players": [
+        {
+          "espn_player_id": "193610",
+          "name": "Ørjan Nyland",
+          "position_bucket": "GK",
+          "club": "Sevilla"
+        },
+        {
+          "espn_player_id": "286433",
+          "name": "Egil Selvik",
+          "position_bucket": "GK",
+          "club": "Watford"
+        },
+        {
+          "espn_player_id": "304258",
+          "name": "Sander Tangvik",
+          "position_bucket": "GK",
+          "club": "Hamburg SV"
+        },
+        {
+          "espn_player_id": "222991",
+          "name": "Julian Ryerson",
+          "position_bucket": "DF",
+          "club": "Borussia Dortmund"
+        },
+        {
+          "espn_player_id": "206173",
+          "name": "Kristoffer Ajer",
+          "position_bucket": "DF",
+          "club": "Brentford"
+        },
+        {
+          "espn_player_id": "281736",
+          "name": "Leo Østigård",
+          "position_bucket": "DF",
+          "club": "Genoa"
+        },
+        {
+          "espn_player_id": "313361",
+          "name": "David Møller Wolfe",
+          "position_bucket": "DF",
+          "club": "Wolverhampton Wanderers"
+        },
+        {
+          "espn_player_id": "129285",
+          "name": "Marcus Pedersen",
+          "position_bucket": "DF",
+          "club": "Torino"
+        },
+        {
+          "espn_player_id": "272867",
+          "name": "Torbjørn Heggem",
+          "position_bucket": "DF",
+          "club": "Bologna"
+        },
+        {
+          "espn_player_id": "238088",
+          "name": "Fredrik André Bjørkan",
+          "position_bucket": "DF",
+          "club": "Bodø/Glimt"
+        },
+        {
+          "espn_player_id": "303281",
+          "name": "Henrik Falchener",
+          "position_bucket": "DF",
+          "club": "Viking"
+        },
+        {
+          "espn_player_id": "366455",
+          "name": "Sondre Langås",
+          "position_bucket": "DF",
+          "club": "Derby County"
+        },
+        {
+          "espn_player_id": "203669",
+          "name": "Martin Ødegaard",
+          "position_bucket": "MF",
+          "club": "Arsenal"
+        },
+        {
+          "espn_player_id": "218998",
+          "name": "Sander Berge",
+          "position_bucket": "MF",
+          "club": "Fulham"
+        },
+        {
+          "espn_player_id": "205924",
+          "name": "Patrick Berg",
+          "position_bucket": "MF",
+          "club": "Bodø/Glimt"
+        },
+        {
+          "espn_player_id": "284212",
+          "name": "Kristian Thorstvedt",
+          "position_bucket": "MF",
+          "club": "Sassuolo"
+        },
+        {
+          "espn_player_id": "202686",
+          "name": "Morten Thorsby",
+          "position_bucket": "MF",
+          "club": "Cremonese"
+        },
+        {
+          "espn_player_id": "307477",
+          "name": "Thelo Aasgaard",
+          "position_bucket": "MF",
+          "club": "Rangers"
+        },
+        {
+          "espn_player_id": "313415",
+          "name": "Andreas Schjelderup",
+          "position_bucket": "MF",
+          "club": "Benfica"
+        },
+        {
+          "espn_player_id": "235789",
+          "name": "Jens Petter Hauge",
+          "position_bucket": "MF",
+          "club": "Bodø/Glimt"
+        },
+        {
+          "espn_player_id": "212900",
+          "name": "Fredrik Aursnes",
+          "position_bucket": "MF",
+          "club": "Benfica"
+        },
+        {
+          "espn_player_id": "307111",
+          "name": "Oscar Bobb",
+          "position_bucket": "MF",
+          "club": "Fulham"
+        },
+        {
+          "espn_player_id": "319368",
+          "name": "Antonio Nusa",
+          "position_bucket": "MF",
+          "club": "RB Leipzig"
+        },
+        {
+          "espn_player_id": "253989",
+          "name": "Erling Haaland",
+          "position_bucket": "FW",
+          "club": "Manchester City"
+        },
+        {
+          "espn_player_id": "188230",
+          "name": "Alexander Sørloth",
+          "position_bucket": "FW",
+          "club": "Atlético Madrid"
+        },
+        {
+          "espn_player_id": "252747",
+          "name": "Jørgen Strand Larsen",
+          "position_bucket": "FW",
+          "club": "Crystal Palace"
+        }
+      ]
+    },
+    {
+      "nation": "Argentina",
+      "group": "GROUP J",
+      "announced_date": "May 11",
+      "announce_type": "preliminary",
+      "manager": "Lionel Scaloni",
+      "players": [
+        {
+          "espn_player_id": null,
+          "name": "Emiliano Martínez",
+          "position_bucket": "GK",
+          "club": "Aston Villa"
+        },
+        {
+          "espn_player_id": "167192",
+          "name": "Gerónimo Rulli",
+          "position_bucket": "GK",
+          "club": "Olympique de Marseille"
+        },
+        {
+          "espn_player_id": "177927",
+          "name": "Juan Musso",
+          "position_bucket": "GK",
+          "club": "Atletico Madrid"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Walter Benítez",
+          "position_bucket": "GK",
+          "club": "Crystal Palace"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Facundo Cambeses",
+          "position_bucket": "GK",
+          "club": "Racing Club"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Santiago Beltran",
+          "position_bucket": "GK",
+          "club": "River Plate"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Agustín Giay",
+          "position_bucket": "DF",
+          "club": "Palmeiras"
+        },
+        {
+          "espn_player_id": "228262",
+          "name": "Gonzalo Montiel",
+          "position_bucket": "DF",
+          "club": "River Plate"
+        },
+        {
+          "espn_player_id": "164826",
+          "name": "Nahuel Molina",
+          "position_bucket": "DF",
+          "club": "Atletico Madrid"
+        },
+        {
+          "espn_player_id": "284835",
+          "name": "Nicolás Capaldo",
+          "position_bucket": "DF",
+          "club": "Hamburger"
+        },
+        {
+          "espn_player_id": "234337",
+          "name": "Kevin Mac Allister",
+          "position_bucket": "DF",
+          "club": "Union Saint Gilloise"
+        },
+        {
+          "espn_player_id": "219086",
+          "name": "Lucas Martínez Quarta",
+          "position_bucket": "DF",
+          "club": "River Plate"
+        },
+        {
+          "espn_player_id": "233945",
+          "name": "Marcos Senesi",
+          "position_bucket": "DF",
+          "club": "Bournemouth"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Lisandro Martínez",
+          "position_bucket": "DF",
+          "club": "Manchester United"
+        },
+        {
+          "espn_player_id": "119289",
+          "name": "Nicolás Otamendi",
+          "position_bucket": "DF",
+          "club": "Benfica"
+        },
+        {
+          "espn_player_id": "138341",
+          "name": "Germán Pezzella",
+          "position_bucket": "DF",
+          "club": "River Plate"
+        },
+        {
+          "espn_player_id": "271555",
+          "name": "Leonardo Balerdi",
+          "position_bucket": "DF",
+          "club": "Marseille"
+        },
+        {
+          "espn_player_id": "96970",
+          "name": "Cristian Romero",
+          "position_bucket": "DF",
+          "club": "Tottenham"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Lautaro Di Lollo",
+          "position_bucket": "DF",
+          "club": "Boca Juniors"
+        },
+        {
+          "espn_player_id": "300111",
+          "name": "Zaid Romero",
+          "position_bucket": "DF",
+          "club": "Getafe"
+        },
+        {
+          "espn_player_id": "249663",
+          "name": "Facundo Medina",
+          "position_bucket": "DF",
+          "club": "Marseille"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Marcos Acuña",
+          "position_bucket": "DF",
+          "club": "River Plate"
+        },
+        {
+          "espn_player_id": "145190",
+          "name": "Nicolás Tagliafico",
+          "position_bucket": "DF",
+          "club": "Lyon"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Gabriel Rojas",
+          "position_bucket": "DF",
+          "club": "Racing Club"
+        },
+        {
+          "espn_player_id": "309241",
+          "name": "Máximo Perrone",
+          "position_bucket": "MF",
+          "club": "Como"
+        },
+        {
+          "espn_player_id": "153115",
+          "name": "Leandro Paredes",
+          "position_bucket": "MF",
+          "club": "Boca Juniors"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Guido Rodríguez",
+          "position_bucket": "MF",
+          "club": "Valencia"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Anibal Moreno",
+          "position_bucket": "MF",
+          "club": "River Plate"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Milton Delgado",
+          "position_bucket": "MF",
+          "club": "Boca Juniors"
+        },
+        {
+          "espn_player_id": "307601",
+          "name": "Alan Varela",
+          "position_bucket": "MF",
+          "club": "Porto"
+        },
+        {
+          "espn_player_id": "364080",
+          "name": "Ezequiel Fernández",
+          "position_bucket": "MF",
+          "club": "Bayer Leverkusen"
+        },
+        {
+          "espn_player_id": "174466",
+          "name": "Rodrigo De Paul",
+          "position_bucket": "MF",
+          "club": "Inter Miami"
+        },
+        {
+          "espn_player_id": "228393",
+          "name": "Exequiel Palacios",
+          "position_bucket": "MF",
+          "club": "Bayer Leverkusen"
+        },
+        {
+          "espn_player_id": "285450",
+          "name": "Enzo Fernández",
+          "position_bucket": "MF",
+          "club": "Chelsea"
+        },
+        {
+          "espn_player_id": "249299",
+          "name": "Alexis Mac Allister",
+          "position_bucket": "MF",
+          "club": "Liverpool"
+        },
+        {
+          "espn_player_id": "207343",
+          "name": "Giovani Lo Celso",
+          "position_bucket": "MF",
+          "club": "Real Betis"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Nicolas Domínguez",
+          "position_bucket": "MF",
+          "club": "Nottingham Forest"
+        },
+        {
+          "espn_player_id": "214375",
+          "name": "Emiliano Buendía",
+          "position_bucket": "MF",
+          "club": "Aston Villa"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Valentín Barco",
+          "position_bucket": "MF",
+          "club": "Strasbourg"
+        },
+        {
+          "espn_player_id": "45843",
+          "name": "Lionel Messi",
+          "position_bucket": "FW",
+          "club": "Inter Miami"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Nicolas Paz",
+          "position_bucket": "FW",
+          "club": "Como"
+        },
+        {
+          "espn_player_id": "376473",
+          "name": "Franco Mastantuono",
+          "position_bucket": "FW",
+          "club": "Real Madrid"
+        },
+        {
+          "espn_player_id": "277208",
+          "name": "Thiago Almada",
+          "position_bucket": "FW",
+          "club": "Atletico Madrid"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Tomas Aranda",
+          "position_bucket": "FW",
+          "club": "Boca Juniors"
+        },
+        {
+          "espn_player_id": "76017",
+          "name": "Nicolás González",
+          "position_bucket": "FW",
+          "club": "Atletico Madrid"
+        },
+        {
+          "espn_player_id": "325555",
+          "name": "Alejandro Garnacho",
+          "position_bucket": "FW",
+          "club": "Chelsea"
+        },
+        {
+          "espn_player_id": "323838",
+          "name": "Giuliano Simeone",
+          "position_bucket": "FW",
+          "club": "Atletico Madrid"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Matías Soule",
+          "position_bucket": "FW",
+          "club": "Roma"
+        },
+        {
+          "espn_player_id": "361355",
+          "name": "Claudio Echeverri",
+          "position_bucket": "FW",
+          "club": "Girona"
+        },
+        {
+          "espn_player_id": "339191",
+          "name": "Gianluca Prestianni",
+          "position_bucket": "FW",
+          "club": "Benfica"
+        },
+        {
+          "espn_player_id": "250284",
+          "name": "Santiago Castro",
+          "position_bucket": "FW",
+          "club": "Bologna"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Lautaro Martínez",
+          "position_bucket": "FW",
+          "club": "Inter Milan"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Jose Manuel Lopez",
+          "position_bucket": "FW",
+          "club": "Palmeiras"
+        },
+        {
+          "espn_player_id": "277206",
+          "name": "Julián Álvarez",
+          "position_bucket": "FW",
+          "club": "Atletico Madrid"
+        },
+        {
+          "espn_player_id": "312757",
+          "name": "Mateo Pellegrino",
+          "position_bucket": "FW",
+          "club": "Parma"
+        }
+      ]
+    },
+    {
+      "nation": "Austria",
+      "group": "GROUP J",
+      "announced_date": "May 18",
+      "announce_type": "final",
+      "manager": "Ralf Rangnick",
+      "players": [
+        {
+          "espn_player_id": null,
+          "name": "Alexander Schlager",
+          "position_bucket": "GK",
+          "club": "RB Salzburg"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Florian Wiegele",
+          "position_bucket": "GK",
+          "club": "Viktoria Plzen"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Patrick Pentz",
+          "position_bucket": "GK",
+          "club": "Brondby"
+        },
+        {
+          "espn_player_id": null,
+          "name": "David Affengruber",
+          "position_bucket": "DF",
+          "club": "Elche"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Kevin Danso",
+          "position_bucket": "DF",
+          "club": "Tottehham"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Stefan Posch",
+          "position_bucket": "DF",
+          "club": "Mainz 05"
+        },
+        {
+          "espn_player_id": null,
+          "name": "David Alaba",
+          "position_bucket": "DF",
+          "club": "Real Madrid"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Philipp Lienhart",
+          "position_bucket": "DF",
+          "club": "SC Freiburg"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Philipp Mwene",
+          "position_bucket": "DF",
+          "club": "Mainz 05"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Alexander Prass",
+          "position_bucket": "DF",
+          "club": "TSG Hoffenheim"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Marco Friedl",
+          "position_bucket": "DF",
+          "club": "Werder Bremen"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Michael Svoboda",
+          "position_bucket": "DF",
+          "club": "Venezia"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Xaver Schlager",
+          "position_bucket": "MF",
+          "club": "RB Leipzig"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Nicolas Seiwald",
+          "position_bucket": "MF",
+          "club": "RB Leipzig"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Marcel Sabitzer",
+          "position_bucket": "MF",
+          "club": "Borussia Dortmund"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Florian Grillitsch",
+          "position_bucket": "MF",
+          "club": "Braga"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Carney Chukwuemeka",
+          "position_bucket": "MF",
+          "club": "Borussia Dortmund"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Romano Schmid",
+          "position_bucket": "MF",
+          "club": "Werder Bremen"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Christoph Baumgartner",
+          "position_bucket": "MF",
+          "club": "RB Leipzig"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Konrad Laimer",
+          "position_bucket": "MF",
+          "club": "Bayern Munich"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Patrick Wimmer",
+          "position_bucket": "MF",
+          "club": "Wolfsburg"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Paul Wanner",
+          "position_bucket": "MF",
+          "club": "PSV Eindhoven"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Alessandro Schopf",
+          "position_bucket": "MF",
+          "club": "Wolfsberger AC"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Marko Arnautovic",
+          "position_bucket": "FW",
+          "club": "Red Star Belgrade"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Michael Gregoritsch",
+          "position_bucket": "FW",
+          "club": "FC Augsburg"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Sasa Kalajdzic",
+          "position_bucket": "FW",
+          "club": "LASK Linz"
+        }
+      ]
+    },
+    {
+      "nation": "Jordan",
+      "group": "GROUP J",
+      "announced_date": "May 18",
+      "announce_type": "preliminary",
+      "manager": "Jamal Sellami",
+      "players": [
+        {
+          "espn_player_id": null,
+          "name": "Yazid Abulaila",
+          "position_bucket": "GK",
+          "club": "Al-Hussein"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Abdallah Al-Fakhouri",
+          "position_bucket": "GK",
+          "club": "Al-Wehdat"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ahmad Al-Juiadi",
+          "position_bucket": "GK",
+          "club": "Shabab Al-Ordon"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Nour Bani Attiah",
+          "position_bucket": "GK",
+          "club": "Al-Faisaly"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Mohammad Abualnadi",
+          "position_bucket": "DF",
+          "club": "Selangor"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Yousef Abu Al-Jazar",
+          "position_bucket": "DF",
+          "club": "Al-Hussein"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Husam Abu Dahab",
+          "position_bucket": "DF",
+          "club": "Al-Faisaly"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Mohammed Abu Hashish",
+          "position_bucket": "DF",
+          "club": "Al-Karma"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Mohannad Abu Taha",
+          "position_bucket": "DF",
+          "club": "Al-Quwa Al-Jawiya"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Yazan Al-Arab",
+          "position_bucket": "DF",
+          "club": "FC Seoul"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Saed Al-Rosna",
+          "position_bucket": "DF",
+          "club": "Al-Hussein"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ahmad Assaf",
+          "position_bucket": "DF",
+          "club": "Al-Hussein"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Anas Badawi",
+          "position_bucket": "DF",
+          "club": "Al-Faisaly"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Abdallah Nasib",
+          "position_bucket": "DF",
+          "club": "Al-Zawraa"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ehsan Haddad",
+          "position_bucket": "DF",
+          "club": "Al-Hussein"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Saleem Obaid",
+          "position_bucket": "DF",
+          "club": "Al-Hussein"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Mohammad Abu Taha",
+          "position_bucket": "DF",
+          "club": "Al-Quwa Al-Jawiya"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Mohammed Al-Dawoud",
+          "position_bucket": "MF",
+          "club": "Al-Wehdat"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Nizar Al-Rashdan",
+          "position_bucket": "MF",
+          "club": "Qatar SC"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Noor Al-Rawabdeh",
+          "position_bucket": "MF",
+          "club": "Selangor"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Rajaei Ayed",
+          "position_bucket": "MF",
+          "club": "Al-Hussein"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Amer Jamous",
+          "position_bucket": "MF",
+          "club": "Al-Zawraa"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Yousef Qashi",
+          "position_bucket": "MF",
+          "club": "Al-Hussein"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ibrahim Sadeh",
+          "position_bucket": "MF",
+          "club": "Al-Karma"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Mohammed Abu Zraiq",
+          "position_bucket": "FW",
+          "club": "Raja Casablanca"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Mousa Al-Tamari",
+          "position_bucket": "FW",
+          "club": "Rennes"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ali Azaizeh",
+          "position_bucket": "FW",
+          "club": "Al-Shabab"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Odeh Al-Fakhouri",
+          "position_bucket": "FW",
+          "club": "Pyramids"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ali Olwan",
+          "position_bucket": "FW",
+          "club": "Al-Sailiaya"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ibrahim Sabra",
+          "position_bucket": "FW",
+          "club": "Lokomotiva Zagreb"
+        }
+      ]
+    },
+    {
+      "nation": "Portugal",
+      "group": "GROUP K",
+      "announced_date": "May 19",
+      "announce_type": "final",
+      "manager": "Roberto Martinez",
+      "players": [
+        {
+          "espn_player_id": "238903",
+          "name": "Diogo Costa",
+          "position_bucket": "GK",
+          "club": "Porto"
+        },
+        {
+          "espn_player_id": "181278",
+          "name": "José Sá",
+          "position_bucket": "GK",
+          "club": "Wolverhampton Wanderers"
+        },
+        {
+          "espn_player_id": "405542",
+          "name": "Rui Silva",
+          "position_bucket": "GK",
+          "club": "Sporting Lisbon"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ricardo Velho",
+          "position_bucket": "GK",
+          "club": "Gençlerbirliği"
+        },
+        {
+          "espn_player_id": "234878",
+          "name": "Rúben Dias",
+          "position_bucket": "DF",
+          "club": "Manchester City"
+        },
+        {
+          "espn_player_id": "176399",
+          "name": "João Cancelo",
+          "position_bucket": "DF",
+          "club": "Barcelona"
+        },
+        {
+          "espn_player_id": "238902",
+          "name": "Diogo Dalot",
+          "position_bucket": "DF",
+          "club": "Manchester United"
+        },
+        {
+          "espn_player_id": "290591",
+          "name": "Nuno Mendes",
+          "position_bucket": "DF",
+          "club": "Paris Saint-Germain"
+        },
+        {
+          "espn_player_id": "222670",
+          "name": "Nélson Semedo",
+          "position_bucket": "DF",
+          "club": "Fenerbahce"
+        },
+        {
+          "espn_player_id": "303785",
+          "name": "Matheus Nunes",
+          "position_bucket": "DF",
+          "club": "Manchester City"
+        },
+        {
+          "espn_player_id": "304106",
+          "name": "Gonçalo Inacio",
+          "position_bucket": "DF",
+          "club": "Sporting Lisbon"
+        },
+        {
+          "espn_player_id": "337011",
+          "name": "Renato Veiga",
+          "position_bucket": "DF",
+          "club": "Villarreal"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Tomás Araújo",
+          "position_bucket": "DF",
+          "club": "Benfica"
+        },
+        {
+          "espn_player_id": "124091",
+          "name": "Bruno Fernandes",
+          "position_bucket": "MF",
+          "club": "Manchester United"
+        },
+        {
+          "espn_player_id": "199833",
+          "name": "Bernardo Silva",
+          "position_bucket": "MF",
+          "club": "Manchester City"
+        },
+        {
+          "espn_player_id": "403234",
+          "name": "Vitinha",
+          "position_bucket": "MF",
+          "club": "PSG"
+        },
+        {
+          "espn_player_id": "355061",
+          "name": "João Neves",
+          "position_bucket": "MF",
+          "club": "PSG"
+        },
+        {
+          "espn_player_id": "208128",
+          "name": "Rúben Neves",
+          "position_bucket": "MF",
+          "club": "Al Hilal"
+        },
+        {
+          "espn_player_id": "183466",
+          "name": "Samú Costa",
+          "position_bucket": "MF",
+          "club": "Mallorca"
+        },
+        {
+          "espn_player_id": "22774",
+          "name": "Cristiano Ronaldo",
+          "position_bucket": "FW",
+          "club": "Al Nassr"
+        },
+        {
+          "espn_player_id": "258917",
+          "name": "Rafael Leão",
+          "position_bucket": "FW",
+          "club": "AC Milan"
+        },
+        {
+          "espn_player_id": "276350",
+          "name": "João Félix",
+          "position_bucket": "FW",
+          "club": "Al Nassr"
+        },
+        {
+          "espn_player_id": "288896",
+          "name": "Gonçalo Ramos",
+          "position_bucket": "FW",
+          "club": "PSG"
+        },
+        {
+          "espn_player_id": "256115",
+          "name": "Pedro Neto",
+          "position_bucket": "FW",
+          "club": "Chelsea"
+        },
+        {
+          "espn_player_id": "312659",
+          "name": "Francisco Conceição",
+          "position_bucket": "FW",
+          "club": "Juventus"
+        },
+        {
+          "espn_player_id": "213141",
+          "name": "Gonçalo Guedes",
+          "position_bucket": "FW",
+          "club": "Real Sociedad"
+        },
+        {
+          "espn_player_id": "274159",
+          "name": "Francisco Trincão",
+          "position_bucket": "FW",
+          "club": "Sporting Lisbon"
+        }
+      ]
+    },
+    {
+      "nation": "Congo DR",
+      "group": "GROUP K",
+      "announced_date": "May 18",
+      "announce_type": "final",
+      "manager": "Sebastien Desabre",
+      "players": [
+        {
+          "espn_player_id": null,
+          "name": "Lionel Mpasi",
+          "position_bucket": "GK",
+          "club": "Le Havre"
+        },
+        {
+          "espn_player_id": "282757",
+          "name": "Timothy Fayulu",
+          "position_bucket": "GK",
+          "club": "FC Noah"
+        },
+        {
+          "espn_player_id": "319371",
+          "name": "Matthieu Epolo",
+          "position_bucket": "GK",
+          "club": "Standard Liege"
+        },
+        {
+          "espn_player_id": "174322",
+          "name": "Chancel Mbemba",
+          "position_bucket": "DF",
+          "club": "Lille"
+        },
+        {
+          "espn_player_id": "229524",
+          "name": "Axel Tuanzebe",
+          "position_bucket": "DF",
+          "club": "Burnley"
+        },
+        {
+          "espn_player_id": "165892",
+          "name": "Arthur Masuaku",
+          "position_bucket": "DF",
+          "club": "Lens"
+        },
+        {
+          "espn_player_id": "291345",
+          "name": "Gedeon Kalulu",
+          "position_bucket": "DF",
+          "club": "Aris Limassol"
+        },
+        {
+          "espn_player_id": "204329",
+          "name": "Joris Kayembe",
+          "position_bucket": "DF",
+          "club": "Genk"
+        },
+        {
+          "espn_player_id": "250945",
+          "name": "Aaron Wan-Bissaka",
+          "position_bucket": "DF",
+          "club": "West Ham United"
+        },
+        {
+          "espn_player_id": "175104",
+          "name": "Aaron Tshibola",
+          "position_bucket": "DF",
+          "club": "Kilmarnock"
+        },
+        {
+          "espn_player_id": "369201",
+          "name": "Steve Kapuadi",
+          "position_bucket": "DF",
+          "club": "Widzew Łódź"
+        },
+        {
+          "espn_player_id": "260228",
+          "name": "Dylan Batubinsika",
+          "position_bucket": "DF",
+          "club": "AEL"
+        },
+        {
+          "espn_player_id": "340240",
+          "name": "Noah Sadiki",
+          "position_bucket": "MF",
+          "club": "Sunderland"
+        },
+        {
+          "espn_player_id": "235875",
+          "name": "Charles Pickel",
+          "position_bucket": "MF",
+          "club": "Espanyol"
+        },
+        {
+          "espn_player_id": "268986",
+          "name": "Edo Kayembe",
+          "position_bucket": "MF",
+          "club": "Watford"
+        },
+        {
+          "espn_player_id": "260932",
+          "name": "Samuel Moutoussamy",
+          "position_bucket": "MF",
+          "club": "Atromitos"
+        },
+        {
+          "espn_player_id": "345988",
+          "name": "Ngal'ayel Mukau",
+          "position_bucket": "MF",
+          "club": "Lille"
+        },
+        {
+          "espn_player_id": "291750",
+          "name": "Nathanaël Mbuku",
+          "position_bucket": "MF",
+          "club": "Montpellier"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Meschak Elia",
+          "position_bucket": "MF",
+          "club": "Alanyaspor"
+        },
+        {
+          "espn_player_id": "352285",
+          "name": "Brian Cipenga",
+          "position_bucket": "MF",
+          "club": "Castellón"
+        },
+        {
+          "espn_player_id": "130545",
+          "name": "Gaël Kakuta",
+          "position_bucket": "MF",
+          "club": "AEL"
+        },
+        {
+          "espn_player_id": "182337",
+          "name": "Théo Bongonda",
+          "position_bucket": "MF",
+          "club": "Spartak Moscow"
+        },
+        {
+          "espn_player_id": "231161",
+          "name": "Simon Banza",
+          "position_bucket": "FW",
+          "club": "Al Jazira"
+        },
+        {
+          "espn_player_id": "224077",
+          "name": "Yoane Wissa",
+          "position_bucket": "FW",
+          "club": "Newcastle United"
+        },
+        {
+          "espn_player_id": "299324",
+          "name": "Fiston Mayele",
+          "position_bucket": "FW",
+          "club": "Pyramids FC"
+        },
+        {
+          "espn_player_id": "147193",
+          "name": "Cédric Bakambu",
+          "position_bucket": "FW",
+          "club": "Real Betis"
+        }
+      ]
+    },
+    {
+      "nation": "Uzbekistan",
+      "group": "GROUP K",
+      "announced_date": "May 5",
+      "announce_type": "preliminary",
+      "manager": "Fabio Cannavaro",
+      "players": [
+        {
+          "espn_player_id": null,
+          "name": "Vladimir Nazarov",
+          "position_bucket": "GK",
+          "club": "Pakhtakor"
+        },
+        {
+          "espn_player_id": "282145",
+          "name": "Utkir Yusupov",
+          "position_bucket": "GK",
+          "club": "Navbahor"
+        },
+        {
+          "espn_player_id": "219561",
+          "name": "Botirali Ergashev",
+          "position_bucket": "GK",
+          "club": "AGMK"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Abduvokhid Nematov",
+          "position_bucket": "GK",
+          "club": "Nasaf"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ibrohimkhalil Yuldoshev",
+          "position_bucket": "DF",
+          "club": "Neftchi"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Avazbek Ulmasaliev",
+          "position_bucket": "DF",
+          "club": "AGMK"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Jakhongir Urozov",
+          "position_bucket": "DF",
+          "club": "Dinamo Samarqand"
+        },
+        {
+          "espn_player_id": "195282",
+          "name": "Rustamjon Ashurmatov",
+          "position_bucket": "DF",
+          "club": "Esteghlal"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Mukhammadkodir Hamraliev",
+          "position_bucket": "DF",
+          "club": "Pakhtakor"
+        },
+        {
+          "espn_player_id": "270463",
+          "name": "Umarbek Eshmurodov",
+          "position_bucket": "DF",
+          "club": "Nasaf"
+        },
+        {
+          "espn_player_id": "362211",
+          "name": "Abdukodir Khusanov",
+          "position_bucket": "DF",
+          "club": "Manchester City"
+        },
+        {
+          "espn_player_id": "326928",
+          "name": "Abdulla Abdullaev",
+          "position_bucket": "DF",
+          "club": "Dibba Al Fujairah"
+        },
+        {
+          "espn_player_id": "211537",
+          "name": "Farrukh Sayfiev",
+          "position_bucket": "DF",
+          "club": "Neftchi"
+        },
+        {
+          "espn_player_id": "274005",
+          "name": "Khojiakbar Alijonov",
+          "position_bucket": "DF",
+          "club": "Pakhtakor"
+        },
+        {
+          "espn_player_id": "321728",
+          "name": "Sherzod Nasrullaev",
+          "position_bucket": "DF",
+          "club": "Nasaf"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Muhammadrasul Abdumajidov",
+          "position_bucket": "DF",
+          "club": "Pakhtakor"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Behruz Karimov",
+          "position_bucket": "DF",
+          "club": "Surkhon"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Diyor Ortikboev",
+          "position_bucket": "DF",
+          "club": "Khorazm"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Kuvondik Ruziev",
+          "position_bucket": "MF",
+          "club": "Neftchi"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Sherzod Esanov",
+          "position_bucket": "MF",
+          "club": "Buxoro"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Nodirbek Abdurazzokov",
+          "position_bucket": "MF",
+          "club": "AGMK"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Odiljon Khamrobekov",
+          "position_bucket": "MF",
+          "club": "Tractor"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Umarali Rakhmonaliev",
+          "position_bucket": "MF",
+          "club": "Sabah"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Alisher Odilov",
+          "position_bucket": "MF",
+          "club": "Neftchi"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Sardorbek Rakhmonov",
+          "position_bucket": "MF",
+          "club": "Nasaf"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Akmal Mozgovoy",
+          "position_bucket": "MF",
+          "club": "Pakhtakor"
+        },
+        {
+          "espn_player_id": "195281",
+          "name": "Otabek Shukurov",
+          "position_bucket": "MF",
+          "club": "Baniyas"
+        },
+        {
+          "espn_player_id": "185631",
+          "name": "Jamshid Iskanderov",
+          "position_bucket": "MF",
+          "club": "Neftchi"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Jasurbek Jaloliddinov",
+          "position_bucket": "MF",
+          "club": "Sogdiana"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Azizjon Ganiev",
+          "position_bucket": "MF",
+          "club": "Al Bataeh"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Abbosek Fayzullaev",
+          "position_bucket": "FW",
+          "club": "Istanbul Basaksehir"
+        },
+        {
+          "espn_player_id": "187939",
+          "name": "Jaloliddin Masharipov",
+          "position_bucket": "FW",
+          "club": "Esteghlal"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Dostonbek Khamdamov",
+          "position_bucket": "FW",
+          "club": "Pakhtakor"
+        },
+        {
+          "espn_player_id": "288949",
+          "name": "Oston Urunov",
+          "position_bucket": "FW",
+          "club": "Persepolis"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ruslanbek Jiyanov",
+          "position_bucket": "FW",
+          "club": "Navbahor"
+        },
+        {
+          "espn_player_id": "253231",
+          "name": "Azizbek Amonov",
+          "position_bucket": "FW",
+          "club": "Buxoro"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Khusain Norchaev",
+          "position_bucket": "FW",
+          "club": "Navbahor"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Sherzod Temirov",
+          "position_bucket": "FW",
+          "club": "Erbil"
+        },
+        {
+          "espn_player_id": "156663",
+          "name": "Igor Sergeev",
+          "position_bucket": "FW",
+          "club": "Persepolis"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Eldor Shomurodov",
+          "position_bucket": "FW",
+          "club": "Istanbul Basaksehir"
+        }
+      ]
+    },
+    {
+      "nation": "Colombia",
+      "group": "GROUP K",
+      "announced_date": "May 14",
+      "announce_type": "preliminary",
+      "manager": "Nestor Lorenzo",
+      "players": [
+        {
+          "espn_player_id": "121842",
+          "name": "David Ospina",
+          "position_bucket": "GK",
+          "club": "Atlético Nacional"
+        },
+        {
+          "espn_player_id": "166323",
+          "name": "Álvaro Montero",
+          "position_bucket": "GK",
+          "club": "Vélez Sarsfield"
+        },
+        {
+          "espn_player_id": "185147",
+          "name": "Camilo Vargas",
+          "position_bucket": "GK",
+          "club": "Atlas"
+        },
+        {
+          "espn_player_id": "163908",
+          "name": "Mosquera Marmolejo",
+          "position_bucket": "GK",
+          "club": "Independiente Santa Fe"
+        },
+        {
+          "espn_player_id": "239985",
+          "name": "Aldair Quintana",
+          "position_bucket": "GK",
+          "club": "Independiente del Valle"
+        },
+        {
+          "espn_player_id": "266587",
+          "name": "Kevin Mier",
+          "position_bucket": "GK",
+          "club": "Cruz Azu l"
+        },
+        {
+          "espn_player_id": "146679",
+          "name": "Daniel Muñoz",
+          "position_bucket": "DF",
+          "club": "Crystal Palace"
+        },
+        {
+          "espn_player_id": "227697",
+          "name": "Jhon Lucumí",
+          "position_bucket": "DF",
+          "club": "Bologna"
+        },
+        {
+          "espn_player_id": "217532",
+          "name": "Álvaro Angulo",
+          "position_bucket": "DF",
+          "club": "Pumas"
+        },
+        {
+          "espn_player_id": "164756",
+          "name": "Santiago Arias",
+          "position_bucket": "DF",
+          "club": "Independiente"
+        },
+        {
+          "espn_player_id": "197105",
+          "name": "Davinson Sánchez",
+          "position_bucket": "DF",
+          "club": "Galatasaray"
+        },
+        {
+          "espn_player_id": "173247",
+          "name": "Johan Mojica",
+          "position_bucket": "DF",
+          "club": "Mallorca"
+        },
+        {
+          "espn_player_id": "196901",
+          "name": "Yerry Mina",
+          "position_bucket": "DF",
+          "club": "Cagliari"
+        },
+        {
+          "espn_player_id": "132676",
+          "name": "Cristian Borja",
+          "position_bucket": "DF",
+          "club": "Club América"
+        },
+        {
+          "espn_player_id": "24412",
+          "name": "Juan Cabal",
+          "position_bucket": "DF",
+          "club": "Juventus"
+        },
+        {
+          "espn_player_id": "235940",
+          "name": "Carlos Cuesta",
+          "position_bucket": "DF",
+          "club": "Vasco da Gama"
+        },
+        {
+          "espn_player_id": "270229",
+          "name": "Willer Ditta",
+          "position_bucket": "DF",
+          "club": "Cruz Azul"
+        },
+        {
+          "espn_player_id": "178059",
+          "name": "Junior Hernández",
+          "position_bucket": "DF",
+          "club": "Deportes Tolima"
+        },
+        {
+          "espn_player_id": "197401",
+          "name": "Deiver Machado",
+          "position_bucket": "DF",
+          "club": "Nantes"
+        },
+        {
+          "espn_player_id": "301462",
+          "name": "Yerson Mosquera",
+          "position_bucket": "DF",
+          "club": "Wolverhampton Wanderers"
+        },
+        {
+          "espn_player_id": "341727",
+          "name": "Édier Ocampo",
+          "position_bucket": "DF",
+          "club": "Vancouver Whitecaps"
+        },
+        {
+          "espn_player_id": "235956",
+          "name": "Jhohan Romaña",
+          "position_bucket": "DF",
+          "club": "San Lorenzo"
+        },
+        {
+          "espn_player_id": "252488",
+          "name": "Andrés Román",
+          "position_bucket": "DF",
+          "club": "Atlético Nacional"
+        },
+        {
+          "espn_player_id": "208700",
+          "name": "Jorge Carrascal",
+          "position_bucket": "MF",
+          "club": "Flamengo"
+        },
+        {
+          "espn_player_id": "399948",
+          "name": "Sebastian Gomez",
+          "position_bucket": "MF",
+          "club": "Coritiba"
+        },
+        {
+          "espn_player_id": "322908",
+          "name": "Nelson Deossa",
+          "position_bucket": "MF",
+          "club": "Real Betis"
+        },
+        {
+          "espn_player_id": "307756",
+          "name": "Kevin Castaño",
+          "position_bucket": "MF",
+          "club": "River Plate"
+        },
+        {
+          "espn_player_id": "341736",
+          "name": "Gustavo Puerta",
+          "position_bucket": "MF",
+          "club": "Racing Santander"
+        },
+        {
+          "espn_player_id": "345363",
+          "name": "Juan Manuel Rengifo",
+          "position_bucket": "MF",
+          "club": "Atlético Nacional"
+        },
+        {
+          "espn_player_id": "334065",
+          "name": "Johan Rojas",
+          "position_bucket": "MF",
+          "club": "Vasco da Gama"
+        },
+        {
+          "espn_player_id": "177780",
+          "name": "Juan Fernando Quintero",
+          "position_bucket": "MF",
+          "club": "River Plate"
+        },
+        {
+          "espn_player_id": "94976",
+          "name": "Juan Portilla",
+          "position_bucket": "MF",
+          "club": "Athletico Paranaense"
+        },
+        {
+          "espn_player_id": "360063",
+          "name": "Jordan Barrera",
+          "position_bucket": "MF",
+          "club": "Botafogo"
+        },
+        {
+          "espn_player_id": "285048",
+          "name": "Jhon Solís",
+          "position_bucket": "MF",
+          "club": "Birmingham City"
+        },
+        {
+          "espn_player_id": "197399",
+          "name": "Jefferson Lerma",
+          "position_bucket": "MF",
+          "club": "Crystal Palace"
+        },
+        {
+          "espn_player_id": "301520",
+          "name": "Richard Ríos",
+          "position_bucket": "MF",
+          "club": "Benfica"
+        },
+        {
+          "espn_player_id": "239566",
+          "name": "Jhon Arias",
+          "position_bucket": "MF",
+          "club": "Palmeiras"
+        },
+        {
+          "espn_player_id": "182018",
+          "name": "Wilmar Barrios",
+          "position_bucket": "MF",
+          "club": "Zenit St. Petersburg"
+        },
+        {
+          "espn_player_id": "118986",
+          "name": "Juan Cuadrado",
+          "position_bucket": "MF",
+          "club": "Pisa"
+        },
+        {
+          "espn_player_id": "311056",
+          "name": "Yáser Asprilla",
+          "position_bucket": "MF",
+          "club": "Galatasaray"
+        },
+        {
+          "espn_player_id": "82816",
+          "name": "James Rodríguez",
+          "position_bucket": "MF",
+          "club": "Minnesota United"
+        },
+        {
+          "espn_player_id": "257390",
+          "name": "Luis Díaz",
+          "position_bucket": "FW",
+          "club": "Bayern Munich"
+        },
+        {
+          "espn_player_id": "176058",
+          "name": "Jhon Córdoba",
+          "position_bucket": "FW",
+          "club": "Krasnodar"
+        },
+        {
+          "espn_player_id": "272722",
+          "name": "Luis Suárez",
+          "position_bucket": "FW",
+          "club": "Sporting CP"
+        },
+        {
+          "espn_player_id": "141790",
+          "name": "Sebastián Villa",
+          "position_bucket": "FW",
+          "club": "Independiente Rivadavia"
+        },
+        {
+          "espn_player_id": "370814",
+          "name": "Neyser Villarreal",
+          "position_bucket": "FW",
+          "club": "Cruzeiro"
+        },
+        {
+          "espn_player_id": "268476",
+          "name": "Kevin Viveros",
+          "position_bucket": "FW",
+          "club": "Athletico Paranaense"
+        },
+        {
+          "espn_player_id": "197049",
+          "name": "Stiven Mendoza",
+          "position_bucket": "FW",
+          "club": "Athletico Paranaense"
+        },
+        {
+          "espn_player_id": "264844",
+          "name": "Edwuin Cetré",
+          "position_bucket": "FW",
+          "club": "Estudiantes de La Plata"
+        },
+        {
+          "espn_player_id": "285629",
+          "name": "Jhon Durán",
+          "position_bucket": "FW",
+          "club": "Zenit St. Petersburg"
+        },
+        {
+          "espn_player_id": "330924",
+          "name": "Andrés Gómez",
+          "position_bucket": "FW",
+          "club": "Vasco da Gama"
+        },
+        {
+          "espn_player_id": "197052",
+          "name": "Rafael Santos Borré",
+          "position_bucket": "FW",
+          "club": "Internacional"
+        },
+        {
+          "espn_player_id": "255295",
+          "name": "Jaminton Campaz",
+          "position_bucket": "FW",
+          "club": "Rosario Central"
+        },
+        {
+          "espn_player_id": "270246",
+          "name": "Johan Carbonero",
+          "position_bucket": "FW",
+          "club": "Internacional"
+        },
+        {
+          "espn_player_id": "336809",
+          "name": "Cucho Hernández",
+          "position_bucket": "FW",
+          "club": "Real Betis"
+        }
+      ]
+    },
+    {
+      "nation": "England",
+      "group": "GROUP L",
+      "announced_date": "May 22",
+      "announce_type": "final",
+      "manager": "Thomas Tuchel",
+      "players": [
+        {
+          "espn_player_id": "159443",
+          "name": "Jordan Pickford",
+          "position_bucket": "GK",
+          "club": "Everton"
+        },
+        {
+          "espn_player_id": "234172",
+          "name": "Dean Henderson",
+          "position_bucket": "GK",
+          "club": "Crystal Palace"
+        },
+        {
+          "espn_player_id": "307118",
+          "name": "James Trafford",
+          "position_bucket": "GK",
+          "club": "Manchester City"
+        },
+        {
+          "espn_player_id": "189007",
+          "name": "Reece James",
+          "position_bucket": "DF",
+          "club": "Chelsea"
+        },
+        {
+          "espn_player_id": "231859",
+          "name": "Ezri Konsa",
+          "position_bucket": "DF",
+          "club": "Aston Villa"
+        },
+        {
+          "espn_player_id": "298524",
+          "name": "Jarell Quansah",
+          "position_bucket": "DF",
+          "club": "Bayer Leverkusen"
+        },
+        {
+          "espn_player_id": "157974",
+          "name": "John Stones",
+          "position_bucket": "DF",
+          "club": "Manchester City"
+        },
+        {
+          "espn_player_id": "265907",
+          "name": "Marc Guéhi",
+          "position_bucket": "DF",
+          "club": "Manchester City"
+        },
+        {
+          "espn_player_id": "198138",
+          "name": "Dan Burn",
+          "position_bucket": "DF",
+          "club": "Newcastle United"
+        },
+        {
+          "espn_player_id": "328464",
+          "name": "Nico O'Reilly",
+          "position_bucket": "DF",
+          "club": "Manchester City"
+        },
+        {
+          "espn_player_id": "267711",
+          "name": "Djed Spence",
+          "position_bucket": "DF",
+          "club": "Tottenham Hotspur"
+        },
+        {
+          "espn_player_id": "299641",
+          "name": "Tino Livramento",
+          "position_bucket": "DF",
+          "club": "Newcastle United"
+        },
+        {
+          "espn_player_id": "238262",
+          "name": "Declan Rice",
+          "position_bucket": "MF",
+          "club": "Arsenal"
+        },
+        {
+          "espn_player_id": "238472",
+          "name": "Elliot Anderson",
+          "position_bucket": "MF",
+          "club": "Nottingham Forest"
+        },
+        {
+          "espn_player_id": "328466",
+          "name": "Kobbie Mainoo",
+          "position_bucket": "MF",
+          "club": "Manchester United"
+        },
+        {
+          "espn_player_id": "127262",
+          "name": "Jordan Henderson",
+          "position_bucket": "MF",
+          "club": "Brentford"
+        },
+        {
+          "espn_player_id": "265653",
+          "name": "Morgan Rogers",
+          "position_bucket": "MF",
+          "club": "Aston Villa"
+        },
+        {
+          "espn_player_id": "291281",
+          "name": "Jude Bellingham",
+          "position_bucket": "MF",
+          "club": "Real Madrid"
+        },
+        {
+          "espn_player_id": "251400",
+          "name": "Eberechi Eze",
+          "position_bucket": "MF",
+          "club": "Arsenal"
+        },
+        {
+          "espn_player_id": "142200",
+          "name": "Harry Kane",
+          "position_bucket": "FW",
+          "club": "Bayern Munich"
+        },
+        {
+          "espn_player_id": "180639",
+          "name": "Ivan Toney",
+          "position_bucket": "FW",
+          "club": "Al-Ahli"
+        },
+        {
+          "espn_player_id": "198825",
+          "name": "Ollie Watkins",
+          "position_bucket": "FW",
+          "club": "Aston Villa"
+        },
+        {
+          "espn_player_id": "280555",
+          "name": "Bukayo Saka",
+          "position_bucket": "FW",
+          "club": "Arsenal"
+        },
+        {
+          "espn_player_id": "230945",
+          "name": "Marcus Rashford",
+          "position_bucket": "FW",
+          "club": "Manchester United"
+        },
+        {
+          "espn_player_id": "268782",
+          "name": "Anthony Gordon",
+          "position_bucket": "FW",
+          "club": "Newcastle United"
+        },
+        {
+          "espn_player_id": "293236",
+          "name": "Noni Madueke",
+          "position_bucket": "FW",
+          "club": "Arsenal"
+        }
+      ]
+    },
+    {
+      "nation": "Croatia",
+      "group": "GROUP L",
+      "announced_date": "May 18",
+      "announce_type": "final",
+      "manager": "Zlatko Dalic",
+      "players": [
+        {
+          "espn_player_id": "187946",
+          "name": "Dominik Livakovic",
+          "position_bucket": "GK",
+          "club": "Dinamo Zagreb"
+        },
+        {
+          "espn_player_id": "239411",
+          "name": "Dominik Kotarski",
+          "position_bucket": "GK",
+          "club": "Kobenhavn"
+        },
+        {
+          "espn_player_id": "277234",
+          "name": "Ivor Pandur",
+          "position_bucket": "GK",
+          "club": "Hull City"
+        },
+        {
+          "espn_player_id": "299910",
+          "name": "Josko Gvardiol",
+          "position_bucket": "DF",
+          "club": "Manchester City"
+        },
+        {
+          "espn_player_id": "194766",
+          "name": "Duje Caleta-Car",
+          "position_bucket": "DF",
+          "club": "Real Sociedad"
+        },
+        {
+          "espn_player_id": "305552",
+          "name": "Josip Sutalo",
+          "position_bucket": "DF",
+          "club": "Ajax"
+        },
+        {
+          "espn_player_id": "276329",
+          "name": "Josip Stanisic",
+          "position_bucket": "DF",
+          "club": "Bayern Munich"
+        },
+        {
+          "espn_player_id": "255650",
+          "name": "Marin Pongracic",
+          "position_bucket": "DF",
+          "club": "Fiorentina"
+        },
+        {
+          "espn_player_id": "216579",
+          "name": "Martin Erlic",
+          "position_bucket": "DF",
+          "club": "Midtjylland"
+        },
+        {
+          "espn_player_id": "364962",
+          "name": "Luka Vuskovic",
+          "position_bucket": "DF",
+          "club": "Hamburg"
+        },
+        {
+          "espn_player_id": "76762",
+          "name": "Luka Modric",
+          "position_bucket": "MF",
+          "club": "AC Milan"
+        },
+        {
+          "espn_player_id": "154595",
+          "name": "Mateo Kovacic",
+          "position_bucket": "MF",
+          "club": "Manchester City"
+        },
+        {
+          "espn_player_id": "189668",
+          "name": "Mario Pasalic",
+          "position_bucket": "MF",
+          "club": "Atalanta"
+        },
+        {
+          "espn_player_id": "206378",
+          "name": "Nikola Vlasic",
+          "position_bucket": "MF",
+          "club": "Torino"
+        },
+        {
+          "espn_player_id": "306263",
+          "name": "Luka Sucic",
+          "position_bucket": "MF",
+          "club": "Real Sociedad"
+        },
+        {
+          "espn_player_id": "311475",
+          "name": "Martin Baturina",
+          "position_bucket": "MF",
+          "club": "Como"
+        },
+        {
+          "espn_player_id": "238929",
+          "name": "Kristijan Jakic",
+          "position_bucket": "MF",
+          "club": "Augsburg"
+        },
+        {
+          "espn_player_id": "341494",
+          "name": "Petar Sucic",
+          "position_bucket": "MF",
+          "club": "Inter Milan"
+        },
+        {
+          "espn_player_id": "228333",
+          "name": "Nikola Moro",
+          "position_bucket": "MF",
+          "club": "Bologna"
+        },
+        {
+          "espn_player_id": "338232",
+          "name": "Toni Fruk",
+          "position_bucket": "MF",
+          "club": "Rijeka"
+        },
+        {
+          "espn_player_id": "103485",
+          "name": "Ivan Perisic",
+          "position_bucket": "FW",
+          "club": "PSV Eindhoven"
+        },
+        {
+          "espn_player_id": "139520",
+          "name": "Andrej Kramaric",
+          "position_bucket": "FW",
+          "club": "Hoffenheim"
+        },
+        {
+          "espn_player_id": "207288",
+          "name": "Ante Budimir",
+          "position_bucket": "FW",
+          "club": "Osasuna"
+        },
+        {
+          "espn_player_id": "324270",
+          "name": "Marco Pasalic",
+          "position_bucket": "FW",
+          "club": "Orlando City"
+        },
+        {
+          "espn_player_id": "277128",
+          "name": "Petar Musa",
+          "position_bucket": "FW",
+          "club": "FC Dallas"
+        },
+        {
+          "espn_player_id": "310883",
+          "name": "Igor Matanovic",
+          "position_bucket": "FW",
+          "club": "Freiburg"
+        }
+      ]
+    }
+  ]
+}
