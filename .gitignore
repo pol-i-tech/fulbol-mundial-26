@@ -23,3 +23,5 @@ data/*.duckdb-tmp
 
 # Build-step quarantine review queue (generated each build)
 db/registry/unmatched.csv
+
+graphene-app-world-cup/
