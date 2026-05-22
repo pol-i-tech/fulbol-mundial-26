@@ -24,6 +24,7 @@ SELECT * FROM read_csv(
         'statsbomb_name': 'VARCHAR',
         'understat_id': 'VARCHAR',
         'understat_name': 'VARCHAR',
+        'espn_player_id': 'VARCHAR',
         'is_active': 'BOOLEAN',
         'first_seen_at': 'DATE',
         'last_updated_at': 'DATE'

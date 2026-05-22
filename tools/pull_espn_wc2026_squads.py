@@ -176,12 +176,23 @@ def _parse_player_list(text: str, name_to_id: dict[str, str], bucket: str) -> li
     commas are tolerated. ESPN IDs are filled in from the anchor map when the
     name matches; otherwise espn_player_id is None.
     """
+    # ESPN position lists are flat — clubs never legitimately nest parens.
+    # When an opening paren appears while depth=1 (e.g., a missing close paren
+    # upstream like "Hakan Calhanoglou (Inter Milan, Kaan Ayhan (Galatasaray)..."),
+    # treat it as a recovery point: close the prior paren and restart.
     players: list[dict] = []
     depth = 0
-    buf = []
-    pieces = []
+    buf: list[str] = []
+    pieces: list[str] = []
     for ch in text:
         if ch == "(":
+            if depth >= 1:
+                # Recover: emit a synthetic close, force depth back to 0.
+                buf.append(")")
+                depth = 0
+                # Treat as boundary: push current buf, start new piece with this '('
+                pieces.append("".join(buf).strip())
+                buf = []
             depth += 1
             buf.append(ch)
         elif ch == ")":

@@ -2309,7 +2309,43 @@
         },
         {
           "espn_player_id": null,
-          "name": "Hakan Calhanoglou (Inter Milan, Kaan Ayhan (Galatasaray), Orkun Kokcu (Besiktas), Ismail Yuksek (Fenerbahce), Salih Ozcan (Borussia Dortmund), Atakan Karazor (VfB Stuttgart), Demir Ege Tiknaz",
+          "name": "Hakan Calhanoglou",
+          "position_bucket": "MF",
+          "club": "Inter Milan, Kaan Ayhan"
+        },
+        {
+          "espn_player_id": null,
+          "name": "(Galatasaray)",
+          "position_bucket": "MF",
+          "club": null
+        },
+        {
+          "espn_player_id": null,
+          "name": "Orkun Kokcu",
+          "position_bucket": "MF",
+          "club": "Besiktas"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Ismail Yuksek",
+          "position_bucket": "MF",
+          "club": "Fenerbahce"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Salih Ozcan",
+          "position_bucket": "MF",
+          "club": "Borussia Dortmund"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Atakan Karazor",
+          "position_bucket": "MF",
+          "club": "VfB Stuttgart"
+        },
+        {
+          "espn_player_id": null,
+          "name": "Demir Ege Tiknaz",
           "position_bucket": "MF",
           "club": "Besiktas"
         },
