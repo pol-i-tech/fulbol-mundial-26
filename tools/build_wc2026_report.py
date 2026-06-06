@@ -248,7 +248,7 @@ def final_section(con, per_game, modal, probs):
 
 
 def headline_section(probs):
-    ranked = sorted(probs.items(), key=lambda kv: -kv[1]["p_champion"])
+    ranked = sorted(probs.items(), key=lambda kv: (-kv[1]["p_champion"], kv[0]))
     champ, cp = ranked[0]
     lines = [f"# WC2026 — what the data actually predicts\n"]
     lines.append(f"Run off `data/wc2026.duckdb` — FIFA ranking, squad-aggregated player xG "

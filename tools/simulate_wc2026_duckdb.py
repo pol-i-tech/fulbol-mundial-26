@@ -412,7 +412,9 @@ def main():
 
     print(f"\nRunning {args.n:,} Monte Carlo simulations ...")
     probs = monte_carlo(T, ratings, args.n, args.seed)
-    ranked = sorted(probs.items(), key=lambda x: -x[1]["champion"])
+    # Secondary sort by team code so equal-probability ties order deterministically
+    # (set iteration order varies across processes under hash randomization).
+    ranked = sorted(probs.items(), key=lambda x: (-x[1]["champion"], x[0]))
 
     print("\nTop 15 (Monte Carlo champion probabilities):")
     print(f"{'Team':6} {'Win%':>6} {'Final':>7} {'Semi':>7} {'QF':>7} {'R16':>7}")
