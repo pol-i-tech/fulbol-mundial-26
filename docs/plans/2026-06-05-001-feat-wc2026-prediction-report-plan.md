@@ -101,7 +101,7 @@ The engine and Monte Carlo machinery already exist and are validated. The missin
 
 ## Implementation Units
 
-- [ ] **Unit 1: Verify rating lineage and document the data the engine actually uses**
+- [x] **Unit 1: Verify rating lineage and document the data the engine actually uses**
 
 **Goal:** Confirm (and write down) that `curated.fact_team_rating` attack/defense values are derived from squad/player xG, so the report can truthfully claim "team data + player data drive the engine," and so we know players are already represented before adding star-player color.
 
@@ -126,7 +126,7 @@ The engine and Monte Carlo machinery already exist and are validated. The missin
 
 ---
 
-- [ ] **Unit 2: Match-character classifier (pure function)**
+- [x] **Unit 2: Match-character classifier (pure function)**
 
 **Goal:** A deterministic function that turns one match's model outputs into a qualitative character label used by both the per-game table and the report.
 
@@ -156,7 +156,7 @@ The engine and Monte Carlo machinery already exist and are validated. The missin
 
 ---
 
-- [ ] **Unit 3: Per-game probability emitter**
+- [x] **Unit 3: Per-game probability emitter**
 
 **Goal:** Write a per-game 1X2 table covering all 72 group fixtures and every modal-path knockout match, with expected goals and the Unit 2 character label.
 
@@ -189,7 +189,7 @@ The engine and Monte Carlo machinery already exist and are validated. The missin
 
 ---
 
-- [ ] **Unit 4: Narrative context extractors (economics + star players)**
+- [x] **Unit 4: Narrative context extractors (economics + star players)**
 
 **Goal:** Read-only DuckDB helpers that supply the report's color: top-xG players per team and economic facts per team.
 
@@ -218,7 +218,7 @@ The engine and Monte Carlo machinery already exist and are validated. The missin
 
 ---
 
-- [ ] **Unit 5: Fun narrative report generator**
+- [x] **Unit 5: Fun narrative report generator**
 
 **Goal:** The deliverable — a single readable `REPORT.md` that names the likely winner, narrates all 12 groups with humor, lays out the model's expectation for each knockout round, and closes with a data-backed description of the projected final.
 
