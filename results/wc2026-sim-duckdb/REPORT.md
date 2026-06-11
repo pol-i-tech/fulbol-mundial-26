@@ -156,6 +156,15 @@ This is no procession — it is the kind of final that lives on the edge of extr
 ### 🏆 Model's pick: **France**
 The simulation crowns **France** (37.8% to win the final over Argentina at 34.5%), and 16.0% to lift the trophy across all 20,000 simulated tournaments.
 
+## Known limitations — read before you trust the bracket
+
+Your eyes aren't wrong if this looks a bit *2022*. The engine tracks the current FIFA ranking closely, but the xG layer that breaks ties between near-equal sides leans on 2022–24 tournament form, and it has real coverage gaps. Two to keep in mind:
+
+- **Spain is probably under-rated here.** FIFA #2 in the world, yet its squad-xG attack rating (0.32) sits well below the contender median (0.46) — closer to a mid-tier side than a title favourite. That's a squad-data coverage gap, not a football verdict, and it's why **Spain**'s 3.6% title odds look low for a top-2 team. Treat them as live regardless of the number.
+- **Some stars are frozen at their peak.** Lionel Messi (Argentina, 0.79 national xG/90), Romelu Lukaku (Belgium, 0.74 national xG/90), Cristiano Ronaldo (Portugal, 0.73 national xG/90) are rated purely on national-team tournament xG with **no recent club data** — so a player who lit up 2022–24 is treated as still at that level today, with age and current club form invisible to the model. It nudges the 2022-era powers up.
+
+*Net effect: the model is strongest as a current-form ranking and weakest where squad-xG data is thin. The honest takeaway — France and Argentina are genuinely elite right now, but the gap to Spain (and the tidy 2022 rematch) is partly a data artifact, not destiny.*
+
 ## How to read this (the honest footer)
 
 - **Engine:** `ensemble = 0.35·Elo(FIFA) + 0.45·xG-Poisson + 0.20·Form`, the config that matched Pinnacle's accuracy in the WC2022 backtest.

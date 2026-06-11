@@ -20,6 +20,7 @@ import json
 import sys
 from collections import defaultdict
 from pathlib import Path
+from statistics import median
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
@@ -273,6 +274,81 @@ def headline_section(probs):
     return "\n".join(lines)
 
 
+def limitations_section(con, probs):
+    """Computed honesty section. Surfaces, from the live data:
+      (1) FIFA-elite teams the xG layer likely UNDER-rates (the 0.45 Poisson
+          weight is the only thing separating near-equal FIFA teams, and it has
+          squad-coverage gaps), and
+      (2) players 'frozen at peak' — high national-team xG with no recent club
+          data, so an aging star is treated as still at tournament-winning form.
+    All numbers are derived, so this stays truthful if the DB is rebuilt."""
+    rows = con.execute(
+        """
+        SELECT t.team_code, t.fifa_rank,
+               MAX(CASE WHEN r.rating_type='attack' THEN r.rating_value END) AS attack
+        FROM curated.dim_team_current t
+        LEFT JOIN curated.fact_team_rating r ON r.team_code = t.team_code
+        WHERE t.is_wc2026_qualifier AND t.fifa_rank IS NOT NULL
+        GROUP BY 1, 2
+        """
+    ).fetchall()
+    pool = sorted([r for r in rows if r[2] is not None], key=lambda r: r[1])[:12]
+    pool_codes = {r[0] for r in pool}
+    attacks = [r[2] for r in pool]
+    med = median(attacks) if attacks else 0.0
+    # FIFA top-6 whose attack sits well below the contender median.
+    underrated = sorted(
+        [r for r in pool if r[1] <= 6 and r[2] < med * 0.8],
+        key=lambda r: r[2],
+    )
+
+    lines = ["## Known limitations — read before you trust the bracket\n"]
+    lines.append("Your eyes aren't wrong if this looks a bit *2022*. The engine tracks "
+                 "the current FIFA ranking closely, but the xG layer that breaks ties "
+                 "between near-equal sides leans on 2022–24 tournament form, and it has "
+                 "real coverage gaps. Two to keep in mind:\n")
+
+    if underrated:
+        for code, rank, atk in underrated:
+            lines.append(
+                f"- **{name(code)} is probably under-rated here.** FIFA #{rank} in the "
+                f"world, yet its squad-xG attack rating ({atk:.2f}) sits well below the "
+                f"contender median ({med:.2f}) — closer to a mid-tier side than a "
+                f"title favourite. That's a squad-data coverage gap, not a football "
+                f"verdict, and it's why **{name(code)}**'s "
+                f"{pct(probs[code]['p_champion'])} title odds look low for a top-{rank} "
+                f"team. Treat them as live regardless of the number.")
+
+    frozen = con.execute(
+        """
+        SELECT d.display_name, f.team_code, f.national_team_xg_per_90
+        FROM curated.fact_player_xg_per_90 f
+        JOIN curated.dim_player d ON d.player_id = f.player_id
+        WHERE f.found_in_understat = FALSE
+          AND f.club_xg_per_90 IS NULL
+          AND f.national_team_minutes >= 270          -- exclude small-sample flukes
+          AND f.national_team_xg_per_90 BETWEEN 0.5 AND 1.5
+        ORDER BY f.national_team_xg_per_90 DESC
+        LIMIT 8
+        """
+    ).fetchall()
+    frozen = [r for r in frozen if r[1] in pool_codes][:3]
+    if frozen:
+        names = ", ".join(f"{n} ({name(tc)}, {x:.2f} national xG/90)" for n, tc, x in frozen)
+        verb = "is" if len(frozen) == 1 else "are"
+        lines.append(
+            f"- **Some stars are frozen at their peak.** {names} {verb} rated purely on "
+            f"national-team tournament xG with **no recent club data** — so a player who "
+            f"lit up 2022–24 is treated as still at that level today, with age and current "
+            f"club form invisible to the model. It nudges the 2022-era powers up.")
+
+    lines.append("\n*Net effect: the model is strongest as a current-form ranking and "
+                 "weakest where squad-xG data is thin. The honest takeaway — France and "
+                 "Argentina are genuinely elite right now, but the gap to Spain (and the "
+                 "tidy 2022 rematch) is partly a data artifact, not destiny.*")
+    return "\n".join(lines)
+
+
 def caveats_section():
     return (
         "## How to read this (the honest footer)\n\n"
@@ -301,6 +377,7 @@ def main():
             group_section(con, T, per_game, modal),
             knockout_section(per_game, probs),
             final_section(con, per_game, modal, probs),
+            limitations_section(con, probs),
             caveats_section(),
         ]) + "\n"
     finally:

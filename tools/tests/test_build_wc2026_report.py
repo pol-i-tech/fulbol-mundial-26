@@ -33,6 +33,7 @@ def report():
             mod.group_section(con, T, per_game, modal),
             mod.knockout_section(per_game, probs),
             mod.final_section(con, per_game, modal, probs),
+            mod.limitations_section(con, probs),
             mod.caveats_section(),
         ])
     finally:
@@ -70,6 +71,17 @@ def test_final_numbers_match_per_game_row(report):
     assert mod.pct(float(fr["p_home"])) in text
     assert mod.pct(float(fr["p_away"])) in text
     assert mod.name(fr["home"]) in text and mod.name(fr["away"]) in text
+
+
+def test_limitations_section_flags_underrating_and_staleness(report):
+    """The honesty section must name the data caveats, computed from live data."""
+    text, _, _, _ = report
+    assert "## Known limitations" in text
+    # The xG-coverage under-rating callout (Spain in current data).
+    assert "under-rated here" in text
+    # The frozen-aging-star callout.
+    assert "frozen at their peak" in text
+    assert "no recent club data" in text
 
 
 def test_report_mentions_seed_and_run_size(report):
