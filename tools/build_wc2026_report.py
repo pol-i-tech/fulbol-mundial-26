@@ -303,10 +303,10 @@ def limitations_section(con, probs):
     )
 
     lines = ["## Known limitations — read before you trust the bracket\n"]
-    lines.append("Your eyes aren't wrong if this looks a bit *2022*. The engine tracks "
-                 "the current FIFA ranking closely, but the xG layer that breaks ties "
-                 "between near-equal sides leans on 2022–24 tournament form, and it has "
-                 "real coverage gaps. Two to keep in mind:\n")
+    lines.append("The top teams' attack ratings have been **refreshed to their actual 2026 "
+                 "squads** (current clubs, recent club xG), which tightened the race into a "
+                 "genuine FIFA-elite scrum rather than a runaway. Two honest caveats remain "
+                 "in the xG layer:\n")
 
     if underrated:
         for code, rank, atk in underrated:
@@ -342,10 +342,15 @@ def limitations_section(con, probs):
             f"lit up 2022–24 is treated as still at that level today, with age and current "
             f"club form invisible to the model. It nudges the 2022-era powers up.")
 
-    lines.append("\n*Net effect: the model is strongest as a current-form ranking and "
-                 "weakest where squad-xG data is thin. The honest takeaway — France and "
-                 "Argentina are genuinely elite right now, but the gap to Spain (and the "
-                 "tidy 2022 rematch) is partly a data artifact, not destiny.*")
+    lines.append(
+        "- **A structural gap stays:** club xG comes from Understat (top-5 leagues + "
+        "RFPL only), so players in the Eredivisie, Saudi, MLS, Brazilian or Turkish "
+        "leagues fall back to national-team xG. The roster refresh fixed *who* is in "
+        "each squad and their European-club form; it can't conjure club xG for leagues "
+        "we don't cover.\n")
+    lines.append("*Net effect: this is now strongest as a current-form ranking of the "
+                 "elite — the top eight sit within a few points of each other, so treat "
+                 "the bracket as a likelihood map, not a prophecy.*")
     return "\n".join(lines)
 
 

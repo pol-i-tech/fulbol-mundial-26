@@ -73,15 +73,18 @@ def test_final_numbers_match_per_game_row(report):
     assert mod.name(fr["home"]) in text and mod.name(fr["away"]) in text
 
 
-def test_limitations_section_flags_underrating_and_staleness(report):
-    """The honesty section must name the data caveats, computed from live data."""
+def test_limitations_section_present_with_durable_caveats(report):
+    """The honesty section must always exist and name the durable caveats.
+
+    The per-team 'under-rated here' callout is data-conditional (it fires only
+    when a FIFA-elite team still sits below the contender median — which the 2026
+    roster refresh resolved), so it is intentionally NOT asserted here."""
     text, _, _, _ = report
     assert "## Known limitations" in text
-    # The xG-coverage under-rating callout (Spain in current data).
-    assert "under-rated here" in text
-    # The frozen-aging-star callout.
-    assert "frozen at their peak" in text
+    # Durable caveats, independent of the current ratings:
+    assert "frozen at their peak" in text          # national-only aging stars
     assert "no recent club data" in text
+    assert "structural gap" in text.lower()        # Understat league coverage
 
 
 def test_report_mentions_seed_and_run_size(report):
