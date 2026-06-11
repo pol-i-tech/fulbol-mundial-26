@@ -1,0 +1,215 @@
+{
+  "tournament": "FIFA World Cup 2026",
+  "host": "USA, Canada, Mexico",
+  "final_venue": "MetLife Stadium, New Jersey",
+  "final_date": "2026-07-19",
+  "format": "12 groups of 4 — top 2 + best 8 third-place → R32 knockout",
+
+  "groups": [
+    {
+      "id": "A",
+      "teams": ["Mexico", "South Africa", "Czechia", "South Korea"],
+      "matches": [
+        {"home": "Mexico",       "away": "South Africa", "date": "2026-06-11"},
+        {"home": "South Korea",  "away": "Czechia",      "date": "2026-06-11"},
+        {"home": "Czechia",      "away": "South Africa", "date": "2026-06-18"},
+        {"home": "Mexico",       "away": "South Korea",  "date": "2026-06-18"},
+        {"home": "South Africa", "away": "South Korea",  "date": "2026-06-24"},
+        {"home": "Czechia",      "away": "Mexico",       "date": "2026-06-24"}
+      ]
+    },
+    {
+      "id": "B",
+      "teams": ["Canada", "Bosnia and Herzegovina", "Qatar", "Switzerland"],
+      "matches": [
+        {"home": "Canada",                  "away": "Bosnia and Herzegovina", "date": "2026-06-12"},
+        {"home": "Qatar",                   "away": "Switzerland",            "date": "2026-06-13"},
+        {"home": "Switzerland",             "away": "Bosnia and Herzegovina", "date": "2026-06-18"},
+        {"home": "Canada",                  "away": "Qatar",                  "date": "2026-06-18"},
+        {"home": "Switzerland",             "away": "Canada",                 "date": "2026-06-24"},
+        {"home": "Bosnia and Herzegovina",  "away": "Qatar",                  "date": "2026-06-24"}
+      ]
+    },
+    {
+      "id": "C",
+      "teams": ["Brazil", "Morocco", "Haiti", "Scotland"],
+      "matches": [
+        {"home": "Brazil",   "away": "Morocco",  "date": "2026-06-13"},
+        {"home": "Haiti",    "away": "Scotland",  "date": "2026-06-13"},
+        {"home": "Scotland", "away": "Morocco",   "date": "2026-06-19"},
+        {"home": "Brazil",   "away": "Haiti",     "date": "2026-06-19"},
+        {"home": "Morocco",  "away": "Haiti",     "date": "2026-06-24"},
+        {"home": "Scotland", "away": "Brazil",    "date": "2026-06-24"}
+      ]
+    },
+    {
+      "id": "D",
+      "teams": ["USA", "Paraguay", "Australia", "Türkiye"],
+      "matches": [
+        {"home": "USA",       "away": "Paraguay",   "date": "2026-06-12"},
+        {"home": "Australia", "away": "Türkiye",    "date": "2026-06-14"},
+        {"home": "USA",       "away": "Australia",  "date": "2026-06-19"},
+        {"home": "Türkiye",   "away": "Paraguay",   "date": "2026-06-19"},
+        {"home": "Türkiye",   "away": "USA",        "date": "2026-06-25"},
+        {"home": "Paraguay",  "away": "Australia",  "date": "2026-06-25"}
+      ]
+    },
+    {
+      "id": "E",
+      "teams": ["Germany", "Curaçao", "Ivory Coast", "Ecuador"],
+      "matches": [
+        {"home": "Germany",      "away": "Curaçao",      "date": "2026-06-14"},
+        {"home": "Ivory Coast",  "away": "Ecuador",      "date": "2026-06-14"},
+        {"home": "Germany",      "away": "Ivory Coast",  "date": "2026-06-20"},
+        {"home": "Ecuador",      "away": "Curaçao",      "date": "2026-06-20"},
+        {"home": "Curaçao",      "away": "Ivory Coast",  "date": "2026-06-25"},
+        {"home": "Ecuador",      "away": "Germany",      "date": "2026-06-25"}
+      ]
+    },
+    {
+      "id": "F",
+      "teams": ["Netherlands", "Japan", "Sweden", "Tunisia"],
+      "matches": [
+        {"home": "Netherlands", "away": "Japan",         "date": "2026-06-14"},
+        {"home": "Sweden",      "away": "Tunisia",       "date": "2026-06-14"},
+        {"home": "Netherlands", "away": "Sweden",        "date": "2026-06-20"},
+        {"home": "Tunisia",     "away": "Japan",         "date": "2026-06-21"},
+        {"home": "Tunisia",     "away": "Netherlands",   "date": "2026-06-25"},
+        {"home": "Japan",       "away": "Sweden",        "date": "2026-06-25"}
+      ]
+    },
+    {
+      "id": "G",
+      "teams": ["Belgium", "Egypt", "Iran", "New Zealand"],
+      "matches": [
+        {"home": "Belgium",     "away": "Egypt",        "date": "2026-06-15"},
+        {"home": "Iran",        "away": "New Zealand",  "date": "2026-06-15"},
+        {"home": "Belgium",     "away": "Iran",         "date": "2026-06-21"},
+        {"home": "New Zealand", "away": "Egypt",        "date": "2026-06-21"},
+        {"home": "New Zealand", "away": "Belgium",      "date": "2026-06-26"},
+        {"home": "Egypt",       "away": "Iran",         "date": "2026-06-26"}
+      ]
+    },
+    {
+      "id": "H",
+      "teams": ["Spain", "Cape Verde", "Saudi Arabia", "Uruguay"],
+      "matches": [
+        {"home": "Spain",        "away": "Cape Verde",    "date": "2026-06-15"},
+        {"home": "Saudi Arabia", "away": "Uruguay",       "date": "2026-06-15"},
+        {"home": "Spain",        "away": "Saudi Arabia",  "date": "2026-06-21"},
+        {"home": "Uruguay",      "away": "Cape Verde",    "date": "2026-06-21"},
+        {"home": "Cape Verde",   "away": "Saudi Arabia",  "date": "2026-06-26"},
+        {"home": "Uruguay",      "away": "Spain",         "date": "2026-06-26"}
+      ]
+    },
+    {
+      "id": "I",
+      "teams": ["France", "Senegal", "Iraq", "Norway"],
+      "matches": [
+        {"home": "France",   "away": "Senegal", "date": "2026-06-16"},
+        {"home": "Iraq",     "away": "Norway",  "date": "2026-06-16"},
+        {"home": "France",   "away": "Iraq",    "date": "2026-06-22"},
+        {"home": "Norway",   "away": "Senegal", "date": "2026-06-22"},
+        {"home": "Norway",   "away": "France",  "date": "2026-06-26"},
+        {"home": "Senegal",  "away": "Iraq",    "date": "2026-06-26"}
+      ]
+    },
+    {
+      "id": "J",
+      "teams": ["Argentina", "Algeria", "Austria", "Jordan"],
+      "matches": [
+        {"home": "Argentina", "away": "Algeria",   "date": "2026-06-16"},
+        {"home": "Austria",   "away": "Jordan",    "date": "2026-06-17"},
+        {"home": "Argentina", "away": "Austria",   "date": "2026-06-22"},
+        {"home": "Jordan",    "away": "Algeria",   "date": "2026-06-22"},
+        {"home": "Algeria",   "away": "Austria",   "date": "2026-06-27"},
+        {"home": "Jordan",    "away": "Argentina", "date": "2026-06-27"}
+      ]
+    },
+    {
+      "id": "K",
+      "teams": ["Portugal", "DR Congo", "Uzbekistan", "Colombia"],
+      "matches": [
+        {"home": "Portugal",   "away": "DR Congo",    "date": "2026-06-17"},
+        {"home": "Uzbekistan", "away": "Colombia",    "date": "2026-06-17"},
+        {"home": "Portugal",   "away": "Uzbekistan",  "date": "2026-06-23"},
+        {"home": "Colombia",   "away": "DR Congo",    "date": "2026-06-23"},
+        {"home": "Colombia",   "away": "Portugal",    "date": "2026-06-27"},
+        {"home": "DR Congo",   "away": "Uzbekistan",  "date": "2026-06-27"}
+      ]
+    },
+    {
+      "id": "L",
+      "teams": ["England", "Croatia", "Ghana", "Panama"],
+      "matches": [
+        {"home": "England",  "away": "Croatia",  "date": "2026-06-17"},
+        {"home": "Ghana",    "away": "Panama",   "date": "2026-06-17"},
+        {"home": "England",  "away": "Ghana",    "date": "2026-06-23"},
+        {"home": "Panama",   "away": "Croatia",  "date": "2026-06-23"},
+        {"home": "Panama",   "away": "England",  "date": "2026-06-27"},
+        {"home": "Croatia",  "away": "Ghana",    "date": "2026-06-27"}
+      ]
+    }
+  ],
+
+  "third_place_rules": {
+    "note": "Each R32 slot accepts the best 3rd-place team from the listed source groups. The 8 best 3rd-place teams (by pts→GD→GS) are assigned greedily to valid slots.",
+    "slot_to_groups": {
+      "M74": ["A", "B", "C", "D", "F"],
+      "M77": ["C", "D", "F", "G", "H"],
+      "M79": ["C", "E", "F", "H", "I"],
+      "M80": ["E", "H", "I", "J", "K"],
+      "M81": ["B", "E", "F", "I", "J"],
+      "M82": ["A", "E", "H", "I", "J"],
+      "M85": ["E", "F", "G", "I", "J"],
+      "M87": ["D", "E", "I", "J", "L"]
+    }
+  },
+
+  "bracket": {
+    "r32": [
+      {"id": "M73", "venue": "Los Angeles",     "date": "2026-06-28", "time": "15:00", "slot_a": "2A",      "slot_b": "2B",      "feeds": "M90"},
+      {"id": "M74", "venue": "Boston",          "date": "2026-06-29", "time": "16:30", "slot_a": "1E",      "slot_b": "3ABCDF",  "feeds": "M89"},
+      {"id": "M75", "venue": "MetroWest",       "date": "2026-06-29", "time": "21:00", "slot_a": "1F",      "slot_b": "2C",      "feeds": "M90"},
+      {"id": "M76", "venue": "Houston",         "date": "2026-06-29", "time": "13:00", "slot_a": "1C",      "slot_b": "2F",      "feeds": "M91"},
+      {"id": "M77", "venue": "NY/NJ",           "date": "2026-06-30", "time": "17:00", "slot_a": "1I",      "slot_b": "3CDFGH",  "feeds": "M89"},
+      {"id": "M78", "venue": "Dallas",          "date": "2026-06-30", "time": "13:00", "slot_a": "2E",      "slot_b": "2I",      "feeds": "M91"},
+      {"id": "M79", "venue": "Mexico City",     "date": "2026-06-30", "time": "21:00", "slot_a": "1A",      "slot_b": "3CEFHI",  "feeds": "M92"},
+      {"id": "M80", "venue": "Atlanta",         "date": "2026-07-01", "time": "12:00", "slot_a": "1L",      "slot_b": "3EHIJK",  "feeds": "M92"},
+      {"id": "M81", "venue": "San Francisco",   "date": "2026-07-01", "time": "20:00", "slot_a": "1D",      "slot_b": "3BEFIJ",  "feeds": "M94"},
+      {"id": "M82", "venue": "Seattle",         "date": "2026-07-01", "time": "16:00", "slot_a": "1G",      "slot_b": "3AEHIJ",  "feeds": "M94"},
+      {"id": "M83", "venue": "Toronto",         "date": "2026-07-02", "time": "19:00", "slot_a": "2K",      "slot_b": "2L",      "feeds": "M93"},
+      {"id": "M84", "venue": "Los Angeles",     "date": "2026-07-02", "time": "15:00", "slot_a": "1H",      "slot_b": "2J",      "feeds": "M93"},
+      {"id": "M85", "venue": "Vancouver",       "date": "2026-07-02", "time": "23:00", "slot_a": "1B",      "slot_b": "3EFGIJ",  "feeds": "M96"},
+      {"id": "M86", "venue": "Miami",           "date": "2026-07-03", "time": "18:00", "slot_a": "1J",      "slot_b": "2H",      "feeds": "M95"},
+      {"id": "M87", "venue": "Kansas City",     "date": "2026-07-03", "time": "21:30", "slot_a": "1K",      "slot_b": "3DEIJL",  "feeds": "M95"},
+      {"id": "M88", "venue": "Dallas",          "date": "2026-07-03", "time": "14:00", "slot_a": "2D",      "slot_b": "2G",      "feeds": "M96"}
+    ],
+    "r16": [
+      {"id": "M89", "venue": "Philadelphia",  "date": "2026-07-04", "time": "17:00", "slot_a": "W74", "slot_b": "W77", "feeds": "M97"},
+      {"id": "M90", "venue": "Houston",       "date": "2026-07-04", "time": "13:00", "slot_a": "W73", "slot_b": "W75", "feeds": "M97"},
+      {"id": "M91", "venue": "NY/NJ",         "date": "2026-07-05", "time": "16:00", "slot_a": "W76", "slot_b": "W78", "feeds": "M99"},
+      {"id": "M92", "venue": "Mexico City",   "date": "2026-07-05", "time": "20:00", "slot_a": "W79", "slot_b": "W80", "feeds": "M99"},
+      {"id": "M93", "venue": "Dallas",        "date": "2026-07-06", "time": "15:00", "slot_a": "W83", "slot_b": "W84", "feeds": "M98"},
+      {"id": "M94", "venue": "Seattle",       "date": "2026-07-06", "time": "20:00", "slot_a": "W81", "slot_b": "W82", "feeds": "M98"},
+      {"id": "M95", "venue": "Atlanta",       "date": "2026-07-07", "time": "12:00", "slot_a": "W86", "slot_b": "W88", "feeds": "M100"},
+      {"id": "M96", "venue": "Vancouver",     "date": "2026-07-07", "time": "16:00", "slot_a": "W85", "slot_b": "W87", "feeds": "M100"}
+    ],
+    "quarterfinals": [
+      {"id": "M97",  "venue": "Boston",       "date": "2026-07-09", "time": "16:00", "slot_a": "W89", "slot_b": "W90", "feeds": "SF1"},
+      {"id": "M98",  "venue": "Los Angeles",  "date": "2026-07-10", "time": "15:00", "slot_a": "W93", "slot_b": "W94", "feeds": "SF2"},
+      {"id": "M99",  "venue": "Miami",        "date": "2026-07-11", "time": "17:00", "slot_a": "W91", "slot_b": "W92", "feeds": "SF1"},
+      {"id": "M100", "venue": "Kansas City",  "date": "2026-07-11", "time": "21:00", "slot_a": "W95", "slot_b": "W96", "feeds": "SF2"}
+    ],
+    "semifinals": [
+      {"id": "SF1", "date": "2026-07-14", "time": "15:00", "slot_a": "W97",  "slot_b": "W99",  "feeds": "FINAL"},
+      {"id": "SF2", "date": "2026-07-15", "time": "15:00", "slot_a": "W98",  "slot_b": "W100", "feeds": "FINAL"}
+    ],
+    "third_place": [
+      {"id": "3P",    "date": "2026-07-18", "time": "17:00", "slot_a": "LSF1", "slot_b": "LSF2"}
+    ],
+    "final": [
+      {"id": "FINAL", "venue": "MetLife Stadium, New Jersey", "date": "2026-07-19", "time": "15:00", "slot_a": "WSF1", "slot_b": "WSF2"}
+    ]
+  }
+}

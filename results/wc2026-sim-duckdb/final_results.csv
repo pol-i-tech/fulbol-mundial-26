@@ -1,0 +1,104 @@
+stage,date,home_team,away_team,score,winner
+Group A,2026-06-11,Mexico,South Africa,1-0,Mexico
+Group A,2026-06-11,South Korea,Czechia,0-0,Draw
+Group B,2026-06-12,Canada,Bosnia and Herzegovina,1-0,Canada
+Group D,2026-06-12,USA,Paraguay,1-0,USA
+Group B,2026-06-13,Qatar,Switzerland,0-1,Switzerland
+Group C,2026-06-13,Brazil,Morocco,1-0,Brazil
+Group C,2026-06-13,Haiti,Scotland,0-1,Scotland
+Group D,2026-06-14,Australia,Türkiye,0-0,Draw
+Group E,2026-06-14,Germany,Curaçao,2-0,Germany
+Group E,2026-06-14,Ivory Coast,Ecuador,0-0,Draw
+Group F,2026-06-14,Netherlands,Japan,1-0,Netherlands
+Group F,2026-06-14,Sweden,Tunisia,0-0,Draw
+Group G,2026-06-15,Belgium,Egypt,1-0,Belgium
+Group G,2026-06-15,Iran,New Zealand,1-0,Iran
+Group H,2026-06-15,Spain,Cape Verde,1-0,Spain
+Group H,2026-06-15,Saudi Arabia,Uruguay,0-1,Uruguay
+Group I,2026-06-16,France,Senegal,2-1,France
+Group I,2026-06-16,Iraq,Norway,0-1,Norway
+Group J,2026-06-16,Argentina,Algeria,2-1,Argentina
+Group J,2026-06-17,Austria,Jordan,1-0,Austria
+Group K,2026-06-17,Portugal,DR Congo,2-1,Portugal
+Group K,2026-06-17,Uzbekistan,Colombia,0-1,Colombia
+Group L,2026-06-17,England,Croatia,2-1,England
+Group L,2026-06-17,Ghana,Panama,0-1,Panama
+Group A,2026-06-18,Czechia,South Africa,1-0,Czechia
+Group A,2026-06-18,Mexico,South Korea,1-0,Mexico
+Group B,2026-06-18,Switzerland,Bosnia and Herzegovina,2-1,Switzerland
+Group B,2026-06-18,Canada,Qatar,1-0,Canada
+Group C,2026-06-19,Scotland,Morocco,0-1,Morocco
+Group C,2026-06-19,Brazil,Haiti,1-0,Brazil
+Group D,2026-06-19,USA,Australia,1-0,USA
+Group D,2026-06-19,Türkiye,Paraguay,1-0,Türkiye
+Group E,2026-06-20,Germany,Ivory Coast,2-1,Germany
+Group E,2026-06-20,Ecuador,Curaçao,1-0,Ecuador
+Group F,2026-06-20,Netherlands,Sweden,2-1,Netherlands
+Group F,2026-06-21,Tunisia,Japan,0-1,Japan
+Group G,2026-06-21,Belgium,Iran,1-0,Belgium
+Group G,2026-06-21,New Zealand,Egypt,0-1,Egypt
+Group H,2026-06-21,Spain,Saudi Arabia,1-0,Spain
+Group H,2026-06-21,Uruguay,Cape Verde,1-0,Uruguay
+Group I,2026-06-22,France,Iraq,1-0,France
+Group I,2026-06-22,Norway,Senegal,1-2,Senegal
+Group J,2026-06-22,Argentina,Austria,2-1,Argentina
+Group J,2026-06-22,Jordan,Algeria,0-1,Algeria
+Group K,2026-06-23,Portugal,Uzbekistan,2-0,Portugal
+Group K,2026-06-23,Colombia,DR Congo,1-0,Colombia
+Group L,2026-06-23,England,Ghana,2-1,England
+Group L,2026-06-23,Panama,Croatia,0-1,Croatia
+Group A,2026-06-24,South Africa,South Korea,0-0,Draw
+Group A,2026-06-24,Czechia,Mexico,0-1,Mexico
+Group B,2026-06-24,Switzerland,Canada,2-1,Switzerland
+Group B,2026-06-24,Bosnia and Herzegovina,Qatar,1-0,Bosnia and Herzegovina
+Group C,2026-06-24,Morocco,Haiti,1-0,Morocco
+Group C,2026-06-24,Scotland,Brazil,0-1,Brazil
+Group D,2026-06-25,Türkiye,USA,0-1,USA
+Group D,2026-06-25,Paraguay,Australia,0-0,Draw
+Group E,2026-06-25,Curaçao,Ivory Coast,0-1,Ivory Coast
+Group E,2026-06-25,Ecuador,Germany,0-2,Germany
+Group F,2026-06-25,Tunisia,Netherlands,0-1,Netherlands
+Group F,2026-06-25,Japan,Sweden,1-0,Japan
+Group G,2026-06-26,New Zealand,Belgium,0-1,Belgium
+Group G,2026-06-26,Egypt,Iran,1-0,Egypt
+Group H,2026-06-26,Cape Verde,Saudi Arabia,0-0,Draw
+Group H,2026-06-26,Uruguay,Spain,1-2,Spain
+Group I,2026-06-26,Norway,France,1-2,France
+Group I,2026-06-26,Senegal,Iraq,1-0,Senegal
+Group J,2026-06-27,Algeria,Austria,0-1,Austria
+Group J,2026-06-27,Jordan,Argentina,1-2,Argentina
+Group K,2026-06-27,Colombia,Portugal,1-2,Portugal
+Group K,2026-06-27,DR Congo,Uzbekistan,1-1,Draw
+Group L,2026-06-27,Panama,England,1-2,England
+Group L,2026-06-27,Croatia,Ghana,1-0,Croatia
+Round of 32,2026-06-28,Czechia,Canada,0-1,Canada
+Round of 32,2026-06-29,Germany,Bosnia and Herzegovina,2-1,Germany
+Round of 32,2026-06-29,Netherlands,Morocco,1-0,Netherlands
+Round of 32,2026-06-29,Brazil,Japan,1-0,Brazil
+Round of 32,2026-06-30,France,Iran,2-1,France
+Round of 32,2026-06-30,Ivory Coast,Senegal,0-1,Senegal
+Round of 32,2026-06-30,Mexico,Ecuador,1-0,Mexico
+Round of 32,2026-07-01,England,Norway,2-1,England
+Round of 32,2026-07-01,USA,Algeria,1-0,USA
+Round of 32,2026-07-01,Belgium,South Korea,1-0,Belgium
+Round of 32,2026-07-02,Colombia,Croatia,1-2,Croatia
+Round of 32,2026-07-02,Spain,Austria,2-1,Spain
+Round of 32,2026-07-02,Switzerland,Scotland,1-0,Switzerland
+Round of 32,2026-07-03,Argentina,Uruguay,2-1,Argentina
+Round of 32,2026-07-03,Portugal,Panama,2-0,Portugal
+Round of 32,2026-07-03,Türkiye,Egypt,1-0,Türkiye
+Round of 16,2026-07-04,Germany,France,1-2,France
+Round of 16,2026-07-04,Canada,Netherlands,1-2,Netherlands
+Round of 16,2026-07-05,Brazil,Senegal,2-1,Brazil
+Round of 16,2026-07-05,Mexico,England,1-2,England
+Round of 16,2026-07-06,Croatia,Spain,1-2,Spain
+Round of 16,2026-07-06,USA,Belgium,1-0,USA
+Round of 16,2026-07-07,Argentina,Türkiye,2-1,Argentina
+Round of 16,2026-07-07,Switzerland,Portugal,1-2,Portugal
+Quarter-final,2026-07-09,France,Netherlands,2-1,France
+Quarter-final,2026-07-10,Spain,USA,2-1,Spain
+Quarter-final,2026-07-11,Brazil,England,1-2,England
+Quarter-final,2026-07-11,Argentina,Portugal,2-1,Argentina
+Semi-final,2026-07-14,France,England,2-1,France
+Semi-final,2026-07-15,Spain,Argentina,1-2,Argentina
+Final,2026-07-19,France,Argentina,1-2,Argentina
